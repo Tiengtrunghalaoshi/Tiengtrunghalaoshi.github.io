@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiếng Trung Halaoshi — Học & Luyện HSK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red-deep:#a3242f;
+    --red:#c62f3a;
+    --red-light:#e05a63;
+    --gold:#d4a437;
+    --gold-light:#f0d489;
+    --paper:#fff8f0;
+    --paper-dark:#fbeee1;
+    --ink:#2b1f1a;
+    --ink-soft:#6b5a4e;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Noto Serif', serif;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 15% 10%, rgba(198,47,58,0.06), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(212,164,55,0.08), transparent 45%),
+      var(--paper);
+    min-height:100vh;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:28px 18px 60px;}
+
+  header.top{
+    text-align:center;
+    padding:26px 10px 30px;
+    border-bottom:3px double var(--red-deep);
+    margin-bottom:26px;
+    position:relative;
+  }
+  header.top .mascot-slot{
+    width:72px;height:72px;
+    margin:0 auto 8px;
+    border-radius:50%;
+    background:var(--paper-dark);
+    border:2px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-size:34px;
+  }
+  header.top .eyebrow{
+    font-family:'Noto Serif SC', serif;
+    letter-spacing:4px;
+    font-size:13px;
+    color:var(--red-deep);
+    text-transform:uppercase;
+  }
+  header.top h1{
+    font-family:'Ma Shan Zheng', cursive;
+    font-size:44px;
+    color:var(--red-deep);
+    margin:6px 0 4px;
+    font-weight:400;
+  }
+  header.top p{
+    margin:0;
+    color:var(--ink-soft);
+    font-size:15px;
+    font-style:italic;
+  }
+
+  .level-tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    justify-content:center;
+    margin-bottom:26px;
+    padding:14px;
+    background:var(--paper-dark);
+    border:1px solid var(--gold-light);
+    border-radius:10px;
+  }
+  .level-btn{
+    font-family:'Noto Serif SC', serif;
+    font-size:15px;
+    font-weight:600;
+    padding:10px 20px;
+    border-radius:8px;
+    border:1px solid var(--red-deep);
+    background:var(--paper);
+    color:var(--red-deep);
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .level-btn:hover{background:var(--gold-light);}
+  .level-btn.active{
+    background:var(--red-deep);
+    color:var(--paper);
+    border-color:var(--red-deep);
+  }
+
+  .panel{
+    background:var(--paper);
+    border:1px solid var(--gold-light);
+    border-radius:10px;
+    padding:28px 24px;
+    box-shadow:0 2px 10px rgba(43,33,21,0.08);
+  }
+  .panel h2{
+    font-family:'Noto Serif SC', serif;
+    color:var(--red-deep);
+    border-bottom:2px solid var(--gold);
+    padding-bottom:10px;
+    margin-top:0;
+    font-size:24px;
+  }
+
+  .lesson-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));
+    gap:14px;
+    margin-top:16px;
+  }
+  .lesson-card{
+    display:block;
+    text-decoration:none;
+    padding:16px 14px;
+    background:var(--paper-dark);
+    border:1px solid var(--gold-light);
+    border-radius:8px;
+    color:var(--ink);
+    transition:all .15s ease;
+    text-align:center;
+  }
+  .lesson-card:hover{
+    background:var(--gold-light);
+    border-color:var(--gold);
+    transform:translateY(-2px);
+  }
+  .lesson-card .num{
+    font-family:'Noto Serif SC', serif;
+    font-size:20px;
+    font-weight:700;
+    color:var(--red-deep);
+  }
+  .lesson-card .name{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-top:4px;
+    display:block;
+  }
+  .lesson-card.locked{
+    opacity:0.45;
+    cursor:not-allowed;
+    pointer-events:none;
+  }
+  .lesson-card.locked .num::after{
+    content:' 🔒';
+    font-size:14px;
+  }
+
+  .empty-note{
+    text-align:center;
+    padding:50px 20px;
+    color:var(--ink-soft);
+    font-style:italic;
+    border:1px dashed var(--gold);
+    border-radius:8px;
+    background:rgba(212,164,55,0.06);
+  }
+
+  .student-bar{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  .student-bar button{
+    font-family:'Noto Serif', serif;
+    font-size:12px;
+    padding:5px 10px;
+    border-radius:6px;
+    border:1px solid var(--gold);
+    background:var(--paper);
+    color:var(--red-deep);
+    cursor:pointer;
+  }
+
+  footer{
+    text-align:center;
+    margin-top:30px;
+    font-size:12px;
+    color:var(--ink-soft);
+    letter-spacing:1px;
+  }
+
+  @media(max-width:600px){
+    header.top h1{font-size:32px;}
+    .panel{padding:18px 14px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="mascot-slot">🐼</div>
+    <div class="eyebrow">Tiếng Trung Halaoshi</div>
+    <h1>學中文</h1>
+    <p>Học & luyện tập HSK 3.0 — Từ HSK1 đến HSK6</p>
+  </header>
+
+  <div class="student-bar" id="studentBar"></div>
+
+  <nav class="level-tabs" id="levelTabs"></nav>
+
+  <main class="panel" id="panel"></main>
+
+  <footer>Tiếng Trung Halaoshi · Website tự học &amp; luyện tập HSK</footer>
+</div>
+
+<script src="assets/submit-helper.js"></script>
+<script>
+/**
+ * ============================================================
+ * CẤU HÌNH DANH SÁCH BÀI HỌC
+ * ============================================================
+ * Đây là NƠI DUY NHẤT cần sửa khi thêm bài học mới.
+ * Mỗi bài học cần: { ten: 'Bài X', file: 'đường-dẫn-tới-file.html' }
+ * Nếu bài chưa có file (đang làm), để file: null → thẻ sẽ hiện khoá 🔒
+ * ============================================================
+ */
+const lessonsData = {
+  'HSK1': {
+    label: 'HSK 1',
+    lessons: [
+      // Ví dụ mẫu — cô thay bằng file thật của mình:
+      // { ten: 'Bài 1', file: 'hsk1/bai-01.html' },
+      // { ten: 'Bài 6', file: 'hsk1/bai-06.html' },
+    ]
+  },
+  'HSK2': { label: 'HSK 2', lessons: [] },
+  'HSK3': { label: 'HSK 3', lessons: [] },
+  'HSK4': { label: 'HSK 4', lessons: [] },
+  'HSK5': { label: 'HSK 5', lessons: [] },
+  'HSK6': {
+    label: 'HSK 6',
+    lessons: [
+      // { ten: 'Ngữ pháp (Quyển Thượng)', file: 'hsk6/ngu-phap-hsk6-quyen-thuong.html' },
+      // { ten: 'Bài 1', file: 'hsk6/bai-01.html' },
+      // { ten: 'Bài 7', file: 'hsk6/bai-07.html' },
+    ]
+  }
+};
+
+const levelTabsEl = document.getElementById('levelTabs');
+const panelEl = document.getElementById('panel');
+const studentBarEl = document.getElementById('studentBar');
+let activeLevel = 'HSK1';
+
+function renderLevelTabs(){
+  levelTabsEl.innerHTML = '';
+  Object.keys(lessonsData).forEach(key => {
+    const btn = document.createElement('button');
+    btn.className = 'level-btn' + (key === activeLevel ? ' active' : '');
+    btn.textContent = lessonsData[key].label;
+    btn.onclick = () => { activeLevel = key; renderLevelTabs(); renderPanel(); };
+    levelTabsEl.appendChild(btn);
+  });
+}
+
+function renderPanel(){
+  const level = lessonsData[activeLevel];
+  let html = '<h2>' + level.label + '</h2>';
+
+  if (!level.lessons.length){
+    html += '<div class="empty-note">Nội dung ' + level.label + ' đang được cập nhật.</div>';
+    panelEl.innerHTML = html;
+    return;
+  }
+
+  html += '<div class="lesson-grid">';
+  level.lessons.forEach((l, i) => {
+    if (l.file){
+      html += '<a class="lesson-card" href="' + l.file + '">'
+            + '<div class="num">' + (i + 1) + '</div>'
+            + '<span class="name">' + l.ten + '</span>'
+            + '</a>';
+    } else {
+      html += '<div class="lesson-card locked">'
+            + '<div class="num">' + (i + 1) + '</div>'
+            + '<span class="name">' + l.ten + '</span>'
+            + '</div>';
+    }
+  });
+  html += '</div>';
+  panelEl.innerHTML = html;
+}
+
+function renderStudentBar(){
+  const info = HalaoshiNopBai.getHocSinhInfo();
+  studentBarEl.innerHTML = info && info.hoTen
+    ? 'Xin chào, <strong>' + info.hoTen + '</strong>' + (info.lop ? ' (' + info.lop + ')' : '') + ' &nbsp;<button id="doiTenBtn">Đổi tên</button>'
+    : '<button id="doiTenBtn">Nhập tên học sinh</button>';
+
+  document.getElementById('doiTenBtn').onclick = async () => {
+    await HalaoshiNopBai.doiThongTinHocSinh();
+    renderStudentBar();
+  };
+}
+
+renderLevelTabs();
+renderPanel();
+renderStudentBar();
+</script>
+</body>
+</html>
