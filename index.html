@@ -422,22 +422,69 @@ const navSections = [
  * ============================================================
  * DANH SÁCH BÀI HỌC THEO TỪNG CẤP ĐỘ
  * ============================================================
- * Đây là NƠI DUY NHẤT cần sửa khi thêm bài học mới.
- * Mỗi bài học cần: { ten: 'Bài X', file: 'đường-dẫn-tới-file.html' }
- * Nếu bài chưa có file (đang làm), để file: null → thẻ sẽ hiện khoá 🔒
+ * CHỈ CẦN SỬA 2 CHỖ DƯỚI ĐÂY khi thêm bài học mới:
+ *
+ * 1) soBaiTheoCap: tổng số bài của mỗi cấp độ (để hiện đủ số thẻ,
+ *    kể cả bài chưa có file — sẽ hiện khoá 🔒).
+ *
+ * 2) fileBaiHoc: điền đường dẫn file cho bài nào ĐÃ CÓ file thật.
+ *    Cú pháp: số bài : 'đường-dẫn-file.html'
+ *    Bài nào KHÔNG có trong danh sách này sẽ tự động hiện khoá 🔒.
+ *
+ * Ví dụ: đã có file cho Bài 1 và Bài 7 của HSK6:
+ *    HSK6: { 1: 'hsk6/bai-01.html', 7: 'hsk6/bai-07.html' }
  * ============================================================
  */
+const soBaiTheoCap = {
+  HSK1: 15,
+  HSK2: 15,
+  HSK3: 18,
+  HSK4: 40,
+  HSK5: 40,
+  HSK6: 40
+};
+
+const fileBaiHoc = {
+  HSK1: {
+    // 1: 'hsk1/bai-01.html',
+  },
+  HSK2: {
+    // 1: 'hsk2/bai-01.html',
+  },
+  HSK3: {},
+  HSK4: {},
+  HSK5: {},
+  HSK6: {
+    // 1: 'hsk6/bai-01.html',
+    // 7: 'hsk6/bai-07.html',
+  }
+};
+
+// Tài liệu bổ sung ngoài các bài đánh số (vd file ngữ pháp tổng hợp)
+const extraTheoCap = {
+  HSK6: [
+    { ten: 'Ngữ pháp (Quyển Thượng)', file: 'hsk6/ngu-phap-hsk6-quyen-thuong.html' }
+  ]
+};
+
+function buildLessons(capDo){
+  const total = soBaiTheoCap[capDo] || 0;
+  const files = fileBaiHoc[capDo] || {};
+  const arr = [];
+  for (let i = 1; i <= total; i++){
+    arr.push({ ten: 'Bài ' + i, file: files[i] || null });
+  }
+  (extraTheoCap[capDo] || []).forEach(item => arr.push(Object.assign({ extra: true }, item)));
+  return arr;
+}
+
 const lessonsData = {
-  'HSK1': { label: 'HSK 1', lessons: [
-    // { ten: 'Bài 1', file: 'hsk1/bai-01.html' },
-  ]},
-  'HSK2': { label: 'HSK 2', lessons: [] },
-  'HSK3': { label: 'HSK 3', lessons: [] },
-  'HSK4': { label: 'HSK 4', lessons: [] },
-  'HSK5': { label: 'HSK 5', lessons: [] },
-  'HSK6': { label: 'HSK 6', lessons: [
-    // { ten: 'Ngữ pháp (Quyển Thượng)', file: 'hsk6/ngu-phap-hsk6-quyen-thuong.html' },
-  ]}
+  'HSK1': { label: 'HSK 1', lessons: buildLessons('HSK1') },
+  'HSK2': { label: 'HSK 2', lessons: buildLessons('HSK2') },
+  'HSK3': { label: 'HSK 3', lessons: buildLessons('HSK3') },
+  'HSK4': { label: 'HSK 4', lessons: buildLessons('HSK4') },
+  'HSK5': { label: 'HSK 5', lessons: buildLessons('HSK5') },
+  'HSK6': { label: 'HSK 6', lessons: buildLessons('HSK6') }
 };
 
 /**
@@ -502,14 +549,15 @@ function renderLessonGrid(level){
   }
   let html = '<div class="lesson-grid">';
   level.lessons.forEach((l, i) => {
+    const badge = l.extra ? '📘' : (i + 1);
     if (l.file){
       html += '<a class="lesson-card" href="' + l.file + '">'
-            + '<div class="num">' + (i + 1) + '</div>'
+            + '<div class="num">' + badge + '</div>'
             + '<span class="name">' + l.ten + '</span>'
             + '</a>';
     } else {
       html += '<div class="lesson-card locked">'
-            + '<div class="num">' + (i + 1) + '</div>'
+            + '<div class="num">' + badge + '</div>'
             + '<span class="name">' + l.ten + '</span>'
             + '</div>';
     }
