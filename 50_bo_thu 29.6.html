@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>50 Bộ Thủ Thường Gặp | Tiếng Trung Halaoshi</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#5BAD6F;--green-l:#E8F5EB;--green-m:#C6E8CC;
+  --orange:#F5873A;--orange-l:#FEF0E6;--orange-m:#FDDCC6;
+  --blue:#4A9FD4;--blue-l:#E6F4FB;--blue-m:#C2E3F5;
+  --pink:#E05480;--pink-l:#FDEEF4;--pink-m:#F9C6D8;
+  --purple:#7C5CBF;--purple-l:#F0EBFA;--purple-m:#D8C8F2;
+  --yellow:#E8B400;--yellow-l:#FFFAE6;--yellow-m:#FDEDB0;
+  --cream:#F7F9F3;--white:#fff;
+  --text:#2A2A2A;--text2:#6B7280;--text3:#9CA3AF;
+  --r:14px;--r-sm:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);min-height:100vh}
+
+/* ── HEADER ── */
+.site-header{
+  background:linear-gradient(135deg,#5BAD6F 0%,#3D9158 60%,#2E7A48 100%);
+  padding:20px 20px 60px;text-align:center;position:relative;overflow:hidden;
+}
+.site-header::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 20% 50%,rgba(255,255,255,.08) 0%,transparent 60%),
+             radial-gradient(ellipse at 80% 20%,rgba(255,255,255,.06) 0%,transparent 50%);
+}
+.dots-bg{position:absolute;inset:0;opacity:.07;
+  background-image:radial-gradient(circle,#fff 1px,transparent 1px);
+  background-size:20px 20px;
+}
+.brand{font-size:12px;font-weight:700;color:rgba(255,255,255,.75);letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px;animation:fadeDown .5s ease both;position:relative;z-index:1}
+.main-title{font-size:26px;font-weight:900;color:#fff;margin-bottom:6px;animation:fadeDown .5s .1s ease both;position:relative;z-index:1;line-height:1.2}
+.main-title .shine{
+  display:inline-block;
+  background:linear-gradient(90deg,#fff 0%,#FFE87A 40%,#fff 80%);
+  background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shine 3s linear infinite;
+}
+@keyframes shine{to{background-position:200% center}}
+.main-sub{font-size:13px;color:rgba(255,255,255,.8);animation:fadeDown .5s .2s ease both;position:relative;z-index:1}
+.header-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px;animation:fadeDown .5s .3s ease both;position:relative;z-index:1}
+.hbadge{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:4px 12px;font-size:12px;font-weight:700;color:#fff}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pop{0%{transform:scale(.8);opacity:0}60%{transform:scale(1.06)}100%{transform:scale(1);opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes tada{0%,100%{transform:rotate(0)}10%{transform:rotate(-6deg)}20%{transform:rotate(6deg)}30%{transform:rotate(-4deg)}40%{transform:rotate(4deg)}50%{transform:rotate(0)}}
+@keyframes bounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}60%{transform:translateY(-3px)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+
+/* ── TABS WRAPPER ── */
+.tabs-outer{max-width:800px;margin:-32px auto 0;padding:0 16px;position:relative;z-index:10}
+
+.tabs-nav{
+  display:flex;gap:0;
+  background:#fff;border-radius:16px 16px 0 0;
+  box-shadow:0 -4px 20px rgba(0,0,0,.08);
+  overflow:hidden;
+}
+.tab-btn{
+  flex:1;padding:14px 8px;border:none;background:transparent;cursor:pointer;
+  font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;
+  color:var(--text2);transition:all .2s;position:relative;
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  border-bottom:3px solid transparent;
+}
+.tab-btn .tb-emoji{font-size:18px;transition:transform .2s}
+.tab-btn:hover{background:rgba(0,0,0,.02);color:var(--text)}
+.tab-btn:hover .tb-emoji{transform:scale(1.15)}
+.tab-btn.active{color:var(--tab-color,var(--green));border-bottom-color:var(--tab-color,var(--green));background:rgba(0,0,0,.01)}
+.tab-btn.active .tb-emoji{animation:bounce .5s ease}
+
+.tab-btn:nth-child(1){--tab-color:#5BAD6F}
+.tab-btn:nth-child(2){--tab-color:#F5873A}
+.tab-btn:nth-child(3){--tab-color:#4A9FD4}
+.tab-btn:nth-child(4){--tab-color:#E05480}
+.tab-btn:nth-child(5){--tab-color:#7C5CBF}
+
+/* ── TAB PANELS ── */
+.tab-panel{display:none;background:#fff;border-radius:0 0 16px 16px;box-shadow:0 4px 24px rgba(0,0,0,.08);padding:20px 16px 24px;animation:slideUp .3s ease both}
+.tab-panel.active{display:block}
+
+/* ── GROUP HEADER ── */
+.grp-header{text-align:center;margin-bottom:20px}
+.grp-badge{display:inline-block;padding:5px 16px;border-radius:20px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.grp-title{font-size:20px;font-weight:900;margin-bottom:4px}
+.grp-sub{font-size:13px;color:var(--text2)}
+
+/* ── RADICAL CARDS GRID ── */
+.cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.rad-card{
+  background:var(--card-bg,#F7F9F3);border-radius:var(--r);
+  border:2px solid var(--card-border,#E5E7EB);
+  padding:14px 14px 12px;
+  transition:all .2s;cursor:default;
+  animation:pop .4s ease both;
+}
+.rad-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.09)}
+.rad-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.rad-char-box{
+  width:50px;height:50px;border-radius:10px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:var(--char-bg,#fff);flex-shrink:0;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+.rad-char{font-size:24px;font-family:'Noto Serif SC',serif;font-weight:700;color:var(--char-color,#F5873A);line-height:1}
+.rad-py{font-size:10px;color:var(--text3);font-weight:700;margin-top:2px;letter-spacing:.03em}
+.rad-variant{font-size:11px;font-family:'Noto Serif SC',serif;font-weight:700;margin-top:1px;opacity:.75;letter-spacing:.02em}
+.rad-py-inline{margin-top:1px}
+.rad-info{}
+.rad-name{font-size:14px;font-weight:800;color:var(--text);margin-bottom:2px}
+.rad-meaning{font-size:12px;color:var(--text2);font-weight:600}
+.rad-examples{font-size:11px;color:var(--text3);line-height:1.6;padding-top:6px;border-top:1.5px dashed var(--card-border,#E5E7EB);font-weight:600}
+.rad-examples .ex-label{font-weight:800;color:var(--text2);margin-right:4px}
+
+/* animation delays for grid */
+.rad-card:nth-child(1){animation-delay:.04s}
+.rad-card:nth-child(2){animation-delay:.08s}
+.rad-card:nth-child(3){animation-delay:.12s}
+.rad-card:nth-child(4){animation-delay:.16s}
+.rad-card:nth-child(5){animation-delay:.20s}
+.rad-card:nth-child(6){animation-delay:.24s}
+.rad-card:nth-child(7){animation-delay:.28s}
+.rad-card:nth-child(8){animation-delay:.32s}
+.rad-card:nth-child(9){animation-delay:.36s}
+.rad-card:nth-child(10){animation-delay:.40s}
+
+/* ── CTA BUTTON ── */
+.cta-btn{
+  display:block;width:100%;padding:16px;
+  border-radius:var(--r);border:none;cursor:pointer;
+  font-family:'Nunito',sans-serif;font-size:16px;font-weight:900;
+  color:#fff;letter-spacing:.02em;
+  background:linear-gradient(135deg,var(--btn-from),var(--btn-to));
+  box-shadow:0 4px 16px var(--btn-shadow);
+  transition:all .2s;position:relative;overflow:hidden;
+}
+.cta-btn::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);
+  border-radius:var(--r);
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px var(--btn-shadow)}
+.cta-btn:active{transform:translateY(0)}
+
+/* ── QUIZ ── */
+.quiz-wrap{display:none;animation:slideUp .3s ease both}
+.quiz-wrap.active{display:block}
+.learn-wrap{animation:slideUp .3s ease both}
+
+.quiz-header{text-align:center;margin-bottom:20px}
+.quiz-progress{height:8px;background:var(--green-m);border-radius:4px;overflow:hidden;margin-bottom:6px}
+.quiz-prog-fill{height:8px;border-radius:4px;background:var(--green);transition:width .4s cubic-bezier(.34,1.56,.64,1)}
+.quiz-prog-label{font-size:12px;color:var(--text2);font-weight:700;text-align:right}
+.quiz-card{
+  background:var(--white);border-radius:var(--r);
+  border:2px solid var(--card-border2,#E5E7EB);
+  padding:20px 18px;margin-bottom:14px;
+  box-shadow:0 3px 14px rgba(0,0,0,.06);
+  animation:pop .35s ease both;
+}
+.quiz-q-num{font-size:11px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
+.quiz-char-big{font-size:52px;font-family:'Noto Serif SC',serif;font-weight:700;color:var(--q-color,#F5873A);text-align:center;margin:10px 0;line-height:1;animation:pop .4s ease both}
+.quiz-question{font-size:15px;font-weight:700;color:var(--text);margin-bottom:14px;text-align:center}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.quiz-opt{
+  display:flex;align-items:center;gap:10px;
+  padding:11px 14px;border:2px solid rgba(0,0,0,.07);
+  border-radius:var(--r-sm);cursor:pointer;font-size:14px;font-weight:600;
+  color:var(--text);background:#FAFAFA;transition:all .15s;user-select:none;
+}
+.quiz-opt:hover{background:#F0FDF4;border-color:var(--green-m)}
+.quiz-opt.sel{background:#EEF8F1;border-color:var(--green);color:#1A6B35}
+.quiz-opt.ok{background:#D1FAE5;border-color:#059669;color:#065F46;animation:pop .3s ease}
+.quiz-opt.no{background:#FEE2E2;border-color:#DC2626;color:#7F1D1D;animation:tada .4s ease}
+.quiz-opt-lbl{width:26px;height:26px;border-radius:50%;background:rgba(0,0,0,.06);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0}
+.quiz-fb{font-size:13px;margin-top:10px;padding:8px 14px;border-radius:10px;font-weight:700}
+.quiz-fb-ok{background:#D1FAE5;color:#065F46}
+.quiz-fb-no{background:#FEE2E2;color:#991B1B}
+
+/* ── SCORE CARD ── */
+.score-card{
+  background:linear-gradient(135deg,#EEF8F1,#D6F0DC);
+  border-radius:var(--r);padding:24px 20px;text-align:center;
+  border:2px solid var(--green-m);box-shadow:0 4px 20px rgba(91,173,111,.15);
+  animation:pop .5s ease;display:none;margin-top:14px;
+}
+.score-ring{width:80px;height:80px;border-radius:50%;border:4px solid var(--green);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:#2E7A48;background:#fff;margin:0 auto 12px;box-shadow:0 0 0 8px rgba(91,173,111,.1)}
+.score-title{font-size:20px;font-weight:900;color:var(--text);margin-bottom:4px}
+.score-sub{font-size:14px;color:var(--text2);font-weight:600}
+.retry-btn{margin-top:14px;padding:10px 24px;border-radius:var(--r-sm);border:2px solid var(--green);background:transparent;color:var(--green);font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;cursor:pointer;transition:all .15s}
+.retry-btn:hover{background:var(--green-l)}
+
+/* ── REVIEW WRONG ── */
+.wrong-list{margin-top:14px}
+.wrong-item{background:#FFF5F5;border:1.5px solid #FECACA;border-radius:var(--r-sm);padding:10px 14px;margin-bottom:8px;font-size:13px;font-weight:600}
+.wrong-item .wi-char{font-family:'Noto Serif SC',serif;font-size:20px;font-weight:700;color:#991B1B;margin-right:8px}
+
+/* ── QUESTION TYPE BADGE ── */
+.qtype-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:800;letter-spacing:.06em;margin-bottom:8px}
+
+/* ── EXPLANATION BOX (khi trả lời sai) ── */
+.quiz-explain{display:none;margin-top:8px;padding:10px 14px;border-radius:var(--r-sm);background:#FFFBEB;border:1.5px solid #FDE68A;font-size:13px;font-weight:600;color:#92400E;line-height:1.6}
+.quiz-explain.show{display:block;animation:slideUp .25s ease both}
+.quiz-explain .explain-title{font-weight:800;color:#B45309;margin-bottom:4px;font-size:13px}
+.quiz-explain .explain-correct{color:#065F46;font-weight:800}
+
+/* ── NEXT BUTTON ── */
+.next-btn{display:none;width:100%;margin-top:10px;padding:12px;border-radius:var(--r-sm);border:none;cursor:pointer;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;color:#fff;background:var(--green);transition:all .2s}
+.next-btn:hover{opacity:.88}
+.next-btn.show{display:block;animation:slideUp .2s ease both}
+
+/* ── MATCH QUESTION ── */
+.match-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px}
+.match-col{display:flex;flex-direction:column;gap:8px}
+.match-item{padding:10px 12px;border-radius:var(--r-sm);border:2px solid rgba(0,0,0,.07);cursor:pointer;font-size:13px;font-weight:700;background:#FAFAFA;transition:all .15s;text-align:center;user-select:none}
+.match-item:hover{background:#F0FDF4;border-color:var(--green-m)}
+.match-item.sel-left{background:#EEF8F1;border-color:var(--green);color:#1A6B35}
+.match-item.matched-ok{background:#D1FAE5;border-color:#059669;color:#065F46;cursor:default}
+.match-item.matched-no{background:#FEE2E2;border-color:#DC2626;color:#7F1D1D;animation:tada .3s ease}
+.match-char{font-family:'Noto Serif SC',serif;font-size:24px;font-weight:700;display:block;line-height:1.2}
+.match-py{font-size:10px;color:var(--text3);font-weight:700}
+
+/* ── FILL IN BLANK ── */
+.fill-wrap{margin:10px 0}
+.fill-input{width:100%;padding:10px 14px;border-radius:var(--r-sm);border:2px solid rgba(0,0,0,.1);font-family:'Nunito',sans-serif;font-size:16px;font-weight:700;text-align:center;background:#FAFAFA;color:var(--text);outline:none;transition:border-color .2s}
+.fill-input:focus{border-color:var(--green)}
+.fill-input.ok{border-color:#059669;background:#D1FAE5;color:#065F46}
+.fill-input.no{border-color:#DC2626;background:#FEE2E2;color:#7F1D1D}
+.fill-hint{font-size:11px;color:var(--text3);font-weight:700;text-align:center;margin-top:4px}
+.check-btn{width:100%;margin-top:8px;padding:11px;border-radius:var(--r-sm);border:2px solid var(--green);cursor:pointer;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;color:var(--green);background:transparent;transition:all .15s}
+.check-btn:hover{background:var(--green-l)}
+
+/* ── SORT QUESTION ── */
+.sort-bank{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;min-height:40px;padding:8px;border-radius:var(--r-sm);border:2px dashed rgba(0,0,0,.1);background:#FAFAFA}
+.sort-answer{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px;min-height:44px;padding:8px;border-radius:var(--r-sm);border:2px dashed var(--green-m);background:var(--green-l)}
+.sort-token{padding:6px 14px;border-radius:20px;border:2px solid var(--green-m);background:#fff;font-size:14px;font-weight:700;cursor:pointer;color:var(--text);transition:all .15s;user-select:none}
+.sort-token:hover{background:var(--green-l);border-color:var(--green)}
+.sort-label{font-size:11px;font-weight:800;color:var(--text3);margin-bottom:4px;letter-spacing:.06em;text-transform:uppercase}
+
+@media(max-width:480px){
+  .tab-btn{font-size:10px;padding:12px 4px}
+  .tab-btn .tb-emoji{font-size:15px}
+  .cards-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .main-title{font-size:21px}
+}
+</style>
+</head>
+<body>
+
+<div class="site-header">
+  <div class="dots-bg"></div>
+  <div class="brand">🇨🇳 Tiếng Trung Halaoshi</div>
+  <div class="main-title"><span class="shine">50 Bộ Thủ Thường Gặp</span> ✨</div>
+  <div class="main-sub">Học bộ thủ = hiểu nghĩa hàng trăm chữ — nhanh & vui!</div>
+  <div class="header-badges">
+    <span class="hbadge">📚 5 nhóm chủ đề</span>
+    <span class="hbadge">🃏 50 bộ thủ</span>
+    <span class="hbadge">🎯 Có kiểm tra</span>
+
+  </div>
+</div>
+
+<div class="tabs-outer">
+  <div class="tabs-nav">
+    <button class="tab-btn active" onclick="switchTab(0,this)">
+      <span class="tb-emoji">🌿</span>Thiên nhiên
+    </button>
+    <button class="tab-btn" onclick="switchTab(1,this)">
+      <span class="tb-emoji">👤</span>Con người
+    </button>
+    <button class="tab-btn" onclick="switchTab(2,this)">
+      <span class="tb-emoji">🐾</span>Động vật
+    </button>
+    <button class="tab-btn" onclick="switchTab(3,this)">
+      <span class="tb-emoji">📦</span>Đồ vật
+    </button>
+    <button class="tab-btn" onclick="switchTab(4,this)">
+      <span class="tb-emoji">⚡</span>Hành động
+    </button>
+  </div>
+
+  <!-- ───── TAB 0: THIÊN NHIÊN ───── -->
+  <div class="tab-panel active" id="panel-0">
+    <div class="learn-wrap" id="learn-0">
+      <div class="grp-header">
+        <div class="grp-badge" style="background:#E8F5EB;color:#2E7A48">Nhóm 1 · 10 bộ thủ</div>
+        <div class="grp-title">🌿 Thiên Nhiên</div>
+        <div class="grp-sub">Cùng học 10 bộ thủ về thiên nhiên xung quanh nhé!</div>
+      </div>
+      <div class="cards-grid" id="cards-0"></div>
+      <button class="cta-btn" style="--btn-from:#5BAD6F;--btn-to:#3D9158;--btn-shadow:rgba(91,173,111,.35)" onclick="startQuiz(0)">
+        Đã Nhớ! Bắt Đầu Kiểm Tra →
+      </button>
+    </div>
+    <div class="quiz-wrap" id="quiz-0">
+      <div class="quiz-header">
+        <div class="quiz-progress"><div class="quiz-prog-fill" id="qprog-0" style="width:0%"></div></div>
+        <div class="quiz-prog-label" id="qprog-lbl-0">0 / 10</div>
+      </div>
+      <div id="qcard-0"></div>
+      <div class="score-card" id="score-0">
+        <div class="score-ring" id="sring-0">0/0</div>
+        <div class="score-title" id="stitle-0">--</div>
+        <div class="score-sub" id="ssub-0">--</div>
+        <div class="wrong-list" id="swrong-0"></div>
+        <button class="retry-btn" onclick="retryQuiz(0)">🔄 Làm lại</button>
+        <button class="retry-btn" style="margin-left:8px;border-color:var(--orange);color:var(--orange)" onclick="backToLearn(0)">📖 Xem lại bài</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── TAB 1: CON NGƯỜI ───── -->
+  <div class="tab-panel" id="panel-1">
+    <div class="learn-wrap" id="learn-1">
+      <div class="grp-header">
+        <div class="grp-badge" style="background:#FEF0E6;color:#C05A1A">Nhóm 2 · 10 bộ thủ</div>
+        <div class="grp-title">👤 Con Người & Cơ Thể</div>
+        <div class="grp-sub">Các bộ thủ liên quan đến người và bộ phận cơ thể!</div>
+      </div>
+      <div class="cards-grid" id="cards-1"></div>
+      <button class="cta-btn" style="--btn-from:#F5873A;--btn-to:#D96A1E;--btn-shadow:rgba(245,135,58,.35)" onclick="startQuiz(1)">
+        Đã Nhớ! Bắt Đầu Kiểm Tra →
+      </button>
+    </div>
+    <div class="quiz-wrap" id="quiz-1">
+      <div class="quiz-header">
+        <div class="quiz-progress"><div class="quiz-prog-fill" id="qprog-1" style="width:0%;background:var(--orange)"></div></div>
+        <div class="quiz-prog-label" id="qprog-lbl-1">0 / 10</div>
+      </div>
+      <div id="qcard-1"></div>
+      <div class="score-card" id="score-1">
+        <div class="score-ring" id="sring-1" style="border-color:var(--orange);color:#C05A1A">0/0</div>
+        <div class="score-title" id="stitle-1">--</div>
+        <div class="score-sub" id="ssub-1">--</div>
+        <div class="wrong-list" id="swrong-1"></div>
+        <button class="retry-btn" style="border-color:var(--orange);color:var(--orange)" onclick="retryQuiz(1)">🔄 Làm lại</button>
+        <button class="retry-btn" style="margin-left:8px;border-color:var(--orange);color:var(--orange)" onclick="backToLearn(1)">📖 Xem lại bài</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── TAB 2: ĐỘNG VẬT ───── -->
+  <div class="tab-panel" id="panel-2">
+    <div class="learn-wrap" id="learn-2">
+      <div class="grp-header">
+        <div class="grp-badge" style="background:#E6F4FB;color:#155E86">Nhóm 3 · 10 bộ thủ</div>
+        <div class="grp-title">🐾 Thế Giới Động Vật</div>
+        <div class="grp-sub">Cùng tìm hiểu 10 bộ thủ động vật quan trọng nhất nhé!</div>
+      </div>
+      <div class="cards-grid" id="cards-2"></div>
+      <button class="cta-btn" style="--btn-from:#4A9FD4;--btn-to:#2980B9;--btn-shadow:rgba(74,159,212,.35)" onclick="startQuiz(2)">
+        Đã Nhớ! Bắt Đầu Kiểm Tra →
+      </button>
+    </div>
+    <div class="quiz-wrap" id="quiz-2">
+      <div class="quiz-header">
+        <div class="quiz-progress"><div class="quiz-prog-fill" id="qprog-2" style="width:0%;background:var(--blue)"></div></div>
+        <div class="quiz-prog-label" id="qprog-lbl-2">0 / 10</div>
+      </div>
+      <div id="qcard-2"></div>
+      <div class="score-card" id="score-2">
+        <div class="score-ring" id="sring-2" style="border-color:var(--blue);color:#155E86">0/0</div>
+        <div class="score-title" id="stitle-2">--</div>
+        <div class="score-sub" id="ssub-2">--</div>
+        <div class="wrong-list" id="swrong-2"></div>
+        <button class="retry-btn" style="border-color:var(--blue);color:var(--blue)" onclick="retryQuiz(2)">🔄 Làm lại</button>
+        <button class="retry-btn" style="margin-left:8px;border-color:var(--blue);color:var(--blue)" onclick="backToLearn(2)">📖 Xem lại bài</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── TAB 3: ĐỒ VẬT ───── -->
+  <div class="tab-panel" id="panel-3">
+    <div class="learn-wrap" id="learn-3">
+      <div class="grp-header">
+        <div class="grp-badge" style="background:#FDEEF4;color:#8B2252">Nhóm 4 · 10 bộ thủ</div>
+        <div class="grp-title">📦 Đồ Vật & Vật Dụng</div>
+        <div class="grp-sub">Các bộ thủ liên quan đến vật dụng trong cuộc sống!</div>
+      </div>
+      <div class="cards-grid" id="cards-3"></div>
+      <button class="cta-btn" style="--btn-from:#E05480;--btn-to:#B83B6A;--btn-shadow:rgba(224,84,128,.35)" onclick="startQuiz(3)">
+        Đã Nhớ! Bắt Đầu Kiểm Tra →
+      </button>
+    </div>
+    <div class="quiz-wrap" id="quiz-3">
+      <div class="quiz-header">
+        <div class="quiz-progress"><div class="quiz-prog-fill" id="qprog-3" style="width:0%;background:var(--pink)"></div></div>
+        <div class="quiz-prog-label" id="qprog-lbl-3">0 / 10</div>
+      </div>
+      <div id="qcard-3"></div>
+      <div class="score-card" id="score-3">
+        <div class="score-ring" id="sring-3" style="border-color:var(--pink);color:#8B2252">0/0</div>
+        <div class="score-title" id="stitle-3">--</div>
+        <div class="score-sub" id="ssub-3">--</div>
+        <div class="wrong-list" id="swrong-3"></div>
+        <button class="retry-btn" style="border-color:var(--pink);color:var(--pink)" onclick="retryQuiz(3)">🔄 Làm lại</button>
+        <button class="retry-btn" style="margin-left:8px;border-color:var(--pink);color:var(--pink)" onclick="backToLearn(3)">📖 Xem lại bài</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── TAB 4: HÀNH ĐỘNG ───── -->
+  <div class="tab-panel" id="panel-4">
+    <div class="learn-wrap" id="learn-4">
+      <div class="grp-header">
+        <div class="grp-badge" style="background:#F0EBFA;color:#4A2E8A">Nhóm 5 · 10 bộ thủ</div>
+        <div class="grp-title">⚡ Hành Động & Trạng Thái</div>
+        <div class="grp-sub">Các bộ thủ chỉ hành động và trạng thái quan trọng!</div>
+      </div>
+      <div class="cards-grid" id="cards-4"></div>
+      <button class="cta-btn" style="--btn-from:#7C5CBF;--btn-to:#5A3D9A;--btn-shadow:rgba(124,92,191,.35)" onclick="startQuiz(4)">
+        Đã Nhớ! Bắt Đầu Kiểm Tra →
+      </button>
+    </div>
+    <div class="quiz-wrap" id="quiz-4">
+      <div class="quiz-header">
+        <div class="quiz-progress"><div class="quiz-prog-fill" id="qprog-4" style="width:0%;background:var(--purple)"></div></div>
+        <div class="quiz-prog-label" id="qprog-lbl-4">0 / 10</div>
+      </div>
+      <div id="qcard-4"></div>
+      <div class="score-card" id="score-4">
+        <div class="score-ring" id="sring-4" style="border-color:var(--purple);color:#4A2E8A">0/0</div>
+        <div class="score-title" id="stitle-4">--</div>
+        <div class="score-sub" id="ssub-4">--</div>
+        <div class="wrong-list" id="swrong-4"></div>
+        <button class="retry-btn" style="border-color:var(--purple);color:var(--purple)" onclick="retryQuiz(4)">🔄 Làm lại</button>
+        <button class="retry-btn" style="margin-left:8px;border-color:var(--purple);color:var(--purple)" onclick="backToLearn(4)">📖 Xem lại bài</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;font-size:12px;color:var(--text3);padding:16px 0;font-style:italic">© Tiếng Trung Halaoshi — All rights reserved</div>
+</div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────
+const GROUPS = [
+  {
+    color:'#5BAD6F', colorLight:'#E8F5EB', colorBorder:'#C6E8CC', charColor:'#2E7A48',
+    qColor:'#5BAD6F',
+    radicals:[
+      {ch:'日',py:'rì',name:'Bộ Nhật',meaning:'Mặt trời / ngày',ex:'明(míng: sáng), 晴(qíng: nắng)',why:'Hình vẽ mặt trời tròn với một điểm ở tâm. Chữ nào chứa 日 thường liên quan đến ánh sáng hoặc thời gian.'},
+      {ch:'月',py:'yuè',name:'Bộ Nguyệt',meaning:'Mặt trăng / tháng',ex:'明(míng: sáng), 期(qī: kỳ)',why:'Hình mặt trăng lưỡi liềm. Người xưa tính tháng theo chu kỳ mặt trăng nên 月 còn mang nghĩa "tháng".'},
+      {ch:'山',py:'shān',name:'Bộ Sơn',meaning:'Núi',ex:'岛(dǎo: đảo), 岸(àn: bờ)',why:'Hình ba đỉnh núi nhọn liền nhau — chữ tượng hình rất trực quan!'},
+      {ch:'水',py:'shuǐ',name:'Bộ Thủy',meaning:'Nước / chất lỏng',variant:'水·氵',ex:'海(hǎi: biển), 河(hé: sông)',why:'Hình dòng nước chảy ngoằn ngoèo. Khi đứng bên trái chữ, bộ Thủy viết thành 氵 (ba chấm nước). Hầu hết chữ về nước, sông, biển dùng dạng 氵.'},
+      {ch:'火',py:'huǒ',name:'Bộ Hỏa',meaning:'Lửa / nhiệt',variant:'火·灬',ex:'炒(chǎo: xào), 烤(kǎo: nướng)',why:'Hình ngọn lửa bốc cao. Khi ở dưới đáy chữ, viết thành 灬 (bốn chấm lửa). VD: 热(nóng), 煮(luộc), 熟(chín) đều dùng 灬.'},
+      {ch:'木',py:'mù',name:'Bộ Mộc',meaning:'Cây / gỗ',ex:'树(shù: cây), 桌(zhuō: bàn)',why:'Hình cây có thân đứng, cành trên và rễ dưới. Đồ vật làm từ gỗ thường chứa bộ 木.'},
+      {ch:'土',py:'tǔ',name:'Bộ Thổ',meaning:'Đất / đất đai',ex:'地(dì: đất), 城(chéng: thành)',why:'Hình mô đất nhô lên khỏi mặt đất. Các chữ liên quan đến địa lý hoặc xây dựng thường mang bộ 土.'},
+      {ch:'金',py:'jīn',name:'Bộ Kim',meaning:'Kim loại / vàng',variant:'金·钅',ex:'钱(qián: tiền), 银(yín: bạc)',why:'Hình kim loại quý được đào lên từ lòng đất. Khi đứng bên trái, viết thành 钅. Chữ về tiền bạc, kim loại đều chứa bộ này.'},
+      {ch:'艹',py:'cǎo',name:'Bộ Thảo',meaning:'Cỏ / thực vật',ex:'花(huā: hoa), 茶(chá: trà)',why:'Hình hai cụm cỏ mọc lên, viết thành 艹 ở trên đầu chữ. Rau, hoa, cây thuốc đều mang bộ Thảo.'},
+      {ch:'雨',py:'yǔ',name:'Bộ Vũ',meaning:'Mưa / thời tiết',ex:'雪(xuě: tuyết), 霜(shuāng: sương giá)',why:'Hình đám mây với những giọt mưa rơi xuống. Các hiện tượng thời tiết (tuyết, sương giá, sấm) đều chứa bộ 雨.'},
+    ]
+  },
+  {
+    color:'#F5873A', colorLight:'#FEF0E6', colorBorder:'#FDDCC6', charColor:'#C05A1A',
+    qColor:'#F5873A',
+    radicals:[
+      {ch:'人',py:'rén',name:'Bộ Nhân',meaning:'Người / con người',variant:'人·亻',ex:'他(tā: anh ấy), 你(nǐ: bạn)',why:'Hình người đứng thẳng, hai chân mở rộng. Khi đứng bên trái chữ, viết thành 亻. Hầu hết chữ chỉ người hoặc hành động của người đều dùng 亻.'},
+      {ch:'女',py:'nǚ',name:'Bộ Nữ',meaning:'Phụ nữ / nữ',ex:'她(tā: cô ấy), 妈(mā: mẹ)',why:'Hình người phụ nữ đang ngồi hoặc quỳ với hai tay khoanh trước ngực.'},
+      {ch:'子',py:'zǐ',name:'Bộ Tử',meaning:'Trẻ con / con cái',ex:'孩(hái: đứa trẻ), 学(xué: học)',why:'Hình em bé với cái đầu to và hai tay vẫy. Trẻ em, học hành đều liên quan đến bộ 子.'},
+      {ch:'口',py:'kǒu',name:'Bộ Khẩu',meaning:'Miệng / lỗ / cửa',ex:'吃(chī: ăn), 喝(hē: uống)',why:'Hình cái miệng hình vuông. Âm thanh phát ra từ miệng, hành động ăn uống nói chuyện đều mang bộ 口.'},
+      {ch:'心',py:'xīn',name:'Bộ Tâm',meaning:'Trái tim / tâm hồn',variant:'心·忄',ex:'想(xiǎng: nghĩ), 爱(ài: yêu)',why:'Hình trái tim với ba điểm biểu thị mạch đập. Khi đứng bên trái chữ, viết thành 忄. Cảm xúc và suy nghĩ đều xuất phát từ "tâm".'},
+      {ch:'手',py:'shǒu',name:'Bộ Thủ',meaning:'Bàn tay / tay',variant:'手·扌',ex:'打(dǎ: đánh), 拿(ná: cầm)',why:'Hình bàn tay xòe ra. Khi đứng bên trái chữ, viết thành 扌. Mọi hành động dùng tay đều mang bộ Thủ.'},
+      {ch:'目',py:'mù',name:'Bộ Mục',meaning:'Mắt / nhìn',ex:'看(kàn: nhìn), 眼(yǎn: mắt)',why:'Hình con mắt nhìn thẳng với đồng tử ở giữa, vẽ theo chiều dọc. Chữ liên quan đến nhìn, quan sát đều có bộ 目.'},
+      {ch:'耳',py:'ěr',name:'Bộ Nhĩ',meaning:'Tai / nghe',ex:'聪(cōng: thông minh)',why:'Hình chiếc tai người từ phía trước. Chữ liên quan đến nghe hoặc âm thanh thường chứa bộ 耳.'},
+      {ch:'足',py:'zú',name:'Bộ Túc',meaning:'Chân / bàn chân',variant:'足·⻊',ex:'跑(pǎo: chạy), 跳(tiào: nhảy)',why:'Hình chân người với bàn chân. Khi đứng bên trái, viết thành ⻊. Chạy, nhảy, đá đều mang bộ Túc.'},
+      {ch:'父',py:'fù',name:'Bộ Phụ',meaning:'Cha / bố',ex:'爸(bà: bố), 爷(yé: ông)',why:'Hình bàn tay đang cầm roi — hình ảnh người cha dạy dỗ con cái thời xưa.'},
+    ]
+  },
+  {
+    color:'#4A9FD4', colorLight:'#E6F4FB', colorBorder:'#C2E3F5', charColor:'#155E86',
+    qColor:'#4A9FD4',
+    radicals:[
+      {ch:'犬',py:'quǎn',name:'Bộ Khuyển',meaning:'Động vật, thú nuôi',variant:'犬·犭',ex:'狗(gǒu: chó), 猫(māo: mèo)',why:'Hình con chó — đại diện cho thú nuôi và thú có vú. Khi đứng bên trái chữ, viết thành 犭. Chó, mèo, sói, hổ, gấu đều dùng 犭.'},
+      {ch:'牛',py:'niú',name:'Bộ Ngưu',meaning:'Bò / gia súc',variant:'牛·牜',ex:'犁(lí: cày ruộng)',why:'Hình đầu bò nhìn thẳng với hai sừng. Khi đứng bên trái, viết thành 牜. Thú vị: 物(đồ vật) cũng có bộ 牜 — vì bò là tài sản quý nhất thời xưa!'},
+      {ch:'虫',py:'chóng',name:'Bộ Trùng',meaning:'Côn trùng / bò sát',ex:'蛇(shé: rắn), 虾(xiā: tôm)',why:'Hình con sâu cuộn tròn. Trong tiếng Trung cổ, 虫 đại diện cho mọi sinh vật bò: côn trùng, rắn, tôm cua, thậm chí cả ếch nhái.'},
+      {ch:'鱼',py:'yú',name:'Bộ Ngư',meaning:'Con cá / sinh vật biển',ex:'鲜(xiān: tươi), 鲸(jīng: cá voi)',why:'Hình con cá hoàn chỉnh với đầu, thân vảy và đuôi. Tất cả loài cá và nhiều sinh vật biển đều chứa bộ 鱼.'},
+      {ch:'鸟',py:'niǎo',name:'Bộ Điểu',meaning:'Chim chóc',ex:'鸡(jī: gà), 鹰(yīng: đại bàng)',why:'Hình con chim với mỏ, thân và đuôi. Tất cả các loài chim đều mang bộ 鸟. Bộ Chuy 隹 cũng chỉ chim nhưng dành cho chim cánh ngắn.'},
+      {ch:'马',py:'mǎ',name:'Bộ Mã',meaning:'Con ngựa / vận chuyển',ex:'骑(qí: cưỡi), 驾(jià: lái)',why:'Hình con ngựa với bờm và bốn chân. Chữ liên quan đến cưỡi, lái, vận chuyển thường chứa bộ 马.'},
+      {ch:'羊',py:'yáng',name:'Bộ Dương',meaning:'Dê / cừu / tốt lành',ex:'美(měi: đẹp)',why:'Hình đầu dê với hai sừng cong. 美(đẹp) = 羊(dê) + 大(to). Thú vị: 鲜(tươi ngon) = 鱼(cá) + 羊(dê) — hai thứ ngon nhất xưa!'},
+      {ch:'豕',py:'shǐ',name:'Bộ Thỉ',meaning:'Con lợn / heo',ex:'家(jiā: nhà), 猪(zhū: lợn)',why:'Hình con lợn. Chữ 家(nhà) = mái nhà + con lợn — xưa nhà nào cũng nuôi lợn trong nhà! 豪(hào phóng) cũng liên quan đến lợn to béo = giàu có.'},
+      {ch:'肉',py:'ròu',name:'Bộ Nhục',meaning:'Thịt / cơ thể',variant:'肉·月',ex:'脸(liǎn: khuôn mặt), 胖(pàng: béo)',why:'Hình miếng thịt với các thớ thịt bên trong. ⚠️ Khi đứng bên trái chữ, 肉 viết thành 月 (trông y hệt bộ Nguyệt!) — phải dựa vào nghĩa để phân biệt.'},
+      {ch:'贝',py:'bèi',name:'Bộ Bối',meaning:'Vỏ sò / tiền tệ',ex:'财(cái: tài sản), 货(huò: hàng hóa)',why:'Hình vỏ sò. Thời xưa vỏ sò được dùng làm tiền tệ, nên 贝 xuất hiện trong mọi chữ liên quan đến tiền bạc, mua bán, tài sản.'},
+    ]
+  },
+  {
+    color:'#E05480', colorLight:'#FDEEF4', colorBorder:'#F9C6D8', charColor:'#8B2252',
+    qColor:'#E05480',
+    radicals:[
+      {ch:'门',py:'mén',name:'Bộ Môn',meaning:'Cửa / cổng',ex:'问(wèn: hỏi), 间(jiān: gian)',why:'Hình hai cánh cửa đối xứng nhau. Chữ liên quan đến cửa, căn phòng, khoảng không đều chứa bộ 门. 闷(buồn) = đứng trong cửa không ra ngoài được!'},
+      {ch:'车',py:'chē',name:'Bộ Xa',meaning:'Xe cộ / phương tiện',ex:'辆(liàng: chiếc xe), 轮(lún: bánh xe)',why:'Hình xe nhìn từ trên xuống với trục và bánh xe. Chữ liên quan đến phương tiện, chuyên chở đều mang bộ 车.'},
+      {ch:'刀',py:'dāo',name:'Bộ Đao',meaning:'Dao / lưỡi sắc',variant:'刀·刂',ex:'分(fēn: chia), 切(qiē: cắt)',why:'Hình lưỡi dao cong. Khi đứng bên phải chữ, viết thành 刂. Chữ liên quan đến cắt, chia, chặt đều có bộ này. 别(chia biệt) = dùng dao để tách ra!'},
+      {ch:'弓',py:'gōng',name:'Bộ Cung',meaning:'Cái cung / uốn cong',ex:'弹(dàn: bắn/đàn), 弯(wān: cong)',why:'Hình cánh cung cong. Sức mạnh và sự căng thẳng đều được biểu đạt qua hình ảnh cái cung. 强(mạnh) cũng chứa bộ 弓 — sức mạnh như cây cung căng!'},
+      {ch:'衣',py:'yī',name:'Bộ Y',meaning:'Quần áo / vải vóc',variant:'衣·衤',ex:'被(bèi: chăn), 裙(qún: váy)',why:'Hình chiếc áo với cổ áo và hai tay áo xòe ra. Khi đứng bên trái chữ, viết thành 衤. Mọi loại quần áo và vải đều dùng dạng 衤.'},
+      {ch:'食',py:'shí',name:'Bộ Thực',meaning:'Ăn / thức ăn',variant:'食·饣',ex:'饭(fàn: cơm), 饿(è: đói)',why:'Hình nồi cơm với nắp và hơi bay lên. Khi đứng bên trái, viết thành 饣. Cơm, đói, no, các loại thức ăn đều dùng dạng 饣.'},
+      {ch:'米',py:'mǐ',name:'Bộ Mễ',meaning:'Gạo / ngũ cốc / tinh bột',ex:'粮(liáng: lương thực), 糖(táng: đường)',why:'Hình hạt gạo với các đường tỏa ra bốn phía. Lương thực, gạo nếp, đường bột, cháo đều chứa bộ 米.'},
+      {ch:'竹',py:'zhú',name:'Bộ Trúc',meaning:'Tre / trúc',ex:'笔(bǐ: bút), 篮(lán: rổ)',why:'Hình hai cây trúc cạnh nhau với lá rủ xuống, viết thành 竹 ở trên đầu chữ. Bút xưa làm từ tre! Đũa, rổ, rương đều từng làm từ tre.'},
+      {ch:'石',py:'shí',name:'Bộ Thạch',meaning:'Đá / vật liệu cứng',ex:'砖(zhuān: gạch), 碗(wǎn: bát)',why:'Hình tảng đá dưới vách núi. Chữ liên quan đến vật liệu cứng: đá, gạch, bát sành, cối đều chứa bộ 石.'},
+      {ch:'田',py:'tián',name:'Bộ Điền',meaning:'Ruộng / đồng',ex:'男(nán: nam), 畜(chù: gia súc)',why:'Hình thửa ruộng được chia ô vuông từ trên nhìn xuống. 男(nam) = 田(ruộng) + 力(sức) — đàn ông làm ruộng! 界(ranh giới) = ranh giới giữa các thửa ruộng.'},
+    ]
+  },
+  {
+    color:'#7C5CBF', colorLight:'#F0EBFA', colorBorder:'#D8C8F2', charColor:'#4A2E8A',
+    qColor:'#7C5CBF',
+    radicals:[
+      {ch:'力',py:'lì',name:'Bộ Lực',meaning:'Sức mạnh / cố gắng',ex:'努(nǔ: cố gắng), 勤(qín: chăm chỉ)',why:'Hình cơ bắp đang gồng lên hoặc dụng cụ lao động. Chữ liên quan đến sức lực, cố gắng đều mang bộ 力.'},
+      {ch:'走',py:'zǒu',name:'Bộ Tẩu',meaning:'Đi / bước đi',ex:'赶(gǎn: đuổi theo), 起(qǐ: dậy)',why:'Hình người đang dang chân bước đi. Chữ liên quan đến di chuyển bằng chân đều chứa bộ 走. Khác với bộ Túc ⻊: 走 nghiêng về ý "đi đến nơi nào đó".'},
+      {ch:'言',py:'yán',name:'Bộ Ngôn',meaning:'Lời nói / ngôn ngữ',variant:'言·讠',ex:'说(shuō: nói), 语(yǔ: ngôn ngữ)',why:'Hình miệng đang phát ra âm thanh. Khi đứng bên trái chữ, viết thành 讠. Hầu hết chữ về hoạt động ngôn ngữ, giao tiếp đều dùng 讠.'},
+      {ch:'见',py:'jiàn',name:'Bộ Kiến',meaning:'Nhìn thấy / gặp',ex:'观(guān: quan sát), 视(shì: nhìn)',why:'Hình con mắt to đặt trên đôi chân người — hình ảnh "đi để nhìn thấy". Chữ liên quan đến nhìn, quan sát đều mang bộ 见.'},
+      {ch:'页',py:'yè',name:'Bộ Hiệt',meaning:'Trang / đầu người',ex:'题(tí: đề/tiêu đề)',why:'Hình đầu người với nét nhấn vào phần trên. Chữ liên quan đến đầu, cổ, mặt hay trang giấy đều chứa bộ 页.'},
+      {ch:'小',py:'xiǎo',name:'Bộ Tiểu',meaning:'Nhỏ bé / ít',ex:'少(shǎo: ít), 尖(jiān: nhọn)',why:'Ba chấm nhỏ tượng trưng cho sự nhỏ bé, ít ỏi. Đối lập hoàn toàn với bộ 大(đại). 尖(nhọn) = nhỏ(小) ở trên + to(大) ở dưới — hình dáng của đầu nhọn!'},
+      {ch:'广',py:'guǎng',name:'Bộ Nghiễm',meaning:'Mái nhà rộng / nơi chốn',ex:'店(diàn: cửa hàng), 床(chuáng: giường)',why:'Hình mái nhà lớn che phủ không gian rộng. Khác 宀(mái nhà kín): 广 là mái nhà hở một bên. Cửa hàng, bếp, phòng đều mang bộ 广.'},
+      {ch:'玉',py:'yù',name:'Bộ Ngọc',meaning:'Ngọc / quý giá',variant:'玉·王',ex:'珍(zhēn: quý hiếm)',why:'Hình ba viên ngọc xếp thành chuỗi. ⚠️ Khi đứng bên trái chữ, 玉 viết thành 王 (trông như bộ Vương!) — chỉ khác nhau ở một chấm nhỏ bên dưới.'},
+      {ch:'宀',py:'mián',name:'Bộ Miên',meaning:'Mái nhà / trong nhà',ex:'家(jiā: nhà/gia đình), 室(shì: phòng)',why:'Hình mái nhà nhọn kín bốn phía. Khác 广(hở một bên): 宀 là nhà kín ấm áp. 安(bình yên) = 宀(nhà) + 女(phụ nữ) — phụ nữ ở nhà = bình yên theo quan niệm xưa.'},
+      {ch:'攵',py:'pū',name:'Bộ Phộc',meaning:'Gõ / đánh / tác động',ex:'收(shōu: thu lại), 放(fàng: thả/đặt)',why:'Hình bàn tay cầm gậy đang gõ xuống — biểu tượng hành động tác động. Dạy(教), thu(收), thả(放), sửa(改) đều có người điều khiển gì đó → bộ 攵.'},
+    ]
+  }
+];
+
+const COLORS = ['#5BAD6F','#F5873A','#4A9FD4','#E05480','#7C5CBF'];
+
+// ── BUILD CARDS ──────────────────────────────────────
+function buildCards(gi){
+  const g = GROUPS[gi];
+  const container = document.getElementById('cards-'+gi);
+  container.innerHTML='';
+  g.radicals.forEach((r,i)=>{
+    const card = document.createElement('div');
+    card.className='rad-card';
+    card.style.setProperty('--card-bg', g.colorLight);
+    card.style.setProperty('--card-border', g.colorBorder);
+    card.style.setProperty('--char-bg', '#fff');
+    card.style.setProperty('--char-color', g.charColor);
+    card.innerHTML=`
+      <div class="rad-top">
+        <div class="rad-char-box" style="border:2px solid ${g.colorBorder}">
+          <div class="rad-char">${r.ch}</div>
+          ${r.variant ? `<div class="rad-variant" style="color:${g.charColor}">${r.variant}</div>` : `<div class="rad-py">${r.py}</div>`}
+        </div>
+        <div class="rad-info">
+          <div class="rad-name">${r.name}</div>
+          <div class="rad-meaning">${r.meaning}</div>
+          ${r.variant ? `<div class="rad-py-inline" style="color:var(--text3);font-size:10px;font-weight:700">${r.py}</div>` : ''}
+        </div>
+      </div>
+      <div class="rad-examples"><span class="ex-label">VD:</span>${r.ex}</div>`;
+    container.appendChild(card);
+  });
+}
+
+// ── QUIZ STATE ───────────────────────────────────────
+const qState = [null,null,null,null,null];
+
+// ── QUESTION BUILDERS ────────────────────────────────
+function shuffle(arr){ return [...arr].sort(()=>Math.random()-.5); }
+
+function buildQ_choiceMeaning(r, rads){
+  // Dạng 1: Thấy chữ → chọn nghĩa (4 đáp án)
+  const wrongs = shuffle(rads.filter(x=>x.ch!==r.ch)).slice(0,3).map(x=>x.meaning);
+  const opts = shuffle([r.meaning, ...wrongs]);
+  return {
+    type:'choiceMeaning', ch:r.ch, py:r.py,
+    badge:'Chọn nghĩa đúng', badgeColor:'#5BAD6F',
+    q:`<b>${r.name}</b> có nghĩa là gì?`,
+    showChar:true,
+    opts, ans:r.meaning,
+    explain: `<span class="explain-correct">✓ Đáp án đúng: ${r.meaning}</span><br>${r.why}<br><span style="color:var(--text2)">VD: ${r.ex}</span>`
+  };
+}
+
+function buildQ_choiceChar(r, rads){
+  // Dạng 2: Thấy nghĩa → chọn chữ (4 đáp án)
+  const wrongs = shuffle(rads.filter(x=>x.ch!==r.ch)).slice(0,3);
+  const optsRaw = shuffle([r, ...wrongs]);
+  const opts = optsRaw.map(x=>`${x.ch} — ${x.name}`);
+  const ans = `${r.ch} — ${r.name}`;
+  return {
+    type:'choiceChar', ch:r.ch, py:r.py,
+    badge:'Chọn bộ thủ đúng', badgeColor:'#F5873A',
+    q:`Nghĩa "<b>${r.meaning}</b>" thuộc bộ thủ nào?`,
+    showChar:false,
+    opts, ans,
+    explain:`<span class="explain-correct">✓ Đáp án đúng: ${r.ch} (${r.name}, ${r.py})</span><br>${r.why}<br><span style="color:var(--text2)">VD: ${r.ex}</span>`
+  };
+}
+
+function buildQ_whyRadical(r, rads){
+  // Dạng 3: Tại sao chữ X chứa bộ Y? (như ảnh mẫu)
+  // Lấy một từ ví dụ có chứa bộ thủ này
+  const exParts = r.ex.split(',');
+  const exWord = exParts[0].trim(); // vd: "明(míng: sáng)"
+  const exChar = exWord.split('(')[0].trim();
+  const exPy = exWord.match(/\(([^:]+):/)?.[1]?.trim() || r.py;
+  const exMeaning = exWord.match(/:\s*([^)]+)\)/)?.[1]?.trim() || r.meaning;
+
+  // Tạo các đáp án sai dựa trên mẫu câu hỏi của ảnh
+  const wrongTemplates = shuffle(rads.filter(x=>x.ch!==r.ch)).slice(0,3).map(x=>x.meaning);
+  const correctAns = r.why.split('.')[0]; // câu đầu của why
+  const opts = shuffle([correctAns, ...wrongTemplates.map(w=>`Vì ${w.toLowerCase()}`)]);
+  const ans = correctAns;
+  return {
+    type:'choiceWhy', ch:r.ch, py:r.py,
+    badge:'Tại sao chứa bộ này?', badgeColor:'#7C5CBF',
+    q:`Chữ '${exMeaning}' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">${exChar}</b> <span style="font-size:.9em;color:var(--text2)">${exPy}</span> chứa bộ ${r.name} <b style="font-family:'Noto Serif SC',serif">${r.ch}</b> <span style="font-size:.9em;color:var(--text2)">${r.py}</span> vì sao?`,
+    showChar:false,
+    opts, ans,
+    explain:`<span class="explain-correct">✓ ${r.why}</span><br><span style="color:var(--text2)">VD thêm: ${r.ex}</span>`
+  };
+}
+
+function buildQ_matchPair(rads){
+  // Dạng 4: Nối cặp (4 chữ ↔ 4 nghĩa)
+  const chosen = shuffle(rads).slice(0,4);
+  return {
+    type:'matchPair',
+    badge:'Nối cặp', badgeColor:'#4A9FD4',
+    q:'Nối mỗi bộ thủ với nghĩa đúng của nó:',
+    showChar:false,
+    items: chosen,
+    explain: chosen.map(x=>`${x.ch} = ${x.meaning}`).join(' · ')
+  };
+}
+
+function buildQ_fillPinyin(r){
+  // Dạng 5: Điền bính âm (không dấu thanh)
+  const noTone = r.py.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[ūúǔùǖǘǚǜ]/g,'u').replace(/[āáǎà]/g,'a').replace(/[ēéěè]/g,'e').replace(/[īíǐì]/g,'i').replace(/[ōóǒò]/g,'o');
+  return {
+    type:'fillPinyin', ch:r.ch, py:r.py,
+    badge:'Điền bính âm', badgeColor:'#E05480',
+    q:`Bộ thủ <b style="font-family:'Noto Serif SC',serif;font-size:1.3em">${r.ch}</b> đọc là gì?`,
+    showChar:false,
+    ans: noTone.toLowerCase(),
+    ansFull: r.py,
+    explain:`<span class="explain-correct">✓ Bính âm đúng: ${r.py}</span><br>${r.name} — ${r.meaning}<br><span style="color:var(--text2)">${r.why}</span>`
+  };
+}
+
+// ── CÂU HỎI ĐẶC BIỆT CHO NHÓM 0 (THIÊN NHIÊN) ─────────
+const Q0_BANK = [
+  {
+    type:'choiceMeaning', ch:'明', py:'míng', showChar:true,
+    badge:'Bộ thủ nào?', badgeColor:'#5BAD6F',
+    q:`Chữ 'Sáng' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">明</b> míng chứa bộ thủ nào?`,
+    opts:['Bộ Thủy 氵', 'Bộ Nhật 日 + Bộ Nguyệt 月', 'Bộ Hỏa 火', 'Bộ Kim 金'],
+    ans:'Bộ Nhật 日 + Bộ Nguyệt 月',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>明 = 日 (mặt trời) + 月 (mặt trăng) — hai nguồn sáng lớn nhất ghép lại thành "sáng".'
+  },
+  {
+    type:'choiceMeaning', ch:'海', py:'hǎi', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#5BAD6F',
+    q:`Chữ 'Biển' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">海</b> hǎi có bộ Thủy 氵 vì?`,
+    opts:['Biển là nơi có núi', 'Biển là nơi có lửa', 'Biển là khối nước khổng lồ', 'Biển là nơi có cây'],
+    ans:'Biển là khối nước khổng lồ',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Thủy 氵xuất hiện trong mọi chữ liên quan đến nước và chất lỏng — sông, biển, hồ đều mang bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'炒', py:'chǎo', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#5BAD6F',
+    q:`Chữ 'Xào' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">炒</b> chǎo có bộ Hỏa 火 vì?`,
+    opts:['Xào cần dùng nước', 'Xào là dùng nhiệt/lửa để nấu', 'Xào là hành động dùng tay', 'Xào liên quan đến cây cỏ'],
+    ans:'Xào là dùng nhiệt/lửa để nấu',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Hỏa 火 xuất hiện trong mọi chữ liên quan đến nấu nướng và nhiệt — xào, nướng, hầm đều có bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'桌', py:'zhuō', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#5BAD6F',
+    q:`Chữ 'Bàn' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">桌</b> zhuō có bộ Mộc 木 vì?`,
+    opts:['Bàn đặt trên đất', 'Bàn làm bằng gỗ', 'Bàn để đựng nước', 'Bàn cần ánh sáng mặt trời'],
+    ans:'Bàn làm bằng gỗ',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Mộc 木 xuất hiện trong đồ vật làm từ gỗ — bàn, ghế, tủ đều mang bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'城', py:'chéng', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#5BAD6F',
+    q:`Chữ 'Thành phố' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">城</b> chéng có bộ Thổ 土 vì?`,
+    opts:['Thành phố có nhiều cây', 'Thành phố xây trên đất/từ đất', 'Thành phố có nhiều nước', 'Thành phố có nhiều lửa'],
+    ans:'Thành phố xây trên đất/từ đất',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Thổ 土 xuất hiện trong chữ liên quan đến xây dựng và địa lý — đất, thành, địa đều mang bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'钱', py:'qián', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#5BAD6F',
+    q:`Chữ 'Tiền' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">钱</b> qián có bộ Kim 钅 vì?`,
+    opts:['Tiền làm từ cây gỗ', 'Tiền làm từ kim loại', 'Tiền làm từ đất sét', 'Tiền làm từ đá'],
+    ans:'Tiền làm từ kim loại',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Kim 钅 xuất hiện trong chữ về kim loại và tiền bạc. Tiền xu xưa đúc bằng đồng, vàng, bạc — đều là kim loại.'
+  },
+  {
+    type:'choiceMeaning', ch:'花', py:'huā', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#5BAD6F',
+    q:`Chữ 'Hoa' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">花</b> huā có bộ Thảo 艹 vì?`,
+    opts:['Hoa là hiện tượng thời tiết', 'Hoa là loài động vật', 'Hoa là bộ phận của thực vật', 'Hoa làm từ kim loại'],
+    ans:'Hoa là bộ phận của thực vật',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Thảo 艹 xuất hiện ở trên đầu chữ liên quan đến cỏ cây, thực vật — hoa, trà, rau đều mang bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'雪', py:'xuě', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#5BAD6F',
+    q:`Chữ 'Tuyết' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">雪</b> xuě có bộ Vũ 雨 vì?`,
+    opts:['Tuyết là loài thực vật', 'Tuyết là hiện tượng thời tiết như mưa', 'Tuyết là loài động vật', 'Tuyết làm từ đất sét'],
+    ans:'Tuyết là hiện tượng thời tiết như mưa',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Vũ 雨 xuất hiện trong mọi hiện tượng thời tiết — tuyết, sương giá, sấm đều chứa bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'岛', py:'dǎo', showChar:true,
+    badge:'Bộ thủ nào?', badgeColor:'#5BAD6F',
+    q:`Chữ 'Đảo' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">岛</b> dǎo chứa bộ thủ nào?`,
+    opts:['Bộ Thủy 氵', 'Bộ Thổ 土', 'Bộ Sơn 山', 'Bộ Mộc 木'],
+    ans:'Bộ Sơn 山',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Đảo là vùng đất nhô lên khỏi mặt biển như một ngọn núi — nên mang bộ Sơn 山.'
+  },
+  {
+    type:'choiceMeaning', ch:'晴', py:'qíng', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#5BAD6F',
+    q:`Chữ 'Nắng' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">晴</b> qíng có bộ Nhật 日 vì?`,
+    opts:['Nắng liên quan đến mưa', 'Nắng liên quan đến mặt trời/ánh sáng', 'Nắng liên quan đến gió', 'Nắng liên quan đến núi'],
+    ans:'Nắng liên quan đến mặt trời/ánh sáng',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Nhật 日 xuất hiện trong chữ liên quan đến ánh sáng và thời gian — nắng, sáng đều cần có mặt trời.'
+  },
+];
+
+// ── CÂU HỎI ĐẶC BIỆT CHO NHÓM 2 (ĐỘNG VẬT) ─────────
+const Q2_BANK = [
+  {
+    type:'choiceMeaning', ch:'狗', py:'gǒu', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#4A9FD4',
+    q:`Chữ 'Chó' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">狗</b> gǒu có bộ Khuyển 犭 vì?`,
+    opts:['Chó là loài chim', 'Chó là thú nuôi/động vật', 'Chó là loài cá', 'Chó là côn trùng'],
+    ans:'Chó là thú nuôi/động vật',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Khuyển 犭 đại diện cho thú nuôi và động vật có vú. Chó, mèo, sói, hổ đều mang bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'猫', py:'māo', showChar:true,
+    badge:'Bộ thủ nào?', badgeColor:'#4A9FD4',
+    q:`Chữ 'Mèo' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">猫</b> māo chứa bộ thủ nào?`,
+    opts:['Bộ Điểu 鸟', 'Bộ Ngư 鱼', 'Bộ Khuyển 犭', 'Bộ Trùng 虫'],
+    ans:'Bộ Khuyển 犭',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Mèo là thú nuôi nên mang bộ Khuyển 犭— bộ đại diện cho mọi loài thú nuôi và động vật có vú.'
+  },
+  {
+    type:'choiceMeaning', ch:'蛇', py:'shé', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#4A9FD4',
+    q:`Chữ 'Rắn' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">蛇</b> shé có bộ Trùng 虫 vì?`,
+    opts:['Rắn là loài chim', 'Rắn là sinh vật bò sát/trườn bò', 'Rắn là loài cá', 'Rắn là thú nuôi'],
+    ans:'Rắn là sinh vật bò sát/trườn bò',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Trùng 虫 trong tiếng Trung cổ đại diện cho mọi sinh vật bò — rắn, tôm, sâu bọ đều mang bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'鸡', py:'jī', showChar:true,
+    badge:'Bộ thủ nào?', badgeColor:'#4A9FD4',
+    q:`Chữ 'Gà' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">鸡</b> jī chứa bộ thủ nào?`,
+    opts:['Bộ Khuyển 犭', 'Bộ Ngư 鱼', 'Bộ Điểu 鸟', 'Bộ Dương 羊'],
+    ans:'Bộ Điểu 鸟',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Gà là loài chim nên mang bộ Điểu 鸟. Tất cả các loài chim — gà, vịt, đại bàng đều có bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'骑', py:'qí', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#4A9FD4',
+    q:`Chữ 'Cưỡi' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">骑</b> qí có bộ Mã 马 vì?`,
+    opts:['Cưỡi là hành động dùng tay', 'Cưỡi là hành động liên quan đến ngựa', 'Cưỡi là hành động liên quan đến chim', 'Cưỡi là hành động dùng miệng'],
+    ans:'Cưỡi là hành động liên quan đến ngựa',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Mã 马 xuất hiện trong chữ liên quan đến ngựa và vận chuyển — cưỡi ngựa, lái xe đều có bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'美', py:'měi', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#4A9FD4',
+    q:`Chữ 'Đẹp' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">美</b> měi có bộ Dương 羊 vì?`,
+    opts:['Con dê kêu to nên đẹp', 'Con dê to béo = sung túc = đẹp theo quan niệm xưa', 'Con dê có màu sắc đẹp', 'Con dê biết hát'],
+    ans:'Con dê to béo = sung túc = đẹp theo quan niệm xưa',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>美 = 羊 (dê) + 大 (to) — con dê to béo tượng trưng cho sự sung túc, no đủ, cái đẹp theo quan niệm người xưa.'
+  },
+  {
+    type:'choiceMeaning', ch:'家', py:'jiā', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#4A9FD4',
+    q:`Chữ 'Nhà' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">家</b> jiā có bộ Thỉ 豕 (lợn) vì?`,
+    opts:['Nhà xưa thường nuôi lợn bên trong', 'Lợn là con vật xây nhà', 'Lợn ăn nhiều như ở nhà', 'Lợn thích ngủ trong nhà'],
+    ans:'Nhà xưa thường nuôi lợn bên trong',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>家 = 宀 (mái nhà) + 豕 (lợn) — xưa nhà nào cũng nuôi lợn ngay trong nhà, nên "nhà có lợn" = gia đình.'
+  },
+  {
+    type:'choiceMeaning', ch:'鲸', py:'jīng', showChar:true,
+    badge:'Bộ thủ nào?', badgeColor:'#4A9FD4',
+    q:`Chữ 'Cá voi' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">鲸</b> jīng chứa bộ thủ nào?`,
+    opts:['Bộ Điểu 鸟', 'Bộ Trùng 虫', 'Bộ Ngư 鱼', 'Bộ Khuyển 犭'],
+    ans:'Bộ Ngư 鱼',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Cá voi sống dưới nước như cá nên mang bộ Ngư 鱼. Tất cả các loài cá và sinh vật biển đều có bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'财', py:'cái', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#4A9FD4',
+    q:`Chữ 'Tài sản' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">财</b> cái có bộ Bối 贝 vì?`,
+    opts:['Vỏ sò xưa dùng làm tiền/của cải', 'Tài sản làm từ gỗ', 'Tài sản là loài động vật', 'Tài sản là đất đai'],
+    ans:'Vỏ sò xưa dùng làm tiền/của cải',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Bối 贝 là hình vỏ sò — thứ được dùng làm tiền tệ thời xưa. Mọi chữ liên quan đến tiền bạc, tài sản đều mang bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'脸', py:'liǎn', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#4A9FD4',
+    q:`Chữ 'Khuôn mặt' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">脸</b> liǎn có bộ Nhục 月(肉) vì?`,
+    opts:['Mặt là bộ phận của cơ thể người', 'Mặt liên quan đến thời gian', 'Mặt liên quan đến mặt trăng', 'Mặt là đồ vật'],
+    ans:'Mặt là bộ phận của cơ thể người',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Nhục 月(肉) là hình thịt/cơ thể. Khi đứng bên trái viết thành 月 — khuôn mặt, bụng, lưng đều là bộ phận cơ thể.'
+  },
+];
+
+// ── CÂU HỎI ĐẶC BIỆT CHO NHÓM 1 (CON NGƯỜI) ─────────
+const Q1_BANK = [
+  {
+    type:'choiceMeaning', ch:'他', py:'tā', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#F5873A',
+    q:`Chữ 'Anh ấy' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">他</b> tā có bộ Nhân 亻 vì?`,
+    opts:['Anh ấy là con vật', 'Anh ấy là con người', 'Anh ấy là đồ vật', 'Anh ấy là loài cây'],
+    ans:'Anh ấy là con người',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Nhân 亻 xuất hiện trong mọi chữ liên quan đến con người — anh ấy, bạn, người khác đều mang bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'妈', py:'mā', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#F5873A',
+    q:`Chữ 'Mẹ' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">妈</b> mā có bộ Nữ 女 vì?`,
+    opts:['Mẹ là nam giới', 'Mẹ là phụ nữ', 'Mẹ là trẻ con', 'Mẹ là người già'],
+    ans:'Mẹ là phụ nữ',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Nữ 女 xuất hiện trong chữ liên quan đến phụ nữ và gia đình — mẹ, cô ấy, chị đều mang bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'学', py:'xué', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#F5873A',
+    q:`Chữ 'Học' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">学</b> xué có bộ Tử 子 vì?`,
+    opts:['Học là việc của người già', 'Học gắn liền với trẻ con/con cái', 'Học là việc của đàn ông', 'Học là việc của phụ nữ'],
+    ans:'Học gắn liền với trẻ con/con cái',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Tử 子 là hình em bé. Học hành, trẻ em, con cái đều xuất phát từ bộ 子 — học là việc của trẻ nhỏ.'
+  },
+  {
+    type:'choiceMeaning', ch:'吃', py:'chī', showChar:true,
+    badge:'Bộ thủ nào?', badgeColor:'#F5873A',
+    q:`Chữ 'Ăn' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">吃</b> chī bắt buộc phải có bộ thủ nào?`,
+    opts:['Bộ Thủ 扌', 'Bộ Khẩu 口', 'Bộ Túc 足', 'Bộ Mục 目'],
+    ans:'Bộ Khẩu 口',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Ăn là hành động dùng miệng nên mang bộ Khẩu 口. Uống, hỏi, hét — tất cả hành động liên quan đến miệng đều có bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'爱', py:'ài', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#F5873A',
+    q:`Chữ 'Yêu' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">爱</b> ài có bộ Tâm 心 vì?`,
+    opts:['Yêu là hành động dùng tay', 'Yêu là cảm xúc xuất phát từ trái tim', 'Yêu là hành động dùng chân', 'Yêu là hành động dùng mắt'],
+    ans:'Yêu là cảm xúc xuất phát từ trái tim',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Tâm 心 xuất hiện trong mọi chữ về cảm xúc và suy nghĩ — yêu, nghĩ, nhớ đều xuất phát từ trái tim.'
+  },
+  {
+    type:'choiceMeaning', ch:'拿', py:'ná', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#F5873A',
+    q:`Chữ 'Cầm' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">拿</b> ná có bộ Thủ 手 vì?`,
+    opts:['Cầm là hành động dùng chân', 'Cầm là hành động dùng tay', 'Cầm là hành động dùng miệng', 'Cầm là hành động dùng mắt'],
+    ans:'Cầm là hành động dùng tay',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Thủ 手/扌 xuất hiện trong mọi hành động dùng tay — cầm, đánh, kéo, đẩy đều mang bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'看', py:'kàn', showChar:true,
+    badge:'Bộ thủ nào?', badgeColor:'#F5873A',
+    q:`Chữ 'Nhìn' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">看</b> kàn chứa bộ thủ nào?`,
+    opts:['Bộ Nhĩ 耳', 'Bộ Khẩu 口', 'Bộ Tâm 心', 'Bộ Mục 目'],
+    ans:'Bộ Mục 目',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Mục 目 là hình con mắt. Nhìn, ngắm, quan sát đều liên quan đến mắt nên mang bộ 目.'
+  },
+  {
+    type:'choiceMeaning', ch:'听', py:'tīng', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#F5873A',
+    q:`Chữ 'Nghe' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">听</b> tīng có bộ Nhĩ 耳 vì?`,
+    opts:['Nghe là hành động dùng mắt', 'Nghe là hành động dùng tai', 'Nghe là hành động dùng miệng', 'Nghe là hành động dùng tay'],
+    ans:'Nghe là hành động dùng tai',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Nhĩ 耳 là hình chiếc tai. Nghe, thính giác, thông minh (聪) đều liên quan đến tai nên mang bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'跑', py:'pǎo', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#F5873A',
+    q:`Chữ 'Chạy' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">跑</b> pǎo có bộ Túc 足 vì?`,
+    opts:['Chạy là hành động dùng tay', 'Chạy là hành động dùng miệng', 'Chạy là hành động dùng chân', 'Chạy là hành động dùng mắt'],
+    ans:'Chạy là hành động dùng chân',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Túc 足 là hình bàn chân. Chạy, nhảy, đá — tất cả hành động dùng chân đều mang bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'爸', py:'bà', showChar:true,
+    badge:'Bộ thủ nào?', badgeColor:'#F5873A',
+    q:`Chữ 'Bố' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">爸</b> bà chứa bộ thủ nào?`,
+    opts:['Bộ Nhân 亻', 'Bộ Tử 子', 'Bộ Nữ 女', 'Bộ Phụ 父'],
+    ans:'Bộ Phụ 父',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>爸 = 父 (bố/cha) + 巴 (phần âm). Bộ Phụ 父 là hình bàn tay cầm roi — hình ảnh người cha dạy dỗ con cái thời xưa.'
+  },
+];
+
+// ── CÂU HỎI ĐẶC BIỆT CHO NHÓM 3 (ĐỒ VẬT & LƯƠNG THỰC) ─────────
+const Q3_BANK = [
+  {
+    type:'choiceMeaning', ch:'问', py:'wèn', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#E05480',
+    q:`Chữ 'Hỏi' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">问</b> wèn có bộ Môn 门 vì?`,
+    opts:['Hỏi là đứng ngoài cửa gõ vào để hỏi', 'Hỏi là hành động dùng chân', 'Hỏi là hành động dùng tay', 'Hỏi là nhìn qua cửa sổ'],
+    ans:'Hỏi là đứng ngoài cửa gõ vào để hỏi',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>问 = 门 (cửa) + 口 (miệng) — hình ảnh miệng đặt trước cửa để hỏi. Cửa và khoảng không đều mang bộ 门.'
+  },
+  {
+    type:'choiceMeaning', ch:'轮', py:'lún', showChar:true,
+    badge:'Bộ thủ nào?', badgeColor:'#E05480',
+    q:`Chữ 'Bánh xe' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">轮</b> lún chứa bộ thủ nào?`,
+    opts:['Bộ Mộc 木', 'Bộ Kim 钅', 'Bộ Xa 车', 'Bộ Thạch 石'],
+    ans:'Bộ Xa 车',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bánh xe là bộ phận của xe nên mang bộ Xa 车. Mọi chữ liên quan đến xe và phương tiện đều có bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'切', py:'qiē', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#E05480',
+    q:`Chữ 'Cắt' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">切</b> qiē có bộ Đao 刀 vì?`,
+    opts:['Cắt là dùng tay không', 'Cắt là dùng lửa', 'Cắt là dùng nước', 'Cắt là dùng dao/lưỡi sắc'],
+    ans:'Cắt là dùng dao/lưỡi sắc',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Đao 刀/刂 xuất hiện trong mọi hành động liên quan đến cắt, chia, chặt — đều cần dùng dao hoặc vật sắc bén.'
+  },
+  {
+    type:'choiceMeaning', ch:'弯', py:'wān', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#E05480',
+    q:`Chữ 'Cong' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">弯</b> wān có bộ Cung 弓 vì?`,
+    opts:['Cái cung là thứ thẳng nhất', 'Cái cung có hình dáng cong đặc trưng', 'Cái cung làm từ đá', 'Cái cung liên quan đến nước'],
+    ans:'Cái cung có hình dáng cong đặc trưng',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Cung 弓 là hình cánh cung cong. Chữ liên quan đến sự uốn cong đều mang bộ này — cung là thứ cong nhất!'
+  },
+  {
+    type:'choiceMeaning', ch:'裙', py:'qún', showChar:true,
+    badge:'Bộ thủ nào?', badgeColor:'#E05480',
+    q:`Chữ 'Váy' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">裙</b> qún chứa bộ thủ nào?`,
+    opts:['Bộ Mễ 米', 'Bộ Y 衤', 'Bộ Thực 饣', 'Bộ Trúc 竹'],
+    ans:'Bộ Y 衤',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Váy là trang phục nên mang bộ Y 衤. Mọi loại quần áo — váy, áo, chăn đều có bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'饿', py:'è', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#E05480',
+    q:`Chữ 'Đói' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">饿</b> è có bộ Thực 饣 vì?`,
+    opts:['Đói liên quan đến giấc ngủ', 'Đói là trạng thái thiếu thức ăn', 'Đói liên quan đến vận động', 'Đói là trạng thái thiếu nước'],
+    ans:'Đói là trạng thái thiếu thức ăn',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Thực 饣 liên quan đến ăn uống và thức ăn. Đói, no, cơm đều gắn với bộ này vì đều nói về thức ăn.'
+  },
+  {
+    type:'choiceMeaning', ch:'糖', py:'táng', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#E05480',
+    q:`Chữ 'Đường' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">糖</b> táng có bộ Mễ 米 vì?`,
+    opts:['Đường làm từ đá', 'Đường làm từ kim loại', 'Đường làm từ ngũ cốc/tinh bột', 'Đường làm từ gỗ'],
+    ans:'Đường làm từ ngũ cốc/tinh bột',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Mễ 米 xuất hiện trong chữ liên quan đến lương thực và tinh bột — đường, gạo nếp, bột đều mang bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'笔', py:'bǐ', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#E05480',
+    q:`Chữ 'Bút' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">笔</b> bǐ có bộ Trúc 竹 vì?`,
+    opts:['Bút làm từ đá', 'Bút xưa làm từ ống tre', 'Bút làm từ kim loại', 'Bút làm từ xương động vật'],
+    ans:'Bút xưa làm từ ống tre',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bút lông thời xưa có cán làm từ ống tre nên mang bộ Trúc 竹. Rổ, sọt, bút đều từng làm từ tre.'
+  },
+  {
+    type:'choiceMeaning', ch:'碗', py:'wǎn', showChar:true,
+    badge:'Bộ thủ nào?', badgeColor:'#E05480',
+    q:`Chữ 'Bát' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">碗</b> wǎn chứa bộ thủ nào?`,
+    opts:['Bộ Mộc 木', 'Bộ Kim 钅', 'Bộ Thổ 土', 'Bộ Thạch 石'],
+    ans:'Bộ Thạch 石',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bát sứ làm từ đất sét nung cứng như đá nên mang bộ Thạch 石. Gạch, bát, cối đều là vật liệu cứng như đá.'
+  },
+  {
+    type:'choiceMeaning', ch:'男', py:'nán', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#E05480',
+    q:`Chữ 'Nam' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">男</b> nán có bộ Điền 田 vì?`,
+    opts:['Đàn ông chỉ ngủ trên ruộng', 'Đàn ông = người có sức lực làm ruộng', 'Đàn ông sợ ruộng', 'Đàn ông không liên quan đến ruộng'],
+    ans:'Đàn ông = người có sức lực làm ruộng',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>男 = 田 (ruộng) + 力 (sức lực) — đàn ông là người dùng sức lao động trên ruộng đồng theo quan niệm xưa.'
+  },
+];
+
+// ── CÂU HỎI ĐẶC BIỆT CHO NHÓM 4 (HÀNH ĐỘNG & TRẠNG THÁI) ─────────
+const Q4_BANK = [
+  {
+    type:'choiceMeaning', ch:'努', py:'nǔ', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#7C5CBF',
+    q:`Chữ 'Cố gắng' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">努</b> nǔ có bộ Lực 力 vì?`,
+    opts:['Cố gắng là hành động dùng miệng', 'Cố gắng đòi hỏi sức lực, nỗ lực', 'Cố gắng là hành động dùng mắt', 'Cố gắng là hành động dùng chân'],
+    ans:'Cố gắng đòi hỏi sức lực, nỗ lực',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Lực 力 xuất hiện trong chữ liên quan đến sức mạnh và nỗ lực — cố gắng, chăm chỉ đều cần có sức lực.'
+  },
+  {
+    type:'choiceMeaning', ch:'起', py:'qǐ', showChar:true,
+    badge:'Bộ thủ nào?', badgeColor:'#7C5CBF',
+    q:`Chữ 'Dậy' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">起</b> qǐ chứa bộ thủ nào?`,
+    opts:['Bộ Lực 力', 'Bộ Ngôn 讠', 'Bộ Tẩu 走', 'Bộ Kiến 见'],
+    ans:'Bộ Tẩu 走',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Dậy là hành động di chuyển — đứng lên và bước đi nên mang bộ Tẩu 走. Đuổi theo, dậy, vượt đều có bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'说', py:'shuō', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#7C5CBF',
+    q:`Chữ 'Nói' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">说</b> shuō có bộ Ngôn 讠 vì?`,
+    opts:['Nói là hành động dùng tay', 'Nói là hành động phát ra lời/ngôn ngữ', 'Nói là hành động dùng mắt', 'Nói là hành động dùng chân'],
+    ans:'Nói là hành động phát ra lời/ngôn ngữ',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Ngôn 讠 xuất hiện trong mọi hành động ngôn ngữ — nói, hỏi, đọc, giải thích đều mang bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'观', py:'guān', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#7C5CBF',
+    q:`Chữ 'Quan sát' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">观</b> guān có bộ Kiến 见 vì?`,
+    opts:['Quan sát là hành động dùng tai', 'Quan sát là hành động nhìn/dùng mắt', 'Quan sát là hành động dùng tay', 'Quan sát là hành động dùng miệng'],
+    ans:'Quan sát là hành động nhìn/dùng mắt',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Kiến 见 là hình mắt đặt trên chân — "đi để nhìn". Quan sát, nhìn thấy, gặp gỡ đều mang bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'题', py:'tí', showChar:true,
+    badge:'Bộ thủ nào?', badgeColor:'#7C5CBF',
+    q:`Chữ 'Tiêu đề' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">题</b> tí chứa bộ thủ nào?`,
+    opts:['Bộ Ngôn 讠', 'Bộ Mục 目', 'Bộ Hiệt 页', 'Bộ Tâm 心'],
+    ans:'Bộ Hiệt 页',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Hiệt 页 là hình đầu người. Tiêu đề là phần đầu của văn bản nên mang bộ này — đầu trang, tiêu đề đều có bộ 页.'
+  },
+  {
+    type:'choiceMeaning', ch:'尖', py:'jiān', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#7C5CBF',
+    q:`Chữ 'Nhọn' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">尖</b> jiān có bộ Tiểu 小 vì?`,
+    opts:['Vật nhọn thì to bên trên nhỏ bên dưới', 'Vật nhọn thì to bên dưới nhỏ bên trên', 'Vật nhọn không liên quan đến kích thước', 'Vật nhọn luôn có màu đen'],
+    ans:'Vật nhọn thì to bên dưới nhỏ bên trên',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>尖 = 小 (nhỏ) ở trên + 大 (to) ở dưới — hình ảnh vật nhọn thu nhỏ dần về phía đỉnh. Rất trực quan!'
+  },
+  {
+    type:'choiceMeaning', ch:'床', py:'chuáng', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#7C5CBF',
+    q:`Chữ 'Giường' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">床</b> chuáng có bộ Nghiễm 广 vì?`,
+    opts:['Giường để ngoài trời', 'Giường là vật dụng trong không gian có mái che', 'Giường làm từ đất sét', 'Giường là loài động vật'],
+    ans:'Giường là vật dụng trong không gian có mái che',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Nghiễm 广 là mái nhà rộng. Giường, cửa hàng, kho đều là thứ nằm dưới mái che nên mang bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'珍', py:'zhēn', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#7C5CBF',
+    q:`Chữ 'Quý hiếm' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">珍</b> zhēn có bộ Ngọc 王(玉) vì?`,
+    opts:['Quý hiếm liên quan đến vua chúa', 'Ngọc là thứ quý giá nhất thời xưa', 'Quý hiếm liên quan đến ruộng đất', 'Quý hiếm liên quan đến vũ khí'],
+    ans:'Ngọc là thứ quý giá nhất thời xưa',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Ngọc 玉 (viết thành 王 khi đứng bên trái) là hình ngọc quý. Quý hiếm, đồ trang sức, châu báu đều mang bộ này.'
+  },
+  {
+    type:'choiceMeaning', ch:'室', py:'shì', showChar:true,
+    badge:'Bộ thủ nào?', badgeColor:'#7C5CBF',
+    q:`Chữ 'Phòng' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">室</b> shì chứa bộ thủ nào?`,
+    opts:['Bộ Nghiễm 广', 'Bộ Môn 门', 'Bộ Miên 宀', 'Bộ Thổ 土'],
+    ans:'Bộ Miên 宀',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Phòng là không gian trong nhà có mái kín nên mang bộ Miên 宀. Khác với 广 (mái hở), 宀 là nơi ở kín bốn phía.'
+  },
+  {
+    type:'choiceMeaning', ch:'收', py:'shōu', showChar:true,
+    badge:'Vì sao có bộ này?', badgeColor:'#7C5CBF',
+    q:`Chữ 'Thu lại' <b style="font-family:'Noto Serif SC',serif;font-size:1.1em">收</b> shōu có bộ Phộc 攵 vì?`,
+    opts:['Thu lại là đứng im không làm gì', 'Thu lại là hành động tác động/điều khiển vật gì đó', 'Thu lại là hành động dùng miệng', 'Thu lại là hành động dùng chân'],
+    ans:'Thu lại là hành động tác động/điều khiển vật gì đó',
+    explain:'<span style="color:#059669;font-weight:800">✓ Đúng rồi!</span><br>Bộ Phộc 攵 là hình tay cầm gậy tác động. Thu, thả, dạy, đánh — đều là hành động chủ động tác động lên thứ khác.'
+  },
+];
+
+function buildQuestions(gi){
+  if(gi === 0) return shuffle([...Q0_BANK]);
+  if(gi === 1) return shuffle([...Q1_BANK]);
+  if(gi === 2) return shuffle([...Q2_BANK]);
+  if(gi === 3) return shuffle([...Q3_BANK]);
+  if(gi === 4) return shuffle([...Q4_BANK]);
+  const rads = GROUPS[gi].radicals;
+  const shuffled = shuffle(rads);
+  const questions = [];
+  shuffled.forEach((r, i) => {
+    const roll = Math.random();
+    if(i % 5 === 4){
+      questions.push(buildQ_matchPair(rads));
+    } else if(roll < 0.34){
+      questions.push(buildQ_choiceMeaning(r, rads));
+    } else if(roll < 0.67){
+      questions.push(buildQ_choiceChar(r, rads));
+    } else {
+      questions.push(buildQ_whyRadical(r, rads));
+    }
+  });
+  return questions;
+}
+
+function startQuiz(gi){
+  const questions = buildQuestions(gi);
+  qState[gi] = {questions, current:0, score:0, answers:[], wrongs:[]};
+  document.getElementById('learn-'+gi).style.display='none';
+  document.getElementById('quiz-'+gi).classList.add('active');
+  document.getElementById('score-'+gi).style.display='none';
+  renderQuestion(gi);
+}
+
+function renderQuestion(gi){
+  const st = qState[gi];
+  if(!st) return;
+  const {questions, current} = st;
+  if(current >= questions.length){ showScore(gi); return; }
+  const q = questions[current];
+  const pct = Math.round(current/questions.length*100);
+  document.getElementById('qprog-'+gi).style.width=pct+'%';
+  document.getElementById('qprog-lbl-'+gi).textContent=current+' / '+questions.length;
+
+  const wrap = document.getElementById('qcard-'+gi);
+  wrap.innerHTML='';
+  const card = document.createElement('div');
+  card.className='quiz-card';
+  card.style.setProperty('--card-border2', GROUPS[gi].colorBorder);
+
+  // Badge dạng câu hỏi
+  const badgeHtml = `<div class="qtype-badge" style="background:${q.badgeColor}22;color:${q.badgeColor}">${q.badge}</div>`;
+
+  // Chữ to (nếu cần)
+  const charHtml = (q.showChar && q.ch)
+    ? `<div class="quiz-char-big" style="--q-color:${GROUPS[gi].qColor}">${q.ch}</div>`
+    : '';
+
+  card.innerHTML = `
+    <div class="quiz-q-num">Câu ${current+1} / ${questions.length}</div>
+    ${badgeHtml}
+    ${charHtml}
+    <div class="quiz-question">${q.q}</div>
+    <div id="qbody-${gi}"></div>
+    <div class="quiz-explain" id="qexplain-${gi}">
+      <div class="explain-title">💡 Giải thích</div>
+      <div id="qexplain-text-${gi}"></div>
+    </div>
+    <button class="next-btn" id="qnext-${gi}" onclick="nextQuestion(${gi})">Câu tiếp theo →</button>`;
+  wrap.appendChild(card);
+
+  // Render body theo dạng
+  if(q.type==='choiceMeaning' || q.type==='choiceChar' || q.type==='choiceWhy'){
+    renderChoiceQ(gi, q);
+  } else if(q.type==='matchPair'){
+    renderMatchQ(gi, q);
+  } else if(q.type==='fillPinyin'){
+    renderFillQ(gi, q);
+  }
+}
+
+function renderChoiceQ(gi, q){
+  const body = document.getElementById('qbody-'+gi);
+  const optsEl = document.createElement('div');
+  optsEl.className='quiz-opts';
+  q.opts.forEach((o,j)=>{
+    const el=document.createElement('div');
+    el.className='quiz-opt';
+    el.innerHTML=`<span class="quiz-opt-lbl">${['A','B','C','D'][j]}</span>${o}`;
+    el.onclick=()=>answerChoice(gi,o,j,q,optsEl);
+    optsEl.appendChild(el);
+  });
+  body.appendChild(optsEl);
+}
+
+function answerChoice(gi, chosen, idx, q, optsEl){
+  const st=qState[gi];
+  const ok = chosen===q.ans;
+  optsEl.querySelectorAll('.quiz-opt').forEach((el,k)=>{
+    el.onclick=null;
+    const optText = el.childNodes[1]?.textContent?.trim() || el.textContent.trim().slice(1);
+    if(optText===q.ans) el.className='quiz-opt ok';
+    else if(k===idx && !ok) el.className='quiz-opt no';
+    else el.className='quiz-opt';
+  });
+  if(ok){ st.score++; showFeedbackInline(gi,'ok','🎉 Chính xác!', q.explain); }
+  else { st.wrongs.push(q); showFeedbackInline(gi,'no','❌ Chưa đúng rồi!', q.explain); }
+  st.current++;
+  document.getElementById('qnext-'+gi).classList.add('show');
+}
+
+function renderMatchQ(gi, q){
+  const body = document.getElementById('qbody-'+gi);
+  const state = {selLeft:null, matched:new Set(), total:q.items.length, wrong:false};
+  const rights = shuffle(q.items.map(x=>x.meaning));
+
+  const grid = document.createElement('div'); grid.className='match-cols';
+  const leftCol = document.createElement('div'); leftCol.className='match-col';
+  const rightCol = document.createElement('div'); rightCol.className='match-col';
+
+  q.items.forEach((it,i)=>{
+    const el=document.createElement('div'); el.className='match-item'; el.dataset.idx=i;
+    el.innerHTML=`<span class="match-char">${it.ch}</span><span class="match-py">${it.py}</span>`;
+    el.onclick=()=>{
+      if(el.classList.contains('matched-ok')) return;
+      leftCol.querySelectorAll('.match-item').forEach(x=>x.classList.remove('sel-left'));
+      state.selLeft=i; el.classList.add('sel-left');
+    };
+    leftCol.appendChild(el);
+  });
+  rights.forEach((m,i)=>{
+    const el=document.createElement('div'); el.className='match-item'; el.dataset.meaning=m;
+    el.textContent=m;
+    el.onclick=()=>{
+      if(state.selLeft===null||el.classList.contains('matched-ok')) return;
+      const leftEl=leftCol.children[state.selLeft];
+      const correctMeaning=q.items[state.selLeft].meaning;
+      if(m===correctMeaning){
+        leftEl.classList.remove('sel-left'); leftEl.classList.add('matched-ok');
+        el.classList.add('matched-ok'); state.matched.add(state.selLeft); state.selLeft=null;
+        if(state.matched.size===state.total){
+          if(!state.wrong) qState[gi].score++;
+          showFeedbackInline(gi,'ok','🎉 Nối đúng tất cả!',`💡 ${q.explain}`);
+          qState[gi].current++;
+          document.getElementById('qnext-'+gi).classList.add('show');
+        }
+      } else {
+        state.wrong=true;
+        leftEl.classList.remove('sel-left'); leftEl.classList.add('matched-no');
+        el.classList.add('matched-no');
+        setTimeout(()=>{leftEl.classList.remove('matched-no');el.classList.remove('matched-no');},600);
+        state.selLeft=null;
+      }
+    };
+    rightCol.appendChild(el);
+  });
+  grid.appendChild(leftCol); grid.appendChild(rightCol); body.appendChild(grid);
+}
+
+function renderFillQ(gi, q){
+  const body=document.getElementById('qbody-'+gi);
+  body.innerHTML=`
+    <div class="fill-wrap">
+      <input class="fill-input" id="fillinp-${gi}" placeholder="Nhập bính âm (không cần dấu thanh)..." autocomplete="off">
+      <div class="fill-hint">Ví dụ: nếu đọc là "xīn" thì gõ "xin"</div>
+    </div>
+    <button class="check-btn" id="fillcheck-${gi}">Kiểm tra ✓</button>`;
+  const inp=document.getElementById('fillinp-'+gi);
+  const checkBtn=document.getElementById('fillcheck-'+gi);
+  const doCheck=()=>{
+    const val=inp.value.trim().toLowerCase().replace(/\s/g,'');
+    if(!val) return;
+    inp.disabled=true; checkBtn.disabled=true;
+    const ok=val===q.ans||val===q.ansFull.toLowerCase();
+    inp.className='fill-input '+(ok?'ok':'no');
+    if(ok){ qState[gi].score++; showFeedbackInline(gi,'ok','🎉 Chính xác!',q.explain); }
+    else { qState[gi].wrongs.push(q); showFeedbackInline(gi,'no',`❌ Chưa đúng! Đáp án: <b>${q.ansFull}</b>`,q.explain); }
+    qState[gi].current++;
+    document.getElementById('qnext-'+gi).classList.add('show');
+  };
+  checkBtn.onclick=doCheck;
+  inp.onkeydown=e=>{if(e.key==='Enter') doCheck();};
+}
+
+function showFeedbackInline(gi, type, msg, explain){
+  // Hiển thị giải thích (luôn hiện dù đúng hay sai)
+  const expBox=document.getElementById('qexplain-'+gi);
+  const expText=document.getElementById('qexplain-text-'+gi);
+  if(expBox && expText){
+    expText.innerHTML=(type==='ok'?'<span style="color:#059669;font-weight:800">🎉 Chính xác!</span><br>':'<span style="color:#DC2626;font-weight:800">❌ Chưa đúng!</span><br>')+explain;
+    expBox.classList.add('show');
+  }
+}
+
+function nextQuestion(gi){
+  renderQuestion(gi);
+}
+
+function showScore(gi){
+  const st=qState[gi];
+  const tot=st.questions.length;
+  const ok=st.score;
+  const pct=Math.round(ok/tot*100);
+  document.getElementById('qprog-'+gi).style.width='100%';
+  document.getElementById('qprog-lbl-'+gi).textContent=tot+' / '+tot;
+  document.getElementById('qcard-'+gi).innerHTML='';
+  const sc=document.getElementById('score-'+gi);
+  sc.style.display='block';
+  document.getElementById('sring-'+gi).textContent=ok+'/'+tot;
+  document.getElementById('stitle-'+gi).textContent=pct>=80?'🎊 Xuất sắc!':pct>=60?'👍 Khá giỏi!':'💪 Cố lên nào!';
+  document.getElementById('ssub-'+gi).textContent='Điểm: '+pct+'% — Đúng '+ok+'/'+tot+' câu';
+  const wrongEl=document.getElementById('swrong-'+gi);
+  wrongEl.innerHTML='';
+  if(st.wrongs.length>0){
+    const title=document.createElement('div');
+    title.style.cssText='font-size:13px;font-weight:800;color:var(--text2);margin-bottom:8px';
+    title.textContent='📌 Ôn lại các bộ thủ chưa thuộc:';
+    wrongEl.appendChild(title);
+    const seen=new Set();
+    st.wrongs.forEach(w=>{
+      if(!w.ch||seen.has(w.ch)) return; seen.add(w.ch);
+      const r=GROUPS[gi].radicals.find(x=>x.ch===w.ch);
+      if(!r) return;
+      const el=document.createElement('div'); el.className='wrong-item';
+      el.innerHTML=`<span class="wi-char">${r.ch}</span><b>${r.name}</b> (${r.py}) — ${r.meaning}<br><span style="font-size:11px;color:#6B7280">${r.why}</span>`;
+      wrongEl.appendChild(el);
+    });
+  }
+}
+
+function retryQuiz(gi){
+  document.getElementById('score-'+gi).style.display='none';
+  startQuiz(gi);
+}
+
+function backToLearn(gi){
+  document.getElementById('quiz-'+gi).classList.remove('active');
+  document.getElementById('learn-'+gi).style.display='';
+  document.getElementById('score-'+gi).style.display='none';
+  document.getElementById('qcard-'+gi).innerHTML='';
+}
+
+// ── TAB SWITCH ───────────────────────────────────────
+function switchTab(idx, btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+idx).classList.add('active');
+  btn.classList.add('active');
+  btn.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+
+// ── INIT ─────────────────────────────────────────────
+for(let i=0;i<5;i++) buildCards(i);
+</script>
+</body>
+</html>
