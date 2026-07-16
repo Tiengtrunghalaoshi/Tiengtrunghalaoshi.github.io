@@ -6,7 +6,7 @@
 <title>Tiếng Trung Halaoshi — Học & Luyện HSK 3.0</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Ma+Shan+Zheng&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --green-deep:#1b5e3a;
@@ -19,6 +19,9 @@
     --paper-dark:#eef6f0;
     --ink:#20291f;
     --ink-soft:#5c6b5e;
+    --pink:#e8856a;
+    --pink-light:#fde8e1;
+    --pink-dark:#c0614a;
   }
   *{box-sizing:border-box;}
   body{
@@ -33,96 +36,360 @@
   }
   .wrap{max-width:1100px;margin:0 auto;padding:0 18px 60px;}
 
-  header.top{
-    text-align:center;
-    padding:26px 10px 20px;
-    margin-bottom:6px;
+  /* ═══════════════════════════════════════
+     NAVBAR CỐ ĐỊNH (Trang chủ / Giáo trình / Tài liệu / Liên hệ / Đăng nhập)
+  ═══════════════════════════════════════ */
+  .navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(251,253,249,0.94);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    box-shadow:0 2px 18px rgba(20,40,25,.08);
+    padding:0 26px;
+    height:64px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
   }
-  header.top .mascot-slot{
-    width:72px;height:72px;
-    margin:0 auto 8px;
-    border-radius:50%;
-    background:var(--paper-dark);
-    border:2px solid var(--gold);
-    display:flex;align-items:center;justify-content:center;
-    font-size:34px;
-  }
-  header.top .eyebrow{
-    font-family:'Noto Serif SC', serif;
-    letter-spacing:4px;
-    font-size:13px;
+  .nav-logo{
+    display:flex;align-items:center;gap:8px;
+    text-decoration:none;
+    font-family:'Quicksand', sans-serif;
+    font-size:16px;font-weight:700;
     color:var(--green-deep);
-    text-transform:uppercase;
+    letter-spacing:.03em;
+    white-space:nowrap;
+    cursor:pointer;
   }
-  header.top h1{
-    font-family:'Ma Shan Zheng', cursive;
-    font-size:44px;
-    color:var(--green-deep);
-    margin:6px 0 4px;
-    font-weight:400;
+  .nav-logo .leaf{font-size:19px;}
+  .nav-links{
+    display:flex;align-items:center;gap:4px;
+    list-style:none;margin:0;padding:0;
   }
-  header.top p{
-    margin:0;
+  .nav-links a{
+    display:inline-flex;align-items:center;gap:5px;
+    text-decoration:none;
+    font-family:'Quicksand', sans-serif;
+    font-size:14px;font-weight:600;
     color:var(--ink-soft);
-    font-size:15px;
-    font-style:italic;
+    padding:8px 16px;
+    border-radius:50px;
+    transition:all .2s ease;
+    white-space:nowrap;
+    cursor:pointer;
+  }
+  .nav-links a:hover{color:var(--green-deep); background:var(--green-pale);}
+  .nav-links a.active{color:var(--green-deep); background:var(--green-light); font-weight:700;}
+  .nav-links a.nav-cta{
+    background:linear-gradient(135deg, var(--green-deep), var(--green));
+    color:#fff;
+    padding:9px 20px;
+    font-weight:700;
+    box-shadow:0 3px 12px rgba(27,94,58,.28);
+  }
+  .nav-links a.nav-cta:hover{
+    transform:translateY(-1px);
+    box-shadow:0 6px 18px rgba(27,94,58,.35);
+    color:#fff;
+  }
+  .hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+    padding:6px;
+    border:none;
+    background:none;
+  }
+  .hamburger span{
+    display:block;width:22px;height:2.5px;
+    background:var(--green-deep);
+    border-radius:2px;
+    transition:all .3s ease;
+  }
+  .nav-mobile{
+    display:none;
+    position:sticky;
+    top:64px;
+    background:rgba(251,253,249,0.98);
+    backdrop-filter:blur(12px);
+    padding:14px 22px 20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.10);
+    z-index:999;
+    flex-direction:column;
+    gap:4px;
+  }
+  .nav-mobile.open{display:flex;}
+  .nav-mobile a{
+    text-decoration:none;
+    font-family:'Quicksand', sans-serif;
+    font-size:14.5px;font-weight:600;
+    color:var(--ink-soft);
+    padding:11px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:all .2s;
+  }
+  .nav-mobile a:hover, .nav-mobile a.active{color:var(--green-deep); background:var(--green-pale);}
+  .nav-mobile a.nav-cta{
+    background:linear-gradient(135deg, var(--green-deep), var(--green));
+    color:#fff;
+    text-align:center;
+    margin-top:4px;
+  }
+  @media(max-width:760px){
+    .nav-links{display:none;}
+    .hamburger{display:flex;}
   }
 
-  .student-bar{
+  .hero.hero-hidden{display:none;}
+
+  /* ═══════════════════════════════════════
+     TAB NGANG HSK (thoáng, nhẹ nhàng)
+  ═══════════════════════════════════════ */
+  .hsk-tabs{
     display:flex;
-    justify-content:flex-end;
-    align-items:center;
-    gap:10px;
-    margin:0 0 10px;
-    font-size:13px;
-    color:var(--ink-soft);
+    flex-wrap:wrap;
+    gap:8px;
+    justify-content:center;
+    margin:22px 0 26px;
   }
-  .student-bar button{
-    font-family:'Noto Serif', serif;
-    font-size:12px;
-    padding:5px 10px;
-    border-radius:6px;
-    border:1px solid var(--gold);
+  .hsk-tab{
+    font-family:'Quicksand', sans-serif;
+    font-size:14px;
+    font-weight:700;
+    padding:10px 22px;
+    border-radius:50px;
+    border:1px solid var(--gold-light);
     background:var(--paper);
     color:var(--green-deep);
     cursor:pointer;
+    transition:all .18s ease;
+  }
+  .hsk-tab:hover{background:var(--green-pale); border-color:var(--gold);}
+  .hsk-tab.active{
+    background:linear-gradient(135deg, var(--green-deep), var(--green));
+    color:#fff;
+    border-color:var(--green-deep);
+    box-shadow:0 4px 14px rgba(27,94,58,.28);
   }
 
-  .main-nav{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
-    justify-content:center;
-    margin-bottom:24px;
-    padding:10px;
-    background:var(--green-deep);
-    border-radius:12px;
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:52px 20px 60px;
+    margin-bottom:6px;
+    border-radius:0 0 26px 26px;
+    isolation:isolate;
   }
-  .nav-btn{
-    font-family:'Noto Serif SC', serif;
-    font-size:14px;
-    font-weight:600;
-    padding:9px 16px;
-    border-radius:8px;
-    border:none;
-    background:transparent;
-    color:var(--paper);
-    cursor:pointer;
-    transition:all .15s ease;
-    opacity:0.85;
+  /*
+   * ── ẢNH NỀN HEADER ──────────────────────────────────────────────
+   * Thay URL bên dưới bằng ảnh nền phong cảnh / lớp học của cô.
+   * Ví dụ: background-image:url('images/header-bg.jpg');
+   * ─────────────────────────────────────────────────────────────── */
+  .hero .top-bg{
+    position:absolute;
+    inset:0;
+    z-index:-2;
+    background-image:url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    filter:brightness(.78) saturate(.75);
   }
-  .nav-btn:hover{background:rgba(255,255,255,0.12); opacity:1;}
-  .nav-btn.active{
-    background:var(--gold);
+  .hero .top-bg::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg, rgba(27,94,58,.22) 0%, rgba(46,139,87,.12) 50%, rgba(212,164,55,.15) 100%);
+  }
+  .hero .top-blob{
+    position:absolute;
+    z-index:-1;
+    border-radius:50%;
+    filter:blur(55px);
+    opacity:.35;
+    pointer-events:none;
+  }
+  .hero .blob-1{width:260px;height:260px;background:var(--gold-light);top:-70px;right:6%;animation:topFloat 8s ease-in-out infinite;}
+  .hero .blob-2{width:200px;height:200px;background:var(--green-light);bottom:-50px;left:5%;animation:topFloat 10s ease-in-out infinite reverse;}
+  @keyframes topFloat{
+    0%,100%{transform:translateY(0) scale(1);}
+    50%{transform:translateY(-22px) scale(1.05);}
+  }
+
+  .hero .top-inner{
+    position:relative;
+    z-index:1;
+    max-width:920px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    gap:32px;
+  }
+
+  .hero .top-card{
+    background:rgba(251,253,249,0.92);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.5);
+    border-radius:22px;
+    padding:30px 34px;
+    max-width:560px;
+    box-shadow:0 18px 46px rgba(0,0,0,.18);
+    text-align:left;
+    animation:topCardIn .7s cubic-bezier(.34,1.4,.64,1) both;
+  }
+  .hero .hero-tag{
+    display:inline-block;
+    font-family:'Quicksand', sans-serif;
+    background:var(--pink-light);
+    color:var(--pink-dark);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    padding:6px 16px;
+    border-radius:50px;
+    margin-bottom:14px;
+  }
+  .hero .hero-heading{
+    font-family:'Quicksand', sans-serif;
+    font-size:clamp(22px, 3vw, 29px);
+    font-weight:700;
     color:var(--green-deep);
-    opacity:1;
+    line-height:1.35;
+    margin:0 0 10px;
   }
-  .nav-btn.login-btn{
-    margin-left:auto;
-    border:1px solid var(--gold-light);
+  .hero .hero-heading em{
+    font-style:normal;
+    color:var(--green);
+    position:relative;
   }
+  .hero .hero-heading em::after{
+    content:'';
+    position:absolute;
+    left:0;right:0;bottom:-2px;
+    height:3px;
+    background:var(--green-light);
+    border-radius:2px;
+  }
+  .hero .hero-slogan{
+    font-family:'Quicksand', sans-serif;
+    font-size:14px;
+    font-weight:700;
+    color:var(--pink-dark);
+    letter-spacing:.02em;
+    margin:0 0 14px;
+  }
+  .hero .hero-slogan .dot{color:var(--green-light); margin:0 6px;}
+  .hero .hero-desc{
+    font-family:'Noto Serif', serif;
+    font-size:14.5px;
+    color:var(--ink-soft);
+    line-height:1.7;
+    margin:0 0 18px;
+  }
+  .hero .hero-divider{
+    border:none;
+    border-top:1px solid var(--gold-light);
+    margin:0 0 20px;
+  }
+  .hero .hero-btns{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+  .hero .btn-lesson{
+    display:flex;align-items:center;gap:8px;
+    font-family:'Quicksand', sans-serif;
+    font-size:13.5px;font-weight:700;
+    padding:12px 14px;
+    border-radius:14px;
+    border:1.5px solid transparent;
+    text-decoration:none;
+    cursor:pointer;
+    transition:all .2s ease;
+  }
+  .hero .btn-emoji{font-size:16px;}
+  .hero .btn-green{background:linear-gradient(135deg, var(--green-deep), var(--green)); color:#fff; box-shadow:0 4px 14px rgba(27,94,58,.28);}
+  .hero .btn-green:hover{box-shadow:0 8px 22px rgba(27,94,58,.35);}
+  .hero .btn-pink{background:linear-gradient(135deg, var(--pink), var(--pink-dark)); color:#fff; box-shadow:0 4px 14px rgba(232,133,106,.30);}
+  .hero .btn-pink:hover{box-shadow:0 8px 22px rgba(232,133,106,.38);}
+  .hero .btn-outline-gray{background:#fff; color:var(--ink-soft); border-color:#e2ded2;}
+  .hero .btn-outline-gray:hover{background:var(--green-pale); border-color:var(--green-light); color:var(--green-deep);}
+  .hero .btn-outline-green{background:var(--green-pale); color:var(--green-deep); border-color:var(--green-light);}
+  .hero .btn-outline-green:hover{background:var(--green-light); border-color:var(--green);}
+
+  @media(max-width:480px){
+    .hero .hero-btns{grid-template-columns:1fr;}
+  }
+  @keyframes topCardIn{
+    from{opacity:0; transform:translateY(24px) scale(.97);}
+    to{opacity:1; transform:translateY(0) scale(1);}
+  }
+
+  .hero .avatar-wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+    animation:avatarIn .8s .2s cubic-bezier(.34,1.4,.64,1) both;
+  }
+  @keyframes avatarIn{
+    from{opacity:0; transform:translateX(24px) scale(.95);}
+    to{opacity:1; transform:translateX(0) scale(1);}
+  }
+  .hero .avatar-ring{
+    width:220px;height:220px;
+    border-radius:50%;
+    padding:8px;
+    background:rgba(255,255,255,0.9);
+    box-shadow:0 0 0 4px var(--gold), 0 16px 40px rgba(0,0,0,.25);
+    position:relative;
+  }
+  .hero .avatar-ring::before{
+    content:'';
+    position:absolute;
+    inset:-7px;
+    border-radius:50%;
+    border:2px dashed rgba(255,255,255,.6);
+    animation:spinRing 18s linear infinite;
+  }
+  @keyframes spinRing{ to{ transform:rotate(360deg); } }
+  .hero .avatar-img{
+    width:100%;height:100%;
+    border-radius:50%;
+    object-fit:cover;
+    display:block;
+    background:var(--paper-dark);
+  }
+  .hero .avatar-badge{
+    background:rgba(255,255,255,.95);
+    border-radius:14px;
+    padding:8px 16px;
+    font-size:12.5px;
+    font-weight:700;
+    font-family:'Noto Serif SC', serif;
+    color:var(--green-deep);
+    box-shadow:0 4px 16px rgba(0,0,0,.14);
+    text-align:center;
+    white-space:nowrap;
+  }
+  .hero .avatar-badge span{color:var(--gold);}
+
   @media(max-width:700px){
-    .nav-btn.login-btn{margin-left:0;}
+    .hero .top-inner{
+      grid-template-columns:1fr;
+      justify-items:center;
+      text-align:center;
+    }
+    .hero .avatar-wrap{order:-1;}
+    .hero .top-card{text-align:center;}
+    .hero .avatar-ring{width:150px;height:150px;}
   }
 
   .panel{
@@ -373,24 +640,63 @@
   }
 
   @media(max-width:600px){
-    header.top h1{font-size:32px;}
     .panel{padding:18px 14px;}
   }
 </style>
 </head>
 <body>
+
+<header class="navbar">
+  <a class="nav-logo" data-goto="home"><span class="leaf">🌿</span> TIẾNG TRUNG HALAOSHI</a>
+  <ul class="nav-links" id="navLinks"></ul>
+  <button class="hamburger" id="hamburger" aria-label="Mở menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="nav-mobile" id="navMobile"></div>
+
+<section class="hero" id="heroSection">
+    <div class="top-bg"></div>
+    <div class="top-blob blob-1"></div>
+    <div class="top-blob blob-2"></div>
+
+    <div class="top-inner">
+      <div class="top-card">
+        <div class="hero-tag">CHÀO BẠN, MÌNH LÀ HALAOSHI! ✨</div>
+        <h1 class="hero-heading">Tiếng Trung Không Khó,<br>Nếu Khó Có <em>Halaoshi</em> Lo</h1>
+        <p class="hero-slogan">Học Theo Giáo Trình Chuẩn<span class="dot">•</span>Luyện Tập Ngay Trên Web</p>
+        <p class="hero-desc">Halaoshi đồng hành cùng bạn chinh phục tiếng Trung theo giáo trình chuẩn HSK 3.0 —
+          từ những nét chữ đầu tiên đến khi tự tin nghe, nói, đọc, viết ở trình độ cao cấp.</p>
+        <hr class="hero-divider">
+        <div class="hero-btns">
+          <a data-goto="phatam" class="btn-lesson btn-green"><span class="btn-emoji">🔊</span> Phát âm</a>
+          <a data-goto="bothu" class="btn-lesson btn-pink"><span class="btn-emoji">部</span> Bộ thủ</a>
+          <a data-goto="giaotrinh" class="btn-lesson btn-outline-gray"><span class="btn-emoji">📚</span> Xem giáo trình</a>
+          <a data-goto="lienhe" class="btn-lesson btn-outline-green"><span class="btn-emoji">❤️</span> Liên hệ tư vấn</a>
+        </div>
+      </div>
+
+      <div class="avatar-wrap">
+        <!--
+          ── ẢNH ĐẠI DIỆN GIÁO VIÊN ─────────────────────────────────
+          Thay URL trong src bên dưới bằng link ảnh của cô Halaoshi.
+          Ví dụ: src="images/halaoshi-avatar.jpg"
+          ───────────────────────────────────────────────────────── -->
+        <div class="avatar-ring">
+          <img
+            src="https://placehold.co/220x220/d4ede0/2e6f40?text=Ảnh+Halaoshi&font=lato"
+            alt="Ảnh giáo viên Halaoshi"
+            class="avatar-img"
+          >
+        </div>
+        <div class="avatar-badge">👩‍🏫 Halaoshi — <span>Giáo viên Tiếng Trung</span></div>
+      </div>
+    </div>
+</section>
+
 <div class="wrap">
 
-  <header class="top">
-    <div class="mascot-slot">🐼</div>
-    <div class="eyebrow">Tiếng Trung Halaoshi</div>
-    <h1>學中文</h1>
-    <p>Học & luyện tập theo giáo trình chuẩn HSK 3.0 — Từ HSK1 đến HSK6</p>
-  </header>
-
-  <div class="student-bar" id="studentBar"></div>
-
-  <nav class="main-nav" id="mainNav"></nav>
+  <nav class="hsk-tabs" id="hskTabs"></nav>
 
   <main class="panel" id="panel"></main>
 
@@ -400,22 +706,42 @@
 <script src="assets/submit-helper.js"></script>
 <script>
 /**
- * ============================================================
- * CẤU HÌNH CÁC MỤC ĐIỀU HƯỚNG CHÍNH (thanh nav trên cùng)
- * ============================================================
+ * Bảo vệ an toàn: nếu chưa có/chưa load được file assets/submit-helper.js,
+ * dùng bản thay thế tạm để trang không bị trắng/lỗi.
  */
-const navSections = [
-  { id: 'home',    label: 'Trang chủ' },
-  { id: 'HSK1',    label: 'HSK 1' },
-  { id: 'HSK2',    label: 'HSK 2' },
-  { id: 'HSK3',    label: 'HSK 3' },
-  { id: 'HSK4',    label: 'HSK 4' },
-  { id: 'HSK5',    label: 'HSK 5' },
-  { id: 'HSK6',    label: 'HSK 6' },
-  { id: 'giaotrinh', label: 'Giáo trình' },
-  { id: 'tailieu',   label: 'Tài liệu' },
-  { id: 'lienhe',    label: 'Liên hệ' },
-  { id: 'login',     label: 'Đăng nhập', isLogin: true }
+if (typeof HalaoshiNopBai === 'undefined'){
+  window.HalaoshiNopBai = {
+    getHocSinhInfo: function(){ return null; },
+    doiThongTinHocSinh: async function(){
+      alert('Chưa tải được file assets/submit-helper.js — kiểm tra lại đường dẫn file này.');
+    }
+  };
+}
+
+/**
+ * ============================================================
+ * CẤU HÌNH ĐIỀU HƯỚNG
+ * ============================================================
+ * topNavSections: các mục trên navbar cố định (Trang chủ / Giáo trình / Tài liệu / Liên hệ / Đăng nhập)
+ * hskTabSections: tab ngang riêng để chọn nhanh cấp độ HSK
+ */
+const topNavSections = [
+  { id: 'home',      label: 'Trang chủ', icon: '🏠' },
+  { id: 'phatam',    label: 'Phát âm', icon: '🔊' },
+  { id: 'bothu',     label: 'Bộ thủ', icon: '部' },
+  { id: 'giaotrinh', label: 'Giáo trình', icon: '📚' },
+  { id: 'tailieu',   label: 'Tài liệu', icon: '🎧' },
+  { id: 'lienhe',    label: 'Liên hệ', icon: '📬' },
+  { id: 'login',     label: 'Đăng nhập', icon: '👤', isLogin: true }
+];
+
+const hskTabSections = [
+  { id: 'HSK1', label: 'HSK 1' },
+  { id: 'HSK2', label: 'HSK 2' },
+  { id: 'HSK3', label: 'HSK 3' },
+  { id: 'HSK4', label: 'HSK 4' },
+  { id: 'HSK5', label: 'HSK 5' },
+  { id: 'HSK6', label: 'HSK 6' }
 ];
 
 /**
@@ -446,10 +772,24 @@ const soBaiTheoCap = {
 
 const fileBaiHoc = {
   HSK1: {
-    // 1: 'hsk1/bai-01.html',
+    1: 'hsk1/HSK1_Bai01.html',
+    2: 'hsk1/HSK1_Bai02.html',
+    3: 'hsk1/HSK1_Bai03.html',
+    4: 'hsk1/HSK1_Bai04.html',
+    5: 'hsk1/HSK1_Bai05.html',
+    6: 'hsk1/HSK1_Bai06.html',
+    7: 'hsk1/HSK1_Bai07.html',
+    8: 'hsk1/HSK1_Bai08.html',
+    9: 'hsk1/HSK1_Bai09.html',
+    10: 'hsk1/HSK1_Bai10.html',
+    11: 'hsk1/HSK1_Bai11.html',
+    12: 'hsk1/HSK1_Bai12.html',
+    13: 'hsk1/HSK1_Bai13.html',
+    14: 'hsk1/HSK1_Bai14.html',
+    15: 'hsk1/HSK1_Bai15.html',
   },
   HSK2: {
-    // 1: 'hsk2/bai-01.html',
+    1: 'hsk2/HSK2_Bai01.html',
   },
   HSK3: {},
   HSK4: {},
@@ -523,30 +863,104 @@ const taiLieuData = [
 
 /**
  * ============================================================
+ * PHÁT ÂM — điền file/link công cụ luyện phát âm khi có
+ * ============================================================
+ * Ví dụ: phatAmData.file = 'phat-am/luyen-phat-am.html';
+ * ============================================================
+ */
+const phatAmData = {
+  file: null,
+  mota: 'Luyện phát âm, thanh điệu tiếng Trung.'
+};
+
+/**
+ * ============================================================
+ * BỘ THỦ — điền file/link công cụ luyện bộ thủ khi có
+ * ============================================================
+ * Ví dụ: boThuData.file = 'tai-lieu/bo-50-bo-thu.html';
+ * ============================================================
+ */
+const boThuData = {
+  file: null,
+  mota: 'Luyện tập 50 bộ thủ chữ Hán thường gặp.'
+};
+
+/**
+ * ============================================================
  * THÔNG TIN LIÊN HỆ — cô tự điền lại thông tin thật vào đây
  * ============================================================
  */
 const lienHeData = {
   zaloSdt: '0989 326 592',
-  email: '',   // ví dụ: 'tiengtrunghalaoshi@gmail.com' — cô điền khi có
+  email: 'Tiengtrunghalaoshi@gmail.com',
   facebook: 'https://facebook.com/tiengtrunghalaoshi',
   tiktok: 'https://tiktok.com/@tiengtrunghalaoshi'
 };
 
-const mainNavEl = document.getElementById('mainNav');
+const navLinksEl = document.getElementById('navLinks');
+const navMobileEl = document.getElementById('navMobile');
+const hskTabsEl = document.getElementById('hskTabs');
+const heroEl = document.getElementById('heroSection');
 const panelEl = document.getElementById('panel');
-const studentBarEl = document.getElementById('studentBar');
+const hamburgerEl = document.getElementById('hamburger');
 let activeSection = 'home';
 
-function renderMainNav(){
-  mainNavEl.innerHTML = '';
-  navSections.forEach(sec => {
-    const btn = document.createElement('button');
-    btn.className = 'nav-btn' + (sec.id === activeSection ? ' active' : '') + (sec.isLogin ? ' login-btn' : '');
-    btn.textContent = sec.label;
-    btn.onclick = () => { activeSection = sec.id; renderMainNav(); renderPanel(); };
-    mainNavEl.appendChild(btn);
+function navLinkHtml(sec, forMobile){
+  let label = sec.label;
+  if (sec.isLogin){
+    const info = HalaoshiNopBai.getHocSinhInfo();
+    if (info && info.hoTen) label = info.hoTen;
+  }
+  const cls = (sec.id === activeSection ? ' active' : '') + (sec.isLogin ? ' nav-cta' : '');
+  const icon = forMobile ? sec.icon + ' ' : '';
+  return '<a data-goto="' + sec.id + '" class="' + cls.trim() + '">' + icon + label + '</a>';
+}
+
+function attachNavHandlers(container){
+  container.querySelectorAll('[data-goto]').forEach(a => {
+    a.onclick = (e) => {
+      e.preventDefault();
+      activeSection = a.getAttribute('data-goto');
+      closeMobileMenu();
+      renderAll();
+    };
   });
+}
+
+function renderTopNav(){
+  navLinksEl.innerHTML = topNavSections.map(sec => navLinkHtml(sec, false)).join('');
+  navMobileEl.innerHTML = topNavSections.map(sec => navLinkHtml(sec, true)).join('');
+  attachNavHandlers(navLinksEl);
+  attachNavHandlers(navMobileEl);
+}
+
+function renderHskTabs(){
+  hskTabsEl.innerHTML = '';
+  hskTabSections.forEach(sec => {
+    const btn = document.createElement('button');
+    btn.className = 'hsk-tab' + (sec.id === activeSection ? ' active' : '');
+    btn.textContent = sec.label;
+    btn.onclick = () => { activeSection = sec.id; renderAll(); };
+    hskTabsEl.appendChild(btn);
+  });
+}
+
+function closeMobileMenu(){
+  navMobileEl.classList.remove('open');
+  hamburgerEl.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+}
+
+hamburgerEl.addEventListener('click', () => {
+  navMobileEl.classList.toggle('open');
+  const spans = hamburgerEl.querySelectorAll('span');
+  const isOpen = navMobileEl.classList.contains('open');
+  spans[0].style.transform = isOpen ? 'translateY(7.5px) rotate(45deg)' : '';
+  spans[1].style.opacity   = isOpen ? '0' : '';
+  spans[2].style.transform = isOpen ? 'translateY(-7.5px) rotate(-45deg)' : '';
+});
+
+function updateHeroVisibility(){
+  heroEl.classList.toggle('hero-hidden', activeSection !== 'home');
 }
 
 function renderLessonGrid(level){
@@ -583,7 +997,7 @@ function renderHome(){
   html += '<div class="feature-card"><div class="icon">📊</div><h4>Theo dõi tiến độ</h4><p>Học sinh nộp bài, giáo viên xem điểm và theo dõi quá trình học.</p></div>';
   html += '</div>';
   html += '<div class="home-cta">';
-  navSections.filter(s => s.id.startsWith('HSK')).forEach(s => {
+  hskTabSections.forEach(s => {
     html += '<button data-goto="' + s.id + '">' + s.label + '</button>';
   });
   html += '</div>';
@@ -627,6 +1041,38 @@ function renderTaiLieu(){
   return html;
 }
 
+function renderPhatAm(){
+  let html = '<h2>Phát âm</h2>';
+  html += '<p>' + phatAmData.mota + '</p>';
+  if (phatAmData.file){
+    html += '<div class="lesson-grid">';
+    html += '<a class="lesson-card" href="' + phatAmData.file + '">'
+          + '<div class="num">📘</div>'
+          + '<span class="name">Bắt đầu luyện tập</span>'
+          + '</a>';
+    html += '</div>';
+  } else {
+    html += '<div class="empty-note">Nội dung đang được cập nhật.</div>';
+  }
+  return html;
+}
+
+function renderBoThu(){
+  let html = '<h2>Bộ thủ</h2>';
+  html += '<p>' + boThuData.mota + '</p>';
+  if (boThuData.file){
+    html += '<div class="lesson-grid">';
+    html += '<a class="lesson-card" href="' + boThuData.file + '">'
+          + '<div class="num">📘</div>'
+          + '<span class="name">Bắt đầu luyện tập</span>'
+          + '</a>';
+    html += '</div>';
+  } else {
+    html += '<div class="empty-note">Nội dung đang được cập nhật.</div>';
+  }
+  return html;
+}
+
 function renderLienHe(){
   let html = '<h2>Liên hệ</h2>';
   html += '<p>Mọi thắc mắc về khoá học, học viên có thể liên hệ qua các kênh sau:</p>';
@@ -666,6 +1112,10 @@ function renderPanel(){
     html = renderHome();
   } else if (lessonsData[activeSection]){
     html = '<h2>' + lessonsData[activeSection].label + '</h2>' + renderLessonGrid(lessonsData[activeSection]);
+  } else if (activeSection === 'phatam'){
+    html = renderPhatAm();
+  } else if (activeSection === 'bothu'){
+    html = renderBoThu();
   } else if (activeSection === 'giaotrinh'){
     html = renderGiaoTrinh();
   } else if (activeSection === 'tailieu'){
@@ -678,35 +1128,39 @@ function renderPanel(){
   panelEl.innerHTML = html;
 
   panelEl.querySelectorAll('[data-goto]').forEach(btn => {
-    btn.onclick = () => { activeSection = btn.getAttribute('data-goto'); renderMainNav(); renderPanel(); };
+    btn.onclick = () => { activeSection = btn.getAttribute('data-goto'); renderAll(); };
   });
 
   const loginBtn = document.getElementById('doiTenBtnPanel');
   if (loginBtn){
     loginBtn.onclick = async () => {
       await HalaoshiNopBai.doiThongTinHocSinh();
-      renderStudentBar();
-      renderPanel();
+      renderAll();
     };
   }
 }
 
-function renderStudentBar(){
-  const info = HalaoshiNopBai.getHocSinhInfo();
-  studentBarEl.innerHTML = info && info.hoTen
-    ? 'Xin chào, <strong>' + info.hoTen + '</strong>' + (info.lop ? ' (' + info.lop + ')' : '') + ' &nbsp;<button id="doiTenBtn">Đổi tên</button>'
-    : '<button id="doiTenBtn">Nhập tên học sinh</button>';
-
-  document.getElementById('doiTenBtn').onclick = async () => {
-    await HalaoshiNopBai.doiThongTinHocSinh();
-    renderStudentBar();
-    if (activeSection === 'login') renderPanel();
-  };
+function renderAll(){
+  renderTopNav();
+  renderHskTabs();
+  updateHeroVisibility();
+  renderPanel();
 }
 
-renderMainNav();
-renderPanel();
-renderStudentBar();
+function attachStaticGotoHandlers(){
+  document.querySelectorAll('.nav-logo[data-goto], .hero .btn-lesson[data-goto]').forEach(el => {
+    el.onclick = (e) => {
+      e.preventDefault();
+      activeSection = el.getAttribute('data-goto');
+      closeMobileMenu();
+      renderAll();
+      document.querySelector('.wrap').scrollIntoView({ behavior:'smooth' });
+    };
+  });
+}
+
+attachStaticGotoHandlers();
+renderAll();
 </script>
 </body>
 </html>
