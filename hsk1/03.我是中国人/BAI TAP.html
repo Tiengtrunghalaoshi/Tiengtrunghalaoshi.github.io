@@ -540,6 +540,21 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 .submit-btn:active{transform:translateY(0)}
 .footer-wm{text-align:center;font-size:12px;color:var(--text2);margin-top:20px;font-style:italic}
 
+/* ---------- Back link ---------- */
+.back-bar{max-width:920px;margin:0 auto;padding:14px 20px 0;}
+.back-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'Be Vietnam Pro',sans-serif;
+  font-size:13px;font-weight:700;
+  color:var(--sky-d);
+  background:#EAF6FD;
+  border:1px solid var(--sky);
+  padding:7px 14px;border-radius:20px;
+  text-decoration:none;
+  transition:all .18s;
+}
+.back-link:hover{background:var(--sky-d); border-color:var(--sky-d); color:#fff;}
+
 @media(max-width:520px){
   .hero{padding:20px 16px 70px}
   .hero-title{font-size:19px}
@@ -549,6 +564,10 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 </style>
 </head>
 <body>
+
+<div class="back-bar">
+  <a href="../../index.html#HSK1" class="back-link">◀ Quay lại HSK1</a>
+</div>
 
 <!-- HERO -->
 <div class="hero">
