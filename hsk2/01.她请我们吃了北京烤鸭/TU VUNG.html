@@ -45,6 +45,21 @@
   .zh{font-family:'Noto Serif SC',serif;}
   .zh-sans{font-family:'Noto Sans SC',sans-serif;}
 
+  /* ---------- Back link ---------- */
+  .back-bar{max-width:920px;margin:0 auto;padding:14px 20px 0;}
+  .back-link{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'Be Vietnam Pro',sans-serif;
+    font-size:13px;font-weight:700;
+    color:var(--jade-dark);
+    background:var(--jade-pale);
+    border:1px solid var(--jade-light);
+    padding:7px 14px;border-radius:20px;
+    text-decoration:none;
+    transition:all .18s;
+  }
+  .back-link:hover{background:var(--jade); border-color:var(--jade); color:#fff;}
+
   /* ---------- Header ---------- */
   .app-header{
     max-width:920px;
@@ -763,6 +778,10 @@
 </style>
 </head>
 <body>
+
+<div class="back-bar">
+  <a href="../../index.html#HSK2" class="back-link">◀ Quay lại HSK2</a>
+</div>
 
 <div class="app-header">
   <div class="seal zh">汉</div>
