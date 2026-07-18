@@ -37,7 +37,7 @@
   .wrap{max-width:1100px;margin:0 auto;padding:0 18px 60px;}
 
   /* ═══════════════════════════════════════
-     NAVBAR CỐ ĐỊNH (Trang chủ / Giáo trình / Tài liệu / Liên hệ / Đăng nhập)
+     NAVBAR CỐ ĐỊNH (Trang chủ / Phát âm / Bộ thủ / Sổ tay từ vựng / Thi thử / Giáo trình & Tài liệu / Liên hệ / Đăng nhập)
   ═══════════════════════════════════════ */
   .navbar{
     position:sticky;
@@ -714,7 +714,7 @@
         <div class="hero-btns">
           <a data-goto="phatam" class="btn-lesson btn-green"><span class="btn-emoji">🔊</span> Phát âm</a>
           <a data-goto="bothu" class="btn-lesson btn-pink"><span class="btn-emoji">部</span> Bộ thủ</a>
-          <a data-goto="giaotrinh" class="btn-lesson btn-outline-gray"><span class="btn-emoji">📚</span> Xem giáo trình</a>
+          <a data-goto="sotay" class="btn-lesson btn-outline-gray"><span class="btn-emoji">📓</span> Sổ tay từ vựng</a>
           <a data-goto="lienhe" class="btn-lesson btn-outline-green"><span class="btn-emoji">❤️</span> Liên hệ tư vấn</a>
         </div>
       </div>
@@ -765,15 +765,16 @@ if (typeof HalaoshiNopBai === 'undefined'){
  * ============================================================
  * CẤU HÌNH ĐIỀU HƯỚNG
  * ============================================================
- * topNavSections: các mục trên navbar cố định (Trang chủ / Giáo trình / Tài liệu / Liên hệ / Đăng nhập)
+ * topNavSections: các mục trên navbar cố định (Trang chủ / Phát âm / Bộ thủ / Sổ tay từ vựng / Thi thử / Giáo trình & Tài liệu / Liên hệ / Đăng nhập)
  * hskTabSections: tab ngang riêng để chọn nhanh cấp độ HSK
  */
 const topNavSections = [
   { id: 'home',      label: 'Trang chủ', icon: '🏠' },
   { id: 'phatam',    label: 'Phát âm', icon: '🔊' },
   { id: 'bothu',     label: 'Bộ thủ', icon: '部' },
-  { id: 'giaotrinh', label: 'Giáo trình', icon: '📚' },
-  { id: 'tailieu',   label: 'Tài liệu', icon: '🎧' },
+  { id: 'sotay',     label: 'Sổ tay từ vựng', icon: '📓' },
+  { id: 'thithu',    label: 'Thi thử', icon: '📝' },
+  { id: 'giaotrinh', label: 'Giáo trình & Tài liệu', icon: '📚' },
   { id: 'lienhe',    label: 'Liên hệ', icon: '📬' },
   { id: 'login',     label: 'Đăng nhập', icon: '👤', isLogin: true }
 ];
@@ -784,7 +785,8 @@ const hskTabSections = [
   { id: 'HSK3', label: 'HSK 3' },
   { id: 'HSK4', label: 'HSK 4' },
   { id: 'HSK5', label: 'HSK 5' },
-  { id: 'HSK6', label: 'HSK 6' }
+  { id: 'HSK6', label: 'HSK 6' },
+  { id: 'HSK789', label: 'HSK 7-9' }
 ];
 
 /**
@@ -815,7 +817,8 @@ const soBaiTheoCap = {
   HSK3: 18,
   HSK4: 40,
   HSK5: 40,
-  HSK6: 40
+  HSK6: 40,
+  HSK789: 40
 };
 
 const fileBaiHoc = {
@@ -852,7 +855,8 @@ const fileBaiHoc = {
     6: 'hsk6/HSK6_Bai06.html',
     7: 'hsk6/HSK6_Bai07.html',
     8: 'hsk6/HSK6_Bai08.html',
-  }
+  },
+  HSK789: {}
 };
 
 /**
@@ -930,7 +934,8 @@ const lessonsData = {
   'HSK3': { label: 'HSK 3', lessons: buildLessons('HSK3') },
   'HSK4': { label: 'HSK 4', lessons: buildLessons('HSK4') },
   'HSK5': { label: 'HSK 5', lessons: buildLessons('HSK5') },
-  'HSK6': { label: 'HSK 6', lessons: buildLessons('HSK6') }
+  'HSK6': { label: 'HSK 6', lessons: buildLessons('HSK6') },
+  'HSK789': { label: 'HSK 7-9', lessons: buildLessons('HSK789') }
 };
 
 /**
@@ -947,7 +952,8 @@ const giaoTrinhData = [
   { capDo: 'HSK 3', ten: 'Giáo trình chuẩn HSK 3.0 - Sơ cấp 3', file: null, mota: '' },
   { capDo: 'HSK 4', ten: 'Giáo trình chuẩn HSK 3.0 - Trung cấp 1', file: null, mota: '' },
   { capDo: 'HSK 5', ten: 'Giáo trình chuẩn HSK 3.0 - Trung cấp 2', file: null, mota: '' },
-  { capDo: 'HSK 6', ten: 'Giáo trình chuẩn HSK 3.0 - Cao cấp (Quyển Thượng)', file: null, mota: '' }
+  { capDo: 'HSK 6', ten: 'Giáo trình chuẩn HSK 3.0 - Cao cấp (Quyển Thượng)', file: null, mota: '' },
+  { capDo: 'HSK 7-9', ten: 'Giáo trình chuẩn HSK 3.0 - Cao cấp (Quyển Hạ)', file: null, mota: '' }
 ];
 
 /**
@@ -983,6 +989,30 @@ const phatAmData = {
 const boThuData = {
   file: 'bothu/bo_thu.html',
   mota: 'Luyện tập 50 bộ thủ chữ Hán thường gặp.'
+};
+
+/**
+ * ============================================================
+ * SỔ TAY TỪ VỰNG — điền file/link công cụ tra cứu từ vựng khi có
+ * ============================================================
+ * Ví dụ: soTayTuVungData.file = 'so-tay/so-tay-tu-vung.html';
+ * ============================================================
+ */
+const soTayTuVungData = {
+  file: null,
+  mota: 'Tổng hợp toàn bộ từ vựng đã học theo từng cấp độ, tiện tra cứu và ôn tập.'
+};
+
+/**
+ * ============================================================
+ * THI THỬ — điền file/link đề thi thử khi có
+ * ============================================================
+ * Ví dụ: thiThuData.file = 'thi-thu/thi-thu-hsk1.html';
+ * ============================================================
+ */
+const thiThuData = {
+  file: null,
+  mota: 'Đề thi thử theo cấu trúc HSK để tự đánh giá trình độ trước kỳ thi.'
 };
 
 /**
@@ -1121,7 +1151,7 @@ function renderHome(){
   html += '<p>Website tự học và luyện tập tiếng Trung theo giáo trình chuẩn HSK 3.0, biên soạn bởi Halaoshi. '
         + 'Học sinh có thể luyện tập trực tiếp trên web, làm bài tập tương tác và nộp bài để giáo viên theo dõi kết quả.</p>';
   html += '<div class="feature-grid">';
-  html += '<div class="feature-card"><div class="icon">📚</div><h4>Giáo trình HSK 3.0</h4><p>Bám sát cấu trúc giáo trình chuẩn, từ HSK1 đến HSK6.</p></div>';
+  html += '<div class="feature-card"><div class="icon">📚</div><h4>Giáo trình HSK 3.0</h4><p>Bám sát cấu trúc giáo trình chuẩn, từ HSK1 đến HSK9.</p></div>';
   html += '<div class="feature-card"><div class="icon">✍️</div><h4>Bài tập tương tác</h4><p>Từ vựng, ngữ pháp, đọc hiểu, dịch câu — có chấm điểm tự động.</p></div>';
   html += '<div class="feature-card"><div class="icon">📊</div><h4>Theo dõi tiến độ</h4><p>Học sinh nộp bài, giáo viên xem điểm và theo dõi quá trình học.</p></div>';
   html += '</div>';
@@ -1135,7 +1165,7 @@ function renderHome(){
 }
 
 function renderGiaoTrinh(){
-  let html = '<h2>Giáo trình</h2>';
+  let html = '<h2>Giáo trình & Tài liệu</h2>';
   html += '<p>Danh sách giáo trình chuẩn HSK 3.0 sử dụng trong khoá học. File tải về sẽ được cập nhật dần.</p>';
   html += '<ul class="doc-list">';
   giaoTrinhData.forEach(d => {
@@ -1149,11 +1179,7 @@ function renderGiaoTrinh(){
     html += '</li>';
   });
   html += '</ul>';
-  return html;
-}
-
-function renderTaiLieu(){
-  let html = '<h2>Tài liệu bổ trợ</h2>';
+  html += '<h2 style="margin-top:32px;">Tài liệu bổ trợ</h2>';
   html += '<p>Các tài liệu và công cụ luyện tập thêm ngoài giáo trình chính.</p>';
   html += '<ul class="doc-list">';
   taiLieuData.forEach(d => {
@@ -1194,6 +1220,38 @@ function renderBoThu(){
     html += '<a class="lesson-card" href="' + encodeURI(boThuData.file) + '">'
           + '<div class="num">📘</div>'
           + '<span class="name">Bắt đầu luyện tập</span>'
+          + '</a>';
+    html += '</div>';
+  } else {
+    html += '<div class="empty-note">Nội dung đang được cập nhật.</div>';
+  }
+  return html;
+}
+
+function renderSoTayTuVung(){
+  let html = '<h2>Sổ tay từ vựng</h2>';
+  html += '<p>' + soTayTuVungData.mota + '</p>';
+  if (soTayTuVungData.file){
+    html += '<div class="lesson-grid">';
+    html += '<a class="lesson-card" href="' + encodeURI(soTayTuVungData.file) + '">'
+          + '<div class="num">📘</div>'
+          + '<span class="name">Mở sổ tay từ vựng</span>'
+          + '</a>';
+    html += '</div>';
+  } else {
+    html += '<div class="empty-note">Nội dung đang được cập nhật.</div>';
+  }
+  return html;
+}
+
+function renderThiThu(){
+  let html = '<h2>Thi thử</h2>';
+  html += '<p>' + thiThuData.mota + '</p>';
+  if (thiThuData.file){
+    html += '<div class="lesson-grid">';
+    html += '<a class="lesson-card" href="' + encodeURI(thiThuData.file) + '">'
+          + '<div class="num">📘</div>'
+          + '<span class="name">Bắt đầu thi thử</span>'
           + '</a>';
     html += '</div>';
   } else {
@@ -1245,10 +1303,12 @@ function renderPanel(){
     html = renderPhatAm();
   } else if (activeSection === 'bothu'){
     html = renderBoThu();
+  } else if (activeSection === 'sotay'){
+    html = renderSoTayTuVung();
+  } else if (activeSection === 'thithu'){
+    html = renderThiThu();
   } else if (activeSection === 'giaotrinh'){
     html = renderGiaoTrinh();
-  } else if (activeSection === 'tailieu'){
-    html = renderTaiLieu();
   } else if (activeSection === 'lienhe'){
     html = renderLienHe();
   } else if (activeSection === 'login'){
