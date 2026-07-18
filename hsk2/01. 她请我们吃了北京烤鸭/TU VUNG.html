@@ -1026,11 +1026,12 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
 /* ===================== SPEECH (Web Speech API) ===================== */
 let zhVoice = null;
 function loadVoices(){
+  if(!('speechSynthesis' in window)) return;
   const voices = speechSynthesis.getVoices();
   zhVoice = voices.find(v=>v.lang && v.lang.toLowerCase().startsWith('zh')) || null;
 }
 loadVoices();
-if('onvoiceschanged' in speechSynthesis) speechSynthesis.onvoiceschanged = loadVoices;
+if('speechSynthesis' in window && 'onvoiceschanged' in speechSynthesis) speechSynthesis.onvoiceschanged = loadVoices;
 
 function speak(text){
   if(!('speechSynthesis' in window)){
