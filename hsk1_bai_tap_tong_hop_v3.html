@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài Tập Tổng Hợp HSK 1 (Bản 3.0) - Tiếng Trung Halaoshi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fffaf3;
+    --lav:#e9def7;
+    --lav-deep:#c9a9e8;
+    --pink:#ffd6e0;
+    --pink-deep:#ff9fb3;
+    --sky:#cfe8fb;
+    --mint:#d7f0df;
+    --yellow:#ffe38a;
+    --ink:#5a4a6a;
+    --ink-soft:#8b7a9b;
+    --line:#e6d9f2;
+    --good:#7fbf8f;
+    --bad:#e88a9a;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 8% 12%, rgba(255,214,224,.5), transparent 40%),
+      radial-gradient(circle at 92% 18%, rgba(207,232,251,.5), transparent 42%),
+      radial-gradient(circle at 50% 95%, rgba(215,240,223,.5), transparent 45%),
+      var(--cream);
+    font-family:'Quicksand', sans-serif;
+    color:var(--ink);
+    padding:24px 14px 80px;
+  }
+  .wrap{max-width:820px;margin:0 auto;}
+  .zh{font-family:'Noto Serif SC', serif;}
+
+  .card{
+    background:#fffdf9;
+    border:2px dashed var(--line);
+    border-radius:26px;
+    padding:26px 24px;
+    margin-bottom:22px;
+    position:relative;
+    box-shadow:0 6px 18px rgba(180,150,200,.10);
+  }
+  .tape{
+    position:absolute; width:70px; height:26px;
+    background:repeating-linear-gradient(45deg, var(--lav) 0 6px, #f3ebfc 6px 12px);
+    opacity:.85; border-radius:3px;
+  }
+  .tape.tl{top:-12px;left:22px;transform:rotate(-8deg);}
+  .tape.tr{top:-12px;right:22px;transform:rotate(8deg);background:repeating-linear-gradient(45deg, var(--pink-deep) 0 6px, #ffeef2 6px 12px);}
+
+  header.card{text-align:center;padding:34px 20px;}
+  header .badge{
+    display:inline-block;
+    background:linear-gradient(135deg,var(--lav),var(--lav-deep));
+    color:#fff;
+    font-family:'Baloo 2',sans-serif;
+    font-weight:800;
+    font-size:1.5rem;
+    padding:14px 30px;
+    border-radius:20px;
+    box-shadow:0 4px 0 #a97fd6;
+    letter-spacing:.5px;
+  }
+  header p.sub{
+    margin-top:14px; font-weight:600; color:var(--ink-soft);
+    background:var(--pink);display:inline-block;padding:8px 18px;border-radius:14px;
+  }
+  header .icons{font-size:1.4rem;margin-top:10px;}
+
+  .section-title{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1.15rem;
+    background:linear-gradient(135deg,var(--sky),#e4f4ff);
+    color:#3f6f8f;
+    padding:12px 18px;border-radius:16px;margin-bottom:18px;
+  }
+  .section-title .emoji{font-size:1.3rem;}
+  .instruction{
+    font-size:.92rem;color:var(--ink-soft);font-weight:600;
+    background:#faf3ff;border-left:4px solid var(--lav-deep);
+    padding:8px 14px;border-radius:0 10px 10px 0;margin-bottom:18px;
+  }
+
+  .q{
+    border-bottom:1px dashed var(--line);
+    padding:16px 2px;
+  }
+  .q:last-child{border-bottom:none;}
+  .q-num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:26px;height:26px;border-radius:50%;
+    background:var(--pink);color:#8a4f63;font-weight:700;font-size:.85rem;
+    margin-right:8px;flex-shrink:0;
+  }
+  .q-text{font-size:1.05rem;font-weight:600;line-height:1.7;}
+  .q-text .zh{font-size:1.12rem;}
+
+  .options{
+    display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;
+  }
+  @media (max-width:480px){.options{grid-template-columns:1fr;}}
+  .opt{
+    border:2px solid var(--line);border-radius:14px;
+    padding:9px 12px;cursor:pointer;font-weight:600;font-size:.95rem;
+    display:flex;align-items:center;gap:8px;transition:.15s;background:#fff;
+  }
+  .opt:hover{border-color:var(--lav-deep);background:#faf5ff;}
+  .opt.selected{border-color:var(--lav-deep);background:var(--lav);}
+  .opt.correct{border-color:var(--good);background:#e6f6ea;}
+  .opt.incorrect{border-color:var(--bad);background:#fdeaee;}
+  .opt input{accent-color:var(--lav-deep);}
+
+  .fill-input, textarea.fill-input{
+    width:100%;margin-top:10px;padding:10px 14px;
+    border:2px solid var(--line);border-radius:14px;
+    font-family:'Quicksand',sans-serif;font-size:1rem;font-weight:600;color:var(--ink);
+    background:#fff;
+  }
+  .fill-input:focus, textarea.fill-input:focus{outline:none;border-color:var(--lav-deep);}
+  textarea.fill-input{resize:vertical;min-height:44px;}
+
+  .feedback{
+    margin-top:8px;font-size:.9rem;font-weight:700;border-radius:10px;padding:8px 12px;display:none;
+  }
+  .feedback.show{display:block;}
+  .feedback.ok{background:#e6f6ea;color:#3f7a52;}
+  .feedback.no{background:#fdeaee;color:#a3495b;}
+  .feedback .ans{font-weight:600;color:var(--ink-soft);display:block;margin-top:3px;}
+
+  .reveal-btn{
+    margin-top:10px;background:none;border:2px dashed var(--lav-deep);
+    color:#8a5fbf;font-family:'Quicksand',sans-serif;font-weight:700;font-size:.82rem;
+    padding:5px 12px;border-radius:12px;cursor:pointer;
+  }
+  .reveal-btn:hover{background:var(--lav);}
+  .answer-box{
+    display:none;margin-top:8px;background:#f3ebfc;border-radius:12px;
+    padding:9px 13px;font-size:.9rem;font-weight:700;color:#5a4a7a;
+  }
+  .answer-box.show{display:block;}
+  .answer-box .note{display:block;font-weight:600;color:var(--ink-soft);margin-top:3px;font-size:.85rem;}
+
+  .dialogue-block{
+    background:#faf6ff;border-radius:16px;padding:14px 16px;margin-bottom:14px;
+  }
+  .dialogue-line{margin:4px 0;font-weight:600;}
+  .dialogue-hint{color:var(--ink-soft);font-size:.85rem;font-weight:600;}
+
+  .check-btn, .reset-btn{
+    font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1rem;
+    border:none;border-radius:16px;padding:12px 26px;cursor:pointer;
+    box-shadow:0 4px 0 rgba(0,0,0,.12);transition:.1s;
+  }
+  .check-btn{background:linear-gradient(135deg,var(--pink-deep),#ff8aa4);color:#fff;}
+  .check-btn:active{transform:translateY(3px);box-shadow:none;}
+  .reset-btn{background:#efe6f9;color:var(--ink);margin-left:10px;}
+  .reset-btn:active{transform:translateY(3px);box-shadow:none;}
+
+  .btn-row{text-align:center;margin:26px 0 10px;}
+
+  #score-panel{
+    display:none;text-align:center;
+  }
+  #score-panel.show{display:block;}
+  .score-circle{
+    width:130px;height:130px;border-radius:50%;margin:0 auto 14px;
+    display:flex;align-items:center;justify-content:center;flex-direction:column;
+    background:conic-gradient(var(--good) calc(var(--pct,0)*1%), #f1e8f9 0);
+  }
+  .score-circle .inner{
+    width:104px;height:104px;border-radius:50%;background:#fffdf9;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+  }
+  .score-circle .num{font-family:'Baloo 2',sans-serif;font-size:1.7rem;font-weight:800;color:var(--ink);}
+  .score-circle .lab{font-size:.75rem;color:var(--ink-soft);font-weight:700;}
+  .grade{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:1.3rem;margin-top:6px;}
+  .tip{font-size:.9rem;color:var(--ink-soft);font-weight:600;margin-top:6px;}
+
+  .progress-list{margin-top:18px;text-align:left;}
+  .progress-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:.85rem;font-weight:700;}
+  .progress-row .plabel{width:150px;flex-shrink:0;color:var(--ink-soft);}
+  .progress-bar-bg{flex:1;height:10px;background:#f1e8f9;border-radius:6px;overflow:hidden;}
+  .progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--pink-deep),var(--lav-deep));border-radius:6px;}
+
+  footer{text-align:center;color:var(--ink-soft);font-size:.85rem;margin-top:30px;font-weight:600;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="card">
+    <div class="tape tl"></div><div class="tape tr"></div>
+    <div class="badge">⭐ BÀI TẬP TỔNG HỢP HSK 1 (BẢN 3.0) 💖</div>
+    <p class="sub">Bài kiểm tra tương tác - Có chấm điểm & đáp án chi tiết</p>
+    <div class="icons">🌸 📖 ✨ 🍎 ☁️</div>
+  </header>
+
+  <!-- PHẦN 1 -->
+  <section class="card" id="section-mc">
+    <div class="tape tl"></div>
+    <div class="section-title"><span class="emoji">💗</span> Phần 1: Câu hỏi trắc nghiệm</div>
+    <div class="instruction">Chọn đáp án đúng nhất để hoàn thành câu hoặc trả lời câu hỏi.</div>
+    <div id="mc-container"></div>
+  </section>
+
+  <!-- PHẦN 2 -->
+  <section class="card" id="section-sentence">
+    <div class="tape tr"></div>
+    <div class="section-title"><span class="emoji">📝</span> Phần 2: Đặt câu với từ vựng cho sẵn</div>
+    <div class="instruction">Dùng từ cho sẵn để đặt một câu hoàn chỉnh có nghĩa. (Không chấm tự động - hãy so sánh với câu ví dụ nhé!)</div>
+    <div id="sentence-container"></div>
+  </section>
+
+  <!-- PHẦN 3 -->
+  <section class="card" id="section-fix">
+    <div class="tape tl"></div>
+    <div class="section-title"><span class="emoji">🔍</span> Phần 3: Sửa lỗi sai nét và cấu trúc chữ Hán</div>
+    <div class="instruction">Mỗi câu sau có một từ bị dùng sai chữ Hán hoặc sai ngữ pháp cấu trúc nét từ. Hãy tìm và sửa lại cho đúng.</div>
+    <div id="fix-container"></div>
+  </section>
+
+  <!-- PHẦN 4 -->
+  <section class="card" id="section-order">
+    <div class="tape tr"></div>
+    <div class="section-title"><span class="emoji">🔀</span> Phần 4: Sắp xếp từ thành câu hoàn chỉnh</div>
+    <div class="instruction">Sắp xếp các từ cho sẵn để tạo thành câu có nghĩa. Đọc kỹ trước khi viết nhé!</div>
+    <div id="order-container"></div>
+  </section>
+
+  <!-- PHẦN 5 -->
+  <section class="card" id="section-dialogue">
+    <div class="tape tl"></div>
+    <div class="section-title"><span class="emoji">💬</span> Phần 5: Hoàn thành đoạn hội thoại</div>
+    <div class="instruction">Điền câu thích hợp vào chỗ trống để hoàn thành đoạn hội thoại ngắn dưới đây.</div>
+    <div id="dialogue-container"></div>
+  </section>
+
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkAll()">✅ Chấm điểm bài làm</button>
+    <button class="reset-btn" onclick="resetAll()">🔄 Làm lại</button>
+  </div>
+
+  <section class="card" id="score-panel">
+    <div class="tape tl"></div><div class="tape tr"></div>
+    <div class="section-title" style="justify-content:center;"><span class="emoji">🏆</span> Kết quả của bạn</div>
+    <div class="score-circle"><div class="inner"><span class="num" id="score-num">0/0</span><span class="lab">điểm</span></div></div>
+    <div class="grade" id="grade-text"></div>
+    <div class="tip" id="tip-text"></div>
+    <div class="progress-list" id="progress-list"></div>
+  </section>
+
+  <footer>💜 Tiếng Trung Halaoshi - Chúc bạn học tốt! 加油！💜</footer>
+</div>
+
+<script>
+// ---------------- DATA ----------------
+const mcData = [
+  {q:"你好！____。你好！我也很高兴认识你。", opts:["你叫玛丽","你好吗","你是谁","很高兴认识你"], ans:3, note:"Đáp lại lời chào làm quen nên chọn câu phù hợp ngữ cảnh: \"很高兴认识你\" (rất vui được quen bạn) khớp với câu đáp lại phía sau."},
+  {q:"他____医生，他在医院工作。", opts:["是","有","在","去"], ans:0, note:"Cấu trúc \"是 + danh từ nghề nghiệp\" (是医生 = là bác sĩ); các động từ còn lại không đi được với danh từ chỉ nghề nghiệp theo cách này."},
+  {q:"我家有____口人：爸爸、妈妈和我。", opts:["二","三","四","五"], ans:1, note:"Liệt kê sau đó gồm 3 người (爸爸、妈妈、我) nên số đếm phải là \"三\"."},
+  {q:"今天____几号？今天十月一号。", opts:["月","星期","是","号"], ans:2, note:"Cấu trúc hỏi ngày tháng cố định là \"今天是几号\", dùng động từ \"是\"."},
+  {q:"你想喝点儿____吗？", opts:["饭","菜","水","苹果"], ans:2, note:"Động từ \"喝\" (uống) chỉ đi với danh từ chỉ đồ uống, \"水\" (nước) phù hợp; \"饭/菜/苹果\" đều là đồ ăn nên không hợp."},
+  {q:"这个苹果____钱一斤？", opts:["几","多少","怎么","什么"], ans:1, note:"Hỏi giá tiền dùng cụm cố định \"多少钱\", không dùng \"几钱\"."},
+  {q:"你会____汉字吗？", opts:["写","叫","听","看"], ans:0, note:"\"写汉字\" (viết chữ Hán) là cụm động từ-tân ngữ quen dùng nhất trong ngữ cảnh học chữ."},
+  {q:"请问，火车站（ga tàu hỏa）在____？", opts:["什么","哪儿","谁","多少"], ans:1, note:"Hỏi vị trí, địa điểm dùng \"哪儿\" (ở đâu)."},
+  {q:"再见，明天____见！", opts:["去","在","再","学校"], ans:2, note:"\"再见\"/\"明天再见\" nghĩa là hẹn gặp lại; \"再\" mang nghĩa \"lại, một lần nữa\" phù hợp cấu trúc này."},
+  {q:"这里有____本书，都是我的。", opts:["个","只","几","块"], ans:2, note:"Lượng từ \"本\" đã có sẵn trong câu, chỗ trống cần từ chỉ số lượng đi trực tiếp trước lượng từ đó: \"几本书\" (vài quyển sách); \"个/只/块\" là các lượng từ khác, không kết hợp được trước \"本\"."},
+  {q:"我不认识他，他是____？", opts:["哪儿","谁","什么","怎么"], ans:1, note:"Hỏi về danh tính một người dùng \"谁\" (ai)."},
+  {q:"你会说汉语吗？我____说一点儿。", opts:["会","想","喜欢","在"], ans:0, note:"\"会\" diễn tả khả năng làm được việc gì đó (biết nói một chút), phù hợp trả lời câu hỏi về kỹ năng."},
+  {q:"现在几点了？现在____十点三十分。", opts:["分","点","刻","是"], ans:3, note:"Cấu trúc nói giờ cố định \"现在是...点...分\", dùng động từ \"是\"."},
+  {q:"妈妈正在厨房（nhà bếp）____饭，我们等一下就可以吃饭了。", opts:["做","吃","买","喝"], ans:0, note:"\"做饭\" (nấu cơm) là cụm động từ-tân ngữ cố định, phù hợp với \"厨房\" (nhà bếp)."},
+  {q:"今天天气太____了，我们去游泳吧！", opts:["冷","热","书","猫"], ans:1, note:"Trời \"热\" (nóng) thì mới hợp lý để rủ nhau đi bơi; \"冷\" trái nghĩa, \"书/猫\" là danh từ sai loại từ."},
+  {q:"小猫在椅子____下面。", opts:["上","的","里","外"], ans:1, note:"Cấu trúc định ngữ \"椅子的下面\" (phía dưới của cái ghế) cần trợ từ \"的\" để nối danh từ với phương vị từ \"下面\"."},
+  {q:"老师，我有一个____想问您。", opts:["话","问题","书","名字"], ans:1, note:"\"一个问题\" (một câu hỏi) là cụm từ phù hợp khi muốn hỏi giáo viên điều gì đó."},
+  {q:"我的手机在桌子____，你看得到吗？", opts:["底","里","上","前"], ans:2, note:"\"桌子上\" (trên bàn) là cách diễn đạt vị trí tự nhiên và phổ biến nhất cho đồ vật đặt trên mặt bàn."},
+  {q:"我____中国人，我是越南人。", opts:["不","不是","没有","不有"], ans:1, note:"Phủ định của \"是\" phải là \"不是\", không dùng \"不\" đứng một mình trước danh từ."},
+  {q:"我们____去朋友家玩吧！（一起 = cùng nhau）", opts:["一起","一下","一点","一直"], ans:0, note:"\"一起\" (cùng nhau) diễn tả hành động làm chung với người khác, phù hợp lời rủ rê."},
+];
+
+const sentenceData = [
+  {word:"多少", sample:"这本书多少钱？"},
+  {word:"朋友", sample:"我有很多好朋友。"},
+  {word:"天气", sample:"今天天气很好。"},
+  {word:"医生", sample:"我妈妈是医生。"},
+  {word:"电脑", sample:"我的电脑坏了。"},
+  {word:"买东西", sample:"我们一起去买东西吧。"},
+  {word:"怎么样", sample:"今天的天气怎么样？"},
+  {word:"学校", sample:"我每天去学校学习汉语。"},
+  {word:"喜欢", sample:"我很喜欢吃苹果。"},
+  {word:"每天", sample:"我每天都很忙。"},
+];
+
+const fixData = [
+  {wrong:"她是我的汉语老师们。", correct:"她是我的汉语老师。", note:"\"们\" là hậu tố chỉ số nhiều, không dùng khi chủ ngữ \"她\" chỉ một người."},
+  {wrong:"你在哪儿里？我找不到你。", correct:"你在哪儿？我找不到你。", alts:["你在哪里？我找不到你。"], note:"\"哪儿\"/\"哪里\" đều mang nghĩa \"ở đâu\" và có thể dùng thay thế nhau, không cần thêm \"里\" phía sau \"哪儿\"."},
+  {wrong:"桌下有一只小狗。", correct:"桌子下面有一只小狗。", note:"\"桌\" cần thêm \"子\" (桌子), và nên dùng \"下面\" thay vì \"下\" đứng một mình."},
+  {wrong:"我每天下午去学校看书本。", correct:"我每天下午去学校看书。", note:"\"看书\" (đọc sách) là cách nói tự nhiên, không dùng \"书本\" ở đây."},
+  {wrong:"大天天气很好，我们去玩吧。", correct:"今天天气很好，我们去玩吧。", note:"\"大天\" là sai, phải là \"今天\" (hôm nay)."},
+  {wrong:"我想喝一不水。", correct:"我想喝一杯水。", note:"Lượng từ đúng cho nước là \"杯\" (cốc/ly), không phải \"不\"."},
+  {wrong:"请问，在哪儿火车站？", correct:"请问，火车站在哪儿？", note:"Trật tự từ sai: chủ ngữ \"火车站\" phải đứng trước \"在哪儿\"."},
+  {wrong:"我有两哥哥。", correct:"我有两个哥哥。", note:"Thiếu lượng từ \"个\" giữa số từ \"两\" và danh từ \"哥哥\"."},
+  {wrong:"这个杯子里有非常多水。", correct:"这个杯子里有很多水。", note:"\"非常\" không đi trực tiếp với \"多\" theo cách này, nên dùng \"很多\"."},
+  {wrong:"我每天喝三次水杯。", correct:"我每天喝三杯水。", note:"Lượng từ \"杯\" phải đứng ngay trước danh từ \"水\", không phải \"水杯\"."},
+];
+
+const orderData = [
+  {words:"家里 / 没 / 水 / 有 / 了", answer:"家里没有水了。"},
+  {words:"大 / 那个 / 医院 / 很", answer:"那个医院很大。"},
+  {words:"坐 / 请 / 喝 / 茶 / 吧", answer:"请坐，喝茶吧。"},
+  {words:"中国 / 想 / 去 / 学习 / 哥哥", answer:"哥哥想去中国学习。"},
+  {words:"在 / 小猫 / 椅子的 / 下面", answer:"小猫在椅子的下面。"},
+  {words:"谢谢 / 你的 / 礼物", answer:"谢谢你的礼物。"},
+  {words:"名字 / 他的 / 叫 / 什么", answer:"他的名字叫什么？"},
+  {words:"多 / 穿 / 天气 / 衣服 / 冷 / 点", answer:"天气冷，多穿点衣服。"},
+  {words:"看 / 我 / 没 / 见 / 那个 / 电影", answer:"我没看见那个电影。"},
+  {words:"星期日 / 朋友 / 我 / 家 / 去", answer:"星期日我去朋友家。"},
+  {words:"个 / 这个 / 汉字 / 怎么 / 写", answer:"这个汉字怎么写？"},
+  {words:"学生 / 我 / 是 / 一个 / 中国", answer:"我是一个中国学生。"},
+  {words:"很 / 爸爸 / 忙 / 工作", answer:"爸爸工作很忙。"},
+  {words:"你 / 去 / 明天 / 公司 / 吗", answer:"你明天去公司吗？"},
+  {words:"苹果 / 买 / 我 / 想 / 几个", answer:"我想买几个苹果。"},
+];
+
+const dialogueData = [
+  {a:"请问，你是中国学生吗？", bHint:"(Trả lời phủ định, tôi là học sinh Việt Nam)", answer:"不是，我是越南学生。", isA:false},
+  {a:null, aHint:"(Hỏi giờ hiện tại)", b:"现在是下午两点三十分。", answer:"现在几点？", isA:true},
+  {a:"谢谢你帮我买了这个苹果！", bHint:"(Đáp lại lời cảm ơn)", answer:"不客气！", isA:false},
+  {a:"明天你会去学校学习汉语吗？", bHint:"(Trả lời khẳng định và nói thời gian đi)", answer:"会，我明天上午去。", isA:false},
+  {a:"对不起，我今天不能陪你去看电影了。", bHint:"(Đáp lại lời xin lỗi để người kia an tâm)", answer:"没关系，下次再看吧。", isA:false},
+  {a:"你叫什么名字？", bHint:"(Trả lời tên của bạn)", answer:"我叫玛丽。", isA:false},
+  {a:"你是哪国人？", bHint:"(Trả lời quốc tịch của bạn, ví dụ Việt Nam)", answer:"我是越南人。", isA:false},
+  {a:null, aHint:"(Hỏi người kia có thích uống trà không)", b:"我很喜欢喝茶，谢谢。", answer:"你喜欢喝茶吗？", isA:true},
+  {a:"今天天气怎么样？", bHint:"(Miêu tả thời tiết hôm nay rất đẹp)", answer:"今天天气很好。", isA:false},
+  {a:"你家有几口人？", bHint:"(Trả lời gia đình bạn có 4 người)", answer:"我家有四口人。", isA:false},
+];
+
+// ---------------- RENDER ----------------
+const mcContainer = document.getElementById('mc-container');
+mcData.forEach((item, i) => {
+  const div = document.createElement('div');
+  div.className = 'q';
+  div.innerHTML = `
+    <div class="q-text"><span class="q-num">${i+1}</span><span class="zh">${item.q}</span></div>
+    <div class="options" id="mc-opts-${i}">
+      ${item.opts.map((o,j)=>`
+        <label class="opt" id="mc-opt-${i}-${j}">
+          <input type="radio" name="mc-${i}" value="${j}" onclick="selectOpt(${i},${j})">
+          <span>${String.fromCharCode(65+j)}. <span class="zh">${o}</span></span>
+        </label>`).join('')}
+    </div>
+    <div class="feedback" id="mc-fb-${i}"></div>
+    <button class="reveal-btn" onclick="toggleAns('mc-ans-${i}')">👁️ Xem đáp án</button>
+    <div class="answer-box" id="mc-ans-${i}">Đáp án: <span class="zh">${String.fromCharCode(65+item.ans)}. ${item.opts[item.ans]}</span><span class="note">${item.note||''}</span></div>
+  `;
+  mcContainer.appendChild(div);
+});
+
+const sentenceContainer = document.getElementById('sentence-container');
+sentenceData.forEach((item, i) => {
+  const div = document.createElement('div');
+  div.className = 'q';
+  div.innerHTML = `
+    <div class="q-text"><span class="q-num">${i+1}</span>Từ cho sẵn: <span class="zh">${item.word}</span></div>
+    <textarea class="fill-input" id="sent-${i}" placeholder="Viết câu của bạn ở đây..."></textarea>
+    <div class="feedback" id="sent-fb-${i}"></div>
+    <button class="reveal-btn" onclick="toggleAns('sent-ans-${i}')">👁️ Xem câu ví dụ</button>
+    <div class="answer-box" id="sent-ans-${i}">Câu ví dụ: <span class="zh">${item.sample}</span></div>
+  `;
+  sentenceContainer.appendChild(div);
+});
+
+const fixContainer = document.getElementById('fix-container');
+fixData.forEach((item, i) => {
+  const div = document.createElement('div');
+  div.className = 'q';
+  div.innerHTML = `
+    <div class="q-text"><span class="q-num">${i+1}</span><span class="zh">${item.wrong}</span></div>
+    <input class="fill-input" id="fix-${i}" placeholder="Sửa lại câu đúng ở đây...">
+    <div class="feedback" id="fix-fb-${i}"></div>
+    <button class="reveal-btn" onclick="toggleAns('fix-ans-${i}')">👁️ Xem đáp án</button>
+    <div class="answer-box" id="fix-ans-${i}">Đáp án: <span class="zh">${item.correct}</span><span class="note">${item.note}</span></div>
+  `;
+  fixContainer.appendChild(div);
+});
+
+const orderContainer = document.getElementById('order-container');
+orderData.forEach((item, i) => {
+  const div = document.createElement('div');
+  div.className = 'q';
+  div.innerHTML = `
+    <div class="q-text"><span class="q-num">${i+1}</span><span class="zh">${item.words}</span></div>
+    <input class="fill-input" id="order-${i}" placeholder="Đáp án của bạn...">
+    <div class="feedback" id="order-fb-${i}"></div>
+    <button class="reveal-btn" onclick="toggleAns('order-ans-${i}')">👁️ Xem đáp án</button>
+    <div class="answer-box" id="order-ans-${i}">Đáp án: <span class="zh">${item.answer}</span></div>
+  `;
+  orderContainer.appendChild(div);
+});
+
+const dialogueContainer = document.getElementById('dialogue-container');
+dialogueData.forEach((item, i) => {
+  const div = document.createElement('div');
+  div.className = 'dialogue-block';
+  if (item.isA) {
+    div.innerHTML = `
+      <div class="q-text"><span class="q-num">${i+1}</span>Hội thoại ${i+1}</div>
+      <div class="dialogue-line">A: <input class="fill-input" style="display:inline-block;width:70%;" id="dlg-${i}" placeholder="Điền câu hỏi..."></div>
+      <div class="dialogue-hint">${item.aHint}</div>
+      <div class="dialogue-line zh">B: ${item.b}</div>
+      <div class="feedback" id="dlg-fb-${i}"></div>
+      <button class="reveal-btn" onclick="toggleAns('dlg-ans-${i}')">👁️ Xem đáp án</button>
+      <div class="answer-box" id="dlg-ans-${i}">Đáp án: <span class="zh">${item.answer}</span></div>
+    `;
+  } else {
+    div.innerHTML = `
+      <div class="q-text"><span class="q-num">${i+1}</span>Hội thoại ${i+1}</div>
+      <div class="dialogue-line zh">A: ${item.a}</div>
+      <div class="dialogue-line">B: <input class="fill-input" style="display:inline-block;width:70%;" id="dlg-${i}" placeholder="Điền câu trả lời..."></div>
+      <div class="dialogue-hint">${item.bHint}</div>
+      <div class="feedback" id="dlg-fb-${i}"></div>
+      <button class="reveal-btn" onclick="toggleAns('dlg-ans-${i}')">👁️ Xem đáp án</button>
+      <div class="answer-box" id="dlg-ans-${i}">Đáp án: <span class="zh">${item.answer}</span></div>
+    `;
+  }
+  dialogueContainer.appendChild(div);
+});
+
+// ---------------- INTERACTION ----------------
+const selections = {};
+function selectOpt(qi, oi){
+  selections[qi] = oi;
+  for(let j=0;j<mcData[qi].opts.length;j++){
+    document.getElementById(`mc-opt-${qi}-${j}`).classList.toggle('selected', j===oi);
+  }
+}
+
+function toggleAns(id){
+  document.getElementById(id).classList.toggle('show');
+}
+
+function normalize(s){
+  return s.replace(/[，,。.！!？?\s]/g,'');
+}
+
+function checkAll(){
+  let mcCorrect = 0;
+  mcData.forEach((item,i)=>{
+    const fb = document.getElementById(`mc-fb-${i}`);
+    const chosen = selections[i];
+    for(let j=0;j<item.opts.length;j++){
+      const optEl = document.getElementById(`mc-opt-${i}-${j}`);
+      optEl.classList.remove('correct','incorrect');
+      if(j===item.ans) optEl.classList.add('correct');
+      else if(j===chosen) optEl.classList.add('incorrect');
+    }
+    if(chosen===item.ans){
+      mcCorrect++;
+      fb.className='feedback show ok';
+      fb.innerHTML='✅ Chính xác!';
+    } else {
+      fb.className='feedback show no';
+      fb.innerHTML=`❌ Chưa đúng. <span class="ans zh">Đáp án: ${String.fromCharCode(65+item.ans)}. ${item.opts[item.ans]}</span><br><span class="ans" style="color:#8b7a9b;">${item.note||''}</span>`;
+    }
+  });
+
+  // sentence section - no auto grading, just track completion and show sample
+  let sentCompleted = 0;
+  sentenceData.forEach((item,i)=>{
+    const input = document.getElementById(`sent-${i}`);
+    const fb = document.getElementById(`sent-fb-${i}`);
+    const filled = (input.value||'').trim().length > 0;
+    if(filled) sentCompleted++;
+    fb.className='feedback show ok';
+    fb.innerHTML = (filled ? '✍️ Đã hoàn thành. ' : '⚠️ Bạn chưa viết câu. ') + `<span class="ans zh">Gợi ý câu ví dụ: ${item.sample}</span>`;
+  });
+
+  let fixCorrect = 0;
+  fixData.forEach((item,i)=>{
+    const input = document.getElementById(`fix-${i}`);
+    const fb = document.getElementById(`fix-fb-${i}`);
+    const val = normalize(input.value||'');
+    const correctNorm = normalize(item.correct);
+    const altNorms = (item.alts||[]).map(a=>normalize(a));
+    const isMatch = val.length>0 && (val===correctNorm || altNorms.includes(val));
+    if(isMatch) fixCorrect++;
+    fb.className = isMatch ? 'feedback show ok' : 'feedback show no';
+    fb.innerHTML = (isMatch? '✅ Chính xác! ':'❌ Xem lại: ') + `<span class="ans zh">${item.correct}</span><br><span class="ans" style="color:#8b7a9b;">${item.note}</span>`;
+  });
+
+  let orderCorrect = 0;
+  orderData.forEach((item,i)=>{
+    const input = document.getElementById(`order-${i}`);
+    const fb = document.getElementById(`order-fb-${i}`);
+    const val = normalize(input.value||'');
+    const correctNorm = normalize(item.answer);
+    const isMatch = val.length>0 && val===correctNorm;
+    if(isMatch) orderCorrect++;
+    fb.className = isMatch ? 'feedback show ok' : 'feedback show no';
+    fb.innerHTML = (isMatch? '✅ Chính xác! ':'❌ Đáp án đúng: ') + `<span class="ans zh">${item.answer}</span>`;
+  });
+
+  let dlgCorrect = 0;
+  dialogueData.forEach((item,i)=>{
+    const input = document.getElementById(`dlg-${i}`);
+    const fb = document.getElementById(`dlg-fb-${i}`);
+    const val = normalize(input.value||'');
+    const correctNorm = normalize(item.answer);
+    const isMatch = val.length>0 && val===correctNorm;
+    if(isMatch) dlgCorrect++;
+    fb.className = isMatch ? 'feedback show ok' : 'feedback show no';
+    fb.innerHTML = (isMatch? '✅ Chính xác! ':'💡 Gợi ý đáp án: ') + `<span class="ans zh">${item.answer}</span>`;
+  });
+
+  const totalGraded = mcData.length + fixData.length + orderData.length + dialogueData.length;
+  const totalCorrect = mcCorrect + fixCorrect + orderCorrect + dlgCorrect;
+  const pct = Math.round((totalCorrect/totalGraded)*100);
+
+  document.getElementById('score-num').textContent = `${totalCorrect}/${totalGraded}`;
+  document.querySelector('.score-circle').style.setProperty('--pct', pct);
+
+  const gradeEl = document.getElementById('grade-text');
+  const tipEl = document.getElementById('tip-text');
+  if(pct>=90){gradeEl.textContent='🌟 Xuất sắc!';gradeEl.style.color='#3f7a52';tipEl.textContent='Bạn nắm rất chắc kiến thức HSK 1. Hãy thử lên HSK 2 nhé!';}
+  else if(pct>=70){gradeEl.textContent='💪 Khá tốt!';gradeEl.style.color='#8a6a2f';tipEl.textContent='Ôn lại những câu sai một chút là bạn sẽ đạt điểm tối đa!';}
+  else if(pct>=50){gradeEl.textContent='📚 Cần cố gắng thêm';gradeEl.style.color='#a3495b';tipEl.textContent='Hãy xem lại các đáp án chi tiết và luyện tập thêm nhé.';}
+  else{gradeEl.textContent='🌱 Mới bắt đầu';gradeEl.style.color='#a3495b';tipEl.textContent='Đừng nản lòng! Ôn lại từ vựng và ngữ pháp cơ bản rồi thử lại nhé.';}
+  tipEl.innerHTML += `<br><span style="font-size:.82rem;">📝 Phần 2 (Đặt câu) là câu tự luận nên không tính vào tổng điểm ${totalCorrect}/${totalGraded} - xem chi tiết bên dưới.</span>`;
+
+  const progressList = document.getElementById('progress-list');
+  const parts = [
+    {label:'Phần 1: Trắc nghiệm', correct:mcCorrect, total:mcData.length},
+    {label:'Phần 2: Đặt câu (đã viết)', correct:sentCompleted, total:sentenceData.length, note:true},
+    {label:'Phần 3: Sửa lỗi sai', correct:fixCorrect, total:fixData.length},
+    {label:'Phần 4: Sắp xếp câu', correct:orderCorrect, total:orderData.length},
+    {label:'Phần 5: Hội thoại', correct:dlgCorrect, total:dialogueData.length},
+  ];
+  progressList.innerHTML = parts.map(p=>{
+    const pp = Math.round((p.correct/p.total)*100);
+    return `<div class="progress-row"><span class="plabel">${p.label}</span><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${pp}%;${p.note?'background:linear-gradient(90deg,#cfe8fb,#9fc9e8);':''}"></div></div><span>${p.correct}/${p.total}</span></div>`;
+  }).join('') + `<div style="font-size:.78rem;color:var(--ink-soft);font-weight:600;margin-top:4px;">* Phần 2 chỉ đếm số câu đã viết (không chấm đúng/sai), không cộng vào điểm tổng.</div>`;
+
+  document.getElementById('score-panel').classList.add('show');
+  const panel = document.getElementById('score-panel');
+  if (panel && typeof panel.scrollIntoView === 'function') {
+    try { panel.scrollIntoView({behavior:'smooth', block:'start'}); } catch(e) { panel.scrollIntoView(); }
+  }
+}
+
+function resetAll(){
+  document.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);
+  document.querySelectorAll('.opt').forEach(o=>o.classList.remove('selected','correct','incorrect'));
+  document.querySelectorAll('.fill-input').forEach(i=>i.value='');
+  document.querySelectorAll('.feedback').forEach(f=>{f.className='feedback';f.innerHTML='';});
+  document.getElementById('score-panel').classList.remove('show');
+  for(const k in selections) delete selections[k];
+  if (typeof window.scrollTo === 'function') {
+    try { window.scrollTo({top:0, behavior:'smooth'}); } catch(e) { window.scrollTo(0,0); }
+  }
+}
+</script>
+</body>
+</html>
