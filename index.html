@@ -506,6 +506,23 @@
     margin-top:4px;
     display:block;
   }
+  .lesson-card .hanzi{
+    font-family:'Noto Serif SC', serif;
+    font-size:15px;
+    font-weight:700;
+    color:var(--green-deep);
+    margin-top:6px;
+    display:block;
+    line-height:1.4;
+  }
+  .lesson-card .viet{
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:3px;
+    display:block;
+    font-style:italic;
+    line-height:1.4;
+  }
   .lesson-card.locked{
     opacity:0.45;
     cursor:not-allowed;
@@ -772,21 +789,21 @@ const soBaiTheoCap = {
 
 const fileBaiHoc = {
   HSK1: {
-    1: 'hsk1/HSK1_Bai01.html',
-    2: 'hsk1/HSK1_Bai02.html',
-    3: 'hsk1/HSK1_Bai03.html',
-    4: 'hsk1/HSK1_Bai04.html',
-    5: 'hsk1/HSK1_Bai05.html',
-    6: 'hsk1/HSK1_Bai06.html',
-    7: 'hsk1/HSK1_Bai07.html',
-    8: 'hsk1/HSK1_Bai08.html',
-    9: 'hsk1/HSK1_Bai09.html',
-    10: 'hsk1/HSK1_Bai10.html',
-    11: 'hsk1/HSK1_Bai11.html',
-    12: 'hsk1/HSK1_Bai12.html',
-    13: 'hsk1/HSK1_Bai13.html',
-    14: 'hsk1/HSK1_Bai14.html',
-    15: 'hsk1/HSK1_Bai15.html',
+    1: 'hsk1/01.AI小语你好/BAI TAP.html',
+    2: 'hsk1/02.我叫李文/BAI TAP.html',
+    3: 'hsk1/03.我是中国人/BAI TAP.html',
+    4: 'hsk1/04.我有两个孩子/BAI TAP.html',
+    5: 'hsk1/05.今天我休息/BAI TAP.html',
+    6: 'hsk1/06.你的手机号是多少/BAI TAP.html',
+    7: 'hsk1/07.我晚上六点半下班/BAI TAP.html',
+    8: 'hsk1/08.我爸爸也在医院工作/BAI TAP.html',
+    9: 'hsk1/09.我明天上午在学校学习/BAI TAP.html',
+    10: 'hsk1/10.这儿的苹果真便宜/BAI TAP.html',
+    11: 'hsk1/11.我读大学呢/BAI TAP.html',
+    12: 'hsk1/12.昨天下雪了/BAI TAP.html',
+    13: 'hsk1/13.请给我一杯茶/BAI TAP.html',
+    14: 'hsk1/14.我看了一个电影/BAI TAP.html',
+    15: 'hsk1/15.大兴机场见/BAI TAP.html',
   },
   HSK2: {
     1: 'hsk2/HSK2_Bai01.html',
@@ -806,6 +823,34 @@ const fileBaiHoc = {
   }
 };
 
+/**
+ * ============================================================
+ * TÊN BÀI HỌC (tiếng Trung + nghĩa tiếng Việt)
+ * ============================================================
+ * Điền tên riêng cho từng bài để hiện trên thẻ thay vì "Bài N".
+ * Bài nào không có trong danh sách này sẽ tự động hiện "Bài N".
+ * ============================================================
+ */
+const tenBaiHocData = {
+  HSK1: {
+    1: { hanzi: 'AI小语，你好', viet: 'Xin chào, AI Tiểu Ngữ' },
+    2: { hanzi: '我叫李文', viet: 'Tôi tên là Lý Văn' },
+    3: { hanzi: '我是中国人', viet: 'Tôi là người Trung Quốc' },
+    4: { hanzi: '我有两个孩子', viet: 'Tôi có hai đứa con' },
+    5: { hanzi: '今天我休息', viet: 'Hôm nay tôi nghỉ' },
+    6: { hanzi: '你的手机号是多少', viet: 'Số điện thoại của bạn là bao nhiêu' },
+    7: { hanzi: '我晚上六点半下班', viet: 'Tôi tan làm lúc 6 giờ rưỡi tối' },
+    8: { hanzi: '我爸爸也在医院工作', viet: 'Bố tôi cũng làm việc ở bệnh viện' },
+    9: { hanzi: '我明天上午在学校学习', viet: 'Sáng mai tôi học ở trường' },
+    10: { hanzi: '这儿的苹果真便宜', viet: 'Táo ở đây thật rẻ' },
+    11: { hanzi: '我读大学呢', viet: 'Tôi đang học đại học' },
+    12: { hanzi: '昨天下雪了', viet: 'Hôm qua trời có tuyết rơi' },
+    13: { hanzi: '请给我一杯茶', viet: 'Xin cho tôi một cốc trà' },
+    14: { hanzi: '我看了一个电影', viet: 'Tôi đã xem một bộ phim' },
+    15: { hanzi: '大兴机场见', viet: 'Hẹn gặp ở sân bay Đại Hưng' }
+  }
+};
+
 // Tài liệu bổ sung ngoài các bài đánh số (vd file ngữ pháp tổng hợp)
 const extraTheoCap = {
   HSK6: [
@@ -816,9 +861,11 @@ const extraTheoCap = {
 function buildLessons(capDo){
   const total = soBaiTheoCap[capDo] || 0;
   const files = fileBaiHoc[capDo] || {};
+  const tens = tenBaiHocData[capDo] || {};
   const arr = [];
   for (let i = 1; i <= total; i++){
-    arr.push({ ten: 'Bài ' + i, file: files[i] || null });
+    const t = tens[i] || null;
+    arr.push({ ten: 'Bài ' + i, file: files[i] || null, hanzi: t ? t.hanzi : null, viet: t ? t.viet : null });
   }
   (extraTheoCap[capDo] || []).forEach(item => arr.push(Object.assign({ extra: true }, item)));
   return arr;
@@ -970,15 +1017,19 @@ function renderLessonGrid(level){
   let html = '<div class="lesson-grid">';
   level.lessons.forEach((l, i) => {
     const badge = l.extra ? '📘' : (i + 1);
+    const extraHtml = (l.hanzi ? '<span class="hanzi">' + l.hanzi + '</span>' : '')
+                     + (l.viet ? '<span class="viet">' + l.viet + '</span>' : '');
     if (l.file){
-      html += '<a class="lesson-card" href="' + l.file + '">'
+      html += '<a class="lesson-card" href="' + encodeURI(l.file) + '">'
             + '<div class="num">' + badge + '</div>'
             + '<span class="name">' + l.ten + '</span>'
+            + extraHtml
             + '</a>';
     } else {
       html += '<div class="lesson-card locked">'
             + '<div class="num">' + badge + '</div>'
             + '<span class="name">' + l.ten + '</span>'
+            + extraHtml
             + '</div>';
     }
   });
@@ -1015,7 +1066,7 @@ function renderGiaoTrinh(){
     if (d.mota) html += '<span class="doc-desc">' + d.mota + '</span>';
     html += '</div>';
     html += d.file
-      ? '<a class="doc-link" href="' + d.file + '" target="_blank" rel="noopener">Tải về</a>'
+      ? '<a class="doc-link" href="' + encodeURI(d.file) + '" target="_blank" rel="noopener">Tải về</a>'
       : '<span class="doc-pending">Đang cập nhật</span>';
     html += '</li>';
   });
@@ -1033,7 +1084,7 @@ function renderTaiLieu(){
     if (d.mota) html += '<span class="doc-desc">' + d.mota + '</span>';
     html += '</div>';
     html += d.file
-      ? '<a class="doc-link" href="' + d.file + '" target="_blank" rel="noopener">Tải về</a>'
+      ? '<a class="doc-link" href="' + encodeURI(d.file) + '" target="_blank" rel="noopener">Tải về</a>'
       : '<span class="doc-pending">Đang cập nhật</span>';
     html += '</li>';
   });
@@ -1046,7 +1097,7 @@ function renderPhatAm(){
   html += '<p>' + phatAmData.mota + '</p>';
   if (phatAmData.file){
     html += '<div class="lesson-grid">';
-    html += '<a class="lesson-card" href="' + phatAmData.file + '">'
+    html += '<a class="lesson-card" href="' + encodeURI(phatAmData.file) + '">'
           + '<div class="num">📘</div>'
           + '<span class="name">Bắt đầu luyện tập</span>'
           + '</a>';
@@ -1062,7 +1113,7 @@ function renderBoThu(){
   html += '<p>' + boThuData.mota + '</p>';
   if (boThuData.file){
     html += '<div class="lesson-grid">';
-    html += '<a class="lesson-card" href="' + boThuData.file + '">'
+    html += '<a class="lesson-card" href="' + encodeURI(boThuData.file) + '">'
           + '<div class="num">📘</div>'
           + '<span class="name">Bắt đầu luyện tập</span>'
           + '</a>';
