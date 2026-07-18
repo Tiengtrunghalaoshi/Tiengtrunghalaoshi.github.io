@@ -50,6 +50,20 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 }
 .hero-float{position:absolute;font-size:80px;opacity:.08;top:-10px;right:-10px;line-height:1}
 .hero-float2{position:absolute;font-size:50px;opacity:.07;bottom:10px;left:10px;line-height:1}
+.back-link{
+  position:absolute;top:16px;left:16px;z-index:2;
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.35);
+  color:#fff;
+  font-family:'Nunito',sans-serif;
+  font-size:12.5px;font-weight:700;
+  padding:7px 14px;border-radius:20px;
+  text-decoration:none;
+  backdrop-filter:blur(6px);
+  transition:all .18s;
+}
+.back-link:hover{background:rgba(255,255,255,.28); transform:translateX(-2px);}
 .hero-tag{font-size:11px;font-weight:700;color:rgba(255,255,255,.75);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;animation:fadeDown .6s ease both;position:relative;z-index:1;}
 .hero-title{font-size:24px;font-weight:800;color:#fff;margin-bottom:6px;animation:fadeDown .6s .1s ease both;position:relative;z-index:1;}
 .hero-title .blink-cursor{display:inline-block;width:3px;height:24px;background:#fff;vertical-align:middle;margin-left:3px;animation:blink 1s step-end infinite;}
@@ -340,6 +354,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 
 <!-- HERO -->
 <div class="hero">
+  <a href="../../index.html#HSK2" class="back-link">◀ Quay lại HSK2</a>
   <div class="hero-float">✈️</div>
   <div class="hero-float2">🦆</div>
   <div class="hero-tag">Tiếng Trung Halaoshi · HSK 2</div>
