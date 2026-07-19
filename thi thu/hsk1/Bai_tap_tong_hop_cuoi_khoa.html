@@ -323,7 +323,7 @@ const orderData = [
   {words:"个 / 这个 / 汉字 / 怎么 / 写", answer:"这个汉字怎么写？"},
   {words:"学生 / 我 / 是 / 一个 / 中国", answer:"我是一个中国学生。"},
   {words:"很 / 爸爸 / 忙 / 工作", answer:"爸爸工作很忙。"},
-  {words:"你 / 去 / 明天 / 公司 / 吗", answer:"你明天去公司吗？"},
+  {words:"你 / 去 / 明天 / 公司 / 吗", answer:"你明天去公司吗？", alts:["明天你去公司吗？"]},
   {words:"苹果 / 买 / 我 / 想 / 几个", answer:"我想买几个苹果。"},
 ];
 
@@ -499,7 +499,8 @@ function checkAll(){
     const fb = document.getElementById(`order-fb-${i}`);
     const val = normalize(input.value||'');
     const correctNorm = normalize(item.answer);
-    const isMatch = val.length>0 && val===correctNorm;
+    const altNorms = (item.alts||[]).map(a=>normalize(a));
+    const isMatch = val.length>0 && (val===correctNorm || altNorms.includes(val));
     if(isMatch) orderCorrect++;
     fb.className = isMatch ? 'feedback show ok' : 'feedback show no';
     fb.innerHTML = (isMatch? '✅ Chính xác! ':'❌ Đáp án đúng: ') + `<span class="ans zh">${item.answer}</span>`;
