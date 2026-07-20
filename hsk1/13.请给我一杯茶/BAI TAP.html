@@ -56,6 +56,18 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 .hero-sub{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:14px;animation:fadeDown .6s .2s ease both;position:relative;z-index:1;}
 .hero-badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;animation:fadeDown .6s .3s ease both;position:relative;z-index:1;}
+.back-link{
+  position:absolute;top:16px;left:16px;z-index:2;
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'Nunito',sans-serif;font-size:12.5px;font-weight:700;
+  color:#fff;background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.32);
+  padding:7px 14px;border-radius:20px;
+  text-decoration:none;backdrop-filter:blur(2px);
+  transition:all .18s;animation:fadeDown .6s ease both;
+}
+.back-link:hover{background:rgba(255,255,255,.32);border-color:rgba(255,255,255,.5);}
+@media(max-width:480px){.back-link{position:static;display:inline-flex;margin-bottom:14px;}}
 .hbadge{background:rgba(255,255,255,.2);border-radius:20px;padding:5px 13px;font-size:12px;font-weight:600;color:#fff;border:1px solid rgba(255,255,255,.28)}
 
 /* TIMER */
@@ -325,6 +337,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 
 <!-- HERO -->
 <div class="hero">
+  <a href="../../index.html#HSK1" class="back-link">◀ Quay lại HSK1</a>
   <div class="hero-float">🍵</div>
   <div class="hero-float2">🍞</div>
   <div class="hero-tag">Tiếng Trung Halaoshi · HSK 1</div>
