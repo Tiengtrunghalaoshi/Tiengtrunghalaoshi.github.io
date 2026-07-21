@@ -805,10 +805,10 @@ const hskTabSections = [
  *       số bài : 'đường-dẫn-file.html'
  *       Ví dụ: HSK6: { 1: 'hsk6/bai-01.html' }
  *
- *    Cách 2 — bài có 3 mục Từ vựng / Bài khóa / Bài tập (quy ước chung cho HSK1-6):
- *       số bài : { tuVung: 'đường-dẫn-tu-vung.html', baiKhoa: 'đường-dẫn-bai-khoa.html', baiTap: 'đường-dẫn-bai-tap.html' }
- *       Tên file chuẩn trong mỗi thư mục bài học: TU VUNG.html, BAI KHOA.html, BAI TAP.html
- *       Nếu bài nào chỉ có 1-2 trong 3 file, bỏ trống dòng còn lại là được.
+ *    Cách 2 — bài có 4 mục Từ vựng / Bài khóa / Sách bài tập / Bài tập mở rộng (quy ước chung cho HSK1-6):
+ *       số bài : { tuVung: 'đường-dẫn-tu-vung.html', baiKhoa: 'đường-dẫn-bai-khoa.html', sachBaiTap: 'đường-dẫn-sach-bai-tap.html', baiTap: 'đường-dẫn-bai-tap-mo-rong.html' }
+ *       Tên file chuẩn trong mỗi thư mục bài học: TU VUNG.html, BAI KHOA.html, SACH BAI TAP.html, BAI TAP MO RONG.html
+ *       Nếu bài nào chỉ có 1-3 trong 4 file, bỏ trống dòng còn lại là được.
  * ============================================================
  */
 const soBaiTheoCap = {
@@ -906,12 +906,13 @@ function buildLessons(capDo){
   for (let i = 1; i <= total; i++){
     const t = tens[i] || null;
     const raw = files[i] || null;
-    let file = null, tuVung = null, baiKhoa = null, baiTap = null;
+    let file = null, tuVung = null, baiKhoa = null, sachBaiTap = null, baiTap = null;
     if (typeof raw === 'string'){
       file = raw; // bài chỉ có 1 file duy nhất
     } else if (raw && typeof raw === 'object'){
       tuVung = raw.tuVung || null;
       baiKhoa = raw.baiKhoa || null;
+      sachBaiTap = raw.sachBaiTap || null;
       baiTap = raw.baiTap || null;
     }
     arr.push({
@@ -919,6 +920,7 @@ function buildLessons(capDo){
       file: file,
       tuVung: tuVung,
       baiKhoa: baiKhoa,
+      sachBaiTap: sachBaiTap,
       baiTap: baiTap,
       hanzi: t ? t.hanzi : null,
       viet: t ? t.viet : null
@@ -1122,7 +1124,7 @@ function renderLessonGrid(level){
             + '<span class="name">' + l.ten + '</span>'
             + extraHtml
             + '</a>';
-    } else if (l.tuVung || l.baiKhoa || l.baiTap){
+    } else if (l.tuVung || l.baiKhoa || l.sachBaiTap || l.baiTap){
       html += '<div class="lesson-card has-links">'
             + '<div class="num">' + badge + '</div>'
             + '<span class="name">' + l.ten + '</span>'
@@ -1130,7 +1132,8 @@ function renderLessonGrid(level){
             + '<div class="lesson-links">'
             + (l.tuVung ? '<a class="lesson-link" href="' + encodeURI(l.tuVung) + '">📖 Từ vựng</a>' : '')
             + (l.baiKhoa ? '<a class="lesson-link" href="' + encodeURI(l.baiKhoa) + '">📄 Bài khóa</a>' : '')
-            + (l.baiTap ? '<a class="lesson-link" href="' + encodeURI(l.baiTap) + '">✍️ Bài tập</a>' : '')
+            + (l.sachBaiTap ? '<a class="lesson-link" href="' + encodeURI(l.sachBaiTap) + '">📕 Sách bài tập</a>' : '')
+            + (l.baiTap ? '<a class="lesson-link" href="' + encodeURI(l.baiTap) + '">✍️ Bài tập mở rộng</a>' : '')
             + '</div>'
             + '</div>';
     } else {
