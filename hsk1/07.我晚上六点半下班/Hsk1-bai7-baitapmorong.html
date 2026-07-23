@@ -1052,7 +1052,13 @@ function selectR(ri) {
 function buildWB() {
   const wb = document.getElementById('wb');
   wb.innerHTML = '';
-  fillWords.forEach((w, i) => {
+  const order = [...Array(fillWords.length).keys()];
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  order.forEach(i => {
+    const w = fillWords[i];
     const el = document.createElement('span');
     el.className = 'chip'; el.textContent = w; el.dataset.i = i; el.dataset.used = '0';
     el.onclick = () => {
