@@ -104,6 +104,16 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 .prog-fill{height:8px;background:linear-gradient(90deg,#B45309,#78350F);border-radius:4px;transition:width .5s cubic-bezier(.34,1.56,.64,1)}
 .prog-label{font-size:12px;color:var(--text2);white-space:nowrap;font-weight:700}
 
+.disclaimer-note{
+  max-width:900px;
+  margin:0 auto 14px;
+  padding:8px 16px;
+  font-size:.82em;
+  color:#B45309;
+  text-align:center;
+  line-height:1.5;
+}
+
 /* ─── TABS ─── */
 .tabs-outer{max-width:760px;margin:0 auto;padding:0 16px}
 .tabs-scroll{
@@ -356,6 +366,8 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
     <span class="hbadge">23 từ vựng</span>
   </div>
 </div>
+
+<div class="disclaimer-note">⚠️ Nên mở file này bằng trình duyệt web (Chrome, Safari...) để phần nghe (phát âm từ vựng, hội thoại) hoạt động đầy đủ; mở qua Zalo/Messenger/Facebook có thể bị lỗi không phát được âm thanh.</div>
 
 <!-- TIMER -->
 <div class="timer-bar">
@@ -1051,9 +1063,14 @@ function tryMatch() {
 function buildWB() {
   const wb = document.getElementById('wb');
   wb.innerHTML = '';
-  fillWords.forEach((w, i) => {
+  const order = [...Array(fillWords.length).keys()];
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  order.forEach(i => {
     const chip = document.createElement('div');
-    chip.className = 'chip'; chip.id = 'chip-' + i; chip.textContent = w;
+    chip.className = 'chip'; chip.id = 'chip-' + i; chip.textContent = fillWords[i];
     chip.onclick = () => selectChip(i);
     wb.appendChild(chip);
   });
