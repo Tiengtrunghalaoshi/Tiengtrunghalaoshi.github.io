@@ -650,7 +650,7 @@ const matchVN = ['Bến xe','Xa','Bắt taxi','Đại học Bắc Kinh','Trên m
 const mCorrect = {0:0, 1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7};
 const mShuffled = [5,2,7,0,4,1,6,3];
 
-const fillWords = ['但','还是','啊','万','名','间','票','别'];
+const fillWords = ['别','名','还是','票','啊','但','万','间'];
 const fillRows = [
   {pre:'他学习很努力，', ans:'但',   suf:'成绩不好。',       py:'dàn'},
   {pre:'我们',           ans:'还是', suf:'打车去吧。',       py:'háishi'},
@@ -725,10 +725,10 @@ const errData = [
     explain: '名 (vị, thứ hạng) là lượng từ đứng sau số thứ tự (第一名), không đứng trước.'
   },
   {
-    segs: ['我', '买了', '网上', '一张', '票。'],
+    segs: ['我', '买了', '在网上', '一张', '票。'],
     ans: 2,
     fix: '我在网上买了一张票。',
-    explain: '网上 (trên mạng) đi cùng giới từ 在 tạo thành trạng ngữ chỉ nơi chốn, phải đứng trước động từ (在网上买), không đứng sau động từ.'
+    explain: '在网上 (ở trên mạng) là trạng ngữ chỉ nơi chốn, phải đứng trước động từ (在网上买), không đứng sau động từ.'
   },
   {
     segs: ['这', '教室间', '很', '大。'],
@@ -747,6 +747,18 @@ const errData = [
     ans: 1,
     fix: '老师叫他过来一下。',
     explain: '过来 (qua đây/lại đây) là bổ ngữ chỉ hướng, phải đứng sau động từ chính và tân ngữ (叫他过来), không đứng ngay sau chủ ngữ.'
+  },
+  {
+    segs: ['你', '啊', '也', '去？'],
+    ans: 1,
+    fix: '你也去啊？',
+    explain: '啊 (à, nhé) là trợ từ ngữ khí, luôn đứng cuối câu (去啊？), không được chèn vào giữa câu.'
+  },
+  {
+    segs: ['我们', '去', '打车', '北京大学。'],
+    ans: [1, 2],
+    fix: '我们打车去北京大学。',
+    explain: '打车去 + địa điểm: động từ phương thức 打车 phải đứng trước 去, rồi mới đến địa điểm đích (打车去北京大学), không đảo 去 lên trước 打车 — chọn phần chứa 去 hoặc phần chứa 打车 đều được.'
   },
 ];
 
@@ -1425,11 +1437,11 @@ function calcScore() {
   document.getElementById('s-breakdown').innerHTML=bhtml;
 
   const tips = [];
-  if(p1tot>0 && Math.round(p1ok/p1tot*100)<80) tips.push('\uD83D\uDCDD Trắc nghiệm: Ôn lại nghĩa các từ vựng về đón bạn, giới thiệu và đi du lịch trong phần Từ vựng.');
+  if(p1tot>0 && Math.round(p1ok/p1tot*100)<80) tips.push('\uD83D\uDCDD Trắc nghiệm: Ôn lại nghĩa các từ vựng về giao thông và đi lại (公交车, 车站, 打车, 远, 网上, 票) trong phần Từ vựng.');
   if(p2ok<p2tot) tips.push('\uD83D\uDD17 Nối từ: Hãy lật hết thẻ từ vựng và đọc to nghĩa để ghi nhớ.');
-  if(p3tot>0 && Math.round(p3ok/p3tot*100)<80) tips.push('\u270F\uFE0F Điền từ: Chú ý cách dùng 就, 那, 有时, 不好意思 — các từ chức năng quan trọng của bài.');
+  if(p3tot>0 && Math.round(p3ok/p3tot*100)<80) tips.push('\u270F\uFE0F Điền từ: Chú ý cách dùng 但, 还是, 万, 名, 间, 别 — các từ chức năng quan trọng của bài.');
   if(p4tot>0 && Math.round(p4ok/p4tot*100)<80) tips.push('\uD83D\uDCAC Hội thoại: Nghe lại hội thoại nhiều lần (bấm 🔊 từng câu hoặc nghe toàn bộ) và chú ý ngữ cảnh từng câu.');
-  if(p5tot>0 && Math.round(p5ok/p5tot*100)<80) tips.push('\uD83D\uDD0D Tìm lỗi sai: Ôn lại vị trí đúng của các từ chức năng — 让 (đứng trước người bị sai khiến), 就 (đứng trước động từ/tính từ cần nhấn mạnh), 那 (đứng đầu câu), 已经/有时/第一次 (đứng trước động từ).');
+  if(p5tot>0 && Math.round(p5ok/p5tot*100)<80) tips.push('\uD83D\uDD0D Tìm lỗi sai: Ôn lại vị trí đúng của các từ chức năng — 但 (đầu vế câu sau), 还是 (sau chủ ngữ, trước động từ), 万/名 (sau số từ), 在网上 (trước động từ), 间 (giữa từ chỉ định và danh từ), 别 (trước động từ), 过来 (sau động từ + tân ngữ), 啊 (cuối câu), 打车去 (phương thức trước, 去 + địa điểm sau).');
   if(p6answered<p6tot) tips.push('\u270D\uFE0F Dịch câu: Bạn còn ' + (p6tot-p6answered) + ' câu chưa nộp — hãy hoàn thành trước khi lên lớp nhé.');
   const tipsEl = document.getElementById('s-tips');
   if(tips.length===0){
