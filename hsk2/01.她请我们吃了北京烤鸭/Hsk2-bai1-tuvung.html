@@ -293,6 +293,16 @@
   .fc-example{margin-top:14px;font-size:14px;line-height:1.6;color:var(--ink);}
   .fc-example .py{color:var(--ink-soft);font-size:12.5px;display:block;}
   .fc-example .vi{color:var(--ink-soft);font-size:12.5px;display:block;margin-top:2px;font-style:italic;}
+  .fc-example .example2{margin-top:10px;padding-top:10px;border-top:1px dashed var(--border,#e5e7eb);}
+  .disclaimer-note{
+    max-width:900px;
+    margin:0 auto 14px;
+    padding:8px 16px;
+    font-size:.82em;
+    color:#B45309;
+    text-align:center;
+    line-height:1.5;
+  }
   .fc-hint{margin-top:14px;font-size:11.5px;color:var(--ink-soft);}
   .fc-radicals{margin-top:14px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;}
   .radical-pill{
@@ -799,6 +809,8 @@
   <span class="stat-pill">Flashcard · Trò chơi · Ôn tập · Nét chữ</span>
 </div>
 
+<div class="disclaimer-note">⚠️ Nên mở file này bằng trình duyệt web (Chrome, Safari...) để phần nghe (phát âm từ vựng, hội thoại) hoạt động đầy đủ; mở qua Zalo/Messenger/Facebook có thể bị lỗi không phát được âm thanh.</div>
+
 <div class="tabs-wrap">
   <div class="tabs">
     <button class="tab-btn active" data-tab="flashcard">🗂️ Flashcard</button>
@@ -968,7 +980,7 @@
 <script>
 /* ===================== DATA (HSK2 · Bài 1 — 16 từ vựng) ===================== */
 const vocab = [
-  {hanzi:"就", pinyin:"jiù", wordClass:"adv", meaning:"Chính", example:{zh:"她就是我的姐姐。", py:"Tā jiù shì wǒ de jiějie.", vi:"Cô ấy chính là chị gái của tôi."}},
+  {hanzi:"就", pinyin:"jiù", wordClass:"adv", meaning:"Chính; liền, thì", example:{zh:"她就是我的姐姐。", py:"Tā jiù shì wǒ de jiějie.", vi:"Cô ấy chính là chị gái của tôi."}, example2:{zh:"他到了北京就给我打个电话。", py:"Tā dàole Běijīng jiù gěi wǒ dǎ gè diànhuà.", vi:"Anh ấy đến Bắc Kinh thì gọi điện cho tôi ngay."}},
   {hanzi:"给", pinyin:"gěi", wordClass:"prep", meaning:"Cho", example:{zh:"我给你一本书。", py:"Wǒ gěi nǐ yì běn shū.", vi:"Tôi cho bạn một quyển sách."}},
   {hanzi:"让", pinyin:"ràng", wordClass:"v", meaning:"Để, bảo, cho phép", example:{zh:"妈妈让我早点回家。", py:"Māma ràng wǒ zǎo diǎn huí jiā.", vi:"Mẹ bảo tôi về nhà sớm hơn."}},
   {hanzi:"接", pinyin:"jiē", wordClass:"v", meaning:"Đón, nhận", example:{zh:"我去机场接你。", py:"Wǒ qù jīchǎng jiē nǐ.", vi:"Tôi ra sân bay đón bạn."}},
@@ -1078,7 +1090,8 @@ function renderFlashcard(){
   wcEl.style.display = item.wordClass ? '' : 'none';
   document.getElementById('fcMeaning').textContent = item.meaning;
   document.getElementById('fcExample').innerHTML =
-    item.example.zh + '<span class="py">' + item.example.py + '</span><span class="vi">' + item.example.vi + '</span>';
+    item.example.zh + '<span class="py">' + item.example.py + '</span><span class="vi">' + item.example.vi + '</span>' +
+    (item.example2 ? '<div class="example2">' + item.example2.zh + '<span class="py">' + item.example2.py + '</span><span class="vi">' + item.example2.vi + '</span></div>' : '');
   const radicals = getRadicalsForWord(item.hanzi);
   document.getElementById('fcRadicals').innerHTML = radicals.map(r =>
     '<span class="radical-pill"><span class="zh">' + r.radical + '</span> ' + r.name + '</span>'
