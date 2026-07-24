@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSK2 - Bài 2: Nghe bài khóa</title>
+<style>
+:root{
+  --teal:#00897b;
+  --teal-dark:#00695c;
+  --teal-light:#e0f2f1;
+  --gold:#e8a33d;
+  --gray:#555;
+  --bg:#f5fbfa;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);
+  color:#333;
+}
+header{
+  background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%);
+  color:#fff;
+  padding:22px 16px;
+  text-align:center;
+  box-shadow:0 3px 10px rgba(0,0,0,.15);
+  position:relative;
+}
+.back-btn{
+  position:absolute;
+  top:14px;
+  left:14px;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(255,255,255,.15);
+  color:#fff;
+  text-decoration:none;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:.85em;
+  font-weight:600;
+  border:1px solid rgba(255,255,255,.4);
+  transition:.15s;
+}
+.back-btn:hover{background:rgba(255,255,255,.28);}
+header h1{margin:0;font-size:1.5em;}
+header .sub{margin-top:6px;font-size:.95em;opacity:.92;}
+header .lesson-title{font-size:1.1em;margin-top:4px;font-weight:bold;}
+.tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  justify-content:center;
+  background:#fff;
+  padding:10px;
+  position:sticky;
+  top:0;
+  z-index:50;
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
+}
+.tab-btn{
+  border:2px solid var(--teal);
+  background:#fff;
+  color:var(--teal);
+  padding:8px 14px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:.85em;
+  font-weight:600;
+  transition:.15s;
+  white-space:nowrap;
+}
+.tab-btn:hover{background:var(--teal-light);}
+.tab-btn.active{background:var(--teal);color:#fff;}
+.container{max-width:900px;margin:0 auto;padding:18px 14px 60px;}
+.panel{display:none;animation:fade .25s;}
+.panel.active{display:block;}
+@keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.part-header{
+  background:var(--teal-light);
+  border-left:5px solid var(--teal);
+  padding:12px 16px;
+  border-radius:8px;
+  margin-bottom:16px;
+}
+.part-header h2{margin:0;color:var(--teal-dark);font-size:1.15em;}
+.pic-wrap{
+  text-align:center;
+  margin:14px 0;
+  background:#fff;
+  border:1px solid #dcefec;
+  border-radius:10px;
+  padding:8px;
+}
+.pic-wrap img{max-width:100%;border-radius:6px;}
+.audio-box{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  background:#fff;
+  border:1px dashed var(--gold);
+  border-radius:8px;
+  padding:10px 14px;
+  margin:8px 0 16px;
+  font-size:.85em;
+}
+.audio-missing{color:#b26a00;font-style:italic;}
+.player-row{display:flex;align-items:center;gap:10px;}
+.player-btn{
+  border:none;
+  background:var(--teal);
+  color:#fff;
+  width:36px;height:36px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:1em;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  transition:.15s;
+}
+.player-btn:hover{background:var(--teal-dark);}
+.player-btn.replay-btn{
+  background:#fff;
+  color:var(--teal);
+  border:2px solid var(--teal);
+  width:32px;height:32px;
+  font-size:.95em;
+}
+.player-btn.replay-btn:hover{background:var(--teal-light);}
+.seek-bar{
+  flex:1;
+  height:6px;
+  accent-color:var(--teal);
+  cursor:pointer;
+}
+.time-display{
+  font-size:.85em;
+  color:var(--gray);
+  white-space:nowrap;
+  min-width:78px;
+  text-align:right;
+}
+.dialogue-card{
+  background:#fff;
+  border-radius:10px;
+  padding:16px 18px;
+  margin-bottom:14px;
+  box-shadow:0 1px 4px rgba(0,0,0,.08);
+  border:1px solid #dcefec;
+}
+.line{
+  margin-bottom:12px;
+  font-size:1.05em;
+  line-height:1.7;
+}
+.line:last-child{margin-bottom:0;}
+.spk{font-weight:bold;margin-right:4px;}
+.spk-baijiayue{color:#2f6fed;}
+.spk-anni{color:#8e44ad;}
+.spk-fuwuyuan{color:#16a085;}
+.spk-narrator{color:var(--teal-dark);}
+.passage-text{
+  font-size:1.05em;
+  line-height:1.9;
+}
+.pinyin{
+  display:none;
+  color:var(--gray);
+  font-size:.88em;
+  margin-top:2px;
+  font-style:italic;
+}
+body.show-pinyin .pinyin{display:block;}
+.passage-pinyin{
+  display:none;
+  color:var(--gray);
+  font-size:.92em;
+  font-style:italic;
+  line-height:1.7;
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px dashed #dcefec;
+}
+body.show-pinyin .passage-pinyin{display:block;}
+.vi-text{
+  display:none;
+  color:#2f6f5e;
+  font-size:.92em;
+  margin-top:2px;
+}
+body.show-vi .vi-text{display:block;}
+.passage-vi{
+  display:none;
+  color:#2f6f5e;
+  font-size:.95em;
+  line-height:1.7;
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px dashed #dcefec;
+}
+body.show-vi .passage-vi{display:block;}
+body.hide-hanzi .hanzi-text{display:none;}
+.pinyin-toggle-bar{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  padding:8px 10px 0;
+}
+.pinyin-toggle-btn{
+  border:2px solid var(--gold);
+  background:#fff;
+  color:#b26a00;
+  padding:6px 16px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:.85em;
+  font-weight:600;
+  transition:.15s;
+}
+.pinyin-toggle-btn:hover{background:#fff7ea;}
+.pinyin-toggle-btn.active{background:var(--gold);color:#fff;}
+.disclaimer-note{
+  max-width:900px;
+  margin:8px auto 0;
+  padding:8px 16px;
+  font-size:.82em;
+  color:#b26a00;
+  text-align:center;
+  line-height:1.5;
+}
+footer{text-align:center;padding:16px;color:#aaa;font-size:.8em;}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="../../index.html#HSK2" class="back-btn">← Quay lại HSK2</a>
+  <div><span style="display:inline-block;background:#fff;color:var(--teal);border-radius:50%;width:34px;height:34px;line-height:34px;text-align:center;font-weight:bold;margin-right:6px;">汉</span><b>Tiếng Trung Halaoshi</b></div>
+  <h1>HSK2 - Bài 2</h1>
+  <div class="lesson-title">还是打车去北大吧 · Hay là gọi taxi đi Bắc Đại đi</div>
+  <div class="sub">Nghe bài khóa (听课文) — 4 bài khóa</div>
+</header>
+
+<div class="tabs" id="tabBar"></div>
+<div class="pinyin-toggle-bar">
+  <button class="pinyin-toggle-btn" id="pinyinToggleBtn">👁 Hiện pinyin</button>
+  <button class="pinyin-toggle-btn" id="hanziToggleBtn">🙈 Ẩn chữ Hán</button>
+  <button class="pinyin-toggle-btn" id="viToggleBtn">👁 Hiện nghĩa</button>
+</div>
+<div class="disclaimer-note">⚠️ Phần pinyin và nghĩa tiếng Việt chỉ mang tính tham khảo, học sinh cần tự đối chiếu với giáo trình chuẩn HSK2.</div>
+<div class="disclaimer-note">⚠️ Nên mở file này bằng trình duyệt web (Chrome, Safari...) để phần nghe hoạt động đầy đủ; mở qua Zalo/Messenger/Facebook có thể bị lỗi không phát được âm thanh.</div>
+<div class="container" id="panelHost"></div>
+
+<footer>Tiếng Trung Halaoshi · Tài liệu luyện tập nội bộ</footer>
+
+<script>
+/* ============ DATA ============ */
+const AUD1 = "Hsk2-bai2-baikhoa-filenghe1.mp3";
+const AUD2 = "Hsk2-bai2-baikhoa-filenghe2.mp3";
+const AUD3 = "Hsk2-bai2-baikhoa-filenghe3.mp3";
+const AUD4 = "Hsk2-bai2-baikhoa-filenghe4.mp3";
+
+const texts = [
+  {
+    id:"t1", tab:"课文1",
+    title:"课文1：在宾馆",
+    audio:AUD1,
+    lines:[
+      {spk:"白家月", cls:"spk-baijiayue", hanzi:"请问，这儿有到北京大学的公交车吗？", pinyin:"Qǐngwèn, zhèr yǒu dào Běijīng Dàxué de gōngjiāochē ma?", vi:"Xin hỏi, ở đây có xe buýt đến Đại học Bắc Kinh không ạ?"},
+      {spk:"服务员", cls:"spk-fuwuyuan", hanzi:"有，但车站有点儿远。", pinyin:"Yǒu, dàn chēzhàn yǒudiǎnr yuǎn.", vi:"Có, nhưng trạm xe hơi xa một chút."},
+      {spk:"白家月", cls:"spk-baijiayue", hanzi:"这儿好打车吗？", pinyin:"Zhèr hǎo dǎchē ma?", vi:"Ở đây có dễ bắt taxi không ạ?"},
+      {spk:"服务员", cls:"spk-fuwuyuan", hanzi:"好打车。", pinyin:"Hǎo dǎchē.", vi:"Dễ bắt taxi."},
+      {spk:"白家月", cls:"spk-baijiayue", hanzi:"谢谢。安妮，我们还是打车去吧。", pinyin:"Xièxiè. Ānnī, wǒmen háishi dǎchē qù ba.", vi:"Cảm ơn chị. An Ni, chúng ta cứ đi taxi đi."},
+      {spk:"安妮", cls:"spk-anni", hanzi:"好，没问题。", pinyin:"Hǎo, méi wèntí.", vi:"Được, không vấn đề gì."}
+    ]
+  },
+  {
+    id:"t2", tab:"课文2",
+    title:"课文2：在北京大学",
+    audio:AUD2,
+    lines:[
+      {spk:"白家月", cls:"spk-baijiayue", hanzi:"学校里人真多啊！", pinyin:"Xuéxiào li rén zhēn duō a!", vi:"Người trong trường đông thật đấy!"},
+      {spk:"安妮", cls:"spk-anni", hanzi:"是啊，北京大学有四万多名学生呢！", pinyin:"Shì a, Běijīng Dàxué yǒu sì wàn duō míng xuésheng ne!", vi:"Đúng vậy, Đại học Bắc Kinh có hơn bốn vạn sinh viên đấy!"},
+      {spk:"白家月", cls:"spk-baijiayue", hanzi:"你是怎么知道的？", pinyin:"Nǐ shì zěnme zhīdào de?", vi:"Cậu biết bằng cách nào vậy?"},
+      {spk:"安妮", cls:"spk-anni", hanzi:"是网上说的，网上还说北京大学有三千多名外国学生。", pinyin:"Shì wǎngshàng shuō de, wǎngshàng hái shuō Běijīng Dàxué yǒu sān qiān duō míng wàiguó xuésheng.", vi:"Là trên mạng nói đấy, trên mạng còn nói Đại học Bắc Kinh có hơn ba nghìn sinh viên nước ngoài."},
+      {spk:"白家月", cls:"spk-baijiayue", hanzi:"我也想来这儿学习。", pinyin:"Wǒ yě xiǎng lái zhèr xuéxí.", vi:"Mình cũng muốn đến đây học."},
+      {spk:"安妮", cls:"spk-anni", hanzi:"那边就有一间教室，我们去看一下吧。", pinyin:"Nàbiān jiù yǒu yì jiān jiàoshì, wǒmen qù kàn yíxià ba.", vi:"Đằng kia có một phòng học, chúng ta đến xem thử đi."}
+    ]
+  },
+  {
+    id:"t3", tab:"课文3",
+    title:"课文3：在北京大学",
+    audio:AUD3,
+    lines:[
+      {spk:"安妮", cls:"spk-anni", hanzi:"家月，你看，学校里有家电影院！", pinyin:"Jiāyuè, nǐ kàn, xuéxiào li yǒu jiā diànyǐngyuàn!", vi:"Gia Nguyệt, cậu xem này, trong trường có một rạp chiếu phim đấy!"},
+      {spk:"白家月", cls:"spk-baijiayue", hanzi:"是啊，电影院还不小。", pinyin:"Shì a, diànyǐngyuàn hái bù xiǎo.", vi:"Đúng vậy, rạp chiếu phim cũng không nhỏ đâu."},
+      {spk:"安妮", cls:"spk-anni", hanzi:"他们卖的电影票也很便宜。", pinyin:"Tāmen mài de diànyǐngpiào yě hěn piányi.", vi:"Vé phim họ bán cũng rất rẻ."},
+      {spk:"白家月", cls:"spk-baijiayue", hanzi:"天啊！有的还不到二十块钱。", pinyin:"Tiān a! Yǒude hái bú dào èrshí kuài qián.", vi:"Trời ơi! Có vé còn chưa đến hai mươi tệ."},
+      {spk:"安妮", cls:"spk-anni", hanzi:"那你想不想去看个电影？", pinyin:"Nà nǐ xiǎng bu xiǎng qù kàn ge diànyǐng?", vi:"Vậy cậu có muốn đi xem một bộ phim không?"},
+      {spk:"白家月", cls:"spk-baijiayue", hanzi:"还是别看电影了，北京大学就很好看！", pinyin:"Háishi bié kàn diànyǐng le, Běijīng Dàxué jiù hěn hǎokàn!", vi:"Thôi đừng xem phim nữa, Đại học Bắc Kinh đã đẹp lắm rồi!"}
+    ]
+  },
+  {
+    id:"t4", tab:"课文4",
+    title:"课文4：在北京大学门口",
+    audio:AUD4,
+    passage:"北京大学很大，有四万多名学生。学校很漂亮，里边还有家电影院，电影票也不贵，我们有时间还想再过来看个电影。",
+    passagePinyin:"Běijīng Dàxué hěn dà, yǒu sì wàn duō míng xuésheng. Xuéxiào hěn piàoliang, lǐbian hái yǒu jiā diànyǐngyuàn, diànyǐngpiào yě bú guì, wǒmen yǒu shíjiān hái xiǎng zài guòlái kàn ge diànyǐng.",
+    passageVi:"Đại học Bắc Kinh rất rộng lớn, có hơn bốn vạn sinh viên. Trường rất đẹp, bên trong còn có một rạp chiếu phim, vé phim cũng không đắt, khi nào có thời gian chúng tôi còn muốn đến xem phim nữa."
+  }
+];
+
+/* ============ RENDER ============ */
+const nameMap = {
+  "白家月":"Bái Jiāyuè",
+  "安妮":"Ānnī",
+  "服务员":"Fúwùyuán"
+};
+const nameMapVi = {
+  "白家月":"Bạch Gia Nguyệt",
+  "安妮":"An Ni",
+  "服务员":"Nhân viên phục vụ"
+};
+const tabBar = document.getElementById('tabBar');
+const panelHost = document.getElementById('panelHost');
+
+texts.forEach((t, idx)=>{
+  const b = document.createElement('button');
+  b.className='tab-btn'+(idx===0?' active':'');
+  b.textContent=t.tab;
+  b.onclick=()=>showTab(idx);
+  tabBar.appendChild(b);
+});
+
+function renderPanel(t, idx){
+  const panel = document.createElement('div');
+  panel.className='panel'+(idx===0?' active':'');
+  panel.id='panel-'+idx;
+
+  const ph = document.createElement('div');
+  ph.className='part-header';
+  ph.innerHTML = '<h2>'+t.title+'</h2>';
+  panel.appendChild(ph);
+
+  const abox = document.createElement('div');
+  abox.className='audio-box';
+  abox.innerHTML =
+    '<div style="display:flex;align-items:center;gap:6px;">🔊 <b>Nghe bài khóa:</b></div>'+
+    '<div class="player-row">'+
+      '<button class="player-btn play-btn" title="Phát / Tạm dừng">▶</button>'+
+      '<button class="player-btn replay-btn" title="Nghe lại từ đầu">⟲</button>'+
+      '<input type="range" class="seek-bar" min="0" max="100" value="0" step="0.1">'+
+      '<span class="time-display">0:00 / 0:00</span>'+
+    '</div>'+
+    '<audio style="display:none" src="'+t.audio+'"></audio>'+
+    '<span class="audio-missing" style="display:none;">Chưa có file âm thanh ('+t.audio+')</span>';
+  panel.appendChild(abox);
+  initAudioPlayer(abox);
+
+  const card = document.createElement('div');
+  card.className='dialogue-card';
+
+  if(t.lines){
+    t.lines.forEach(l=>{
+      const div = document.createElement('div');
+      div.className='line';
+      const namePinyinPrefix = nameMap[l.spk] ? nameMap[l.spk]+'： ' : '';
+      const nameViPrefix = nameMapVi[l.spk] ? nameMapVi[l.spk]+'： ' : '';
+      div.innerHTML = '<span class="spk hanzi-text '+l.cls+'">'+l.spk+'：</span>'+
+        '<span class="hanzi-text">'+l.hanzi+'</span>'+
+        (l.pinyin ? '<div class="pinyin">'+namePinyinPrefix+l.pinyin+'</div>' : '')+
+        (l.vi ? '<div class="vi-text">'+nameViPrefix+l.vi+'</div>' : '');
+      card.appendChild(div);
+    });
+  } else if(t.passage){
+    const div = document.createElement('div');
+    div.className='passage-text hanzi-text';
+    div.textContent = t.passage;
+    card.appendChild(div);
+    if(t.passagePinyin){
+      const pdiv = document.createElement('div');
+      pdiv.className='passage-pinyin';
+      pdiv.textContent = t.passagePinyin;
+      card.appendChild(pdiv);
+    }
+    if(t.passageVi){
+      const vdiv = document.createElement('div');
+      vdiv.className='passage-vi';
+      vdiv.textContent = t.passageVi;
+      card.appendChild(vdiv);
+    }
+  }
+
+  panel.appendChild(card);
+  panelHost.appendChild(panel);
+}
+
+function formatTime(sec){
+  if(!isFinite(sec)) return '0:00';
+  const m = Math.floor(sec/60);
+  const s = Math.floor(sec%60).toString().padStart(2,'0');
+  return m+':'+s;
+}
+
+function initAudioPlayer(abox){
+  const audio = abox.querySelector('audio');
+  const playBtn = abox.querySelector('.play-btn');
+  const replayBtn = abox.querySelector('.replay-btn');
+  const seekBar = abox.querySelector('.seek-bar');
+  const timeDisplay = abox.querySelector('.time-display');
+  const missing = abox.querySelector('.audio-missing');
+  let seeking = false;
+
+  audio.addEventListener('error', ()=>{
+    missing.style.display='inline';
+    abox.querySelector('.player-row').style.display='none';
+  });
+
+  audio.addEventListener('loadedmetadata', ()=>{
+    seekBar.max = audio.duration || 0;
+    timeDisplay.textContent = formatTime(audio.currentTime)+' / '+formatTime(audio.duration);
+  });
+
+  audio.addEventListener('timeupdate', ()=>{
+    if(!seeking){
+      seekBar.value = audio.currentTime;
+      timeDisplay.textContent = formatTime(audio.currentTime)+' / '+formatTime(audio.duration);
+    }
+  });
+
+  audio.addEventListener('ended', ()=>{
+    playBtn.textContent = '▶';
+  });
+
+  playBtn.onclick = ()=>{
+    if(audio.paused){
+      audio.play();
+      playBtn.textContent = '⏸';
+    } else {
+      audio.pause();
+      playBtn.textContent = '▶';
+    }
+  };
+
+  replayBtn.onclick = ()=>{
+    audio.currentTime = 0;
+    audio.play();
+    playBtn.textContent = '⏸';
+  };
+
+  seekBar.addEventListener('input', ()=>{
+    seeking = true;
+    timeDisplay.textContent = formatTime(seekBar.value)+' / '+formatTime(audio.duration);
+  });
+  seekBar.addEventListener('change', ()=>{
+    audio.currentTime = seekBar.value;
+    seeking = false;
+  });
+}
+
+texts.forEach((t,idx)=>renderPanel(t, idx));
+
+function showTab(idx){
+  document.querySelectorAll('audio').forEach(a=>{ if(!a.paused){ a.pause(); } });
+  document.querySelectorAll('.play-btn').forEach(b=>b.textContent='▶');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+idx).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active', i===idx));
+}
+
+showTab(0);
+
+/* ============ TOGGLE PINYIN / HÁN TỰ / NGHĨA (mặc định: hiện Hán, ẩn pinyin, ẩn nghĩa) ============ */
+const pinyinToggleBtn = document.getElementById('pinyinToggleBtn');
+const hanziToggleBtn = document.getElementById('hanziToggleBtn');
+const viToggleBtn = document.getElementById('viToggleBtn');
+
+let pinyinShown = false;
+let hanziShown = true;
+let viShown = false;
+
+function applyPinyinVisibility(){
+  const lineDisplay = pinyinShown ? 'block' : 'none';
+  document.querySelectorAll('.pinyin, .passage-pinyin').forEach(el=>{ el.style.display = lineDisplay; });
+  pinyinToggleBtn.textContent = pinyinShown ? '🙈 Ẩn pinyin' : '👁 Hiện pinyin';
+  pinyinToggleBtn.classList.toggle('active', pinyinShown);
+}
+
+function applyHanziVisibility(){
+  document.querySelectorAll('.hanzi-text').forEach(el=>{
+    el.style.display = hanziShown ? (el.tagName === 'SPAN' ? 'inline' : 'block') : 'none';
+  });
+  hanziToggleBtn.textContent = hanziShown ? '🙈 Ẩn chữ Hán' : '👁 Hiện chữ Hán';
+  hanziToggleBtn.classList.toggle('active', !hanziShown);
+}
+
+function applyViVisibility(){
+  const display = viShown ? 'block' : 'none';
+  document.querySelectorAll('.vi-text, .passage-vi').forEach(el=>{ el.style.display = display; });
+  viToggleBtn.textContent = viShown ? '🙈 Ẩn nghĩa' : '👁 Hiện nghĩa';
+  viToggleBtn.classList.toggle('active', viShown);
+}
+
+pinyinToggleBtn.onclick = ()=>{ pinyinShown = !pinyinShown; applyPinyinVisibility(); };
+hanziToggleBtn.onclick = ()=>{ hanziShown = !hanziShown; applyHanziVisibility(); };
+viToggleBtn.onclick = ()=>{ viShown = !viShown; applyViVisibility(); };
+
+applyPinyinVisibility();
+applyHanziVisibility();
+applyViVisibility();
+</script>
+</body>
+</html>
