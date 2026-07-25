@@ -288,6 +288,11 @@
     text-transform:lowercase;
     letter-spacing:.3px;
   }
+  .fc-hanviet{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
   .fc-face .fc-speak{
     margin-top:16px;
     border:1px solid var(--jade-light);
@@ -544,6 +549,7 @@
   }
   .review-hanzi{font-size:22px;font-weight:700;cursor:help;}
   .review-pinyin{font-size:13.5px;color:var(--jade-dark);font-weight:600;}
+  .review-hanviet{font-size:10.5px;color:var(--ink-soft);font-style:italic;font-weight:400;display:block;}
   .review-wordclass{
     font-size:10.5px;
     font-weight:700;
@@ -836,6 +842,7 @@
           <div class="fc-pinyin-row">
             <span class="fc-pinyin" id="fcPinyin">nǐ hǎo</span>
             <span class="fc-wordclass" id="fcWordClass"></span>
+            <span class="fc-hanviet" id="fcHanviet"></span>
           </div>
           <button class="fc-speak" id="fcSpeakFront">🔊 Nghe phát âm</button>
           <div class="fc-hint">Nhấn để xem nghĩa</div>
@@ -980,27 +987,27 @@
 <script>
 /* ===================== DATA (HSK1 · Bài 4 — 21 từ vựng) ===================== */
 const vocab = [
-  {hanzi:"有", pinyin:"yǒu", wordClass:"động", meaning:"có", example:{zh:"我有一个哥哥。", py:"Wǒ yǒu yí ge gēge.", vi:"Tôi có một anh trai."}},
-  {hanzi:"多少", pinyin:"duō shǎo", wordClass:"đại", meaning:"bao nhiêu", example:{zh:"你家有多少人？", py:"Nǐ jiā yǒu duōshǎo rén?", vi:"Nhà bạn có bao nhiêu người?"}},
-  {hanzi:"个", pinyin:"gè", wordClass:"lượng", meaning:"cái", example:{zh:"我有两个孩子。", py:"Wǒ yǒu liǎng ge háizi.", vi:"Tôi có hai đứa con."}},
-  {hanzi:"哥哥", pinyin:"ɡēɡe", wordClass:"danh", meaning:"anh trai", example:{zh:"我哥哥今年二十岁。", py:"Wǒ gēge jīnnián èrshí suì.", vi:"Anh trai tôi năm nay hai mươi tuổi."}},
-  {hanzi:"呢", pinyin:"ne", wordClass:"trợ", meaning:"đứng cuối câu dùng để hỏi lại", example:{zh:"我很好，你呢？", py:"Wǒ hěn hǎo, nǐ ne?", vi:"Tôi khỏe, còn bạn thì sao?"}},
-  {hanzi:"没有", pinyin:"méiyǒu", wordClass:"động", meaning:"không có", example:{zh:"我没有妹妹。", py:"Wǒ méiyǒu mèimei.", vi:"Tôi không có em gái."}},
-  {hanzi:"家", pinyin:"jiā", wordClass:"danh", meaning:"gia đình", example:{zh:"我家有五口人。", py:"Wǒ jiā yǒu wǔ kǒu rén.", vi:"Gia đình tôi có 5 người."}},
-  {hanzi:"几", pinyin:"jǐ", wordClass:"trợ", meaning:"bao nhiêu", example:{zh:"你家有几口人？", py:"Nǐ jiā yǒu jǐ kǒu rén?", vi:"Nhà bạn có mấy người?"}},
-  {hanzi:"口", pinyin:"kǒu", wordClass:"lượng", meaning:"lượng từ dùng để nói về thành viên gia đình", example:{zh:"我家有四口人。", py:"Wǒ jiā yǒu sì kǒu rén.", vi:"Nhà tôi có 4 người."}},
-  {hanzi:"爸爸", pinyin:"bàba", wordClass:"danh", meaning:"bố", example:{zh:"我爸爸是老师。", py:"Wǒ bàba shì lǎoshī.", vi:"Bố tôi là giáo viên."}},
-  {hanzi:"妈妈", pinyin:"māma", wordClass:"danh", meaning:"mẹ", example:{zh:"我妈妈在医院工作。", py:"Wǒ māma zài yīyuàn gōngzuò.", vi:"Mẹ tôi làm việc ở bệnh viện."}},
-  {hanzi:"妹妹", pinyin:"mèimei", wordClass:"danh", meaning:"em gái", example:{zh:"我妹妹很可爱。", py:"Wǒ mèimei hěn kě'ài.", vi:"Em gái tôi rất đáng yêu."}},
-  {hanzi:"和", pinyin:"hé", wordClass:"liên", meaning:"và", example:{zh:"我和哥哥都是学生。", py:"Wǒ hé gēge dōu shì xuésheng.", vi:"Tôi và anh trai đều là học sinh."}},
-  {hanzi:"儿子", pinyin:"érzi", wordClass:"danh", meaning:"con trai", example:{zh:"他有一个儿子。", py:"Tā yǒu yí ge érzi.", vi:"Anh ấy có một con trai."}},
-  {hanzi:"孩子", pinyin:"háizi", wordClass:"danh", meaning:"con (chung cả nam nữ)", example:{zh:"这个孩子今年五岁。", py:"Zhège háizi jīnnián wǔ suì.", vi:"Đứa trẻ này năm nay 5 tuổi."}},
-  {hanzi:"女儿", pinyin:"nǚ'ér", wordClass:"danh", meaning:"con gái", example:{zh:"我女儿今年八岁。", py:"Wǒ nǚ'ér jīnnián bā suì.", vi:"Con gái tôi năm nay 8 tuổi."}},
-  {hanzi:"岁", pinyin:"suì", wordClass:"lượng", meaning:"tuổi", example:{zh:"我今年二十岁。", py:"Wǒ jīnnián èrshí suì.", vi:"Năm nay tôi 20 tuổi."}},
-  {hanzi:"他", pinyin:"tā", wordClass:"đại", meaning:"anh ấy, cậu ấy", example:{zh:"他是我哥哥。", py:"Tā shì wǒ gēge.", vi:"Anh ấy là anh trai tôi."}},
-  {hanzi:"今年", pinyin:"jīnnián", wordClass:"danh", meaning:"năm nay", example:{zh:"我今年二十五岁。", py:"Wǒ jīnnián èrshíwǔ suì.", vi:"Năm nay tôi 25 tuổi."}},
-  {hanzi:"多", pinyin:"duō", wordClass:"đại", meaning:"bao nhiêu", example:{zh:"你今年多大？", py:"Nǐ jīnnián duō dà?", vi:"Năm nay bạn bao nhiêu tuổi?"}},
-  {hanzi:"大", pinyin:"dà", wordClass:"tính", meaning:"to, lớn", example:{zh:"你哥哥多大？", py:"Nǐ gēge duō dà?", vi:"Anh trai bạn bao nhiêu tuổi?"}}
+  {hanzi:"有", pinyin:"yǒu", wordClass:"động", hanviet:"Hữu", meaning:"có", example:{zh:"我有一个哥哥。", py:"Wǒ yǒu yí ge gēge.", vi:"Tôi có một anh trai."}},
+  {hanzi:"多少", pinyin:"duō shǎo", wordClass:"đại", hanviet:"Đa thiểu", meaning:"bao nhiêu", example:{zh:"你家有多少人？", py:"Nǐ jiā yǒu duōshǎo rén?", vi:"Nhà bạn có bao nhiêu người?"}},
+  {hanzi:"个", pinyin:"gè", wordClass:"lượng", hanviet:"Cá", meaning:"cái", example:{zh:"我有两个孩子。", py:"Wǒ yǒu liǎng ge háizi.", vi:"Tôi có hai đứa con."}},
+  {hanzi:"哥哥", pinyin:"ɡēɡe", wordClass:"danh", hanviet:"Ca ca", meaning:"anh trai", example:{zh:"我哥哥今年二十岁。", py:"Wǒ gēge jīnnián èrshí suì.", vi:"Anh trai tôi năm nay hai mươi tuổi."}},
+  {hanzi:"呢", pinyin:"ne", wordClass:"trợ", hanviet:"Ni", meaning:"đứng cuối câu dùng để hỏi lại", example:{zh:"我很好，你呢？", py:"Wǒ hěn hǎo, nǐ ne?", vi:"Tôi khỏe, còn bạn thì sao?"}},
+  {hanzi:"没有", pinyin:"méiyǒu", wordClass:"động", hanviet:"Một hữu", meaning:"không có", example:{zh:"我没有妹妹。", py:"Wǒ méiyǒu mèimei.", vi:"Tôi không có em gái."}},
+  {hanzi:"家", pinyin:"jiā", wordClass:"danh", hanviet:"Gia", meaning:"gia đình", example:{zh:"我家有五口人。", py:"Wǒ jiā yǒu wǔ kǒu rén.", vi:"Gia đình tôi có 5 người."}},
+  {hanzi:"几", pinyin:"jǐ", wordClass:"trợ", hanviet:"Kỷ", meaning:"bao nhiêu", example:{zh:"你家有几口人？", py:"Nǐ jiā yǒu jǐ kǒu rén?", vi:"Nhà bạn có mấy người?"}},
+  {hanzi:"口", pinyin:"kǒu", wordClass:"lượng", hanviet:"Khẩu", meaning:"lượng từ dùng để nói về thành viên gia đình", example:{zh:"我家有四口人。", py:"Wǒ jiā yǒu sì kǒu rén.", vi:"Nhà tôi có 4 người."}},
+  {hanzi:"爸爸", pinyin:"bàba", wordClass:"danh", hanviet:"không có Hán Việt", meaning:"bố", example:{zh:"我爸爸是老师。", py:"Wǒ bàba shì lǎoshī.", vi:"Bố tôi là giáo viên."}},
+  {hanzi:"妈妈", pinyin:"māma", wordClass:"danh", hanviet:"không có Hán Việt", meaning:"mẹ", example:{zh:"我妈妈在医院工作。", py:"Wǒ māma zài yīyuàn gōngzuò.", vi:"Mẹ tôi làm việc ở bệnh viện."}},
+  {hanzi:"妹妹", pinyin:"mèimei", wordClass:"danh", hanviet:"Muội muội", meaning:"em gái", example:{zh:"我妹妹很可爱。", py:"Wǒ mèimei hěn kě'ài.", vi:"Em gái tôi rất đáng yêu."}},
+  {hanzi:"和", pinyin:"hé", wordClass:"liên", hanviet:"Hòa", meaning:"và", example:{zh:"我和哥哥都是学生。", py:"Wǒ hé gēge dōu shì xuésheng.", vi:"Tôi và anh trai đều là học sinh."}},
+  {hanzi:"儿子", pinyin:"érzi", wordClass:"danh", hanviet:"Nhi tử", meaning:"con trai", example:{zh:"他有一个儿子。", py:"Tā yǒu yí ge érzi.", vi:"Anh ấy có một con trai."}},
+  {hanzi:"孩子", pinyin:"háizi", wordClass:"danh", hanviet:"Hài tử", meaning:"con (chung cả nam nữ)", example:{zh:"这个孩子今年五岁。", py:"Zhège háizi jīnnián wǔ suì.", vi:"Đứa trẻ này năm nay 5 tuổi."}},
+  {hanzi:"女儿", pinyin:"nǚ'ér", wordClass:"danh", hanviet:"Nữ nhi", meaning:"con gái", example:{zh:"我女儿今年八岁。", py:"Wǒ nǚ'ér jīnnián bā suì.", vi:"Con gái tôi năm nay 8 tuổi."}},
+  {hanzi:"岁", pinyin:"suì", wordClass:"lượng", hanviet:"Tuế", meaning:"tuổi", example:{zh:"我今年二十岁。", py:"Wǒ jīnnián èrshí suì.", vi:"Năm nay tôi 20 tuổi."}},
+  {hanzi:"他", pinyin:"tā", wordClass:"đại", hanviet:"Tha", meaning:"anh ấy, cậu ấy", example:{zh:"他是我哥哥。", py:"Tā shì wǒ gēge.", vi:"Anh ấy là anh trai tôi."}},
+  {hanzi:"今年", pinyin:"jīnnián", wordClass:"danh", hanviet:"Kim niên", meaning:"năm nay", example:{zh:"我今年二十五岁。", py:"Wǒ jīnnián èrshíwǔ suì.", vi:"Năm nay tôi 25 tuổi."}},
+  {hanzi:"多", pinyin:"duō", wordClass:"đại", hanviet:"Đa", meaning:"bao nhiêu", example:{zh:"你今年多大？", py:"Nǐ jīnnián duō dà?", vi:"Năm nay bạn bao nhiêu tuổi?"}},
+  {hanzi:"大", pinyin:"dà", wordClass:"tính", hanviet:"Đại", meaning:"to, lớn", example:{zh:"你哥哥多大？", py:"Nǐ gēge duō dà?", vi:"Anh trai bạn bao nhiêu tuổi?"}}
 ];
 
 document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
@@ -1089,6 +1096,9 @@ function renderFlashcard(){
   const wcEl = document.getElementById('fcWordClass');
   wcEl.textContent = item.wordClass || '';
   wcEl.style.display = item.wordClass ? '' : 'none';
+  const hvEl = document.getElementById('fcHanviet');
+  hvEl.textContent = item.hanviet ? '(' + item.hanviet + ')' : '';
+  hvEl.style.display = item.hanviet ? '' : 'none';
   document.getElementById('fcMeaning').textContent = item.meaning;
   document.getElementById('fcExample').innerHTML =
     item.example.zh + '<span class="py">' + item.example.py + '</span><span class="vi">' + item.example.vi + '</span>';
@@ -1603,7 +1613,7 @@ vocab.forEach((item, vIndex)=>{
     '<button class="icon-btn review-actions-listen" title="Nghe phát âm">🔊</button>' +
     '<button class="icon-btn review-actions-write" title="Luyện viết nét chữ">✍️</button>' +
     '<div class="review-hanzi zh" title="'+item.example.zh+'" onclick="this.classList.toggle(\'peek\')">'+item.hanzi+'</div>' +
-    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+'</div>' +
+    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+(item.hanviet ? '<span class="review-hanviet">'+item.hanviet+'</span>' : '')+'</div>' +
     '<div class="review-wordclass"' + (item.wordClass ? '' : ' style="visibility:hidden;"') + '>'+(item.wordClass||'')+'</div>' +
     '<div class="review-meaning" onclick="this.classList.toggle(\'peek\')">'+item.meaning+'</div>' +
     '<div class="review-input-wrap">' +
