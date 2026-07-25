@@ -288,6 +288,11 @@
     text-transform:lowercase;
     letter-spacing:.3px;
   }
+  .fc-hanviet{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
   .fc-face .fc-speak{
     margin-top:16px;
     border:1px solid var(--jade-light);
@@ -544,6 +549,7 @@
   }
   .review-hanzi{font-size:22px;font-weight:700;cursor:help;}
   .review-pinyin{font-size:13.5px;color:var(--jade-dark);font-weight:600;}
+  .review-hanviet{font-size:10.5px;color:var(--ink-soft);font-style:italic;font-weight:400;display:block;}
   .review-wordclass{
     font-size:10.5px;
     font-weight:700;
@@ -836,6 +842,7 @@
           <div class="fc-pinyin-row">
             <span class="fc-pinyin" id="fcPinyin">nǐ hǎo</span>
             <span class="fc-wordclass" id="fcWordClass"></span>
+            <span class="fc-hanviet" id="fcHanviet"></span>
           </div>
           <button class="fc-speak" id="fcSpeakFront">🔊 Nghe phát âm</button>
           <div class="fc-hint">Nhấn để xem nghĩa</div>
@@ -980,19 +987,19 @@
 <script>
 /* ===================== DATA (HSK1 · Bài 1 — 13 từ vựng) ===================== */
 const vocab = [
-  {hanzi:"你好", pinyin:"nǐ hǎo", wordClass:"", meaning:"Xin chào", example:{zh:"你好，我是李文。", py:"Nǐ hǎo, wǒ shì Lǐ Wén.", vi:"Xin chào, tôi là Lý Văn."}},
-  {hanzi:"王老师", pinyin:"Wáng lǎoshī", wordClass:"danh riêng", meaning:"Cô/thầy Vương", example:{zh:"王老师是我们的老师。", py:"Wáng lǎoshī shì wǒmen de lǎoshī.", vi:"Thầy/cô Vương là giáo viên của chúng tôi."}},
-  {hanzi:"大家", pinyin:"dàjiā", wordClass:"đại", meaning:"Mọi người", example:{zh:"大家好！", py:"Dàjiā hǎo!", vi:"Xin chào mọi người!"}},
-  {hanzi:"好", pinyin:"hǎo", wordClass:"tính", meaning:"Tốt, đẹp, khỏe", example:{zh:"我很好。", py:"Wǒ hěn hǎo.", vi:"Tôi rất khỏe."}},
-  {hanzi:"学生", pinyin:"xuésheng", wordClass:"danh", meaning:"Học sinh", example:{zh:"我是学生。", py:"Wǒ shì xuésheng.", vi:"Tôi là học sinh."}},
-  {hanzi:"们", pinyin:"men", wordClass:"hậu tố", meaning:"Chúng, các, bọn (dùng sau đại từ, chỉ nhiều người)", example:{zh:"同学们好！", py:"Tóngxuémen hǎo!", vi:"Xin chào các bạn học!"}},
-  {hanzi:"老师", pinyin:"lǎoshī", wordClass:"danh", meaning:"Thầy/cô giáo", example:{zh:"她是老师。", py:"Tā shì lǎoshī.", vi:"Cô ấy là giáo viên."}},
-  {hanzi:"您", pinyin:"nín", wordClass:"đại", meaning:"Ông/bà, ngài (dùng cho người lớn tuổi/vai vế tôn kính)", example:{zh:"您好！", py:"Nín hǎo!", vi:"Xin chào ạ! (kính ngữ)"}},
-  {hanzi:"你们", pinyin:"nǐmen", wordClass:"đại", meaning:"Các bạn", example:{zh:"你们好！", py:"Nǐmen hǎo!", vi:"Xin chào các bạn!"}},
-  {hanzi:"谢谢", pinyin:"xièxie", wordClass:"động", meaning:"Cảm ơn", example:{zh:"谢谢老师！", py:"Xièxie lǎoshī!", vi:"Cảm ơn thầy/cô!"}},
-  {hanzi:"不客气", pinyin:"bú kèqi", wordClass:"", meaning:"Đừng khách sáo", example:{zh:"不客气！", py:"Bú kèqi!", vi:"Không có gì!"}},
-  {hanzi:"同学", pinyin:"tóngxué", wordClass:"danh", meaning:"Bạn học", example:{zh:"他是我的同学。", py:"Tā shì wǒ de tóngxué.", vi:"Anh ấy là bạn học của tôi."}},
-  {hanzi:"再见", pinyin:"zàijiàn", wordClass:"động", meaning:"Tạm biệt", example:{zh:"老师，再见！", py:"Lǎoshī, zàijiàn!", vi:"Tạm biệt thầy/cô!"}}
+  {hanzi:"你好", pinyin:"nǐ hǎo", wordClass:"", hanviet:"Nễ hảo", meaning:"Xin chào", example:{zh:"你好，我是李文。", py:"Nǐ hǎo, wǒ shì Lǐ Wén.", vi:"Xin chào, tôi là Lý Văn."}},
+  {hanzi:"王老师", pinyin:"Wáng lǎoshī", wordClass:"danh riêng", hanviet:"Vương lão sư", meaning:"Cô/thầy Vương", example:{zh:"王老师是我们的老师。", py:"Wáng lǎoshī shì wǒmen de lǎoshī.", vi:"Thầy/cô Vương là giáo viên của chúng tôi."}},
+  {hanzi:"大家", pinyin:"dàjiā", wordClass:"đại", hanviet:"Đại gia", meaning:"Mọi người", example:{zh:"大家好！", py:"Dàjiā hǎo!", vi:"Xin chào mọi người!"}},
+  {hanzi:"好", pinyin:"hǎo", wordClass:"tính", hanviet:"Hảo", meaning:"Tốt, đẹp, khỏe", example:{zh:"我很好。", py:"Wǒ hěn hǎo.", vi:"Tôi rất khỏe."}},
+  {hanzi:"学生", pinyin:"xuésheng", wordClass:"danh", hanviet:"Học sinh", meaning:"Học sinh", example:{zh:"我是学生。", py:"Wǒ shì xuésheng.", vi:"Tôi là học sinh."}},
+  {hanzi:"们", pinyin:"men", wordClass:"hậu tố", hanviet:"không có âm Hán Việt, là hậu tố số nhiều", meaning:"Chúng, các, bọn (dùng sau đại từ, chỉ nhiều người)", example:{zh:"同学们好！", py:"Tóngxuémen hǎo!", vi:"Xin chào các bạn học!"}},
+  {hanzi:"老师", pinyin:"lǎoshī", wordClass:"danh", hanviet:"Lão sư", meaning:"Thầy/cô giáo", example:{zh:"她是老师。", py:"Tā shì lǎoshī.", vi:"Cô ấy là giáo viên."}},
+  {hanzi:"您", pinyin:"nín", wordClass:"đại", hanviet:"Nẫm", meaning:"Ông/bà, ngài (dùng cho người lớn tuổi/vai vế tôn kính)", example:{zh:"您好！", py:"Nín hǎo!", vi:"Xin chào ạ! (kính ngữ)"}},
+  {hanzi:"你们", pinyin:"nǐmen", wordClass:"đại", hanviet:"Nễ + 们 (们 không có Hán Việt)", meaning:"Các bạn", example:{zh:"你们好！", py:"Nǐmen hǎo!", vi:"Xin chào các bạn!"}},
+  {hanzi:"谢谢", pinyin:"xièxie", wordClass:"động", hanviet:"Tạ tạ", meaning:"Cảm ơn", example:{zh:"谢谢老师！", py:"Xièxie lǎoshī!", vi:"Cảm ơn thầy/cô!"}},
+  {hanzi:"不客气", pinyin:"bú kèqi", wordClass:"", hanviet:"Bất khách khí", meaning:"Đừng khách sáo", example:{zh:"不客气！", py:"Bú kèqi!", vi:"Không có gì!"}},
+  {hanzi:"同学", pinyin:"tóngxué", wordClass:"danh", hanviet:"Đồng học", meaning:"Bạn học", example:{zh:"他是我的同学。", py:"Tā shì wǒ de tóngxué.", vi:"Anh ấy là bạn học của tôi."}},
+  {hanzi:"再见", pinyin:"zàijiàn", wordClass:"động", hanviet:"Tái kiến", meaning:"Tạm biệt", example:{zh:"老师，再见！", py:"Lǎoshī, zàijiàn!", vi:"Tạm biệt thầy/cô!"}}
 ];
 
 document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
@@ -1076,6 +1083,9 @@ function renderFlashcard(){
   const wcEl = document.getElementById('fcWordClass');
   wcEl.textContent = item.wordClass || '';
   wcEl.style.display = item.wordClass ? '' : 'none';
+  const hvEl = document.getElementById('fcHanviet');
+  hvEl.textContent = item.hanviet ? '(' + item.hanviet + ')' : '';
+  hvEl.style.display = item.hanviet ? '' : 'none';
   document.getElementById('fcMeaning').textContent = item.meaning;
   document.getElementById('fcExample').innerHTML =
     item.example.zh + '<span class="py">' + item.example.py + '</span><span class="vi">' + item.example.vi + '</span>';
@@ -1590,7 +1600,7 @@ vocab.forEach((item, vIndex)=>{
     '<button class="icon-btn review-actions-listen" title="Nghe phát âm">🔊</button>' +
     '<button class="icon-btn review-actions-write" title="Luyện viết nét chữ">✍️</button>' +
     '<div class="review-hanzi zh" title="'+item.example.zh+'" onclick="this.classList.toggle(\'peek\')">'+item.hanzi+'</div>' +
-    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+'</div>' +
+    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+(item.hanviet ? '<span class="review-hanviet">'+item.hanviet+'</span>' : '')+'</div>' +
     '<div class="review-wordclass"' + (item.wordClass ? '' : ' style="visibility:hidden;"') + '>'+(item.wordClass||'')+'</div>' +
     '<div class="review-meaning" onclick="this.classList.toggle(\'peek\')">'+item.meaning+'</div>' +
     '<div class="review-input-wrap">' +
