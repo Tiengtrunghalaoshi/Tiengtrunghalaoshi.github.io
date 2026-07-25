@@ -288,6 +288,11 @@
     text-transform:lowercase;
     letter-spacing:.3px;
   }
+  .fc-hanviet{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
   .fc-face .fc-speak{
     margin-top:16px;
     border:1px solid var(--jade-light);
@@ -544,6 +549,7 @@
   }
   .review-hanzi{font-size:22px;font-weight:700;cursor:help;}
   .review-pinyin{font-size:13.5px;color:var(--jade-dark);font-weight:600;}
+  .review-hanviet{font-size:10.5px;color:var(--ink-soft);font-style:italic;font-weight:400;display:block;}
   .review-wordclass{
     font-size:10.5px;
     font-weight:700;
@@ -836,6 +842,7 @@
           <div class="fc-pinyin-row">
             <span class="fc-pinyin" id="fcPinyin">nǐ hǎo</span>
             <span class="fc-wordclass" id="fcWordClass"></span>
+            <span class="fc-hanviet" id="fcHanviet"></span>
           </div>
           <button class="fc-speak" id="fcSpeakFront">🔊 Nghe phát âm</button>
           <div class="fc-hint">Nhấn để xem nghĩa</div>
@@ -980,29 +987,29 @@
 <script>
 /* ===================== DATA (HSK1 · Bài 6 — 23 từ vựng) ===================== */
 const vocab = [
-  {hanzi:"手机", pinyin:"shǒujī", wordClass:"danh", meaning:"điện thoại di động", example:{zh:"这是我的新手机。", py:"Zhè shì wǒ de xīn shǒujī.", vi:"Đây là điện thoại di động mới của tôi."}},
-  {hanzi:"电话", pinyin:"diànhuà", wordClass:"danh", meaning:"điện thoại", example:{zh:"我给妈妈打电话。", py:"Wǒ gěi māma dǎ diànhuà.", vi:"Tôi gọi điện thoại cho mẹ."}},
-  {hanzi:"号", pinyin:"hào", wordClass:"danh", meaning:"số (điện thoại)", example:{zh:"你的手机号是多少？", py:"Nǐ de shǒujī hào shì duōshao?", vi:"Số điện thoại của bạn là bao nhiêu?"}},
-  {hanzi:"明天", pinyin:"míngtiān", wordClass:"danh", meaning:"ngày mai", example:{zh:"明天我们去超市。", py:"Míngtiān wǒmen qù chāoshì.", vi:"Ngày mai chúng ta đi siêu thị."}},
-  {hanzi:"去", pinyin:"qù", wordClass:"động", meaning:"đi", example:{zh:"你想去哪儿？", py:"Nǐ xiǎng qù nǎr?", vi:"Bạn muốn đi đâu?"}},
-  {hanzi:"哪儿", pinyin:"nǎr", wordClass:"đại", meaning:"ở đâu", example:{zh:"超市在哪儿？", py:"Chāoshì zài nǎr?", vi:"Siêu thị ở đâu?"}},
-  {hanzi:"想", pinyin:"xiǎng", wordClass:"động", meaning:"muốn", example:{zh:"我想买一些东西。", py:"Wǒ xiǎng mǎi yīxiē dōngxi.", vi:"Tôi muốn mua một ít đồ."}},
-  {hanzi:"超市", pinyin:"chāoshì", wordClass:"danh", meaning:"siêu thị", example:{zh:"我想去超市买东西。", py:"Wǒ xiǎng qù chāoshì mǎi dōngxi.", vi:"Tôi muốn đi siêu thị mua đồ."}},
-  {hanzi:"买", pinyin:"mǎi", wordClass:"động", meaning:"mua", example:{zh:"妈妈买了很多东西。", py:"Māma mǎi le hěn duō dōngxi.", vi:"Mẹ đã mua rất nhiều đồ."}},
-  {hanzi:"东西", pinyin:"dōngxi", wordClass:"danh", meaning:"đồ đạc, đồ vật", example:{zh:"你想买什么东西？", py:"Nǐ xiǎng mǎi shénme dōngxi?", vi:"Bạn muốn mua đồ gì?"}},
-  {hanzi:"些", pinyin:"xiē", wordClass:"lượng", meaning:"một ít", example:{zh:"我想买些牛奶。", py:"Wǒ xiǎng mǎi xiē niúnǎi.", vi:"Tôi muốn mua ít sữa bò."}},
-  {hanzi:"牛奶", pinyin:"niúnǎi", wordClass:"danh", meaning:"sữa bò", example:{zh:"我每天喝牛奶。", py:"Wǒ měitiān hē niúnǎi.", vi:"Mỗi ngày tôi uống sữa bò."}},
-  {hanzi:"吃", pinyin:"chī", wordClass:"động", meaning:"ăn", example:{zh:"我们一起吃晚饭吧。", py:"Wǒmen yīqǐ chī wǎnfàn ba.", vi:"Chúng ta cùng ăn cơm tối nhé."}},
-  {hanzi:"晚饭", pinyin:"wǎnfàn", wordClass:"danh", meaning:"cơm tối, bữa tối", example:{zh:"晚饭我想吃米饭。", py:"Wǎnfàn wǒ xiǎng chī mǐfàn.", vi:"Bữa tối tôi muốn ăn cơm trắng."}},
-  {hanzi:"那边", pinyin:"nàbiān", wordClass:"đại", meaning:"ở đằng kia", example:{zh:"你看，出租车在那边。", py:"Nǐ kàn, chūzūchē zài nàbiān.", vi:"Bạn xem, taxi ở đằng kia."}},
-  {hanzi:"包子", pinyin:"bāozi", wordClass:"danh", meaning:"bánh bao", example:{zh:"那边的包子非常好吃。", py:"Nàbiān de bāozi fēicháng hǎochī.", vi:"Bánh bao ở đằng kia rất ngon."}},
-  {hanzi:"非常", pinyin:"fēicháng", wordClass:"phó", meaning:"rất, vô cùng", example:{zh:"这个米饭非常好吃。", py:"Zhège mǐfàn fēicháng hǎochī.", vi:"Cơm trắng này rất ngon."}},
-  {hanzi:"好吃", pinyin:"hǎochī", wordClass:"tính", meaning:"ngon, ngon miệng", example:{zh:"妈妈做的包子很好吃。", py:"Māma zuò de bāozi hěn hǎochī.", vi:"Bánh bao mẹ làm rất ngon."}},
-  {hanzi:"米饭", pinyin:"mǐfàn", wordClass:"danh", meaning:"cơm trắng", example:{zh:"我每天吃米饭。", py:"Wǒ měitiān chī mǐfàn.", vi:"Mỗi ngày tôi ăn cơm trắng."}},
-  {hanzi:"怎么", pinyin:"zěnme", wordClass:"đại", meaning:"sao, thế nào, làm sao", example:{zh:"你怎么去超市？", py:"Nǐ zěnme qù chāoshì?", vi:"Bạn đi siêu thị bằng cách nào?"}},
-  {hanzi:"坐", pinyin:"zuò", wordClass:"động", meaning:"ngồi, đi (bằng xe)", example:{zh:"我坐出租车去超市。", py:"Wǒ zuò chūzūchē qù chāoshì.", vi:"Tôi đi taxi đến siêu thị."}},
-  {hanzi:"出租车", pinyin:"chūzūchē", wordClass:"danh", meaning:"taxi", example:{zh:"那边有出租车。", py:"Nàbiān yǒu chūzūchē.", vi:"Đằng kia có taxi."}},
-  {hanzi:"西安饭店", pinyin:"Xī'ān Fàndiàn", wordClass:"danh riêng", meaning:"Nhà hàng Tây An", example:{zh:"我们在西安饭店吃饭。", py:"Wǒmen zài Xī'ān Fàndiàn chī fàn.", vi:"Chúng tôi ăn cơm ở Nhà hàng Tây An."}}
+  {hanzi:"手机", pinyin:"shǒujī", wordClass:"danh", hanviet:"Thủ cơ", meaning:"điện thoại di động", example:{zh:"这是我的新手机。", py:"Zhè shì wǒ de xīn shǒujī.", vi:"Đây là điện thoại di động mới của tôi."}},
+  {hanzi:"电话", pinyin:"diànhuà", wordClass:"danh", hanviet:"Điện thoại", meaning:"điện thoại", example:{zh:"我给妈妈打电话。", py:"Wǒ gěi māma dǎ diànhuà.", vi:"Tôi gọi điện thoại cho mẹ."}},
+  {hanzi:"号", pinyin:"hào", wordClass:"danh", hanviet:"Hiệu", meaning:"số (điện thoại)", example:{zh:"你的手机号是多少？", py:"Nǐ de shǒujī hào shì duōshao?", vi:"Số điện thoại của bạn là bao nhiêu?"}},
+  {hanzi:"明天", pinyin:"míngtiān", wordClass:"danh", hanviet:"Minh thiên", meaning:"ngày mai", example:{zh:"明天我们去超市。", py:"Míngtiān wǒmen qù chāoshì.", vi:"Ngày mai chúng ta đi siêu thị."}},
+  {hanzi:"去", pinyin:"qù", wordClass:"động", hanviet:"Khứ", meaning:"đi", example:{zh:"你想去哪儿？", py:"Nǐ xiǎng qù nǎr?", vi:"Bạn muốn đi đâu?"}},
+  {hanzi:"哪儿", pinyin:"nǎr", wordClass:"đại", hanviet:"Na", meaning:"ở đâu", example:{zh:"超市在哪儿？", py:"Chāoshì zài nǎr?", vi:"Siêu thị ở đâu?"}},
+  {hanzi:"想", pinyin:"xiǎng", wordClass:"động", hanviet:"Tưởng", meaning:"muốn", example:{zh:"我想买一些东西。", py:"Wǒ xiǎng mǎi yīxiē dōngxi.", vi:"Tôi muốn mua một ít đồ."}},
+  {hanzi:"超市", pinyin:"chāoshì", wordClass:"danh", hanviet:"Siêu thị", meaning:"siêu thị", example:{zh:"我想去超市买东西。", py:"Wǒ xiǎng qù chāoshì mǎi dōngxi.", vi:"Tôi muốn đi siêu thị mua đồ."}},
+  {hanzi:"买", pinyin:"mǎi", wordClass:"động", hanviet:"Mãi", meaning:"mua", example:{zh:"妈妈买了很多东西。", py:"Māma mǎi le hěn duō dōngxi.", vi:"Mẹ đã mua rất nhiều đồ."}},
+  {hanzi:"东西", pinyin:"dōngxi", wordClass:"danh", hanviet:"Đông tây", meaning:"đồ đạc, đồ vật", example:{zh:"你想买什么东西？", py:"Nǐ xiǎng mǎi shénme dōngxi?", vi:"Bạn muốn mua đồ gì?"}},
+  {hanzi:"些", pinyin:"xiē", wordClass:"lượng", hanviet:"Ta", meaning:"một ít", example:{zh:"我想买些牛奶。", py:"Wǒ xiǎng mǎi xiē niúnǎi.", vi:"Tôi muốn mua ít sữa bò."}},
+  {hanzi:"牛奶", pinyin:"niúnǎi", wordClass:"danh", hanviet:"Ngưu nãi", meaning:"sữa bò", example:{zh:"我每天喝牛奶。", py:"Wǒ měitiān hē niúnǎi.", vi:"Mỗi ngày tôi uống sữa bò."}},
+  {hanzi:"吃", pinyin:"chī", wordClass:"động", hanviet:"Ngật", meaning:"ăn", example:{zh:"我们一起吃晚饭吧。", py:"Wǒmen yīqǐ chī wǎnfàn ba.", vi:"Chúng ta cùng ăn cơm tối nhé."}},
+  {hanzi:"晚饭", pinyin:"wǎnfàn", wordClass:"danh", hanviet:"Vãn phạn", meaning:"cơm tối, bữa tối", example:{zh:"晚饭我想吃米饭。", py:"Wǎnfàn wǒ xiǎng chī mǐfàn.", vi:"Bữa tối tôi muốn ăn cơm trắng."}},
+  {hanzi:"那边", pinyin:"nàbiān", wordClass:"đại", hanviet:"Na biên", meaning:"ở đằng kia", example:{zh:"你看，出租车在那边。", py:"Nǐ kàn, chūzūchē zài nàbiān.", vi:"Bạn xem, taxi ở đằng kia."}},
+  {hanzi:"包子", pinyin:"bāozi", wordClass:"danh", hanviet:"Bao tử", meaning:"bánh bao", example:{zh:"那边的包子非常好吃。", py:"Nàbiān de bāozi fēicháng hǎochī.", vi:"Bánh bao ở đằng kia rất ngon."}},
+  {hanzi:"非常", pinyin:"fēicháng", wordClass:"phó", hanviet:"Phi thường", meaning:"rất, vô cùng", example:{zh:"这个米饭非常好吃。", py:"Zhège mǐfàn fēicháng hǎochī.", vi:"Cơm trắng này rất ngon."}},
+  {hanzi:"好吃", pinyin:"hǎochī", wordClass:"tính", hanviet:"Hảo ngật", meaning:"ngon, ngon miệng", example:{zh:"妈妈做的包子很好吃。", py:"Māma zuò de bāozi hěn hǎochī.", vi:"Bánh bao mẹ làm rất ngon."}},
+  {hanzi:"米饭", pinyin:"mǐfàn", wordClass:"danh", hanviet:"Mễ phạn", meaning:"cơm trắng", example:{zh:"我每天吃米饭。", py:"Wǒ měitiān chī mǐfàn.", vi:"Mỗi ngày tôi ăn cơm trắng."}},
+  {hanzi:"怎么", pinyin:"zěnme", wordClass:"đại", hanviet:"Chẩm ma", meaning:"sao, thế nào, làm sao", example:{zh:"你怎么去超市？", py:"Nǐ zěnme qù chāoshì?", vi:"Bạn đi siêu thị bằng cách nào?"}},
+  {hanzi:"坐", pinyin:"zuò", wordClass:"động", hanviet:"Tọa", meaning:"ngồi, đi (bằng xe)", example:{zh:"我坐出租车去超市。", py:"Wǒ zuò chūzūchē qù chāoshì.", vi:"Tôi đi taxi đến siêu thị."}},
+  {hanzi:"出租车", pinyin:"chūzūchē", wordClass:"danh", hanviet:"Xuất tô xa", meaning:"taxi", example:{zh:"那边有出租车。", py:"Nàbiān yǒu chūzūchē.", vi:"Đằng kia có taxi."}},
+  {hanzi:"西安饭店", pinyin:"Xī'ān Fàndiàn", wordClass:"danh riêng", hanviet:"Tây An phạn điếm", meaning:"Nhà hàng Tây An", example:{zh:"我们在西安饭店吃饭。", py:"Wǒmen zài Xī'ān Fàndiàn chī fàn.", vi:"Chúng tôi ăn cơm ở Nhà hàng Tây An."}}
 ];
 
 document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
@@ -1106,6 +1113,9 @@ function renderFlashcard(){
   const wcEl = document.getElementById('fcWordClass');
   wcEl.textContent = item.wordClass || '';
   wcEl.style.display = item.wordClass ? '' : 'none';
+  const hvEl = document.getElementById('fcHanviet');
+  hvEl.textContent = item.hanviet ? '(' + item.hanviet + ')' : '';
+  hvEl.style.display = item.hanviet ? '' : 'none';
   document.getElementById('fcMeaning').textContent = item.meaning;
   document.getElementById('fcExample').innerHTML =
     item.example.zh + '<span class="py">' + item.example.py + '</span><span class="vi">' + item.example.vi + '</span>';
@@ -1620,7 +1630,7 @@ vocab.forEach((item, vIndex)=>{
     '<button class="icon-btn review-actions-listen" title="Nghe phát âm">🔊</button>' +
     '<button class="icon-btn review-actions-write" title="Luyện viết nét chữ">✍️</button>' +
     '<div class="review-hanzi zh" title="'+item.example.zh+'" onclick="this.classList.toggle(\'peek\')">'+item.hanzi+'</div>' +
-    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+'</div>' +
+    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+(item.hanviet ? '<span class="review-hanviet">'+item.hanviet+'</span>' : '')+'</div>' +
     '<div class="review-wordclass"' + (item.wordClass ? '' : ' style="visibility:hidden;"') + '>'+(item.wordClass||'')+'</div>' +
     '<div class="review-meaning" onclick="this.classList.toggle(\'peek\')">'+item.meaning+'</div>' +
     '<div class="review-input-wrap">' +
