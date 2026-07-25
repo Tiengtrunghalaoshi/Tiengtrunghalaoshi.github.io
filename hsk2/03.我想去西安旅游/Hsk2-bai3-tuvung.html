@@ -288,6 +288,11 @@
     text-transform:lowercase;
     letter-spacing:.3px;
   }
+  .fc-hanviet{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
   .fc-face .fc-speak{
     margin-top:16px;
     border:1px solid var(--jade-light);
@@ -544,6 +549,7 @@
   }
   .review-hanzi{font-size:22px;font-weight:700;cursor:help;}
   .review-pinyin{font-size:13.5px;color:var(--jade-dark);font-weight:600;}
+  .review-hanviet{font-size:10.5px;color:var(--ink-soft);font-style:italic;font-weight:400;display:block;}
   .review-wordclass{
     font-size:10.5px;
     font-weight:700;
@@ -836,6 +842,7 @@
           <div class="fc-pinyin-row">
             <span class="fc-pinyin" id="fcPinyin">nǐ hǎo</span>
             <span class="fc-wordclass" id="fcWordClass"></span>
+            <span class="fc-hanviet" id="fcHanviet"></span>
           </div>
           <button class="fc-speak" id="fcSpeakFront">🔊 Nghe phát âm</button>
           <div class="fc-hint">Nhấn để xem nghĩa</div>
@@ -980,21 +987,21 @@
 <script>
 /* ===================== DATA (HSK2 · Bài 3 — 15 từ vựng) ===================== */
 const vocab = [
-  {hanzi:"回来", pinyin:"huílái", wordClass:"v", meaning:"Về, quay lại, trở về", example:{zh:"你什么时候回来？", py:"Nǐ shénme shíhou huílái?", vi:"Bạn khi nào về?"}},
-  {hanzi:"这么", pinyin:"zhème", wordClass:"đại từ", meaning:"Như thế, như vậy", example:{zh:"你怎么这么忙？", py:"Nǐ zěnme zhème máng?", vi:"Sao bạn bận như vậy?"}},
-  {hanzi:"完", pinyin:"wán", wordClass:"v", meaning:"Xong", example:{zh:"我做完作业了。", py:"Wǒ zuò wán zuòyè le.", vi:"Tôi đã làm xong bài tập rồi."}},
-  {hanzi:"一起", pinyin:"yìqǐ", wordClass:"adv", meaning:"Cùng nhau", example:{zh:"我们一起去吧。", py:"Wǒmen yìqǐ qù ba.", vi:"Chúng ta cùng nhau đi nhé."}},
-  {hanzi:"出去", pinyin:"chūqù", wordClass:"v", meaning:"Ra ngoài", example:{zh:"外面下雨了，别出去。", py:"Wàimiàn xià yǔ le, bié chūqù.", vi:"Bên ngoài mưa rồi, đừng ra ngoài."}},
-  {hanzi:"洗", pinyin:"xǐ", wordClass:"v", meaning:"Rửa, giặt", example:{zh:"吃饭以前要洗手。", py:"Chī fàn yǐqián yào xǐ shǒu.", vi:"Trước khi ăn cơm phải rửa tay."}},
-  {hanzi:"自己", pinyin:"zìjǐ", wordClass:"đại từ", meaning:"Tự mình", example:{zh:"这件事我自己能做。", py:"Zhè jiàn shì wǒ zìjǐ néng zuò.", vi:"Việc này tự mình tôi có thể làm được."}},
-  {hanzi:"拿", pinyin:"ná", wordClass:"v", meaning:"Lấy, cầm", example:{zh:"请帮我拿一下这本书。", py:"Qǐng bāng wǒ ná yíxià zhè běn shū.", vi:"Làm ơn giúp tôi cầm quyển sách này một chút."}},
-  {hanzi:"手", pinyin:"shǒu", wordClass:"n", meaning:"Tay", example:{zh:"我的手有点疼。", py:"Wǒ de shǒu yǒudiǎn téng.", vi:"Tay tôi hơi đau."}},
-  {hanzi:"为什么", pinyin:"wèi shénme", wordClass:"", meaning:"Tại sao", example:{zh:"你为什么不高兴？", py:"Nǐ wèi shénme bù gāoxìng?", vi:"Tại sao bạn không vui?"}},
-  {hanzi:"不错", pinyin:"búcuò", wordClass:"adj", meaning:"Không tệ, rất được", example:{zh:"这家饭馆的菜不错。", py:"Zhè jiā fànguǎn de cài búcuò.", vi:"Món ăn của quán này khá được."}},
-  {hanzi:"送", pinyin:"sòng", wordClass:"v", meaning:"Đưa ai đó đi đâu; tặng (quà)", example:{zh:"我送你回家吧。", py:"Wǒ sòng nǐ huí jiā ba.", vi:"Để tôi đưa bạn về nhà nhé."}},
-  {hanzi:"回去", pinyin:"huíqù", wordClass:"v", meaning:"Về, quay trở về", example:{zh:"天晚了，我们回去吧。", py:"Tiān wǎn le, wǒmen huíqù ba.", vi:"Trời tối rồi, chúng ta về đi."}},
-  {hanzi:"每", pinyin:"měi", wordClass:"đại từ", meaning:"Mỗi", example:{zh:"我每天六点起床。", py:"Wǒ měitiān liù diǎn qǐchuáng.", vi:"Mỗi ngày tôi dậy lúc 6 giờ."}},
-  {hanzi:"累", pinyin:"lèi", wordClass:"adj", meaning:"Mệt", example:{zh:"今天工作太累了。", py:"Jīntiān gōngzuò tài lèi le.", vi:"Hôm nay làm việc mệt quá."}}
+  {hanzi:"回来", pinyin:"huílái", wordClass:"động", hanviet:"Hồi lai", meaning:"Về, quay lại, trở về", example:{zh:"你什么时候回来？", py:"Nǐ shénme shíhou huílái?", vi:"Bạn khi nào về?"}},
+  {hanzi:"这么", pinyin:"zhème", wordClass:"đại", hanviet:"Giá ma", meaning:"Như thế, như vậy", example:{zh:"你怎么这么忙？", py:"Nǐ zěnme zhème máng?", vi:"Sao bạn bận như vậy?"}},
+  {hanzi:"完", pinyin:"wán", wordClass:"động", hanviet:"Hoàn", meaning:"Xong", example:{zh:"我做完作业了。", py:"Wǒ zuò wán zuòyè le.", vi:"Tôi đã làm xong bài tập rồi."}},
+  {hanzi:"一起", pinyin:"yìqǐ", wordClass:"phó", hanviet:"Nhất khởi", meaning:"Cùng nhau", example:{zh:"我们一起去吧。", py:"Wǒmen yìqǐ qù ba.", vi:"Chúng ta cùng nhau đi nhé."}},
+  {hanzi:"出去", pinyin:"chūqù", wordClass:"động", hanviet:"Xuất khứ", meaning:"Ra ngoài", example:{zh:"外面下雨了，别出去。", py:"Wàimiàn xià yǔ le, bié chūqù.", vi:"Bên ngoài mưa rồi, đừng ra ngoài."}},
+  {hanzi:"洗", pinyin:"xǐ", wordClass:"động", hanviet:"Tẩy", meaning:"Rửa, giặt", example:{zh:"吃饭以前要洗手。", py:"Chī fàn yǐqián yào xǐ shǒu.", vi:"Trước khi ăn cơm phải rửa tay."}},
+  {hanzi:"自己", pinyin:"zìjǐ", wordClass:"đại", hanviet:"Tự kỷ", meaning:"Tự mình", example:{zh:"这件事我自己能做。", py:"Zhè jiàn shì wǒ zìjǐ néng zuò.", vi:"Việc này tự mình tôi có thể làm được."}},
+  {hanzi:"拿", pinyin:"ná", wordClass:"động", hanviet:"Nã", meaning:"Lấy, cầm", example:{zh:"请帮我拿一下这本书。", py:"Qǐng bāng wǒ ná yíxià zhè běn shū.", vi:"Làm ơn giúp tôi cầm quyển sách này một chút."}},
+  {hanzi:"手", pinyin:"shǒu", wordClass:"danh", hanviet:"Thủ", meaning:"Tay", example:{zh:"我的手有点疼。", py:"Wǒ de shǒu yǒudiǎn téng.", vi:"Tay tôi hơi đau."}},
+  {hanzi:"为什么", pinyin:"wèi shénme", wordClass:"", hanviet:"Vị thậm ma", meaning:"Tại sao", example:{zh:"你为什么不高兴？", py:"Nǐ wèi shénme bù gāoxìng?", vi:"Tại sao bạn không vui?"}},
+  {hanzi:"不错", pinyin:"búcuò", wordClass:"tính", hanviet:"Bất thác", meaning:"Không tệ, rất được", example:{zh:"这家饭馆的菜不错。", py:"Zhè jiā fànguǎn de cài búcuò.", vi:"Món ăn của quán này khá được."}},
+  {hanzi:"送", pinyin:"sòng", wordClass:"động", hanviet:"Tống", meaning:"Đưa ai đó đi đâu; tặng (quà)", example:{zh:"我送你回家吧。", py:"Wǒ sòng nǐ huí jiā ba.", vi:"Để tôi đưa bạn về nhà nhé."}},
+  {hanzi:"回去", pinyin:"huíqù", wordClass:"động", hanviet:"Hồi khứ", meaning:"Về, quay trở về", example:{zh:"天晚了，我们回去吧。", py:"Tiān wǎn le, wǒmen huíqù ba.", vi:"Trời tối rồi, chúng ta về đi."}},
+  {hanzi:"每", pinyin:"měi", wordClass:"đại", hanviet:"Mỗi", meaning:"Mỗi", example:{zh:"我每天六点起床。", py:"Wǒ měitiān liù diǎn qǐchuáng.", vi:"Mỗi ngày tôi dậy lúc 6 giờ."}},
+  {hanzi:"累", pinyin:"lèi", wordClass:"tính", hanviet:"Lụy", meaning:"Mệt", example:{zh:"今天工作太累了。", py:"Jīntiān gōngzuò tài lèi le.", vi:"Hôm nay làm việc mệt quá."}}
 ];
 
 document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
@@ -1081,6 +1088,9 @@ function renderFlashcard(){
   const wcEl = document.getElementById('fcWordClass');
   wcEl.textContent = item.wordClass || '';
   wcEl.style.display = item.wordClass ? '' : 'none';
+  const hvEl = document.getElementById('fcHanviet');
+  hvEl.textContent = item.hanviet ? '(' + item.hanviet + ')' : '';
+  hvEl.style.display = item.hanviet ? '' : 'none';
   document.getElementById('fcMeaning').textContent = item.meaning;
   document.getElementById('fcExample').innerHTML =
     item.example.zh + '<span class="py">' + item.example.py + '</span><span class="vi">' + item.example.vi + '</span>';
@@ -1595,7 +1605,7 @@ vocab.forEach((item, vIndex)=>{
     '<button class="icon-btn review-actions-listen" title="Nghe phát âm">🔊</button>' +
     '<button class="icon-btn review-actions-write" title="Luyện viết nét chữ">✍️</button>' +
     '<div class="review-hanzi zh" title="'+item.example.zh+'" onclick="this.classList.toggle(\'peek\')">'+item.hanzi+'</div>' +
-    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+'</div>' +
+    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+(item.hanviet ? '<span class="review-hanviet">'+item.hanviet+'</span>' : '')+'</div>' +
     '<div class="review-wordclass"' + (item.wordClass ? '' : ' style="visibility:hidden;"') + '>'+(item.wordClass||'')+'</div>' +
     '<div class="review-meaning" onclick="this.classList.toggle(\'peek\')">'+item.meaning+'</div>' +
     '<div class="review-input-wrap">' +
