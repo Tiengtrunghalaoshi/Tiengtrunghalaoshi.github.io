@@ -288,6 +288,11 @@
     text-transform:lowercase;
     letter-spacing:.3px;
   }
+  .fc-hanviet{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
   .fc-face .fc-speak{
     margin-top:16px;
     border:1px solid var(--jade-light);
@@ -544,6 +549,7 @@
   }
   .review-hanzi{font-size:22px;font-weight:700;cursor:help;}
   .review-pinyin{font-size:13.5px;color:var(--jade-dark);font-weight:600;}
+  .review-hanviet{font-size:10.5px;color:var(--ink-soft);font-style:italic;font-weight:400;display:block;}
   .review-wordclass{
     font-size:10.5px;
     font-weight:700;
@@ -836,6 +842,7 @@
           <div class="fc-pinyin-row">
             <span class="fc-pinyin" id="fcPinyin">nǐ hǎo</span>
             <span class="fc-wordclass" id="fcWordClass"></span>
+            <span class="fc-hanviet" id="fcHanviet"></span>
           </div>
           <button class="fc-speak" id="fcSpeakFront">🔊 Nghe phát âm</button>
           <div class="fc-hint">Nhấn để xem nghĩa</div>
@@ -980,30 +987,30 @@
 <script>
 /* ===================== DATA (HSK1 · Bài 12 — 24 từ vựng) ===================== */
 const vocab = [
-  {hanzi:"天气", pinyin:"tiānqì", wordClass:"danh", meaning:"thời tiết", example:{zh:"今天天气怎么样？", py:"Jīntiān tiānqì zěnmeyàng?", vi:"Hôm nay thời tiết thế nào?"}},
-  {hanzi:"这里", pinyin:"zhèlǐ", wordClass:"đại", meaning:"ở đây", example:{zh:"这里冬天很冷。", py:"Zhèlǐ dōngtiān hěn lěng.", vi:"Ở đây mùa đông rất lạnh."}},
-  {hanzi:"天", pinyin:"tiān", wordClass:"danh", meaning:"trời, thời tiết", example:{zh:"天有点儿阴。", py:"Tiān yǒudiǎnr yīn.", vi:"Trời hơi âm u."}},
-  {hanzi:"下雨", pinyin:"xià yǔ", wordClass:"động", meaning:"mưa, mưa rơi", example:{zh:"外面下雨了。", py:"Wàimiàn xià yǔ le.", vi:"Bên ngoài trời đang mưa."}},
-  {hanzi:"了", pinyin:"le", wordClass:"trợ từ", meaning:"đặt cuối câu, biểu thị sự thay đổi tình huống hoặc trạng thái", example:{zh:"天气冷了。", py:"Tiānqì lěng le.", vi:"Thời tiết đã lạnh rồi."}},
-  {hanzi:"雨", pinyin:"yǔ", wordClass:"danh", meaning:"mưa", example:{zh:"雨很大。", py:"Yǔ hěn dà.", vi:"Mưa rất to."}},
-  {hanzi:"有点儿", pinyin:"yǒudiǎnr", wordClass:"phó", meaning:"hơi, có chút", example:{zh:"我有点儿冷。", py:"Wǒ yǒudiǎnr lěng.", vi:"Tôi hơi lạnh."}},
-  {hanzi:"觉得", pinyin:"juéde", wordClass:"động", meaning:"cảm thấy", example:{zh:"我觉得今天很冷。", py:"Wǒ juéde jīntiān hěn lěng.", vi:"Tôi cảm thấy hôm nay rất lạnh."}},
-  {hanzi:"冷", pinyin:"lěng", wordClass:"tính", meaning:"lạnh", example:{zh:"今天很冷。", py:"Jīntiān hěn lěng.", vi:"Hôm nay rất lạnh."}},
-  {hanzi:"下", pinyin:"xià", wordClass:"động", meaning:"biểu thị sự đi xuống (rơi, rớt...)", example:{zh:"雪下得很大。", py:"Xuě xià de hěn dà.", vi:"Tuyết rơi rất to."}},
-  {hanzi:"雪", pinyin:"xuě", wordClass:"danh", meaning:"tuyết", example:{zh:"昨天下雪了。", py:"Zuótiān xià xuě le.", vi:"Hôm qua tuyết rơi rồi."}},
-  {hanzi:"来", pinyin:"lái", wordClass:"động", meaning:"đến, tới", example:{zh:"你什么时候来公司？", py:"Nǐ shénme shíhou lái gōngsī?", vi:"Bạn khi nào đến công ty?"}},
-  {hanzi:"公司", pinyin:"gōngsī", wordClass:"danh", meaning:"công ty", example:{zh:"我在公司工作。", py:"Wǒ zài gōngsī gōngzuò.", vi:"Tôi làm việc ở công ty."}},
-  {hanzi:"生病", pinyin:"shēngbìng", wordClass:"động", meaning:"bị bệnh, bị ốm", example:{zh:"我弟弟生病了。", py:"Wǒ dìdi shēngbìng le.", vi:"Em trai tôi bị ốm rồi."}},
-  {hanzi:"看病", pinyin:"kànbìng", wordClass:"động", meaning:"khám bệnh", example:{zh:"他去医院看病。", py:"Tā qù yīyuàn kànbìng.", vi:"Anh ấy đi bệnh viện khám bệnh."}},
-  {hanzi:"病", pinyin:"bìng", wordClass:"động", meaning:"bệnh, ốm", example:{zh:"他病了，没来公司。", py:"Tā bìng le, méi lái gōngsī.", vi:"Anh ấy bị bệnh, không đến công ty."}},
-  {hanzi:"一点儿", pinyin:"yìdiǎnr", wordClass:"lượng", meaning:"1 ít, 1 chút", example:{zh:"请喝一点儿水。", py:"Qǐng hē yìdiǎnr shuǐ.", vi:"Mời uống một chút nước."}},
-  {hanzi:"药", pinyin:"yào", wordClass:"danh", meaning:"thuốc", example:{zh:"生病了要吃药。", py:"Shēngbìng le yào chī yào.", vi:"Bị ốm rồi phải uống thuốc."}},
-  {hanzi:"天", pinyin:"tiān", wordClass:"danh", meaning:"ngày", example:{zh:"我病了三天。", py:"Wǒ bìng le sān tiān.", vi:"Tôi bị bệnh ba ngày."}},
-  {hanzi:"回", pinyin:"huí", wordClass:"động", meaning:"về, quay về", example:{zh:"他生病了，要回家。", py:"Tā shēngbìng le, yào huí jiā.", vi:"Anh ấy bị ốm, phải về nhà."}},
-  {hanzi:"再", pinyin:"zài", wordClass:"phó", meaning:"sau đó", example:{zh:"你先喝水，再吃药。", py:"Nǐ xiān hē shuǐ, zài chī yào.", vi:"Bạn uống nước trước, sau đó uống thuốc."}},
-  {hanzi:"喝", pinyin:"hē", wordClass:"động", meaning:"uống", example:{zh:"我想喝热水。", py:"Wǒ xiǎng hē rè shuǐ.", vi:"Tôi muốn uống nước nóng."}},
-  {hanzi:"热", pinyin:"rè", wordClass:"tính", meaning:"nóng", example:{zh:"这杯水很热。", py:"Zhè bēi shuǐ hěn rè.", vi:"Cốc nước này rất nóng."}},
-  {hanzi:"水", pinyin:"shuǐ", wordClass:"danh", meaning:"nước", example:{zh:"请给我一杯水。", py:"Qǐng gěi wǒ yì bēi shuǐ.", vi:"Làm ơn cho tôi một cốc nước."}}
+  {hanzi:"天气", pinyin:"tiānqì", wordClass:"danh", hanviet:"Thiên khí", meaning:"thời tiết", example:{zh:"今天天气怎么样？", py:"Jīntiān tiānqì zěnmeyàng?", vi:"Hôm nay thời tiết thế nào?"}},
+  {hanzi:"这里", pinyin:"zhèlǐ", wordClass:"đại", hanviet:"Giá lý", meaning:"ở đây", example:{zh:"这里冬天很冷。", py:"Zhèlǐ dōngtiān hěn lěng.", vi:"Ở đây mùa đông rất lạnh."}},
+  {hanzi:"天", pinyin:"tiān", wordClass:"danh", hanviet:"Thiên", meaning:"trời, thời tiết", example:{zh:"天有点儿阴。", py:"Tiān yǒudiǎnr yīn.", vi:"Trời hơi âm u."}},
+  {hanzi:"下雨", pinyin:"xià yǔ", wordClass:"", hanviet:"Hạ vũ", meaning:"mưa, mưa rơi", example:{zh:"外面下雨了。", py:"Wàimiàn xià yǔ le.", vi:"Bên ngoài trời đang mưa."}},
+  {hanzi:"了", pinyin:"le", wordClass:"trợ từ", hanviet:"Liễu", meaning:"đặt cuối câu, biểu thị sự thay đổi tình huống hoặc trạng thái", example:{zh:"天气冷了。", py:"Tiānqì lěng le.", vi:"Thời tiết đã lạnh rồi."}},
+  {hanzi:"雨", pinyin:"yǔ", wordClass:"danh", hanviet:"Vũ", meaning:"mưa", example:{zh:"雨很大。", py:"Yǔ hěn dà.", vi:"Mưa rất to."}},
+  {hanzi:"有点儿", pinyin:"yǒudiǎnr", wordClass:"phó", hanviet:"Hữu điểm", meaning:"hơi, có chút", example:{zh:"我有点儿冷。", py:"Wǒ yǒudiǎnr lěng.", vi:"Tôi hơi lạnh."}},
+  {hanzi:"觉得", pinyin:"juéde", wordClass:"động", hanviet:"Giác đắc", meaning:"cảm thấy", example:{zh:"我觉得今天很冷。", py:"Wǒ juéde jīntiān hěn lěng.", vi:"Tôi cảm thấy hôm nay rất lạnh."}},
+  {hanzi:"冷", pinyin:"lěng", wordClass:"tính", hanviet:"Lãnh", meaning:"lạnh", example:{zh:"今天很冷。", py:"Jīntiān hěn lěng.", vi:"Hôm nay rất lạnh."}},
+  {hanzi:"下", pinyin:"xià", wordClass:"động", hanviet:"Hạ", meaning:"biểu thị sự đi xuống (rơi, rớt...)", example:{zh:"雪下得很大。", py:"Xuě xià de hěn dà.", vi:"Tuyết rơi rất to."}},
+  {hanzi:"雪", pinyin:"xuě", wordClass:"danh", hanviet:"Tuyết", meaning:"tuyết", example:{zh:"昨天下雪了。", py:"Zuótiān xià xuě le.", vi:"Hôm qua tuyết rơi rồi."}},
+  {hanzi:"来", pinyin:"lái", wordClass:"động", hanviet:"Lai", meaning:"đến, tới", example:{zh:"你什么时候来公司？", py:"Nǐ shénme shíhou lái gōngsī?", vi:"Bạn khi nào đến công ty?"}},
+  {hanzi:"公司", pinyin:"gōngsī", wordClass:"danh", hanviet:"Công ty", meaning:"công ty", example:{zh:"我在公司工作。", py:"Wǒ zài gōngsī gōngzuò.", vi:"Tôi làm việc ở công ty."}},
+  {hanzi:"生病", pinyin:"shēngbìng", wordClass:"động", hanviet:"Sinh bệnh", meaning:"bị bệnh, bị ốm", example:{zh:"我弟弟生病了。", py:"Wǒ dìdi shēngbìng le.", vi:"Em trai tôi bị ốm rồi."}},
+  {hanzi:"看病", pinyin:"kànbìng", wordClass:"động", hanviet:"Khán bệnh", meaning:"khám bệnh", example:{zh:"他去医院看病。", py:"Tā qù yīyuàn kànbìng.", vi:"Anh ấy đi bệnh viện khám bệnh."}},
+  {hanzi:"病", pinyin:"bìng", wordClass:"động", hanviet:"Bệnh", meaning:"bệnh, ốm", example:{zh:"他病了，没来公司。", py:"Tā bìng le, méi lái gōngsī.", vi:"Anh ấy bị bệnh, không đến công ty."}},
+  {hanzi:"一点儿", pinyin:"yìdiǎnr", wordClass:"số từ/lượng từ", hanviet:"Nhất điểm", meaning:"1 ít, 1 chút", example:{zh:"请喝一点儿水。", py:"Qǐng hē yìdiǎnr shuǐ.", vi:"Mời uống một chút nước."}},
+  {hanzi:"药", pinyin:"yào", wordClass:"danh", hanviet:"Dược", meaning:"thuốc", example:{zh:"生病了要吃药。", py:"Shēngbìng le yào chī yào.", vi:"Bị ốm rồi phải uống thuốc."}},
+  {hanzi:"天", pinyin:"tiān", wordClass:"lượng (đơn vị thời gian)", hanviet:"Thiên", meaning:"ngày", example:{zh:"我病了三天。", py:"Wǒ bìng le sān tiān.", vi:"Tôi bị bệnh ba ngày."}},
+  {hanzi:"回", pinyin:"huí", wordClass:"động", hanviet:"Hồi", meaning:"về, quay về", example:{zh:"他生病了，要回家。", py:"Tā shēngbìng le, yào huí jiā.", vi:"Anh ấy bị ốm, phải về nhà."}},
+  {hanzi:"再", pinyin:"zài", wordClass:"phó", hanviet:"Tái", meaning:"sau đó", example:{zh:"你先喝水，再吃药。", py:"Nǐ xiān hē shuǐ, zài chī yào.", vi:"Bạn uống nước trước, sau đó uống thuốc."}},
+  {hanzi:"喝", pinyin:"hē", wordClass:"động", hanviet:"Hát", meaning:"uống", example:{zh:"我想喝热水。", py:"Wǒ xiǎng hē rè shuǐ.", vi:"Tôi muốn uống nước nóng."}},
+  {hanzi:"热", pinyin:"rè", wordClass:"tính", hanviet:"Nhiệt", meaning:"nóng", example:{zh:"这杯水很热。", py:"Zhè bēi shuǐ hěn rè.", vi:"Cốc nước này rất nóng."}},
+  {hanzi:"水", pinyin:"shuǐ", wordClass:"danh", hanviet:"Thủy", meaning:"nước", example:{zh:"请给我一杯水。", py:"Qǐng gěi wǒ yì bēi shuǐ.", vi:"Làm ơn cho tôi một cốc nước."}}
 ];
 
 document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
@@ -1096,6 +1103,9 @@ function renderFlashcard(){
   const wcEl = document.getElementById('fcWordClass');
   wcEl.textContent = item.wordClass || '';
   wcEl.style.display = item.wordClass ? '' : 'none';
+  const hvEl = document.getElementById('fcHanviet');
+  hvEl.textContent = item.hanviet ? '(' + item.hanviet + ')' : '';
+  hvEl.style.display = item.hanviet ? '' : 'none';
   document.getElementById('fcMeaning').textContent = item.meaning;
   document.getElementById('fcExample').innerHTML =
     item.example.zh + '<span class="py">' + item.example.py + '</span><span class="vi">' + item.example.vi + '</span>';
@@ -1610,7 +1620,7 @@ vocab.forEach((item, vIndex)=>{
     '<button class="icon-btn review-actions-listen" title="Nghe phát âm">🔊</button>' +
     '<button class="icon-btn review-actions-write" title="Luyện viết nét chữ">✍️</button>' +
     '<div class="review-hanzi zh" title="'+item.example.zh+'" onclick="this.classList.toggle(\'peek\')">'+item.hanzi+'</div>' +
-    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+'</div>' +
+    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+(item.hanviet ? '<span class="review-hanviet">'+item.hanviet+'</span>' : '')+'</div>' +
     '<div class="review-wordclass"' + (item.wordClass ? '' : ' style="visibility:hidden;"') + '>'+(item.wordClass||'')+'</div>' +
     '<div class="review-meaning" onclick="this.classList.toggle(\'peek\')">'+item.meaning+'</div>' +
     '<div class="review-input-wrap">' +
