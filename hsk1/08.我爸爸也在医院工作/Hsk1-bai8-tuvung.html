@@ -288,6 +288,11 @@
     text-transform:lowercase;
     letter-spacing:.3px;
   }
+  .fc-hanviet{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
   .fc-face .fc-speak{
     margin-top:16px;
     border:1px solid var(--jade-light);
@@ -544,6 +549,7 @@
   }
   .review-hanzi{font-size:22px;font-weight:700;cursor:help;}
   .review-pinyin{font-size:13.5px;color:var(--jade-dark);font-weight:600;}
+  .review-hanviet{font-size:10.5px;color:var(--ink-soft);font-style:italic;font-weight:400;display:block;}
   .review-wordclass{
     font-size:10.5px;
     font-weight:700;
@@ -804,7 +810,7 @@
 </div>
 
 <div class="stats-strip">
-  <span class="stat-pill" id="statTotal">23 từ vựng</span>
+  <span class="stat-pill" id="statTotal">24 từ vựng</span>
   <span class="stat-pill">HSK1 · Bài 8</span>
   <span class="stat-pill">Flashcard · Trò chơi · Ôn tập · Nét chữ</span>
 </div>
@@ -836,6 +842,7 @@
           <div class="fc-pinyin-row">
             <span class="fc-pinyin" id="fcPinyin">nǐ hǎo</span>
             <span class="fc-wordclass" id="fcWordClass"></span>
+            <span class="fc-hanviet" id="fcHanviet"></span>
           </div>
           <button class="fc-speak" id="fcSpeakFront">🔊 Nghe phát âm</button>
           <div class="fc-hint">Nhấn để xem nghĩa</div>
@@ -978,31 +985,32 @@
 
 <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7/dist/hanzi-writer.min.js"></script>
 <script>
-/* ===================== DATA (HSK1 · Bài 8 — 23 từ vựng, số 144–166) ===================== */
+/* ===================== DATA (HSK1 · Bài 8 — 24 từ vựng, số 144–167) ===================== */
 const vocab = [
-  {hanzi:"房间", pinyin:"fángjiān", wordClass:"danh", meaning:"phòng", example:{zh:"我的房间很干净。", py:"Wǒ de fángjiān hěn gānjìng.", vi:"Phòng của tôi rất sạch sẽ."}},
-  {hanzi:"外", pinyin:"wài", wordClass:"danh", meaning:"ngoài, bên ngoài", example:{zh:"猫在房间外。", py:"Māo zài fángjiān wài.", vi:"Con mèo ở bên ngoài phòng."}},
-  {hanzi:"只", pinyin:"zhī", wordClass:"lượng", meaning:"lượng từ chỉ con vật", example:{zh:"我家有一只猫。", py:"Wǒ jiā yǒu yī zhī māo.", vi:"Nhà tôi có một con mèo."}},
-  {hanzi:"小", pinyin:"xiǎo", wordClass:"tính", meaning:"nhỏ, nhỏ bé", example:{zh:"这只猫很小。", py:"Zhè zhī māo hěn xiǎo.", vi:"Con mèo này rất nhỏ."}},
-  {hanzi:"猫", pinyin:"māo", wordClass:"danh", meaning:"con mèo", example:{zh:"我很喜欢猫。", py:"Wǒ hěn xǐhuan māo.", vi:"Tôi rất thích mèo."}},
-  {hanzi:"没", pinyin:"méi", wordClass:"phó", meaning:"chưa, không", example:{zh:"我没看见我的猫。", py:"Wǒ méi kànjiàn wǒ de māo.", vi:"Tôi không nhìn thấy con mèo của tôi."}},
-  {hanzi:"看见", pinyin:"kànjiàn", wordClass:"động", meaning:"nhìn thấy", example:{zh:"你看见我的猫了吗？", py:"Nǐ kànjiàn wǒ de māo le ma?", vi:"Bạn có nhìn thấy con mèo của tôi không?"}},
-  {hanzi:"桌子", pinyin:"zhuōzi", wordClass:"danh", meaning:"bàn", example:{zh:"猫在桌子下面。", py:"Māo zài zhuōzi xiàmian.", vi:"Con mèo ở dưới bàn."}},
-  {hanzi:"下", pinyin:"xià", wordClass:"danh", meaning:"ở dưới", example:{zh:"猫在桌子下。", py:"Māo zài zhuōzi xià.", vi:"Con mèo ở dưới bàn."}},
-  {hanzi:"漂亮", pinyin:"piàoliang", wordClass:"tính", meaning:"xinh đẹp", example:{zh:"这只猫很漂亮。", py:"Zhè zhī māo hěn piàoliang.", vi:"Con mèo này rất xinh đẹp."}},
-  {hanzi:"在", pinyin:"zài", wordClass:"giới", meaning:"ở, tại", example:{zh:"猫在房间里。", py:"Māo zài fángjiān li.", vi:"Con mèo ở trong phòng."}},
-  {hanzi:"学校", pinyin:"xuéxiào", wordClass:"danh", meaning:"trường học", example:{zh:"我在学校学习汉语。", py:"Wǒ zài xuéxiào xuéxí Hànyǔ.", vi:"Tôi học tiếng Hán ở trường."}},
-  {hanzi:"书店", pinyin:"shūdiàn", wordClass:"danh", meaning:"tiệm sách", example:{zh:"书店在学校前边。", py:"Shūdiàn zài xuéxiào qiánbian.", vi:"Tiệm sách ở phía trước trường học."}},
-  {hanzi:"前", pinyin:"qián", wordClass:"danh", meaning:"ở trước, trước", example:{zh:"书店在学校前面。", py:"Shūdiàn zài xuéxiào qiánmiàn.", vi:"Tiệm sách ở trước trường học."}},
-  {hanzi:"能", pinyin:"néng", wordClass:"động", meaning:"có thể, có khả năng", example:{zh:"我能去书店吗？", py:"Wǒ néng qù shūdiàn ma?", vi:"Tôi có thể đi tiệm sách không?"}},
-  {hanzi:"到", pinyin:"dào", wordClass:"động", meaning:"đến, tới nơi", example:{zh:"我十二点到学校。", py:"Wǒ shí’èr diǎn dào xuéxiào.", vi:"Tôi đến trường lúc 12 giờ."}},
-  {hanzi:"午饭", pinyin:"wǔfàn", wordClass:"danh", meaning:"bữa trưa", example:{zh:"我十二点吃午饭。", py:"Wǒ shí’èr diǎn chī wǔfàn.", vi:"Tôi ăn cơm trưa lúc 12 giờ."}},
-  {hanzi:"饭", pinyin:"fàn", wordClass:"danh", meaning:"cơm, bữa ăn", example:{zh:"我们一起吃饭吧。", py:"Wǒmen yìqǐ chī fàn ba.", vi:"Chúng ta cùng ăn cơm nhé."}},
-  {hanzi:"大", pinyin:"dà", wordClass:"tính", meaning:"to, lớn", example:{zh:"这个房间很大。", py:"Zhège fángjiān hěn dà.", vi:"Căn phòng này rất to."}},
-  {hanzi:"病人", pinyin:"bìngrén", wordClass:"danh", meaning:"bệnh nhân", example:{zh:"医院里有很多病人。", py:"Yīyuàn li yǒu hěn duō bìngrén.", vi:"Trong bệnh viện có rất nhiều bệnh nhân."}},
-  {hanzi:"多", pinyin:"duō", wordClass:"tính", meaning:"nhiều, rất nhiều", example:{zh:"医院里的病人很多。", py:"Yīyuàn li de bìngrén hěn duō.", vi:"Bệnh nhân trong bệnh viện rất nhiều."}},
-  {hanzi:"医生", pinyin:"yīshēng", wordClass:"danh", meaning:"bác sĩ", example:{zh:"我妈妈是医生。", py:"Wǒ māma shì yīshēng.", vi:"Mẹ tôi là bác sĩ."}},
-  {hanzi:"工作", pinyin:"gōngzuò", wordClass:"động", meaning:"làm việc", example:{zh:"我爸爸在医院工作。", py:"Wǒ bàba zài yīyuàn gōngzuò.", vi:"Bố tôi làm việc ở bệnh viện."}}
+  {hanzi:"房间", pinyin:"fángjiān", wordClass:"danh", hanviet:"Phòng gian", meaning:"phòng", example:{zh:"我的房间很干净。", py:"Wǒ de fángjiān hěn gānjìng.", vi:"Phòng của tôi rất sạch sẽ."}},
+  {hanzi:"外", pinyin:"wài", wordClass:"danh", hanviet:"Ngoại", meaning:"ngoài, bên ngoài", example:{zh:"猫在房间外。", py:"Māo zài fángjiān wài.", vi:"Con mèo ở bên ngoài phòng."}},
+  {hanzi:"只", pinyin:"zhī", wordClass:"lượng", hanviet:"Chích", meaning:"lượng từ chỉ con vật", example:{zh:"我家有一只猫。", py:"Wǒ jiā yǒu yī zhī māo.", vi:"Nhà tôi có một con mèo."}},
+  {hanzi:"小", pinyin:"xiǎo", wordClass:"tính", hanviet:"Tiểu", meaning:"nhỏ, nhỏ bé", example:{zh:"这只猫很小。", py:"Zhè zhī māo hěn xiǎo.", vi:"Con mèo này rất nhỏ."}},
+  {hanzi:"猫", pinyin:"māo", wordClass:"danh", hanviet:"Miêu", meaning:"con mèo", example:{zh:"我很喜欢猫。", py:"Wǒ hěn xǐhuan māo.", vi:"Tôi rất thích mèo."}},
+  {hanzi:"没", pinyin:"méi", wordClass:"phó", hanviet:"Một", meaning:"chưa, không", example:{zh:"我没看见我的猫。", py:"Wǒ méi kànjiàn wǒ de māo.", vi:"Tôi không nhìn thấy con mèo của tôi."}},
+  {hanzi:"看见", pinyin:"kànjiàn", wordClass:"động", hanviet:"Khán kiến", meaning:"nhìn thấy", example:{zh:"你看见我的猫了吗？", py:"Nǐ kànjiàn wǒ de māo le ma?", vi:"Bạn có nhìn thấy con mèo của tôi không?"}},
+  {hanzi:"桌子", pinyin:"zhuōzi", wordClass:"danh", hanviet:"Trác tử", meaning:"bàn", example:{zh:"猫在桌子下面。", py:"Māo zài zhuōzi xiàmian.", vi:"Con mèo ở dưới bàn."}},
+  {hanzi:"下", pinyin:"xià", wordClass:"danh", hanviet:"Hạ", meaning:"ở dưới", example:{zh:"猫在桌子下。", py:"Māo zài zhuōzi xià.", vi:"Con mèo ở dưới bàn."}},
+  {hanzi:"漂亮", pinyin:"piàoliang", wordClass:"tính", hanviet:"Phiêu lượng", meaning:"xinh đẹp", example:{zh:"这只猫很漂亮。", py:"Zhè zhī māo hěn piàoliang.", vi:"Con mèo này rất xinh đẹp."}},
+  {hanzi:"在", pinyin:"zài", wordClass:"giới", hanviet:"Tại", meaning:"ở, tại", example:{zh:"猫在房间里。", py:"Māo zài fángjiān li.", vi:"Con mèo ở trong phòng."}},
+  {hanzi:"学校", pinyin:"xuéxiào", wordClass:"danh", hanviet:"Học hiệu", meaning:"trường học", example:{zh:"我在学校学习汉语。", py:"Wǒ zài xuéxiào xuéxí Hànyǔ.", vi:"Tôi học tiếng Hán ở trường."}},
+  {hanzi:"书店", pinyin:"shūdiàn", wordClass:"danh", hanviet:"Thư điếm", meaning:"tiệm sách", example:{zh:"书店在学校前边。", py:"Shūdiàn zài xuéxiào qiánbian.", vi:"Tiệm sách ở phía trước trường học."}},
+  {hanzi:"前", pinyin:"qián", wordClass:"danh", hanviet:"Tiền", meaning:"ở trước, trước", example:{zh:"书店在学校前面。", py:"Shūdiàn zài xuéxiào qiánmiàn.", vi:"Tiệm sách ở trước trường học."}},
+  {hanzi:"能", pinyin:"néng", wordClass:"động từ năng nguyện", hanviet:"Năng", meaning:"có thể, có khả năng", example:{zh:"我能去书店吗？", py:"Wǒ néng qù shūdiàn ma?", vi:"Tôi có thể đi tiệm sách không?"}},
+  {hanzi:"到", pinyin:"dào", wordClass:"động", hanviet:"Đáo", meaning:"đến, tới nơi", example:{zh:"我十二点到学校。", py:"Wǒ shí’èr diǎn dào xuéxiào.", vi:"Tôi đến trường lúc 12 giờ."}},
+  {hanzi:"午饭", pinyin:"wǔfàn", wordClass:"danh", hanviet:"Ngọ phạn", meaning:"bữa trưa", example:{zh:"我十二点吃午饭。", py:"Wǒ shí’èr diǎn chī wǔfàn.", vi:"Tôi ăn cơm trưa lúc 12 giờ."}},
+  {hanzi:"饭", pinyin:"fàn", wordClass:"danh", hanviet:"Phạn", meaning:"cơm, bữa ăn", example:{zh:"我们一起吃饭吧。", py:"Wǒmen yìqǐ chī fàn ba.", vi:"Chúng ta cùng ăn cơm nhé."}},
+  {hanzi:"大", pinyin:"dà", wordClass:"tính", hanviet:"Đại", meaning:"to, lớn", example:{zh:"这个房间很大。", py:"Zhège fángjiān hěn dà.", vi:"Căn phòng này rất to."}},
+  {hanzi:"病人", pinyin:"bìngrén", wordClass:"danh", hanviet:"Bệnh nhân", meaning:"bệnh nhân", example:{zh:"医院里有很多病人。", py:"Yīyuàn li yǒu hěn duō bìngrén.", vi:"Trong bệnh viện có rất nhiều bệnh nhân."}},
+  {hanzi:"多", pinyin:"duō", wordClass:"tính", hanviet:"Đa", meaning:"nhiều, rất nhiều", example:{zh:"医院里的病人很多。", py:"Yīyuàn li de bìngrén hěn duō.", vi:"Bệnh nhân trong bệnh viện rất nhiều."}},
+  {hanzi:"医生", pinyin:"yīshēng", wordClass:"danh", hanviet:"Y sinh", meaning:"bác sĩ", example:{zh:"我妈妈是医生。", py:"Wǒ māma shì yīshēng.", vi:"Mẹ tôi là bác sĩ."}},
+  {hanzi:"工作", pinyin:"gōngzuò", wordClass:"động", hanviet:"Công tác", meaning:"làm việc", example:{zh:"我爸爸在医院工作。", py:"Wǒ bàba zài yīyuàn gōngzuò.", vi:"Bố tôi làm việc ở bệnh viện."}},
+  {hanzi:"胡医生", pinyin:"Hú yīshēng", wordClass:"danh riêng", hanviet:"Hồ y sinh", meaning:"Bác sĩ Hồ", example:{zh:"胡医生在医院工作。", py:"Hú yīshēng zài yīyuàn gōngzuò.", vi:"Bác sĩ Hồ làm việc ở bệnh viện."}}
 ];
 
 document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
@@ -1100,6 +1108,9 @@ function renderFlashcard(){
   const wcEl = document.getElementById('fcWordClass');
   wcEl.textContent = item.wordClass || '';
   wcEl.style.display = item.wordClass ? '' : 'none';
+  const hvEl = document.getElementById('fcHanviet');
+  hvEl.textContent = item.hanviet ? '(' + item.hanviet + ')' : '';
+  hvEl.style.display = item.hanviet ? '' : 'none';
   document.getElementById('fcMeaning').textContent = item.meaning;
   document.getElementById('fcExample').innerHTML =
     item.example.zh + '<span class="py">' + item.example.py + '</span><span class="vi">' + item.example.vi + '</span>';
@@ -1614,7 +1625,7 @@ vocab.forEach((item, vIndex)=>{
     '<button class="icon-btn review-actions-listen" title="Nghe phát âm">🔊</button>' +
     '<button class="icon-btn review-actions-write" title="Luyện viết nét chữ">✍️</button>' +
     '<div class="review-hanzi zh" title="'+item.example.zh+'" onclick="this.classList.toggle(\'peek\')">'+item.hanzi+'</div>' +
-    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+'</div>' +
+    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+(item.hanviet ? '<span class="review-hanviet">'+item.hanviet+'</span>' : '')+'</div>' +
     '<div class="review-wordclass"' + (item.wordClass ? '' : ' style="visibility:hidden;"') + '>'+(item.wordClass||'')+'</div>' +
     '<div class="review-meaning" onclick="this.classList.toggle(\'peek\')">'+item.meaning+'</div>' +
     '<div class="review-input-wrap">' +
