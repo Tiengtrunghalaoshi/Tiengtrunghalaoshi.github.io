@@ -288,6 +288,11 @@
     text-transform:lowercase;
     letter-spacing:.3px;
   }
+  .fc-hanviet{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
   .fc-face .fc-speak{
     margin-top:16px;
     border:1px solid var(--jade-light);
@@ -544,6 +549,7 @@
   }
   .review-hanzi{font-size:22px;font-weight:700;cursor:help;}
   .review-pinyin{font-size:13.5px;color:var(--jade-dark);font-weight:600;}
+  .review-hanviet{font-size:10.5px;color:var(--ink-soft);font-style:italic;font-weight:400;display:block;}
   .review-wordclass{
     font-size:10.5px;
     font-weight:700;
@@ -836,6 +842,7 @@
           <div class="fc-pinyin-row">
             <span class="fc-pinyin" id="fcPinyin">nǐ hǎo</span>
             <span class="fc-wordclass" id="fcWordClass"></span>
+            <span class="fc-hanviet" id="fcHanviet"></span>
           </div>
           <button class="fc-speak" id="fcSpeakFront">🔊 Nghe phát âm</button>
           <div class="fc-hint">Nhấn để xem nghĩa</div>
@@ -980,33 +987,33 @@
 <script>
 /* ===================== DATA (HSK1 · Bài 7 — 27 từ vựng) ===================== */
 const vocab = [
-  {hanzi:"现在", pinyin:"xiànzài", wordClass:"danh", meaning:"bây giờ, hiện tại", example:{zh:"现在几点？", py:"Xiànzài jǐ diǎn?", vi:"Bây giờ là mấy giờ?"}},
-  {hanzi:"点", pinyin:"diǎn", wordClass:"lượng", meaning:"giờ", example:{zh:"现在五点。", py:"Xiànzài wǔ diǎn.", vi:"Bây giờ là 5 giờ."}},
-  {hanzi:"早上", pinyin:"zǎoshang", wordClass:"danh", meaning:"buổi sáng sớm (5–8h)", example:{zh:"我早上七点上课。", py:"Wǒ zǎoshang qī diǎn shàngkè.", vi:"Buổi sáng tôi vào học lúc 7 giờ."}},
-  {hanzi:"上午", pinyin:"shàngwǔ", wordClass:"danh", meaning:"buổi sáng (8–11h)", example:{zh:"我上午有课。", py:"Wǒ shàngwǔ yǒu kè.", vi:"Buổi sáng tôi có lớp."}},
-  {hanzi:"分", pinyin:"fēn", wordClass:"lượng", meaning:"phút (giờ...phút)", example:{zh:"现在五点二十分。", py:"Xiànzài wǔ diǎn èrshí fēn.", vi:"Bây giờ là 5 giờ 20 phút."}},
-  {hanzi:"课", pinyin:"kè", wordClass:"danh", meaning:"lớp, bài học", example:{zh:"今天我有汉语课。", py:"Jīntiān wǒ yǒu Hànyǔ kè.", vi:"Hôm nay tôi có lớp tiếng Hán."}},
-  {hanzi:"下午", pinyin:"xiàwǔ", wordClass:"danh", meaning:"buổi chiều (13–18h)", example:{zh:"下午我们去看电影。", py:"Xiàwǔ wǒmen qù kàn diànyǐng.", vi:"Buổi chiều chúng ta đi xem phim."}},
-  {hanzi:"见", pinyin:"jiàn", wordClass:"động", meaning:"gặp, thấy, gặp gỡ", example:{zh:"我们六点见。", py:"Wǒmen liù diǎn jiàn.", vi:"Chúng ta gặp nhau lúc 6 giờ."}},
-  {hanzi:"吧", pinyin:"ba", wordClass:"trợ", meaning:"trợ từ cuối câu: đề nghị, khuyên nhủ", example:{zh:"我们一起去看电影吧。", py:"Wǒmen yīqǐ qù kàn diànyǐng ba.", vi:"Chúng ta cùng đi xem phim nhé."}},
-  {hanzi:"电影院", pinyin:"diànyǐngyuàn", wordClass:"danh", meaning:"rạp chiếu phim", example:{zh:"电影院在那边。", py:"Diànyǐngyuàn zài nàbiān.", vi:"Rạp chiếu phim ở đằng kia."}},
-  {hanzi:"看", pinyin:"kàn", wordClass:"động", meaning:"xem, thấy, nhìn", example:{zh:"我想看电影。", py:"Wǒ xiǎng kàn diànyǐng.", vi:"Tôi muốn xem phim."}},
-  {hanzi:"电影", pinyin:"diànyǐng", wordClass:"danh", meaning:"phim", example:{zh:"这个电影非常好看。", py:"Zhège diànyǐng fēicháng hǎokàn.", vi:"Bộ phim này rất hay."}},
-  {hanzi:"事", pinyin:"shì", wordClass:"danh", meaning:"việc (sự việc)", example:{zh:"我下午有事。", py:"Wǒ xiàwǔ yǒu shì.", vi:"Buổi chiều tôi có việc."}},
-  {hanzi:"上课", pinyin:"shàngkè", wordClass:"động", meaning:"lên lớp, vào học", example:{zh:"我们八点上课。", py:"Wǒmen bā diǎn shàngkè.", vi:"Chúng tôi vào học lúc 8 giờ."}},
-  {hanzi:"呢", pinyin:"ne", wordClass:"trợ", meaning:"trợ từ ngữ khí (hỏi lại, nhấn mạnh)", example:{zh:"我很忙，你呢？", py:"Wǒ hěn máng, nǐ ne?", vi:"Tôi rất bận, còn bạn thì sao?"}},
-  {hanzi:"半", pinyin:"bàn", wordClass:"số", meaning:"nửa, rưỡi (thời gian)", example:{zh:"现在六点半。", py:"Xiànzài liù diǎn bàn.", vi:"Bây giờ là 6 giờ rưỡi."}},
-  {hanzi:"下课", pinyin:"xiàkè", wordClass:"động", meaning:"tan học", example:{zh:"我们十二点下课。", py:"Wǒmen shí\u2019èr diǎn xiàkè.", vi:"Chúng tôi tan học lúc 12 giờ."}},
-  {hanzi:"在", pinyin:"zài", wordClass:"động", meaning:"tại, ở", example:{zh:"我在家。", py:"Wǒ zài jiā.", vi:"Tôi ở nhà."}},
-  {hanzi:"家", pinyin:"jiā", wordClass:"danh", meaning:"nhà", example:{zh:"晚上我在家吃饭。", py:"Wǎnshang wǒ zài jiā chī fàn.", vi:"Buổi tối tôi ăn cơm ở nhà."}},
-  {hanzi:"里", pinyin:"li / lǐ", wordClass:"danh", meaning:"ở trong", example:{zh:"电影院里有很多人。", py:"Diànyǐngyuàn li yǒu hěn duō rén.", vi:"Trong rạp chiếu phim có rất nhiều người."}},
-  {hanzi:"晚上", pinyin:"wǎnshang", wordClass:"danh", meaning:"buổi tối", example:{zh:"晚上我们去看电影。", py:"Wǎnshang wǒmen qù kàn diànyǐng.", vi:"Buổi tối chúng ta đi xem phim."}},
-  {hanzi:"医院", pinyin:"yīyuàn", wordClass:"danh", meaning:"bệnh viện", example:{zh:"我爸爸在医院上班。", py:"Wǒ bàba zài yīyuàn shàngbān.", vi:"Bố tôi làm việc ở bệnh viện."}},
-  {hanzi:"上班", pinyin:"shàngbān", wordClass:"động", meaning:"đi làm, lên ca", example:{zh:"我九点上班。", py:"Wǒ jiǔ diǎn shàngbān.", vi:"Tôi đi làm lúc 9 giờ."}},
-  {hanzi:"店", pinyin:"diàn", wordClass:"danh", meaning:"cửa hàng, tiệm", example:{zh:"那个店有很多东西。", py:"Nàge diàn yǒu hěn duō dōngxi.", vi:"Cửa hàng đó có rất nhiều đồ."}},
-  {hanzi:"菜", pinyin:"cài", wordClass:"danh", meaning:"rau", example:{zh:"我想买些菜。", py:"Wǒ xiǎng mǎi xiē cài.", vi:"Tôi muốn mua ít rau."}},
-  {hanzi:"分钟", pinyin:"fēnzhōng", wordClass:"lượng", meaning:"phút (khoảng thời gian)", example:{zh:"我五分钟后到。", py:"Wǒ wǔ fēnzhōng hòu dào.", vi:"5 phút nữa tôi đến."}},
-  {hanzi:"后", pinyin:"hòu", wordClass:"danh", meaning:"sau, sau đó", example:{zh:"下课后我们去看电影。", py:"Xiàkè hòu wǒmen qù kàn diànyǐng.", vi:"Sau khi tan học chúng ta đi xem phim."}}
+  {hanzi:"现在", pinyin:"xiànzài", wordClass:"danh", hanviet:"Hiện tại", meaning:"bây giờ, hiện tại", example:{zh:"现在几点？", py:"Xiànzài jǐ diǎn?", vi:"Bây giờ là mấy giờ?"}},
+  {hanzi:"点", pinyin:"diǎn", wordClass:"lượng", hanviet:"Điểm", meaning:"giờ", example:{zh:"现在五点。", py:"Xiànzài wǔ diǎn.", vi:"Bây giờ là 5 giờ."}},
+  {hanzi:"早上", pinyin:"zǎoshang", wordClass:"danh", hanviet:"Tảo thượng", meaning:"buổi sáng sớm (5–8h)", example:{zh:"我早上七点上课。", py:"Wǒ zǎoshang qī diǎn shàngkè.", vi:"Buổi sáng tôi vào học lúc 7 giờ."}},
+  {hanzi:"上午", pinyin:"shàngwǔ", wordClass:"danh", hanviet:"Thượng ngọ", meaning:"buổi sáng (8–11h)", example:{zh:"我上午有课。", py:"Wǒ shàngwǔ yǒu kè.", vi:"Buổi sáng tôi có lớp."}},
+  {hanzi:"分", pinyin:"fēn", wordClass:"lượng", hanviet:"Phân", meaning:"phút (giờ...phút)", example:{zh:"现在五点二十分。", py:"Xiànzài wǔ diǎn èrshí fēn.", vi:"Bây giờ là 5 giờ 20 phút."}},
+  {hanzi:"课", pinyin:"kè", wordClass:"danh", hanviet:"Khóa", meaning:"lớp, bài học", example:{zh:"今天我有汉语课。", py:"Jīntiān wǒ yǒu Hànyǔ kè.", vi:"Hôm nay tôi có lớp tiếng Hán."}},
+  {hanzi:"下午", pinyin:"xiàwǔ", wordClass:"danh", hanviet:"Hạ ngọ", meaning:"buổi chiều (13–18h)", example:{zh:"下午我们去看电影。", py:"Xiàwǔ wǒmen qù kàn diànyǐng.", vi:"Buổi chiều chúng ta đi xem phim."}},
+  {hanzi:"见", pinyin:"jiàn", wordClass:"động", hanviet:"Kiến", meaning:"gặp, thấy, gặp gỡ", example:{zh:"我们六点见。", py:"Wǒmen liù diǎn jiàn.", vi:"Chúng ta gặp nhau lúc 6 giờ."}},
+  {hanzi:"吧", pinyin:"ba", wordClass:"trợ", hanviet:"Ba", meaning:"trợ từ cuối câu: đề nghị, khuyên nhủ", example:{zh:"我们一起去看电影吧。", py:"Wǒmen yīqǐ qù kàn diànyǐng ba.", vi:"Chúng ta cùng đi xem phim nhé."}},
+  {hanzi:"电影院", pinyin:"diànyǐngyuàn", wordClass:"danh", hanviet:"Điện ảnh viện", meaning:"rạp chiếu phim", example:{zh:"电影院在那边。", py:"Diànyǐngyuàn zài nàbiān.", vi:"Rạp chiếu phim ở đằng kia."}},
+  {hanzi:"看", pinyin:"kàn", wordClass:"động", hanviet:"Khán", meaning:"xem, thấy, nhìn", example:{zh:"我想看电影。", py:"Wǒ xiǎng kàn diànyǐng.", vi:"Tôi muốn xem phim."}},
+  {hanzi:"电影", pinyin:"diànyǐng", wordClass:"danh", hanviet:"Điện ảnh", meaning:"phim", example:{zh:"这个电影非常好看。", py:"Zhège diànyǐng fēicháng hǎokàn.", vi:"Bộ phim này rất hay."}},
+  {hanzi:"事", pinyin:"shì", wordClass:"danh", hanviet:"Sự", meaning:"việc (sự việc)", example:{zh:"我下午有事。", py:"Wǒ xiàwǔ yǒu shì.", vi:"Buổi chiều tôi có việc."}},
+  {hanzi:"上课", pinyin:"shàngkè", wordClass:"động", hanviet:"Thượng khóa", meaning:"lên lớp, vào học", example:{zh:"我们八点上课。", py:"Wǒmen bā diǎn shàngkè.", vi:"Chúng tôi vào học lúc 8 giờ."}},
+  {hanzi:"呢", pinyin:"ne", wordClass:"trợ", hanviet:"Ni", meaning:"trợ từ ngữ khí (hỏi lại, nhấn mạnh)", example:{zh:"我很忙，你呢？", py:"Wǒ hěn máng, nǐ ne?", vi:"Tôi rất bận, còn bạn thì sao?"}},
+  {hanzi:"半", pinyin:"bàn", wordClass:"số từ", hanviet:"Bán", meaning:"nửa, rưỡi (thời gian)", example:{zh:"现在六点半。", py:"Xiànzài liù diǎn bàn.", vi:"Bây giờ là 6 giờ rưỡi."}},
+  {hanzi:"下课", pinyin:"xiàkè", wordClass:"động", hanviet:"Hạ khóa", meaning:"tan học", example:{zh:"我们十二点下课。", py:"Wǒmen shí\u2019èr diǎn xiàkè.", vi:"Chúng tôi tan học lúc 12 giờ."}},
+  {hanzi:"在", pinyin:"zài", wordClass:"động", hanviet:"Tại", meaning:"tại, ở", example:{zh:"我在家。", py:"Wǒ zài jiā.", vi:"Tôi ở nhà."}},
+  {hanzi:"家", pinyin:"jiā", wordClass:"danh", hanviet:"Gia", meaning:"nhà", example:{zh:"晚上我在家吃饭。", py:"Wǎnshang wǒ zài jiā chī fàn.", vi:"Buổi tối tôi ăn cơm ở nhà."}},
+  {hanzi:"里", pinyin:"li / lǐ", wordClass:"danh", hanviet:"Lý", meaning:"ở trong", example:{zh:"电影院里有很多人。", py:"Diànyǐngyuàn li yǒu hěn duō rén.", vi:"Trong rạp chiếu phim có rất nhiều người."}},
+  {hanzi:"晚上", pinyin:"wǎnshang", wordClass:"danh", hanviet:"Vãn thượng", meaning:"buổi tối", example:{zh:"晚上我们去看电影。", py:"Wǎnshang wǒmen qù kàn diànyǐng.", vi:"Buổi tối chúng ta đi xem phim."}},
+  {hanzi:"医院", pinyin:"yīyuàn", wordClass:"danh", hanviet:"Y viện", meaning:"bệnh viện", example:{zh:"我爸爸在医院上班。", py:"Wǒ bàba zài yīyuàn shàngbān.", vi:"Bố tôi làm việc ở bệnh viện."}},
+  {hanzi:"上班", pinyin:"shàngbān", wordClass:"động", hanviet:"Thượng ban", meaning:"đi làm, lên ca", example:{zh:"我九点上班。", py:"Wǒ jiǔ diǎn shàngbān.", vi:"Tôi đi làm lúc 9 giờ."}},
+  {hanzi:"店", pinyin:"diàn", wordClass:"danh", hanviet:"Điếm", meaning:"cửa hàng, tiệm", example:{zh:"那个店有很多东西。", py:"Nàge diàn yǒu hěn duō dōngxi.", vi:"Cửa hàng đó có rất nhiều đồ."}},
+  {hanzi:"菜", pinyin:"cài", wordClass:"danh", hanviet:"Thái", meaning:"rau", example:{zh:"我想买些菜。", py:"Wǒ xiǎng mǎi xiē cài.", vi:"Tôi muốn mua ít rau."}},
+  {hanzi:"分钟", pinyin:"fēnzhōng", wordClass:"lượng", hanviet:"Phân chung", meaning:"phút (khoảng thời gian)", example:{zh:"我五分钟后到。", py:"Wǒ wǔ fēnzhōng hòu dào.", vi:"5 phút nữa tôi đến."}},
+  {hanzi:"后", pinyin:"hòu", wordClass:"danh", hanviet:"Hậu", meaning:"sau, sau đó", example:{zh:"下课后我们去看电影。", py:"Xiàkè hòu wǒmen qù kàn diànyǐng.", vi:"Sau khi tan học chúng ta đi xem phim."}}
 ];
 
 document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
@@ -1099,6 +1106,9 @@ function renderFlashcard(){
   const wcEl = document.getElementById('fcWordClass');
   wcEl.textContent = item.wordClass || '';
   wcEl.style.display = item.wordClass ? '' : 'none';
+  const hvEl = document.getElementById('fcHanviet');
+  hvEl.textContent = item.hanviet ? '(' + item.hanviet + ')' : '';
+  hvEl.style.display = item.hanviet ? '' : 'none';
   document.getElementById('fcMeaning').textContent = item.meaning;
   document.getElementById('fcExample').innerHTML =
     item.example.zh + '<span class="py">' + item.example.py + '</span><span class="vi">' + item.example.vi + '</span>';
@@ -1613,7 +1623,7 @@ vocab.forEach((item, vIndex)=>{
     '<button class="icon-btn review-actions-listen" title="Nghe phát âm">🔊</button>' +
     '<button class="icon-btn review-actions-write" title="Luyện viết nét chữ">✍️</button>' +
     '<div class="review-hanzi zh" title="'+item.example.zh+'" onclick="this.classList.toggle(\'peek\')">'+item.hanzi+'</div>' +
-    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+'</div>' +
+    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+(item.hanviet ? '<span class="review-hanviet">'+item.hanviet+'</span>' : '')+'</div>' +
     '<div class="review-wordclass"' + (item.wordClass ? '' : ' style="visibility:hidden;"') + '>'+(item.wordClass||'')+'</div>' +
     '<div class="review-meaning" onclick="this.classList.toggle(\'peek\')">'+item.meaning+'</div>' +
     '<div class="review-input-wrap">' +
