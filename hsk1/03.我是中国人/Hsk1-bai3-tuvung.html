@@ -288,6 +288,11 @@
     text-transform:lowercase;
     letter-spacing:.3px;
   }
+  .fc-hanviet{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
   .fc-face .fc-speak{
     margin-top:16px;
     border:1px solid var(--jade-light);
@@ -544,6 +549,7 @@
   }
   .review-hanzi{font-size:22px;font-weight:700;cursor:help;}
   .review-pinyin{font-size:13.5px;color:var(--jade-dark);font-weight:600;}
+  .review-hanviet{font-size:10.5px;color:var(--ink-soft);font-style:italic;font-weight:400;display:block;}
   .review-wordclass{
     font-size:10.5px;
     font-weight:700;
@@ -836,6 +842,7 @@
           <div class="fc-pinyin-row">
             <span class="fc-pinyin" id="fcPinyin">nǐ hǎo</span>
             <span class="fc-wordclass" id="fcWordClass"></span>
+            <span class="fc-hanviet" id="fcHanviet"></span>
           </div>
           <button class="fc-speak" id="fcSpeakFront">🔊 Nghe phát âm</button>
           <div class="fc-hint">Nhấn để xem nghĩa</div>
@@ -980,28 +987,28 @@
 <script>
 /* ===================== DATA (HSK1 · Bài 3 — 22 từ vựng) ===================== */
 const vocab = [
-  {hanzi:"人", pinyin:"rén", wordClass:"danh", meaning:"người, con người", example:{zh:"他是中国人。", py:"Tā shì Zhōngguó rén.", vi:"Anh ấy là người Trung Quốc."}},
-  {hanzi:"的", pinyin:"de", wordClass:"trợ", meaning:"của (chỉ sở hữu)", example:{zh:"这是我的名字。", py:"Zhè shì wǒ de míngzi.", vi:"Đây là tên của tôi."}},
-  {hanzi:"中国", pinyin:"Zhōngguó", wordClass:"danh", meaning:"Trung Quốc", example:{zh:"我是中国人。", py:"Wǒ shì Zhōngguó rén.", vi:"Tôi là người Trung Quốc."}},
-  {hanzi:"法国", pinyin:"Fǎguó", wordClass:"danh", meaning:"Nước Pháp", example:{zh:"她是法国人吗？", py:"Tā shì Fǎguó rén ma?", vi:"Cô ấy là người Pháp phải không?"}},
-  {hanzi:"中文", pinyin:"Zhōngwén", wordClass:"danh", meaning:"Tiếng Trung", example:{zh:"我学中文。", py:"Wǒ xué Zhōngwén.", vi:"Tôi học tiếng Trung."}},
-  {hanzi:"这", pinyin:"zhè", wordClass:"đại", meaning:"đây, này", example:{zh:"这是我姐姐。", py:"Zhè shì wǒ jiějie.", vi:"Đây là chị gái của tôi."}},
-  {hanzi:"谁", pinyin:"shéi/shuí", wordClass:"đại", meaning:"ai (dùng để hỏi)", example:{zh:"她是谁？", py:"Tā shì shéi?", vi:"Cô ấy là ai?"}},
-  {hanzi:"女朋友", pinyin:"nǚpéngyou", wordClass:"danh", meaning:"bạn gái", example:{zh:"她是我的女朋友。", py:"Tā shì wǒ de nǚpéngyou.", vi:"Cô ấy là bạn gái của tôi."}},
-  {hanzi:"哪", pinyin:"nǎ", wordClass:"đại", meaning:"nào, cái gì, ở đâu (dùng để hỏi)", example:{zh:"你是哪国人？", py:"Nǐ shì nǎ guó rén?", vi:"Bạn là người nước nào?"}},
-  {hanzi:"国", pinyin:"guó", wordClass:"danh", meaning:"quốc gia, đất nước", example:{zh:"中国是一个大国。", py:"Zhōngguó shì yí ge dà guó.", vi:"Trung Quốc là một quốc gia lớn."}},
-  {hanzi:"她", pinyin:"tā", wordClass:"đại", meaning:"cô ấy, chị ấy", example:{zh:"她是我姐姐。", py:"Tā shì wǒ jiějie.", vi:"Cô ấy là chị gái của tôi."}},
-  {hanzi:"泰国", pinyin:"Tàiguó", wordClass:"", meaning:"Thái Lan", example:{zh:"他是泰国人。", py:"Tā shì Tàiguó rén.", vi:"Anh ấy là người Thái Lan."}},
-  {hanzi:"喂", pinyin:"wèi", wordClass:"thán từ", meaning:"alo (gọi điện), ê, này", example:{zh:"喂，你好！", py:"Wèi, nǐ hǎo!", vi:"Alo, xin chào!"}},
-  {hanzi:"姐姐", pinyin:"jiějie", wordClass:"danh", meaning:"chị gái", example:{zh:"我姐姐工作很忙。", py:"Wǒ jiějie gōngzuò hěn máng.", vi:"Chị gái tôi làm việc rất bận."}},
-  {hanzi:"工作", pinyin:"gōngzuò", wordClass:"danh", meaning:"công việc", example:{zh:"你的工作忙吗？", py:"Nǐ de gōngzuò máng ma?", vi:"Công việc của bạn có bận không?"}},
-  {hanzi:"还", pinyin:"hái", wordClass:"trợ", meaning:"vẫn", example:{zh:"你还忙吗？", py:"Nǐ hái máng ma?", vi:"Bạn vẫn bận à?"}},
-  {hanzi:"忙", pinyin:"máng", wordClass:"tính", meaning:"bận", example:{zh:"我很忙。", py:"Wǒ hěn máng.", vi:"Tôi rất bận."}},
-  {hanzi:"吗", pinyin:"ma", wordClass:"trợ", meaning:"đứng cuối câu dùng để hỏi", example:{zh:"你是学生吗？", py:"Nǐ shì xuésheng ma?", vi:"Bạn là học sinh phải không?"}},
-  {hanzi:"对", pinyin:"duì", wordClass:"tính", meaning:"đúng, phải", example:{zh:"对，我是中国人。", py:"Duì, wǒ shì Zhōngguó rén.", vi:"Đúng vậy, tôi là người Trung Quốc."}},
-  {hanzi:"太", pinyin:"tài", wordClass:"trợ", meaning:"quá, rất, lắm", example:{zh:"太好了！", py:"Tài hǎo le!", vi:"Tuyệt quá!"}},
-  {hanzi:"我们", pinyin:"wǒmen", wordClass:"đại", meaning:"chúng tôi, chúng mình", example:{zh:"我们是朋友。", py:"Wǒmen shì péngyou.", vi:"Chúng tôi là bạn bè."}},
-  {hanzi:"想", pinyin:"xiǎng", wordClass:"động", meaning:"nhớ", example:{zh:"我很想你。", py:"Wǒ hěn xiǎng nǐ.", vi:"Tôi rất nhớ bạn."}}
+  {hanzi:"人", pinyin:"rén", wordClass:"danh", hanviet:"Nhân", meaning:"người, con người", example:{zh:"他是中国人。", py:"Tā shì Zhōngguó rén.", vi:"Anh ấy là người Trung Quốc."}},
+  {hanzi:"的", pinyin:"de", wordClass:"trợ", hanviet:"Đích", meaning:"của (chỉ sở hữu)", example:{zh:"这是我的名字。", py:"Zhè shì wǒ de míngzi.", vi:"Đây là tên của tôi."}},
+  {hanzi:"中国", pinyin:"Zhōngguó", wordClass:"danh", hanviet:"Trung Quốc", meaning:"Trung Quốc", example:{zh:"我是中国人。", py:"Wǒ shì Zhōngguó rén.", vi:"Tôi là người Trung Quốc."}},
+  {hanzi:"法国", pinyin:"Fǎguó", wordClass:"danh", hanviet:"Pháp Quốc", meaning:"Nước Pháp", example:{zh:"她是法国人吗？", py:"Tā shì Fǎguó rén ma?", vi:"Cô ấy là người Pháp phải không?"}},
+  {hanzi:"中文", pinyin:"Zhōngwén", wordClass:"danh", hanviet:"Trung văn", meaning:"Tiếng Trung", example:{zh:"我学中文。", py:"Wǒ xué Zhōngwén.", vi:"Tôi học tiếng Trung."}},
+  {hanzi:"这", pinyin:"zhè", wordClass:"đại", hanviet:"Giá", meaning:"đây, này", example:{zh:"这是我姐姐。", py:"Zhè shì wǒ jiějie.", vi:"Đây là chị gái của tôi."}},
+  {hanzi:"谁", pinyin:"shéi/shuí", wordClass:"đại", hanviet:"Thùy", meaning:"ai (dùng để hỏi)", example:{zh:"她是谁？", py:"Tā shì shéi?", vi:"Cô ấy là ai?"}},
+  {hanzi:"女朋友", pinyin:"nǚpéngyou", wordClass:"danh", hanviet:"Nữ bằng hữu", meaning:"bạn gái", example:{zh:"她是我的女朋友。", py:"Tā shì wǒ de nǚpéngyou.", vi:"Cô ấy là bạn gái của tôi."}},
+  {hanzi:"哪", pinyin:"nǎ", wordClass:"đại", hanviet:"Na", meaning:"nào, cái gì, ở đâu (dùng để hỏi)", example:{zh:"你是哪国人？", py:"Nǐ shì nǎ guó rén?", vi:"Bạn là người nước nào?"}},
+  {hanzi:"国", pinyin:"guó", wordClass:"danh", hanviet:"Quốc", meaning:"quốc gia, đất nước", example:{zh:"中国是一个大国。", py:"Zhōngguó shì yí ge dà guó.", vi:"Trung Quốc là một quốc gia lớn."}},
+  {hanzi:"她", pinyin:"tā", wordClass:"đại", hanviet:"Tha", meaning:"cô ấy, chị ấy", example:{zh:"她是我姐姐。", py:"Tā shì wǒ jiějie.", vi:"Cô ấy là chị gái của tôi."}},
+  {hanzi:"泰国", pinyin:"Tàiguó", wordClass:"danh", hanviet:"Thái Quốc", meaning:"Thái Lan", example:{zh:"他是泰国人。", py:"Tā shì Tàiguó rén.", vi:"Anh ấy là người Thái Lan."}},
+  {hanzi:"喂", pinyin:"wèi", wordClass:"thán từ", hanviet:"Úy", meaning:"alo (gọi điện), ê, này", example:{zh:"喂，你好！", py:"Wèi, nǐ hǎo!", vi:"Alo, xin chào!"}},
+  {hanzi:"姐姐", pinyin:"jiějie", wordClass:"danh", hanviet:"Tỷ tỷ", meaning:"chị gái", example:{zh:"我姐姐工作很忙。", py:"Wǒ jiějie gōngzuò hěn máng.", vi:"Chị gái tôi làm việc rất bận."}},
+  {hanzi:"工作", pinyin:"gōngzuò", wordClass:"danh", hanviet:"Công tác", meaning:"công việc", example:{zh:"你的工作忙吗？", py:"Nǐ de gōngzuò máng ma?", vi:"Công việc của bạn có bận không?"}},
+  {hanzi:"还", pinyin:"hái", wordClass:"phó", hanviet:"Hoàn", meaning:"vẫn", example:{zh:"你还忙吗？", py:"Nǐ hái máng ma?", vi:"Bạn vẫn bận à?"}},
+  {hanzi:"忙", pinyin:"máng", wordClass:"tính", hanviet:"Mang", meaning:"bận", example:{zh:"我很忙。", py:"Wǒ hěn máng.", vi:"Tôi rất bận."}},
+  {hanzi:"吗", pinyin:"ma", wordClass:"trợ", hanviet:"Ma", meaning:"đứng cuối câu dùng để hỏi", example:{zh:"你是学生吗？", py:"Nǐ shì xuésheng ma?", vi:"Bạn là học sinh phải không?"}},
+  {hanzi:"对", pinyin:"duì", wordClass:"tính", hanviet:"Đối", meaning:"đúng, phải", example:{zh:"对，我是中国人。", py:"Duì, wǒ shì Zhōngguó rén.", vi:"Đúng vậy, tôi là người Trung Quốc."}},
+  {hanzi:"太", pinyin:"tài", wordClass:"phó", hanviet:"Thái", meaning:"quá, rất, lắm", example:{zh:"太好了！", py:"Tài hǎo le!", vi:"Tuyệt quá!"}},
+  {hanzi:"我们", pinyin:"wǒmen", wordClass:"đại", hanviet:"Ngã (们 không có Hán Việt)", meaning:"chúng tôi, chúng mình", example:{zh:"我们是朋友。", py:"Wǒmen shì péngyou.", vi:"Chúng tôi là bạn bè."}},
+  {hanzi:"想", pinyin:"xiǎng", wordClass:"động", hanviet:"Tưởng", meaning:"nhớ", example:{zh:"我很想你。", py:"Wǒ hěn xiǎng nǐ.", vi:"Tôi rất nhớ bạn."}}
 ];
 
 document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
@@ -1093,6 +1100,9 @@ function renderFlashcard(){
   const wcEl = document.getElementById('fcWordClass');
   wcEl.textContent = item.wordClass || '';
   wcEl.style.display = item.wordClass ? '' : 'none';
+  const hvEl = document.getElementById('fcHanviet');
+  hvEl.textContent = item.hanviet ? '(' + item.hanviet + ')' : '';
+  hvEl.style.display = item.hanviet ? '' : 'none';
   document.getElementById('fcMeaning').textContent = item.meaning;
   document.getElementById('fcExample').innerHTML =
     item.example.zh + '<span class="py">' + item.example.py + '</span><span class="vi">' + item.example.vi + '</span>';
@@ -1607,7 +1617,7 @@ vocab.forEach((item, vIndex)=>{
     '<button class="icon-btn review-actions-listen" title="Nghe phát âm">🔊</button>' +
     '<button class="icon-btn review-actions-write" title="Luyện viết nét chữ">✍️</button>' +
     '<div class="review-hanzi zh" title="'+item.example.zh+'" onclick="this.classList.toggle(\'peek\')">'+item.hanzi+'</div>' +
-    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+'</div>' +
+    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+(item.hanviet ? '<span class="review-hanviet">'+item.hanviet+'</span>' : '')+'</div>' +
     '<div class="review-wordclass"' + (item.wordClass ? '' : ' style="visibility:hidden;"') + '>'+(item.wordClass||'')+'</div>' +
     '<div class="review-meaning" onclick="this.classList.toggle(\'peek\')">'+item.meaning+'</div>' +
     '<div class="review-input-wrap">' +
