@@ -288,6 +288,11 @@
     text-transform:lowercase;
     letter-spacing:.3px;
   }
+  .fc-hanviet{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
   .fc-face .fc-speak{
     margin-top:16px;
     border:1px solid var(--jade-light);
@@ -544,6 +549,7 @@
   }
   .review-hanzi{font-size:22px;font-weight:700;cursor:help;}
   .review-pinyin{font-size:13.5px;color:var(--jade-dark);font-weight:600;}
+  .review-hanviet{font-size:10.5px;color:var(--ink-soft);font-style:italic;font-weight:400;display:block;}
   .review-wordclass{
     font-size:10.5px;
     font-weight:700;
@@ -836,6 +842,7 @@
           <div class="fc-pinyin-row">
             <span class="fc-pinyin" id="fcPinyin">nǐ hǎo</span>
             <span class="fc-wordclass" id="fcWordClass"></span>
+            <span class="fc-hanviet" id="fcHanviet"></span>
           </div>
           <button class="fc-speak" id="fcSpeakFront">🔊 Nghe phát âm</button>
           <div class="fc-hint">Nhấn để xem nghĩa</div>
@@ -980,34 +987,34 @@
 <script>
 /* ===================== DATA (HSK1 · Bài 14 — 28 từ vựng) ===================== */
 const vocab = [
-  {hanzi:"上", pinyin:"shàng", wordClass:"động", meaning:"lên, đi (tàu/xe)", example:{zh:"我们上火车吧。", py:"Wǒmen shàng huǒchē ba.", vi:"Chúng ta lên tàu hỏa thôi."}},
-  {hanzi:"火车", pinyin:"huǒchē", wordClass:"danh", meaning:"tàu hỏa", example:{zh:"火车中午开。", py:"Huǒchē zhōngwǔ kāi.", vi:"Tàu hỏa khởi hành vào buổi trưa."}},
-  {hanzi:"中午", pinyin:"zhōngwǔ", wordClass:"danh", meaning:"buổi trưa", example:{zh:"我们中午看了一个电影。", py:"Wǒmen zhōngwǔ kàn le yí ge diànyǐng.", vi:"Buổi trưa chúng tôi đã xem một bộ phim."}},
-  {hanzi:"开", pinyin:"kāi", wordClass:"động", meaning:"lái (lái xe)", example:{zh:"谁开火车？", py:"Shéi kāi huǒchē?", vi:"Ai lái tàu hỏa?"}},
-  {hanzi:"有些", pinyin:"yǒuxiē", wordClass:"đại", meaning:"một số, một vài", example:{zh:"有些学生喜欢看电影。", py:"Yǒuxiē xuésheng xǐhuan kàn diànyǐng.", vi:"Một số học sinh thích xem phim."}},
-  {hanzi:"有的", pinyin:"yǒude", wordClass:"đại", meaning:"một số, một vài", example:{zh:"有的字我不认识。", py:"Yǒude zì wǒ bú rènshi.", vi:"Có một số chữ tôi không biết."}},
-  {hanzi:"了", pinyin:"le", wordClass:"trợ từ", meaning:"thường dùng sau động từ để chỉ sự hoàn thành của hành động", example:{zh:"我看了一个电影。", py:"Wǒ kàn le yí ge diànyǐng.", vi:"Tôi đã xem một bộ phim."}},
-  {hanzi:"写", pinyin:"xiě", wordClass:"động", meaning:"viết", example:{zh:"请写汉字。", py:"Qǐng xiě Hànzì.", vi:"Hãy viết chữ Hán."}},
-  {hanzi:"都", pinyin:"dōu", wordClass:"phó", meaning:"đều", example:{zh:"他们都喜欢汉语。", py:"Tāmen dōu xǐhuan Hànyǔ.", vi:"Họ đều thích tiếng Trung."}},
-  {hanzi:"听见", pinyin:"tīngjiàn", wordClass:"động", meaning:"nghe thấy, nghe được", example:{zh:"你听见了吗？", py:"Nǐ tīngjiàn le ma?", vi:"Bạn nghe thấy chưa?"}},
-  {hanzi:"不要", pinyin:"búyào", wordClass:"phó", meaning:"đừng", example:{zh:"上课的时候不要说话。", py:"Shàngkè de shíhou búyào shuōhuà.", vi:"Trong giờ học đừng nói chuyện."}},
-  {hanzi:"说话", pinyin:"shuōhuà", wordClass:"động", meaning:"nói (nói chuyện)", example:{zh:"老师在说话。", py:"Lǎoshī zài shuōhuà.", vi:"Thầy giáo đang nói chuyện."}},
-  {hanzi:"听", pinyin:"tīng", wordClass:"động", meaning:"nghe", example:{zh:"我喜欢听汉语。", py:"Wǒ xǐhuan tīng Hànyǔ.", vi:"Tôi thích nghe tiếng Trung."}},
-  {hanzi:"哪些", pinyin:"nǎxiē", wordClass:"đại", meaning:"những cái nào (số nhiều)", example:{zh:"你喜欢哪些电影？", py:"Nǐ xǐhuan nǎxiē diànyǐng?", vi:"Bạn thích những bộ phim nào?"}},
-  {hanzi:"字", pinyin:"zì", wordClass:"danh", meaning:"chữ", example:{zh:"这个字很难写。", py:"Zhège zì hěn nán xiě.", vi:"Chữ này rất khó viết."}},
-  {hanzi:"汉语", pinyin:"Hànyǔ", wordClass:"danh", meaning:"tiếng Trung", example:{zh:"我在学汉语。", py:"Wǒ zài xué Hànyǔ.", vi:"Tôi đang học tiếng Trung."}},
-  {hanzi:"汉字", pinyin:"Hànzì", wordClass:"danh", meaning:"chữ Hán", example:{zh:"汉字有意思。", py:"Hànzì yǒu yìsi.", vi:"Chữ Hán rất thú vị."}},
-  {hanzi:"明年", pinyin:"míngnián", wordClass:"danh", meaning:"năm sau", example:{zh:"明年我要上中学。", py:"Míngnián wǒ yào shàng zhōngxué.", vi:"Năm sau tôi sẽ vào học trung học."}},
-  {hanzi:"上", pinyin:"shàng", wordClass:"động", meaning:"lên, đi (học)", example:{zh:"他明年上中学。", py:"Tā míngnián shàng zhōngxué.", vi:"Năm sau anh ấy sẽ học lên trung học."}},
-  {hanzi:"中学", pinyin:"zhōngxué", wordClass:"danh", meaning:"trường trung học", example:{zh:"这是一所中学。", py:"Zhè shì yì suǒ zhōngxué.", vi:"Đây là một trường trung học."}},
-  {hanzi:"小学", pinyin:"xiǎoxué", wordClass:"danh", meaning:"trường tiểu học", example:{zh:"我妹妹在小学学习。", py:"Wǒ mèimei zài xiǎoxué xuéxí.", vi:"Em gái tôi đang học ở trường tiểu học."}},
-  {hanzi:"中学生", pinyin:"zhōngxuéshēng", wordClass:"danh", meaning:"học sinh trung học", example:{zh:"我哥哥是中学生。", py:"Wǒ gēge shì zhōngxuéshēng.", vi:"Anh trai tôi là học sinh trung học."}},
-  {hanzi:"小学生", pinyin:"xiǎoxuéshēng", wordClass:"danh", meaning:"học sinh tiểu học", example:{zh:"妹妹是小学生。", py:"Mèimei shì xiǎoxuéshēng.", vi:"Em gái là học sinh tiểu học."}},
-  {hanzi:"上学", pinyin:"shàngxué", wordClass:"động", meaning:"đi học, đến trường", example:{zh:"我每天八点上学。", py:"Wǒ měitiān bā diǎn shàngxué.", vi:"Mỗi ngày tôi đi học lúc 8 giờ."}},
-  {hanzi:"他们", pinyin:"tāmen", wordClass:"đại", meaning:"họ, bọn họ (nói chung)", example:{zh:"他们是中学生。", py:"Tāmen shì zhōngxuéshēng.", vi:"Họ là học sinh trung học."}},
-  {hanzi:"她们", pinyin:"tāmen", wordClass:"đại", meaning:"họ, bọn họ (dành cho nữ)", example:{zh:"她们在写汉字。", py:"Tāmen zài xiě Hànzì.", vi:"Các cô ấy đang viết chữ Hán."}},
-  {hanzi:"它们", pinyin:"tāmen", wordClass:"đại", meaning:"những cái đó (chỉ vật)", example:{zh:"这些字，它们都很难。", py:"Zhèxiē zì, tāmen dōu hěn nán.", vi:"Những chữ này, chúng đều rất khó."}},
-  {hanzi:"晚", pinyin:"wǎn", wordClass:"tính", meaning:"tối, trễ, muộn", example:{zh:"今天他来得很晚。", py:"Jīntiān tā lái de hěn wǎn.", vi:"Hôm nay anh ấy đến rất muộn."}}
+  {hanzi:"上", pinyin:"shàng", wordClass:"động", hanviet:"Thượng", meaning:"lên, đi (tàu/xe)", example:{zh:"我们上火车吧。", py:"Wǒmen shàng huǒchē ba.", vi:"Chúng ta lên tàu hỏa thôi."}},
+  {hanzi:"火车", pinyin:"huǒchē", wordClass:"danh", hanviet:"Hỏa xa", meaning:"tàu hỏa", example:{zh:"火车中午开。", py:"Huǒchē zhōngwǔ kāi.", vi:"Tàu hỏa khởi hành vào buổi trưa."}},
+  {hanzi:"中午", pinyin:"zhōngwǔ", wordClass:"danh", hanviet:"Trung ngọ", meaning:"buổi trưa", example:{zh:"我们中午看了一个电影。", py:"Wǒmen zhōngwǔ kàn le yí ge diànyǐng.", vi:"Buổi trưa chúng tôi đã xem một bộ phim."}},
+  {hanzi:"开", pinyin:"kāi", wordClass:"động", hanviet:"Khai", meaning:"lái (lái xe)", example:{zh:"谁开火车？", py:"Shéi kāi huǒchē?", vi:"Ai lái tàu hỏa?"}},
+  {hanzi:"有些", pinyin:"yǒuxiē", wordClass:"đại", hanviet:"Hữu ta", meaning:"một số, một vài", example:{zh:"有些学生喜欢看电影。", py:"Yǒuxiē xuésheng xǐhuan kàn diànyǐng.", vi:"Một số học sinh thích xem phim."}},
+  {hanzi:"有的", pinyin:"yǒude", wordClass:"đại", hanviet:"Hữu đích", meaning:"một số, một vài", example:{zh:"有的字我不认识。", py:"Yǒude zì wǒ bú rènshi.", vi:"Có một số chữ tôi không biết."}},
+  {hanzi:"了", pinyin:"le", wordClass:"trợ từ", hanviet:"Liễu", meaning:"thường dùng sau động từ để chỉ sự hoàn thành của hành động", example:{zh:"我看了一个电影。", py:"Wǒ kàn le yí ge diànyǐng.", vi:"Tôi đã xem một bộ phim."}},
+  {hanzi:"写", pinyin:"xiě", wordClass:"động", hanviet:"Tả", meaning:"viết", example:{zh:"请写汉字。", py:"Qǐng xiě Hànzì.", vi:"Hãy viết chữ Hán."}},
+  {hanzi:"都", pinyin:"dōu", wordClass:"phó", hanviet:"Đô", meaning:"đều", example:{zh:"他们都喜欢汉语。", py:"Tāmen dōu xǐhuan Hànyǔ.", vi:"Họ đều thích tiếng Trung."}},
+  {hanzi:"听见", pinyin:"tīngjiàn", wordClass:"động", hanviet:"Thính kiến", meaning:"nghe thấy, nghe được", example:{zh:"你听见了吗？", py:"Nǐ tīngjiàn le ma?", vi:"Bạn nghe thấy chưa?"}},
+  {hanzi:"不要", pinyin:"búyào", wordClass:"phó", hanviet:"Bất yếu", meaning:"đừng", example:{zh:"上课的时候不要说话。", py:"Shàngkè de shíhou búyào shuōhuà.", vi:"Trong giờ học đừng nói chuyện."}},
+  {hanzi:"说话", pinyin:"shuōhuà", wordClass:"động", hanviet:"Thuyết thoại", meaning:"nói (nói chuyện)", example:{zh:"老师在说话。", py:"Lǎoshī zài shuōhuà.", vi:"Thầy giáo đang nói chuyện."}},
+  {hanzi:"听", pinyin:"tīng", wordClass:"động", hanviet:"Thính", meaning:"nghe", example:{zh:"我喜欢听汉语。", py:"Wǒ xǐhuan tīng Hànyǔ.", vi:"Tôi thích nghe tiếng Trung."}},
+  {hanzi:"哪些", pinyin:"nǎxiē", wordClass:"đại", hanviet:"Na ta", meaning:"những cái nào (số nhiều)", example:{zh:"你喜欢哪些电影？", py:"Nǐ xǐhuan nǎxiē diànyǐng?", vi:"Bạn thích những bộ phim nào?"}},
+  {hanzi:"字", pinyin:"zì", wordClass:"danh", hanviet:"Tự", meaning:"chữ", example:{zh:"这个字很难写。", py:"Zhège zì hěn nán xiě.", vi:"Chữ này rất khó viết."}},
+  {hanzi:"汉语", pinyin:"Hànyǔ", wordClass:"danh", hanviet:"Hán ngữ", meaning:"tiếng Trung", example:{zh:"我在学汉语。", py:"Wǒ zài xué Hànyǔ.", vi:"Tôi đang học tiếng Trung."}},
+  {hanzi:"汉字", pinyin:"Hànzì", wordClass:"danh", hanviet:"Hán tự", meaning:"chữ Hán", example:{zh:"汉字有意思。", py:"Hànzì yǒu yìsi.", vi:"Chữ Hán rất thú vị."}},
+  {hanzi:"明年", pinyin:"míngnián", wordClass:"danh", hanviet:"Minh niên", meaning:"năm sau", example:{zh:"明年我要上中学。", py:"Míngnián wǒ yào shàng zhōngxué.", vi:"Năm sau tôi sẽ vào học trung học."}},
+  {hanzi:"上", pinyin:"shàng", wordClass:"động", hanviet:"Thượng", meaning:"lên, đi (học)", example:{zh:"他明年上中学。", py:"Tā míngnián shàng zhōngxué.", vi:"Năm sau anh ấy sẽ học lên trung học."}},
+  {hanzi:"中学", pinyin:"zhōngxué", wordClass:"danh", hanviet:"Trung học", meaning:"trường trung học", example:{zh:"这是一所中学。", py:"Zhè shì yì suǒ zhōngxué.", vi:"Đây là một trường trung học."}},
+  {hanzi:"小学", pinyin:"xiǎoxué", wordClass:"danh", hanviet:"Tiểu học", meaning:"trường tiểu học", example:{zh:"我妹妹在小学学习。", py:"Wǒ mèimei zài xiǎoxué xuéxí.", vi:"Em gái tôi đang học ở trường tiểu học."}},
+  {hanzi:"中学生", pinyin:"zhōngxuéshēng", wordClass:"danh", hanviet:"Trung học sinh", meaning:"học sinh trung học", example:{zh:"我哥哥是中学生。", py:"Wǒ gēge shì zhōngxuéshēng.", vi:"Anh trai tôi là học sinh trung học."}},
+  {hanzi:"小学生", pinyin:"xiǎoxuéshēng", wordClass:"danh", hanviet:"Tiểu học sinh", meaning:"học sinh tiểu học", example:{zh:"妹妹是小学生。", py:"Mèimei shì xiǎoxuéshēng.", vi:"Em gái là học sinh tiểu học."}},
+  {hanzi:"上学", pinyin:"shàngxué", wordClass:"động", hanviet:"Thượng học", meaning:"đi học, đến trường", example:{zh:"我每天八点上学。", py:"Wǒ měitiān bā diǎn shàngxué.", vi:"Mỗi ngày tôi đi học lúc 8 giờ."}},
+  {hanzi:"他们", pinyin:"tāmen", wordClass:"đại", hanviet:"Tha (们 không có Hán Việt)", meaning:"họ, bọn họ (nói chung)", example:{zh:"他们是中学生。", py:"Tāmen shì zhōngxuéshēng.", vi:"Họ là học sinh trung học."}},
+  {hanzi:"她们", pinyin:"tāmen", wordClass:"đại", hanviet:"Tha (们 không có Hán Việt)", meaning:"họ, bọn họ (dành cho nữ)", example:{zh:"她们在写汉字。", py:"Tāmen zài xiě Hànzì.", vi:"Các cô ấy đang viết chữ Hán."}},
+  {hanzi:"它们", pinyin:"tāmen", wordClass:"đại", hanviet:"Tha (们 không có Hán Việt)", meaning:"những cái đó (chỉ vật)", example:{zh:"这些字，它们都很难。", py:"Zhèxiē zì, tāmen dōu hěn nán.", vi:"Những chữ này, chúng đều rất khó."}},
+  {hanzi:"晚", pinyin:"wǎn", wordClass:"tính", hanviet:"Vãn", meaning:"tối, trễ, muộn", example:{zh:"今天他来得很晚。", py:"Jīntiān tā lái de hěn wǎn.", vi:"Hôm nay anh ấy đến rất muộn."}}
 ];
 
 document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
@@ -1105,6 +1112,9 @@ function renderFlashcard(){
   const wcEl = document.getElementById('fcWordClass');
   wcEl.textContent = item.wordClass || '';
   wcEl.style.display = item.wordClass ? '' : 'none';
+  const hvEl = document.getElementById('fcHanviet');
+  hvEl.textContent = item.hanviet ? '(' + item.hanviet + ')' : '';
+  hvEl.style.display = item.hanviet ? '' : 'none';
   document.getElementById('fcMeaning').textContent = item.meaning;
   document.getElementById('fcExample').innerHTML =
     item.example.zh + '<span class="py">' + item.example.py + '</span><span class="vi">' + item.example.vi + '</span>';
@@ -1619,7 +1629,7 @@ vocab.forEach((item, vIndex)=>{
     '<button class="icon-btn review-actions-listen" title="Nghe phát âm">🔊</button>' +
     '<button class="icon-btn review-actions-write" title="Luyện viết nét chữ">✍️</button>' +
     '<div class="review-hanzi zh" title="'+item.example.zh+'" onclick="this.classList.toggle(\'peek\')">'+item.hanzi+'</div>' +
-    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+'</div>' +
+    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+(item.hanviet ? '<span class="review-hanviet">'+item.hanviet+'</span>' : '')+'</div>' +
     '<div class="review-wordclass"' + (item.wordClass ? '' : ' style="visibility:hidden;"') + '>'+(item.wordClass||'')+'</div>' +
     '<div class="review-meaning" onclick="this.classList.toggle(\'peek\')">'+item.meaning+'</div>' +
     '<div class="review-input-wrap">' +
