@@ -278,6 +278,11 @@
     text-transform:lowercase;
     letter-spacing:.3px;
   }
+  .fc-hanviet{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
   .fc-face .fc-speak{
     margin-top:16px;
     border:1px solid var(--jade-light);
@@ -544,6 +549,7 @@
   }
   .review-hanzi{font-size:22px;font-weight:700;cursor:help;}
   .review-pinyin{font-size:13.5px;color:var(--jade-dark);font-weight:600;}
+  .review-hanviet{font-size:10.5px;color:var(--ink-soft);font-style:italic;font-weight:400;display:block;}
   .review-wordclass{
     font-size:10.5px;
     font-weight:700;
@@ -836,6 +842,7 @@
           <div class="fc-pinyin-row">
             <span class="fc-pinyin" id="fcPinyin">nǐ hǎo</span>
             <span class="fc-wordclass" id="fcWordClass"></span>
+            <span class="fc-hanviet" id="fcHanviet"></span>
           </div>
           <button class="fc-speak" id="fcSpeakFront">🔊 Nghe phát âm</button>
           <div class="fc-hint">Nhấn để xem nghĩa</div>
@@ -980,21 +987,21 @@
 <script>
 /* ===================== DATA (HSK2 · Bài 1 — 16 từ vựng) ===================== */
 const vocab = [
-  {hanzi:"就", pinyin:"jiù", wordClass:"adv", meaning:"Chính; liền, thì", example:{zh:"她就是我的姐姐。", py:"Tā jiù shì wǒ de jiějie.", vi:"Cô ấy chính là chị gái của tôi."}, example2:{zh:"他到了北京就给我打个电话。", py:"Tā dàole Běijīng jiù gěi wǒ dǎ gè diànhuà.", vi:"Anh ấy đến Bắc Kinh thì gọi điện cho tôi ngay."}},
-  {hanzi:"给", pinyin:"gěi", wordClass:"prep", meaning:"Cho", example:{zh:"我给你一本书。", py:"Wǒ gěi nǐ yì běn shū.", vi:"Tôi cho bạn một quyển sách."}},
-  {hanzi:"让", pinyin:"ràng", wordClass:"v", meaning:"Để, bảo, cho phép", example:{zh:"妈妈让我早点回家。", py:"Māma ràng wǒ zǎo diǎn huí jiā.", vi:"Mẹ bảo tôi về nhà sớm hơn."}},
-  {hanzi:"接", pinyin:"jiē", wordClass:"v", meaning:"Đón, nhận", example:{zh:"我去机场接你。", py:"Wǒ qù jīchǎng jiē nǐ.", vi:"Tôi ra sân bay đón bạn."}},
-  {hanzi:"次", pinyin:"cì", wordClass:"lượng", meaning:"Lần", example:{zh:"我去过两次北京。", py:"Wǒ qùguo liǎng cì Běijīng.", vi:"Tôi đã đến Bắc Kinh hai lần."}},
-  {hanzi:"旅游", pinyin:"lǚyóu", wordClass:"v", meaning:"Du lịch", example:{zh:"暑假我们去云南旅游。", py:"Shǔjià wǒmen qù Yúnnán lǚyóu.", vi:"Kỳ nghỉ hè chúng tôi đi du lịch Vân Nam."}},
-  {hanzi:"帮忙", pinyin:"bāngmáng", wordClass:"v", meaning:"Giúp, giúp đỡ", example:{zh:"你可以帮忙吗？", py:"Nǐ kěyǐ bāngmáng ma?", vi:"Bạn có thể giúp đỡ được không?"}},
-  {hanzi:"不好意思", pinyin:"bù hǎoyìsi", wordClass:"", meaning:"Ngại quá, xin lỗi", example:{zh:"不好意思，我来晚了。", py:"Bù hǎoyìsi, wǒ lái wǎn le.", vi:"Xin lỗi, tôi đến muộn rồi."}},
-  {hanzi:"已经", pinyin:"yǐjīng", wordClass:"adv", meaning:"Đã", example:{zh:"我已经吃饭了。", py:"Wǒ yǐjīng chī fàn le.", vi:"Tôi đã ăn cơm rồi."}},
-  {hanzi:"那", pinyin:"nà", wordClass:"", meaning:"Thế thì, vậy thì", example:{zh:"你不去，那我也不去。", py:"Nǐ bú qù, nà wǒ yě bú qù.", vi:"Bạn không đi, vậy thì tôi cũng không đi."}},
-  {hanzi:"介绍", pinyin:"jièshào", wordClass:"v", meaning:"Giới thiệu", example:{zh:"我来介绍一下我的朋友。", py:"Wǒ lái jièshào yíxià wǒ de péngyou.", vi:"Để tôi giới thiệu bạn của tôi một chút."}},
-  {hanzi:"有时", pinyin:"yǒushí", wordClass:"adv", meaning:"Có lúc, thỉnh thoảng", example:{zh:"我有时去图书馆看书。", py:"Wǒ yǒushí qù túshūguǎn kàn shū.", vi:"Thỉnh thoảng tôi đến thư viện đọc sách."}},
-  {hanzi:"懂", pinyin:"dǒng", wordClass:"v", meaning:"Hiểu, biết", example:{zh:"你懂我的意思吗？", py:"Nǐ dǒng wǒ de yìsi ma?", vi:"Bạn hiểu ý của tôi không?"}},
-  {hanzi:"意思", pinyin:"yìsi", wordClass:"n", meaning:"Ý, ý nghĩa", example:{zh:"这个词是什么意思？", py:"Zhège cí shì shénme yìsi?", vi:"Từ này có nghĩa là gì?"}},
-  {hanzi:"北京烤鸭", pinyin:"Běijīng Kǎoyā", wordClass:"", meaning:"Vịt quay Bắc Kinh", example:{zh:"我很想吃北京烤鸭。", py:"Wǒ hěn xiǎng chī Běijīng Kǎoyā.", vi:"Tôi rất muốn ăn vịt quay Bắc Kinh."}}
+  {hanzi:"就", pinyin:"jiù", wordClass:"phó", hanviet:"Tựu", meaning:"Chính; liền, thì", example:{zh:"她就是我的姐姐。", py:"Tā jiù shì wǒ de jiějie.", vi:"Cô ấy chính là chị gái của tôi."}, example2:{zh:"他到了北京就给我打个电话。", py:"Tā dàole Běijīng jiù gěi wǒ dǎ gè diànhuà.", vi:"Anh ấy đến Bắc Kinh thì gọi điện cho tôi ngay."}},
+  {hanzi:"给", pinyin:"gěi", wordClass:"giới", hanviet:"Cấp", meaning:"Cho", example:{zh:"我给你一本书。", py:"Wǒ gěi nǐ yì běn shū.", vi:"Tôi cho bạn một quyển sách."}},
+  {hanzi:"让", pinyin:"ràng", wordClass:"động", hanviet:"Nhượng", meaning:"Để, bảo, cho phép", example:{zh:"妈妈让我早点回家。", py:"Māma ràng wǒ zǎo diǎn huí jiā.", vi:"Mẹ bảo tôi về nhà sớm hơn."}},
+  {hanzi:"接", pinyin:"jiē", wordClass:"động", hanviet:"Tiếp", meaning:"Đón, nhận", example:{zh:"我去机场接你。", py:"Wǒ qù jīchǎng jiē nǐ.", vi:"Tôi ra sân bay đón bạn."}},
+  {hanzi:"次", pinyin:"cì", wordClass:"lượng", hanviet:"Thứ", meaning:"Lần", example:{zh:"我去过两次北京。", py:"Wǒ qùguo liǎng cì Běijīng.", vi:"Tôi đã đến Bắc Kinh hai lần."}},
+  {hanzi:"旅游", pinyin:"lǚyóu", wordClass:"động", hanviet:"Lữ du", meaning:"Du lịch", example:{zh:"暑假我们去云南旅游。", py:"Shǔjià wǒmen qù Yúnnán lǚyóu.", vi:"Kỳ nghỉ hè chúng tôi đi du lịch Vân Nam."}},
+  {hanzi:"帮忙", pinyin:"bāngmáng", wordClass:"động", hanviet:"Bang mang", meaning:"Giúp, giúp đỡ", example:{zh:"你可以帮忙吗？", py:"Nǐ kěyǐ bāngmáng ma?", vi:"Bạn có thể giúp đỡ được không?"}},
+  {hanzi:"不好意思", pinyin:"bù hǎoyìsi", wordClass:"", hanviet:"Bất hảo ý tứ", meaning:"Ngại quá, xin lỗi", example:{zh:"不好意思，我来晚了。", py:"Bù hǎoyìsi, wǒ lái wǎn le.", vi:"Xin lỗi, tôi đến muộn rồi."}},
+  {hanzi:"已经", pinyin:"yǐjīng", wordClass:"phó", hanviet:"Dĩ kinh", meaning:"Đã", example:{zh:"我已经吃饭了。", py:"Wǒ yǐjīng chī fàn le.", vi:"Tôi đã ăn cơm rồi."}},
+  {hanzi:"那", pinyin:"nà", wordClass:"liên", hanviet:"Na", meaning:"Thế thì, vậy thì", example:{zh:"你不去，那我也不去。", py:"Nǐ bú qù, nà wǒ yě bú qù.", vi:"Bạn không đi, vậy thì tôi cũng không đi."}},
+  {hanzi:"介绍", pinyin:"jièshào", wordClass:"động", hanviet:"Giới thiệu", meaning:"Giới thiệu", example:{zh:"我来介绍一下我的朋友。", py:"Wǒ lái jièshào yíxià wǒ de péngyou.", vi:"Để tôi giới thiệu bạn của tôi một chút."}},
+  {hanzi:"有时", pinyin:"yǒushí", wordClass:"phó", hanviet:"Hữu thời", meaning:"Có lúc, thỉnh thoảng", example:{zh:"我有时去图书馆看书。", py:"Wǒ yǒushí qù túshūguǎn kàn shū.", vi:"Thỉnh thoảng tôi đến thư viện đọc sách."}},
+  {hanzi:"懂", pinyin:"dǒng", wordClass:"động", hanviet:"Đổng", meaning:"Hiểu, biết", example:{zh:"你懂我的意思吗？", py:"Nǐ dǒng wǒ de yìsi ma?", vi:"Bạn hiểu ý của tôi không?"}},
+  {hanzi:"意思", pinyin:"yìsi", wordClass:"danh", hanviet:"Ý tứ", meaning:"Ý, ý nghĩa", example:{zh:"这个词是什么意思？", py:"Zhège cí shì shénme yìsi?", vi:"Từ này có nghĩa là gì?"}},
+  {hanzi:"北京烤鸭", pinyin:"Běijīng Kǎoyā", wordClass:"", hanviet:"Bắc Kinh khảo áp", meaning:"Vịt quay Bắc Kinh", example:{zh:"我很想吃北京烤鸭。", py:"Wǒ hěn xiǎng chī Běijīng Kǎoyā.", vi:"Tôi rất muốn ăn vịt quay Bắc Kinh."}}
 ];
 
 document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
@@ -1088,6 +1095,9 @@ function renderFlashcard(){
   const wcEl = document.getElementById('fcWordClass');
   wcEl.textContent = item.wordClass || '';
   wcEl.style.display = item.wordClass ? '' : 'none';
+  const hvEl = document.getElementById('fcHanviet');
+  hvEl.textContent = item.hanviet ? '(' + item.hanviet + ')' : '';
+  hvEl.style.display = item.hanviet ? '' : 'none';
   document.getElementById('fcMeaning').textContent = item.meaning;
   document.getElementById('fcExample').innerHTML =
     item.example.zh + '<span class="py">' + item.example.py + '</span><span class="vi">' + item.example.vi + '</span>' +
@@ -1603,7 +1613,7 @@ vocab.forEach((item, vIndex)=>{
     '<button class="icon-btn review-actions-listen" title="Nghe phát âm">🔊</button>' +
     '<button class="icon-btn review-actions-write" title="Luyện viết nét chữ">✍️</button>' +
     '<div class="review-hanzi zh" title="'+item.example.zh+'" onclick="this.classList.toggle(\'peek\')">'+item.hanzi+'</div>' +
-    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+'</div>' +
+    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+(item.hanviet ? '<span class="review-hanviet">'+item.hanviet+'</span>' : '')+'</div>' +
     '<div class="review-wordclass"' + (item.wordClass ? '' : ' style="visibility:hidden;"') + '>'+(item.wordClass||'')+'</div>' +
     '<div class="review-meaning" onclick="this.classList.toggle(\'peek\')">'+item.meaning+'</div>' +
     '<div class="review-input-wrap">' +
