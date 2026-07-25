@@ -978,7 +978,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7/dist/hanzi-writer.min.js"></script>
 <script>
-/* ===================== DATA (HSK1 · Bài 6 — 22 từ vựng) ===================== */
+/* ===================== DATA (HSK1 · Bài 6 — 23 từ vựng) ===================== */
 const vocab = [
   {hanzi:"手机", pinyin:"shǒujī", wordClass:"danh", meaning:"điện thoại di động", example:{zh:"这是我的新手机。", py:"Zhè shì wǒ de xīn shǒujī.", vi:"Đây là điện thoại di động mới của tôi."}},
   {hanzi:"电话", pinyin:"diànhuà", wordClass:"danh", meaning:"điện thoại", example:{zh:"我给妈妈打电话。", py:"Wǒ gěi māma dǎ diànhuà.", vi:"Tôi gọi điện thoại cho mẹ."}},
@@ -1001,7 +1001,8 @@ const vocab = [
   {hanzi:"米饭", pinyin:"mǐfàn", wordClass:"danh", meaning:"cơm trắng", example:{zh:"我每天吃米饭。", py:"Wǒ měitiān chī mǐfàn.", vi:"Mỗi ngày tôi ăn cơm trắng."}},
   {hanzi:"怎么", pinyin:"zěnme", wordClass:"đại", meaning:"sao, thế nào, làm sao", example:{zh:"你怎么去超市？", py:"Nǐ zěnme qù chāoshì?", vi:"Bạn đi siêu thị bằng cách nào?"}},
   {hanzi:"坐", pinyin:"zuò", wordClass:"động", meaning:"ngồi, đi (bằng xe)", example:{zh:"我坐出租车去超市。", py:"Wǒ zuò chūzūchē qù chāoshì.", vi:"Tôi đi taxi đến siêu thị."}},
-  {hanzi:"出租车", pinyin:"chūzūchē", wordClass:"danh", meaning:"taxi", example:{zh:"那边有出租车。", py:"Nàbiān yǒu chūzūchē.", vi:"Đằng kia có taxi."}}
+  {hanzi:"出租车", pinyin:"chūzūchē", wordClass:"danh", meaning:"taxi", example:{zh:"那边有出租车。", py:"Nàbiān yǒu chūzūchē.", vi:"Đằng kia có taxi."}},
+  {hanzi:"西安饭店", pinyin:"Xī'ān Fàndiàn", wordClass:"danh riêng", meaning:"Nhà hàng Tây An", example:{zh:"我们在西安饭店吃饭。", py:"Wǒmen zài Xī'ān Fàndiàn chī fàn.", vi:"Chúng tôi ăn cơm ở Nhà hàng Tây An."}}
 ];
 
 document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
@@ -1046,7 +1047,9 @@ const radicalMap = {
   '坐': {radical:'土', name:'Bộ Thổ'},
   '出': {radical:'凵', name:'Bộ Khảm'},
   '租': {radical:'禾', name:'Bộ Hòa'},
-  '车': {radical:'车', name:'Bộ Xa (車)'}
+  '车': {radical:'车', name:'Bộ Xa (車)'},
+  '安': {radical:'宀', name:'Bộ Miên'},
+  '店': {radical:'广', name:'Bộ Nghiễm'}
 };
 function getRadicalsForWord(word){
   const seen = [];
