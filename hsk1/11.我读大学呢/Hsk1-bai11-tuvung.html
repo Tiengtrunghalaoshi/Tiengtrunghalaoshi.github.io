@@ -288,6 +288,11 @@
     text-transform:lowercase;
     letter-spacing:.3px;
   }
+  .fc-hanviet{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
   .fc-face .fc-speak{
     margin-top:16px;
     border:1px solid var(--jade-light);
@@ -544,6 +549,7 @@
   }
   .review-hanzi{font-size:22px;font-weight:700;cursor:help;}
   .review-pinyin{font-size:13.5px;color:var(--jade-dark);font-weight:600;}
+  .review-hanviet{font-size:10.5px;color:var(--ink-soft);font-style:italic;font-weight:400;display:block;}
   .review-wordclass{
     font-size:10.5px;
     font-weight:700;
@@ -836,6 +842,7 @@
           <div class="fc-pinyin-row">
             <span class="fc-pinyin" id="fcPinyin">nǐ hǎo</span>
             <span class="fc-wordclass" id="fcWordClass"></span>
+            <span class="fc-hanviet" id="fcHanviet"></span>
           </div>
           <button class="fc-speak" id="fcSpeakFront">🔊 Nghe phát âm</button>
           <div class="fc-hint">Nhấn để xem nghĩa</div>
@@ -980,31 +987,31 @@
 <script>
 /* ===================== DATA (HSK1 · Bài 11 — 25 từ vựng) ===================== */
 const vocab = [
-  {hanzi:"时候", pinyin:"shíhou", wordClass:"danh", meaning:"lúc, khi", example:{zh:"你什么时候来？", py:"Nǐ shénme shíhou lái?", vi:"Bạn đến lúc nào?"}},
-  {hanzi:"饭店", pinyin:"fàndiàn", wordClass:"danh", meaning:"nhà hàng", example:{zh:"我们在饭店吃饭。", py:"Wǒmen zài fàndiàn chī fàn.", vi:"Chúng tôi ăn cơm ở nhà hàng."}},
-  {hanzi:"知道", pinyin:"zhīdào", wordClass:"động", meaning:"biết, hiểu", example:{zh:"我不知道他在哪里。", py:"Wǒ bù zhīdào tā zài nǎlǐ.", vi:"Tôi không biết anh ấy ở đâu."}},
-  {hanzi:"正在", pinyin:"zhèngzài", wordClass:"phó", meaning:"đang", example:{zh:"他正在开车。", py:"Tā zhèngzài kāichē.", vi:"Anh ấy đang lái xe."}},
-  {hanzi:"找", pinyin:"zhǎo", wordClass:"động", meaning:"tìm, tìm kiếm", example:{zh:"你在找什么？", py:"Nǐ zài zhǎo shénme?", vi:"Bạn đang tìm gì?"}},
-  {hanzi:"开车", pinyin:"kāichē", wordClass:"động", meaning:"lái (xe)", example:{zh:"爸爸在开车。", py:"Bàba zài kāichē.", vi:"Bố đang lái xe."}},
-  {hanzi:"车", pinyin:"chē", wordClass:"danh", meaning:"xe", example:{zh:"那辆车很大。", py:"Nà liàng chē hěn dà.", vi:"Chiếc xe đó rất to."}},
-  {hanzi:"在", pinyin:"zài", wordClass:"phó", meaning:"đang", example:{zh:"他在看书。", py:"Tā zài kàn shū.", vi:"Anh ấy đang đọc sách."}},
-  {hanzi:"读", pinyin:"dú", wordClass:"động", meaning:"đọc; học", example:{zh:"我在读大学。", py:"Wǒ zài dú dàxué.", vi:"Tôi đang học đại học."}},
-  {hanzi:"大学", pinyin:"dàxué", wordClass:"danh", meaning:"đại học", example:{zh:"我姐姐在大学工作。", py:"Wǒ jiějie zài dàxué gōngzuò.", vi:"Chị tôi làm việc ở trường đại học."}},
-  {hanzi:"大学生", pinyin:"dàxuéshēng", wordClass:"danh", meaning:"sinh viên", example:{zh:"我哥哥是大学生。", py:"Wǒ gēge shì dàxuéshēng.", vi:"Anh trai tôi là sinh viên."}},
-  {hanzi:"学", pinyin:"xué", wordClass:"động", meaning:"học", example:{zh:"我在学汉语。", py:"Wǒ zài xué Hànyǔ.", vi:"Tôi đang học tiếng Hán."}},
-  {hanzi:"医", pinyin:"yī", wordClass:"danh", meaning:"y học", example:{zh:"他在大学学医。", py:"Tā zài dàxué xué yī.", vi:"Anh ấy học y ở trường đại học."}},
-  {hanzi:"弟弟", pinyin:"dìdi", wordClass:"danh", meaning:"em trai", example:{zh:"我弟弟是大学生。", py:"Wǒ dìdi shì dàxuéshēng.", vi:"Em trai tôi là sinh viên."}},
-  {hanzi:"起床", pinyin:"qǐchuáng", wordClass:"động", meaning:"thức dậy", example:{zh:"我七点起床。", py:"Wǒ qī diǎn qǐchuáng.", vi:"Tôi thức dậy lúc 7 giờ."}},
-  {hanzi:"睡觉", pinyin:"shuìjiào", wordClass:"động", meaning:"ngủ", example:{zh:"弟弟已经睡觉了。", py:"Dìdi yǐjīng shuìjiào le.", vi:"Em trai đã ngủ rồi."}},
-  {hanzi:"睡", pinyin:"shuì", wordClass:"động", meaning:"ngủ", example:{zh:"小朋友在睡。", py:"Xiǎopéngyǒu zài shuì.", vi:"Em bé đang ngủ."}},
-  {hanzi:"那里", pinyin:"nàlǐ", wordClass:"đại", meaning:"ở đó, ở kia", example:{zh:"我弟弟在那里睡觉。", py:"Wǒ dìdi zài nàlǐ shuìjiào.", vi:"Em trai tôi đang ngủ ở đó."}},
-  {hanzi:"哪里", pinyin:"nǎlǐ", wordClass:"đại", meaning:"ở đâu", example:{zh:"你弟弟在哪里？", py:"Nǐ dìdi zài nǎlǐ?", vi:"Em trai bạn ở đâu?"}},
-  {hanzi:"昨天", pinyin:"zuótiān", wordClass:"danh", meaning:"hôm qua", example:{zh:"昨天我很晚睡觉。", py:"Zuótiān wǒ hěn wǎn shuìjiào.", vi:"Hôm qua tôi ngủ rất muộn."}},
-  {hanzi:"问", pinyin:"wèn", wordClass:"động", meaning:"hỏi", example:{zh:"我想问你一个问题。", py:"Wǒ xiǎng wèn nǐ yī ge wèntí.", vi:"Tôi muốn hỏi bạn một câu hỏi."}},
-  {hanzi:"对", pinyin:"duì", wordClass:"giới từ", meaning:"đối với, với", example:{zh:"这本书对我很有用。", py:"Zhè běn shū duì wǒ hěn yǒuyòng.", vi:"Quyển sách này rất có ích đối với tôi."}},
-  {hanzi:"说", pinyin:"shuō", wordClass:"động", meaning:"nói", example:{zh:"他在说汉语。", py:"Tā zài shuō Hànyǔ.", vi:"Anh ấy đang nói tiếng Hán."}},
-  {hanzi:"要", pinyin:"yào", wordClass:"động", meaning:"muốn, ước (động từ khuyết thiếu)", example:{zh:"我要去饭店吃饭。", py:"Wǒ yào qù fàndiàn chī fàn.", vi:"Tôi muốn đi nhà hàng ăn cơm."}},
-  {hanzi:"小朋友", pinyin:"xiǎopéngyǒu", wordClass:"danh", meaning:"trẻ em, bạn nhỏ", example:{zh:"小朋友们在睡觉。", py:"Xiǎopéngyǒumen zài shuìjiào.", vi:"Các bạn nhỏ đang ngủ."}}
+  {hanzi:"时候", pinyin:"shíhou", wordClass:"danh", hanviet:"Thời hậu", meaning:"lúc, khi", example:{zh:"你什么时候来？", py:"Nǐ shénme shíhou lái?", vi:"Bạn đến lúc nào?"}},
+  {hanzi:"饭店", pinyin:"fàndiàn", wordClass:"danh", hanviet:"Phạn điếm", meaning:"nhà hàng", example:{zh:"我们在饭店吃饭。", py:"Wǒmen zài fàndiàn chī fàn.", vi:"Chúng tôi ăn cơm ở nhà hàng."}},
+  {hanzi:"知道", pinyin:"zhīdào", wordClass:"động", hanviet:"Tri đạo", meaning:"biết, hiểu", example:{zh:"我不知道他在哪里。", py:"Wǒ bù zhīdào tā zài nǎlǐ.", vi:"Tôi không biết anh ấy ở đâu."}},
+  {hanzi:"正在", pinyin:"zhèngzài", wordClass:"phó", hanviet:"Chính tại", meaning:"đang", example:{zh:"他正在开车。", py:"Tā zhèngzài kāichē.", vi:"Anh ấy đang lái xe."}},
+  {hanzi:"找", pinyin:"zhǎo", wordClass:"động", hanviet:"Trảo", meaning:"tìm, tìm kiếm", example:{zh:"你在找什么？", py:"Nǐ zài zhǎo shénme?", vi:"Bạn đang tìm gì?"}},
+  {hanzi:"开车", pinyin:"kāichē", wordClass:"động", hanviet:"Khai xa", meaning:"lái (xe)", example:{zh:"爸爸在开车。", py:"Bàba zài kāichē.", vi:"Bố đang lái xe."}},
+  {hanzi:"车", pinyin:"chē", wordClass:"danh", hanviet:"Xa", meaning:"xe", example:{zh:"那辆车很大。", py:"Nà liàng chē hěn dà.", vi:"Chiếc xe đó rất to."}},
+  {hanzi:"在", pinyin:"zài", wordClass:"phó", hanviet:"Tại", meaning:"đang", example:{zh:"他在看书。", py:"Tā zài kàn shū.", vi:"Anh ấy đang đọc sách."}},
+  {hanzi:"读", pinyin:"dú", wordClass:"động", hanviet:"Độc", meaning:"đọc; học", example:{zh:"我在读大学。", py:"Wǒ zài dú dàxué.", vi:"Tôi đang học đại học."}},
+  {hanzi:"大学", pinyin:"dàxué", wordClass:"danh", hanviet:"Đại học", meaning:"đại học", example:{zh:"我姐姐在大学工作。", py:"Wǒ jiějie zài dàxué gōngzuò.", vi:"Chị tôi làm việc ở trường đại học."}},
+  {hanzi:"大学生", pinyin:"dàxuéshēng", wordClass:"danh", hanviet:"Đại học sinh", meaning:"sinh viên", example:{zh:"我哥哥是大学生。", py:"Wǒ gēge shì dàxuéshēng.", vi:"Anh trai tôi là sinh viên."}},
+  {hanzi:"学", pinyin:"xué", wordClass:"động", hanviet:"Học", meaning:"học", example:{zh:"我在学汉语。", py:"Wǒ zài xué Hànyǔ.", vi:"Tôi đang học tiếng Hán."}},
+  {hanzi:"医", pinyin:"yī", wordClass:"danh", hanviet:"Y", meaning:"y học", example:{zh:"他在大学学医。", py:"Tā zài dàxué xué yī.", vi:"Anh ấy học y ở trường đại học."}},
+  {hanzi:"弟弟", pinyin:"dìdi", wordClass:"danh", hanviet:"Đệ đệ", meaning:"em trai", example:{zh:"我弟弟是大学生。", py:"Wǒ dìdi shì dàxuéshēng.", vi:"Em trai tôi là sinh viên."}},
+  {hanzi:"起床", pinyin:"qǐchuáng", wordClass:"động", hanviet:"Khởi sàng", meaning:"thức dậy", example:{zh:"我七点起床。", py:"Wǒ qī diǎn qǐchuáng.", vi:"Tôi thức dậy lúc 7 giờ."}},
+  {hanzi:"睡觉", pinyin:"shuìjiào", wordClass:"động", hanviet:"Thụy giác", meaning:"ngủ", example:{zh:"弟弟已经睡觉了。", py:"Dìdi yǐjīng shuìjiào le.", vi:"Em trai đã ngủ rồi."}},
+  {hanzi:"睡", pinyin:"shuì", wordClass:"động", hanviet:"Thụy", meaning:"ngủ", example:{zh:"小朋友在睡。", py:"Xiǎopéngyǒu zài shuì.", vi:"Em bé đang ngủ."}},
+  {hanzi:"那里", pinyin:"nàlǐ", wordClass:"đại", hanviet:"Na lý", meaning:"ở đó, ở kia", example:{zh:"我弟弟在那里睡觉。", py:"Wǒ dìdi zài nàlǐ shuìjiào.", vi:"Em trai tôi đang ngủ ở đó."}},
+  {hanzi:"哪里", pinyin:"nǎlǐ", wordClass:"đại", hanviet:"Na lý", meaning:"ở đâu", example:{zh:"你弟弟在哪里？", py:"Nǐ dìdi zài nǎlǐ?", vi:"Em trai bạn ở đâu?"}},
+  {hanzi:"昨天", pinyin:"zuótiān", wordClass:"danh", hanviet:"Tạc thiên", meaning:"hôm qua", example:{zh:"昨天我很晚睡觉。", py:"Zuótiān wǒ hěn wǎn shuìjiào.", vi:"Hôm qua tôi ngủ rất muộn."}},
+  {hanzi:"问", pinyin:"wèn", wordClass:"động", hanviet:"Vấn", meaning:"hỏi", example:{zh:"我想问你一个问题。", py:"Wǒ xiǎng wèn nǐ yī ge wèntí.", vi:"Tôi muốn hỏi bạn một câu hỏi."}},
+  {hanzi:"对", pinyin:"duì", wordClass:"giới từ", hanviet:"Đối", meaning:"đối với, với", example:{zh:"这本书对我很有用。", py:"Zhè běn shū duì wǒ hěn yǒuyòng.", vi:"Quyển sách này rất có ích đối với tôi."}},
+  {hanzi:"说", pinyin:"shuō", wordClass:"động", hanviet:"Thuyết", meaning:"nói", example:{zh:"他在说汉语。", py:"Tā zài shuō Hànyǔ.", vi:"Anh ấy đang nói tiếng Hán."}},
+  {hanzi:"要", pinyin:"yào", wordClass:"động từ năng nguyện", hanviet:"Yếu", meaning:"muốn, ước (động từ khuyết thiếu)", example:{zh:"我要去饭店吃饭。", py:"Wǒ yào qù fàndiàn chī fàn.", vi:"Tôi muốn đi nhà hàng ăn cơm."}},
+  {hanzi:"小朋友", pinyin:"xiǎopéngyǒu", wordClass:"danh", hanviet:"Tiểu bằng hữu", meaning:"trẻ em, bạn nhỏ", example:{zh:"小朋友们在睡觉。", py:"Xiǎopéngyǒumen zài shuìjiào.", vi:"Các bạn nhỏ đang ngủ."}}
 ];
 
 document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
@@ -1103,6 +1110,9 @@ function renderFlashcard(){
   const wcEl = document.getElementById('fcWordClass');
   wcEl.textContent = item.wordClass || '';
   wcEl.style.display = item.wordClass ? '' : 'none';
+  const hvEl = document.getElementById('fcHanviet');
+  hvEl.textContent = item.hanviet ? '(' + item.hanviet + ')' : '';
+  hvEl.style.display = item.hanviet ? '' : 'none';
   document.getElementById('fcMeaning').textContent = item.meaning;
   document.getElementById('fcExample').innerHTML =
     item.example.zh + '<span class="py">' + item.example.py + '</span><span class="vi">' + item.example.vi + '</span>';
@@ -1617,7 +1627,7 @@ vocab.forEach((item, vIndex)=>{
     '<button class="icon-btn review-actions-listen" title="Nghe phát âm">🔊</button>' +
     '<button class="icon-btn review-actions-write" title="Luyện viết nét chữ">✍️</button>' +
     '<div class="review-hanzi zh" title="'+item.example.zh+'" onclick="this.classList.toggle(\'peek\')">'+item.hanzi+'</div>' +
-    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+'</div>' +
+    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+(item.hanviet ? '<span class="review-hanviet">'+item.hanviet+'</span>' : '')+'</div>' +
     '<div class="review-wordclass"' + (item.wordClass ? '' : ' style="visibility:hidden;"') + '>'+(item.wordClass||'')+'</div>' +
     '<div class="review-meaning" onclick="this.classList.toggle(\'peek\')">'+item.meaning+'</div>' +
     '<div class="review-input-wrap">' +
