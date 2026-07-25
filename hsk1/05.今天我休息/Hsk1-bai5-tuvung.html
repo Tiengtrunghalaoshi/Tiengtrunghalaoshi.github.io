@@ -288,6 +288,11 @@
     text-transform:lowercase;
     letter-spacing:.3px;
   }
+  .fc-hanviet{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
   .fc-face .fc-speak{
     margin-top:16px;
     border:1px solid var(--jade-light);
@@ -544,6 +549,7 @@
   }
   .review-hanzi{font-size:22px;font-weight:700;cursor:help;}
   .review-pinyin{font-size:13.5px;color:var(--jade-dark);font-weight:600;}
+  .review-hanviet{font-size:10.5px;color:var(--ink-soft);font-style:italic;font-weight:400;display:block;}
   .review-wordclass{
     font-size:10.5px;
     font-weight:700;
@@ -836,6 +842,7 @@
           <div class="fc-pinyin-row">
             <span class="fc-pinyin" id="fcPinyin">nǐ hǎo</span>
             <span class="fc-wordclass" id="fcWordClass"></span>
+            <span class="fc-hanviet" id="fcHanviet"></span>
           </div>
           <button class="fc-speak" id="fcSpeakFront">🔊 Nghe phát âm</button>
           <div class="fc-hint">Nhấn để xem nghĩa</div>
@@ -980,28 +987,28 @@
 <script>
 /* ===================== DATA (HSK1 · Bài 5 — 22 từ vựng) ===================== */
 const vocab = [
-  {hanzi:"今天", pinyin:"jīntiān", wordClass:"danh", meaning:"hôm nay", example:{zh:"今天我休息。", py:"Jīntiān wǒ xiūxi.", vi:"Hôm nay tôi nghỉ."}},
-  {hanzi:"号", pinyin:"hào", wordClass:"danh", meaning:"ngày", example:{zh:"今天几号？", py:"Jīntiān jǐ hào?", vi:"Hôm nay là ngày mấy?"}},
-  {hanzi:"月", pinyin:"yuè", wordClass:"danh", meaning:"tháng", example:{zh:"现在是几月？", py:"Xiànzài shì jǐ yuè?", vi:"Bây giờ là tháng mấy?"}},
-  {hanzi:"日", pinyin:"rì", wordClass:"danh", meaning:"ngày", example:{zh:"今天几月几日？", py:"Jīntiān jǐ yuè jǐ rì?", vi:"Hôm nay là ngày mấy tháng mấy?"}},
-  {hanzi:"星期", pinyin:"xīngqī", wordClass:"danh", meaning:"tuần", example:{zh:"今天星期几？", py:"Jīntiān xīngqī jǐ?", vi:"Hôm nay thứ mấy?"}},
-  {hanzi:"星期日", pinyin:"Xīngqīrì", wordClass:"danh", meaning:"chủ nhật", example:{zh:"星期日我不上班。", py:"Xīngqīrì wǒ bú shàngbān.", vi:"Chủ nhật tôi không đi làm."}},
-  {hanzi:"星期天", pinyin:"Xīngqītiān", wordClass:"danh", meaning:"chủ nhật", example:{zh:"星期天我在家做饭。", py:"Xīngqītiān wǒ zài jiā zuò fàn.", vi:"Chủ nhật tôi ở nhà nấu cơm."}},
-  {hanzi:"休息", pinyin:"xiūxí", wordClass:"động", meaning:"nghỉ ngơi", example:{zh:"星期六我休息。", py:"Xīngqīliù wǒ xiūxi.", vi:"Thứ bảy tôi nghỉ."}},
-  {hanzi:"会", pinyin:"huì", wordClass:"động", meaning:"biết, có thể, có khả năng", example:{zh:"我会做饺子。", py:"Wǒ huì zuò jiǎozi.", vi:"Tôi biết làm há cảo."}},
-  {hanzi:"做饭", pinyin:"zuò fàn", wordClass:"", meaning:"nấu cơm", example:{zh:"我妈妈很会做饭。", py:"Wǒ māma hěn huì zuò fàn.", vi:"Mẹ tôi rất giỏi nấu cơm."}},
-  {hanzi:"做", pinyin:"zuò", wordClass:"động", meaning:"làm (tạo ra sản phẩm cụ thể)", example:{zh:"你在做什么？", py:"Nǐ zài zuò shénme?", vi:"Bạn đang làm gì?"}},
-  {hanzi:"面条儿", pinyin:"miàntiáo", wordClass:"danh", meaning:"mỳ", example:{zh:"我想吃面条儿。", py:"Wǒ xiǎng chī miàntiáor.", vi:"Tôi muốn ăn mỳ."}},
-  {hanzi:"饺子", pinyin:"jiǎozi", wordClass:"danh", meaning:"há cảo", example:{zh:"饺子真好吃。", py:"Jiǎozi zhēn hǎochī.", vi:"Há cảo thật ngon."}},
-  {hanzi:"一些", pinyin:"yīxiē", wordClass:"lượng", meaning:"một chút", example:{zh:"我买了一些菜。", py:"Wǒ mǎi le yīxiē cài.", vi:"Tôi đã mua một ít món ăn."}},
-  {hanzi:"菜", pinyin:"cài", wordClass:"danh", meaning:"món ăn", example:{zh:"这个菜很好吃。", py:"Zhège cài hěn hǎochī.", vi:"Món ăn này rất ngon."}},
-  {hanzi:"下班", pinyin:"xiàbān", wordClass:"động", meaning:"tan ca, tan làm", example:{zh:"我六点下班。", py:"Wǒ liù diǎn xiàbān.", vi:"Tôi tan làm lúc 6 giờ."}},
-  {hanzi:"新", pinyin:"xīn", wordClass:"tính", meaning:"mới", example:{zh:"这是我的新电脑。", py:"Zhè shì wǒ de xīn diànnǎo.", vi:"Đây là máy tính mới của tôi."}},
-  {hanzi:"电脑", pinyin:"diànnǎo", wordClass:"danh", meaning:"máy tính", example:{zh:"我买了一台新电脑。", py:"Wǒ mǎi le yì tái xīn diànnǎo.", vi:"Tôi đã mua một chiếc máy tính mới."}},
-  {hanzi:"真", pinyin:"zhēn", wordClass:"tính", meaning:"thật, sự thật", example:{zh:"这个电脑真好看。", py:"Zhège diànnǎo zhēn hǎokàn.", vi:"Chiếc máy tính này thật đẹp."}},
-  {hanzi:"好看", pinyin:"hǎokàn", wordClass:"tính", meaning:"đẹp, nhìn đẹp mắt", example:{zh:"你的新电脑真好看。", py:"Nǐ de xīn diànnǎo zhēn hǎokàn.", vi:"Máy tính mới của bạn thật đẹp."}},
-  {hanzi:"喜欢", pinyin:"xǐhuan", wordClass:"động", meaning:"thích", example:{zh:"我喜欢吃饺子。", py:"Wǒ xǐhuan chī jiǎozi.", vi:"Tôi thích ăn há cảo."}},
-  {hanzi:"它", pinyin:"tā", wordClass:"đại", meaning:"nó (chỉ vật)", example:{zh:"这是我的新电脑，我很喜欢它。", py:"Zhè shì wǒ de xīn diànnǎo, wǒ hěn xǐhuan tā.", vi:"Đây là máy tính mới của tôi, tôi rất thích nó."}}
+  {hanzi:"今天", pinyin:"jīntiān", wordClass:"danh", hanviet:"Kim thiên", meaning:"hôm nay", example:{zh:"今天我休息。", py:"Jīntiān wǒ xiūxi.", vi:"Hôm nay tôi nghỉ."}},
+  {hanzi:"号", pinyin:"hào", wordClass:"lượng", hanviet:"Hiệu", meaning:"ngày", example:{zh:"今天几号？", py:"Jīntiān jǐ hào?", vi:"Hôm nay là ngày mấy?"}},
+  {hanzi:"月", pinyin:"yuè", wordClass:"danh", hanviet:"Nguyệt", meaning:"tháng", example:{zh:"现在是几月？", py:"Xiànzài shì jǐ yuè?", vi:"Bây giờ là tháng mấy?"}},
+  {hanzi:"日", pinyin:"rì", wordClass:"lượng", hanviet:"Nhật", meaning:"ngày", example:{zh:"今天几月几日？", py:"Jīntiān jǐ yuè jǐ rì?", vi:"Hôm nay là ngày mấy tháng mấy?"}},
+  {hanzi:"星期", pinyin:"xīngqī", wordClass:"danh", hanviet:"Tinh kỳ", meaning:"tuần", example:{zh:"今天星期几？", py:"Jīntiān xīngqī jǐ?", vi:"Hôm nay thứ mấy?"}},
+  {hanzi:"星期日", pinyin:"Xīngqīrì", wordClass:"danh", hanviet:"Tinh kỳ nhật", meaning:"chủ nhật", example:{zh:"星期日我不上班。", py:"Xīngqīrì wǒ bú shàngbān.", vi:"Chủ nhật tôi không đi làm."}},
+  {hanzi:"星期天", pinyin:"Xīngqītiān", wordClass:"danh", hanviet:"Tinh kỳ thiên", meaning:"chủ nhật", example:{zh:"星期天我在家做饭。", py:"Xīngqītiān wǒ zài jiā zuò fàn.", vi:"Chủ nhật tôi ở nhà nấu cơm."}},
+  {hanzi:"休息", pinyin:"xiūxí", wordClass:"động", hanviet:"Hưu tức", meaning:"nghỉ ngơi", example:{zh:"星期六我休息。", py:"Xīngqīliù wǒ xiūxi.", vi:"Thứ bảy tôi nghỉ."}},
+  {hanzi:"会", pinyin:"huì", wordClass:"động", hanviet:"Hội", meaning:"biết, có thể, có khả năng", example:{zh:"我会做饺子。", py:"Wǒ huì zuò jiǎozi.", vi:"Tôi biết làm há cảo."}},
+  {hanzi:"做饭", pinyin:"zuò fàn", wordClass:"", hanviet:"Tố phạn", meaning:"nấu cơm", example:{zh:"我妈妈很会做饭。", py:"Wǒ māma hěn huì zuò fàn.", vi:"Mẹ tôi rất giỏi nấu cơm."}},
+  {hanzi:"做", pinyin:"zuò", wordClass:"động", hanviet:"Tố", meaning:"làm (tạo ra sản phẩm cụ thể)", example:{zh:"你在做什么？", py:"Nǐ zài zuò shénme?", vi:"Bạn đang làm gì?"}},
+  {hanzi:"面条儿", pinyin:"miàntiáo", wordClass:"danh", hanviet:"Diện điều", meaning:"mỳ", example:{zh:"我想吃面条儿。", py:"Wǒ xiǎng chī miàntiáor.", vi:"Tôi muốn ăn mỳ."}},
+  {hanzi:"饺子", pinyin:"jiǎozi", wordClass:"danh", hanviet:"Giảo tử", meaning:"há cảo", example:{zh:"饺子真好吃。", py:"Jiǎozi zhēn hǎochī.", vi:"Há cảo thật ngon."}},
+  {hanzi:"一些", pinyin:"yīxiē", wordClass:"số lượng", hanviet:"Nhất ta", meaning:"một chút", example:{zh:"我买了一些菜。", py:"Wǒ mǎi le yīxiē cài.", vi:"Tôi đã mua một ít món ăn."}},
+  {hanzi:"菜", pinyin:"cài", wordClass:"danh", hanviet:"Thái", meaning:"món ăn", example:{zh:"这个菜很好吃。", py:"Zhège cài hěn hǎochī.", vi:"Món ăn này rất ngon."}},
+  {hanzi:"下班", pinyin:"xiàbān", wordClass:"động", hanviet:"Hạ ban", meaning:"tan ca, tan làm", example:{zh:"我六点下班。", py:"Wǒ liù diǎn xiàbān.", vi:"Tôi tan làm lúc 6 giờ."}},
+  {hanzi:"新", pinyin:"xīn", wordClass:"tính", hanviet:"Tân", meaning:"mới", example:{zh:"这是我的新电脑。", py:"Zhè shì wǒ de xīn diànnǎo.", vi:"Đây là máy tính mới của tôi."}},
+  {hanzi:"电脑", pinyin:"diànnǎo", wordClass:"danh", hanviet:"Điện não", meaning:"máy tính", example:{zh:"我买了一台新电脑。", py:"Wǒ mǎi le yì tái xīn diànnǎo.", vi:"Tôi đã mua một chiếc máy tính mới."}},
+  {hanzi:"真", pinyin:"zhēn", wordClass:"phó", hanviet:"Chân", meaning:"thật, sự thật", example:{zh:"这个电脑真好看。", py:"Zhège diànnǎo zhēn hǎokàn.", vi:"Chiếc máy tính này thật đẹp."}},
+  {hanzi:"好看", pinyin:"hǎokàn", wordClass:"tính", hanviet:"Hảo khán", meaning:"đẹp, nhìn đẹp mắt", example:{zh:"你的新电脑真好看。", py:"Nǐ de xīn diànnǎo zhēn hǎokàn.", vi:"Máy tính mới của bạn thật đẹp."}},
+  {hanzi:"喜欢", pinyin:"xǐhuan", wordClass:"động", hanviet:"Hỷ hoan", meaning:"thích", example:{zh:"我喜欢吃饺子。", py:"Wǒ xǐhuan chī jiǎozi.", vi:"Tôi thích ăn há cảo."}},
+  {hanzi:"它", pinyin:"tā", wordClass:"đại", hanviet:"Tha", meaning:"nó (chỉ vật)", example:{zh:"这是我的新电脑，我很喜欢它。", py:"Zhè shì wǒ de xīn diànnǎo, wǒ hěn xǐhuan tā.", vi:"Đây là máy tính mới của tôi, tôi rất thích nó."}}
 ];
 
 document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
@@ -1098,6 +1105,9 @@ function renderFlashcard(){
   const wcEl = document.getElementById('fcWordClass');
   wcEl.textContent = item.wordClass || '';
   wcEl.style.display = item.wordClass ? '' : 'none';
+  const hvEl = document.getElementById('fcHanviet');
+  hvEl.textContent = item.hanviet ? '(' + item.hanviet + ')' : '';
+  hvEl.style.display = item.hanviet ? '' : 'none';
   document.getElementById('fcMeaning').textContent = item.meaning;
   document.getElementById('fcExample').innerHTML =
     item.example.zh + '<span class="py">' + item.example.py + '</span><span class="vi">' + item.example.vi + '</span>';
@@ -1612,7 +1622,7 @@ vocab.forEach((item, vIndex)=>{
     '<button class="icon-btn review-actions-listen" title="Nghe phát âm">🔊</button>' +
     '<button class="icon-btn review-actions-write" title="Luyện viết nét chữ">✍️</button>' +
     '<div class="review-hanzi zh" title="'+item.example.zh+'" onclick="this.classList.toggle(\'peek\')">'+item.hanzi+'</div>' +
-    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+'</div>' +
+    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+(item.hanviet ? '<span class="review-hanviet">'+item.hanviet+'</span>' : '')+'</div>' +
     '<div class="review-wordclass"' + (item.wordClass ? '' : ' style="visibility:hidden;"') + '>'+(item.wordClass||'')+'</div>' +
     '<div class="review-meaning" onclick="this.classList.toggle(\'peek\')">'+item.meaning+'</div>' +
     '<div class="review-input-wrap">' +
