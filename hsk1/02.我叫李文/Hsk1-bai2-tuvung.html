@@ -288,6 +288,11 @@
     text-transform:lowercase;
     letter-spacing:.3px;
   }
+  .fc-hanviet{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
   .fc-face .fc-speak{
     margin-top:16px;
     border:1px solid var(--jade-light);
@@ -544,6 +549,7 @@
   }
   .review-hanzi{font-size:22px;font-weight:700;cursor:help;}
   .review-pinyin{font-size:13.5px;color:var(--jade-dark);font-weight:600;}
+  .review-hanviet{font-size:10.5px;color:var(--ink-soft);font-style:italic;font-weight:400;display:block;}
   .review-wordclass{
     font-size:10.5px;
     font-weight:700;
@@ -836,6 +842,7 @@
           <div class="fc-pinyin-row">
             <span class="fc-pinyin" id="fcPinyin">nǐ hǎo</span>
             <span class="fc-wordclass" id="fcWordClass"></span>
+            <span class="fc-hanviet" id="fcHanviet"></span>
           </div>
           <button class="fc-speak" id="fcSpeakFront">🔊 Nghe phát âm</button>
           <div class="fc-hint">Nhấn để xem nghĩa</div>
@@ -980,21 +987,21 @@
 <script>
 /* ===================== DATA (HSK1 · Bài 2 — 15 từ vựng) ===================== */
 const vocab = [
-  {hanzi:"请问", pinyin:"qǐngwèn", wordClass:"động", meaning:"Cho hỏi, xin hỏi", example:{zh:"请问，你叫什么名字？", py:"Qǐngwèn, nǐ jiào shénme míngzi?", vi:"Xin hỏi, bạn tên là gì?"}},
-  {hanzi:"你", pinyin:"nǐ", wordClass:"đại", meaning:"Bạn, cậu", example:{zh:"你好，你是学生吗？", py:"Nǐ hǎo, nǐ shì xuésheng ma?", vi:"Xin chào, bạn là học sinh phải không?"}},
-  {hanzi:"叫", pinyin:"jiào", wordClass:"động", meaning:"Gọi, tên gọi", example:{zh:"我叫李文。", py:"Wǒ jiào Lǐ Wén.", vi:"Tôi tên là Lý Văn."}},
-  {hanzi:"什么", pinyin:"shénme", wordClass:"", meaning:"Cái gì (từ để hỏi)", example:{zh:"这是什么？", py:"Zhè shì shénme?", vi:"Đây là cái gì?"}},
-  {hanzi:"名字", pinyin:"míngzi", wordClass:"danh", meaning:"Tên", example:{zh:"你的名字是什么？", py:"Nǐ de míngzi shì shénme?", vi:"Tên của bạn là gì?"}},
-  {hanzi:"我", pinyin:"wǒ", wordClass:"đại", meaning:"Tôi, tớ, mình", example:{zh:"我是老师。", py:"Wǒ shì lǎoshī.", vi:"Tôi là giáo viên."}},
-  {hanzi:"不", pinyin:"bù", wordClass:"phó", meaning:"Không, chả, chẳng (phủ định)", example:{zh:"我不是学生。", py:"Wǒ bú shì xuésheng.", vi:"Tôi không phải là học sinh."}},
-  {hanzi:"是", pinyin:"shì", wordClass:"tính", meaning:"Thì, là,...", example:{zh:"他是我的同学。", py:"Tā shì wǒ de tóngxué.", vi:"Anh ấy là bạn học của tôi."}},
-  {hanzi:"对不起", pinyin:"duìbuqǐ", wordClass:"động", meaning:"Xin lỗi", example:{zh:"对不起，我来晚了。", py:"Duìbuqǐ, wǒ lái wǎn le.", vi:"Xin lỗi, tôi đến muộn rồi."}},
-  {hanzi:"没关系", pinyin:"méi guānxi", wordClass:"", meaning:"Không sao, không vấn đề gì", example:{zh:"没关系，没事的。", py:"Méi guānxi, méishì de.", vi:"Không sao đâu, không vấn đề gì."}},
-  {hanzi:"没事", pinyin:"méishì", wordClass:"động", meaning:"Không sao, ko việc gì", example:{zh:"别担心，没事。", py:"Bié dānxīn, méishì.", vi:"Đừng lo, không sao đâu."}},
-  {hanzi:"很", pinyin:"hěn", wordClass:"phó", meaning:"Rất, quá, hết sức", example:{zh:"我很高兴认识你。", py:"Wǒ hěn gāoxìng rènshi nǐ.", vi:"Tôi rất vui được quen biết bạn."}},
-  {hanzi:"高兴", pinyin:"gāoxìng", wordClass:"tính từ", meaning:"Vui, vui vẻ", example:{zh:"认识你，我很高兴。", py:"Rènshi nǐ, wǒ hěn gāoxìng.", vi:"Quen biết bạn, tôi rất vui."}},
-  {hanzi:"认识", pinyin:"rènshi", wordClass:"động từ", meaning:"Quen biết, nhận biết", example:{zh:"很高兴认识你。", py:"Hěn gāoxìng rènshi nǐ.", vi:"Rất vui được biết bạn."}},
-  {hanzi:"也", pinyin:"yě", wordClass:"phó từ", meaning:"Cũng, cũng vậy", example:{zh:"我也是学生。", py:"Wǒ yě shì xuésheng.", vi:"Tôi cũng là học sinh."}}
+  {hanzi:"请问", pinyin:"qǐngwèn", wordClass:"động", hanviet:"Thỉnh vấn", meaning:"Cho hỏi, xin hỏi", example:{zh:"请问，你叫什么名字？", py:"Qǐngwèn, nǐ jiào shénme míngzi?", vi:"Xin hỏi, bạn tên là gì?"}},
+  {hanzi:"你", pinyin:"nǐ", wordClass:"đại", hanviet:"Nễ", meaning:"Bạn, cậu", example:{zh:"你好，你是学生吗？", py:"Nǐ hǎo, nǐ shì xuésheng ma?", vi:"Xin chào, bạn là học sinh phải không?"}},
+  {hanzi:"叫", pinyin:"jiào", wordClass:"động", hanviet:"Khiếu", meaning:"Gọi, tên gọi", example:{zh:"我叫李文。", py:"Wǒ jiào Lǐ Wén.", vi:"Tôi tên là Lý Văn."}},
+  {hanzi:"什么", pinyin:"shénme", wordClass:"đại", hanviet:"Thậm ma", meaning:"Cái gì (từ để hỏi)", example:{zh:"这是什么？", py:"Zhè shì shénme?", vi:"Đây là cái gì?"}},
+  {hanzi:"名字", pinyin:"míngzi", wordClass:"danh", hanviet:"Danh tự", meaning:"Tên", example:{zh:"你的名字是什么？", py:"Nǐ de míngzi shì shénme?", vi:"Tên của bạn là gì?"}},
+  {hanzi:"我", pinyin:"wǒ", wordClass:"đại", hanviet:"Ngã", meaning:"Tôi, tớ, mình", example:{zh:"我是老师。", py:"Wǒ shì lǎoshī.", vi:"Tôi là giáo viên."}},
+  {hanzi:"不", pinyin:"bù", wordClass:"phó", hanviet:"Bất", meaning:"Không, chả, chẳng (phủ định)", example:{zh:"我不是学生。", py:"Wǒ bú shì xuésheng.", vi:"Tôi không phải là học sinh."}},
+  {hanzi:"是", pinyin:"shì", wordClass:"động", hanviet:"Thị", meaning:"Thì, là,...", example:{zh:"他是我的同学。", py:"Tā shì wǒ de tóngxué.", vi:"Anh ấy là bạn học của tôi."}},
+  {hanzi:"对不起", pinyin:"duìbuqǐ", wordClass:"động", hanviet:"Đối bất khởi", meaning:"Xin lỗi", example:{zh:"对不起，我来晚了。", py:"Duìbuqǐ, wǒ lái wǎn le.", vi:"Xin lỗi, tôi đến muộn rồi."}},
+  {hanzi:"没关系", pinyin:"méi guānxi", wordClass:"", hanviet:"Một quan hệ", meaning:"Không sao, không vấn đề gì", example:{zh:"没关系，没事的。", py:"Méi guānxi, méishì de.", vi:"Không sao đâu, không vấn đề gì."}},
+  {hanzi:"没事", pinyin:"méishì", wordClass:"động", hanviet:"Một sự", meaning:"Không sao, ko việc gì", example:{zh:"别担心，没事。", py:"Bié dānxīn, méishì.", vi:"Đừng lo, không sao đâu."}},
+  {hanzi:"很", pinyin:"hěn", wordClass:"phó", hanviet:"Ngận", meaning:"Rất, quá, hết sức", example:{zh:"我很高兴认识你。", py:"Wǒ hěn gāoxìng rènshi nǐ.", vi:"Tôi rất vui được quen biết bạn."}},
+  {hanzi:"高兴", pinyin:"gāoxìng", wordClass:"tính từ", hanviet:"Cao hứng", meaning:"Vui, vui vẻ", example:{zh:"认识你，我很高兴。", py:"Rènshi nǐ, wǒ hěn gāoxìng.", vi:"Quen biết bạn, tôi rất vui."}},
+  {hanzi:"认识", pinyin:"rènshi", wordClass:"động từ", hanviet:"Nhận thức", meaning:"Quen biết, nhận biết", example:{zh:"很高兴认识你。", py:"Hěn gāoxìng rènshi nǐ.", vi:"Rất vui được biết bạn."}},
+  {hanzi:"也", pinyin:"yě", wordClass:"phó từ", hanviet:"Dã", meaning:"Cũng, cũng vậy", example:{zh:"我也是学生。", py:"Wǒ yě shì xuésheng.", vi:"Tôi cũng là học sinh."}}
 ];
 
 document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
@@ -1083,6 +1090,9 @@ function renderFlashcard(){
   const wcEl = document.getElementById('fcWordClass');
   wcEl.textContent = item.wordClass || '';
   wcEl.style.display = item.wordClass ? '' : 'none';
+  const hvEl = document.getElementById('fcHanviet');
+  hvEl.textContent = item.hanviet ? '(' + item.hanviet + ')' : '';
+  hvEl.style.display = item.hanviet ? '' : 'none';
   document.getElementById('fcMeaning').textContent = item.meaning;
   document.getElementById('fcExample').innerHTML =
     item.example.zh + '<span class="py">' + item.example.py + '</span><span class="vi">' + item.example.vi + '</span>';
@@ -1597,7 +1607,7 @@ vocab.forEach((item, vIndex)=>{
     '<button class="icon-btn review-actions-listen" title="Nghe phát âm">🔊</button>' +
     '<button class="icon-btn review-actions-write" title="Luyện viết nét chữ">✍️</button>' +
     '<div class="review-hanzi zh" title="'+item.example.zh+'" onclick="this.classList.toggle(\'peek\')">'+item.hanzi+'</div>' +
-    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+'</div>' +
+    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+(item.hanviet ? '<span class="review-hanviet">'+item.hanviet+'</span>' : '')+'</div>' +
     '<div class="review-wordclass"' + (item.wordClass ? '' : ' style="visibility:hidden;"') + '>'+(item.wordClass||'')+'</div>' +
     '<div class="review-meaning" onclick="this.classList.toggle(\'peek\')">'+item.meaning+'</div>' +
     '<div class="review-input-wrap">' +
