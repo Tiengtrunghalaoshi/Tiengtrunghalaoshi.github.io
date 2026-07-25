@@ -288,6 +288,11 @@
     text-transform:lowercase;
     letter-spacing:.3px;
   }
+  .fc-hanviet{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
   .fc-face .fc-speak{
     margin-top:16px;
     border:1px solid var(--jade-light);
@@ -544,6 +549,7 @@
   }
   .review-hanzi{font-size:22px;font-weight:700;cursor:help;}
   .review-pinyin{font-size:13.5px;color:var(--jade-dark);font-weight:600;}
+  .review-hanviet{font-size:10.5px;color:var(--ink-soft);font-style:italic;font-weight:400;display:block;}
   .review-wordclass{
     font-size:10.5px;
     font-weight:700;
@@ -836,6 +842,7 @@
           <div class="fc-pinyin-row">
             <span class="fc-pinyin" id="fcPinyin">nǐ hǎo</span>
             <span class="fc-wordclass" id="fcWordClass"></span>
+            <span class="fc-hanviet" id="fcHanviet"></span>
           </div>
           <button class="fc-speak" id="fcSpeakFront">🔊 Nghe phát âm</button>
           <div class="fc-hint">Nhấn để xem nghĩa</div>
@@ -980,26 +987,26 @@
 <script>
 /* ===================== DATA (HSK1 · Bài 15 — 20 từ vựng) ===================== */
 const vocab = [
-  {hanzi:"爱", pinyin:"ài", wordClass:"động", meaning:"yêu, thích", example:{zh:"我爱我的男朋友。", py:"Wǒ ài wǒ de nánpéngyou.", vi:"Tôi yêu bạn trai của tôi."}},
-  {hanzi:"哪个", pinyin:"nǎge", wordClass:"đại từ", meaning:"cái nào", example:{zh:"你要坐哪个飞机？", py:"Nǐ yào zuò nǎge fēijī?", vi:"Bạn định đi chuyến máy bay nào?"}},
-  {hanzi:"去年", pinyin:"qùnián", wordClass:"danh", meaning:"năm ngoái", example:{zh:"去年我去了北京。", py:"Qùnián wǒ qù le Běijīng.", vi:"Năm ngoái tôi đã đi Bắc Kinh."}},
-  {hanzi:"男朋友", pinyin:"nánpéngyou", wordClass:"danh", meaning:"bạn trai", example:{zh:"我男朋友在西安工作。", py:"Wǒ nánpéngyou zài Xī'ān gōngzuò.", vi:"Bạn trai tôi làm việc ở Tây An."}},
-  {hanzi:"几", pinyin:"jǐ", wordClass:"lượng", meaning:"mấy, vài", example:{zh:"你要坐几个小时飞机？", py:"Nǐ yào zuò jǐ ge xiǎoshí fēijī?", vi:"Bạn phải bay mấy tiếng đồng hồ?"}},
-  {hanzi:"年", pinyin:"nián", wordClass:"danh", meaning:"năm", example:{zh:"我在北京住了三年。", py:"Wǒ zài Běijīng zhù le sān nián.", vi:"Tôi đã sống ở Bắc Kinh ba năm."}},
-  {hanzi:"好玩儿", pinyin:"hǎowánr", wordClass:"tính", meaning:"vui, thú vị", example:{zh:"北京很好玩儿。", py:"Běijīng hěn hǎowánr.", vi:"Bắc Kinh rất vui, thú vị."}},
-  {hanzi:"西安", pinyin:"Xī'ān", wordClass:"danh riêng", meaning:"Tây An", example:{zh:"西安是一个好玩儿的地方。", py:"Xī'ān shì yí ge hǎowánr de dìfang.", vi:"Tây An là một nơi rất thú vị."}},
-  {hanzi:"北京", pinyin:"Běijīng", wordClass:"danh riêng", meaning:"Bắc Kinh", example:{zh:"我要去北京。", py:"Wǒ yào qù Běijīng.", vi:"Tôi muốn đi Bắc Kinh."}},
-  {hanzi:"飞机", pinyin:"fēijī", wordClass:"danh", meaning:"máy bay", example:{zh:"我坐飞机去北京。", py:"Wǒ zuò fēijī qù Běijīng.", vi:"Tôi đi Bắc Kinh bằng máy bay."}},
-  {hanzi:"要", pinyin:"yào", wordClass:"động", meaning:"muốn, cần", example:{zh:"我要去机场接家人。", py:"Wǒ yào qù jīchǎng jiē jiārén.", vi:"Tôi cần ra sân bay đón người nhà."}},
-  {hanzi:"小时", pinyin:"xiǎoshí", wordClass:"danh", meaning:"tiếng đồng hồ, giờ (khoảng thời gian)", example:{zh:"飞机要飞三个小时。", py:"Fēijī yào fēi sān ge xiǎoshí.", vi:"Máy bay phải bay ba tiếng đồng hồ."}},
-  {hanzi:"家人", pinyin:"jiārén", wordClass:"danh", meaning:"người nhà, người thân", example:{zh:"我的家人明天到北京。", py:"Wǒ de jiārén míngtiān dào Běijīng.", vi:"Người nhà tôi ngày mai đến Bắc Kinh."}},
-  {hanzi:"时间", pinyin:"shíjiān", wordClass:"danh", meaning:"thời gian", example:{zh:"你有时间吗？", py:"Nǐ yǒu shíjiān ma?", vi:"Bạn có thời gian không?"}},
-  {hanzi:"机场", pinyin:"jīchǎng", wordClass:"danh", meaning:"sân bay", example:{zh:"大兴机场见！", py:"Dàxīng Jīchǎng jiàn!", vi:"Gặp nhau ở sân bay Đại Hưng nhé!"}},
-  {hanzi:"接", pinyin:"jiē", wordClass:"động", meaning:"tiếp (tiếp đón)", example:{zh:"我去机场接你。", py:"Wǒ qù jīchǎng jiē nǐ.", vi:"Tôi đi sân bay đón bạn."}},
-  {hanzi:"住", pinyin:"zhù", wordClass:"động", meaning:"ở, sinh sống", example:{zh:"你住在哪里？", py:"Nǐ zhù zài nǎlǐ?", vi:"Bạn sống ở đâu?"}},
-  {hanzi:"早", pinyin:"zǎo", wordClass:"tính", meaning:"sớm", example:{zh:"你来得很早。", py:"Nǐ lái de hěn zǎo.", vi:"Bạn đến rất sớm."}},
-  {hanzi:"那", pinyin:"nà", wordClass:"liên từ", meaning:"thế thì, vậy thì", example:{zh:"你没有时间，那我们明天见。", py:"Nǐ méiyǒu shíjiān, nà wǒmen míngtiān jiàn.", vi:"Bạn không có thời gian, vậy thì chúng ta gặp nhau ngày mai nhé."}},
-  {hanzi:"大兴机场", pinyin:"Dàxīng Jīchǎng", wordClass:"danh riêng", meaning:"Sân bay Đại Hưng", example:{zh:"我们大兴机场见！", py:"Wǒmen Dàxīng Jīchǎng jiàn!", vi:"Chúng ta gặp nhau ở sân bay Đại Hưng nhé!"}}
+  {hanzi:"爱", pinyin:"ài", wordClass:"động", hanviet:"Ái", meaning:"yêu, thích", example:{zh:"我爱我的男朋友。", py:"Wǒ ài wǒ de nánpéngyou.", vi:"Tôi yêu bạn trai của tôi."}},
+  {hanzi:"哪个", pinyin:"nǎge", wordClass:"đại từ", hanviet:"Na cá", meaning:"cái nào", example:{zh:"你要坐哪个飞机？", py:"Nǐ yào zuò nǎge fēijī?", vi:"Bạn định đi chuyến máy bay nào?"}},
+  {hanzi:"去年", pinyin:"qùnián", wordClass:"danh", hanviet:"Khứ niên", meaning:"năm ngoái", example:{zh:"去年我去了北京。", py:"Qùnián wǒ qù le Běijīng.", vi:"Năm ngoái tôi đã đi Bắc Kinh."}},
+  {hanzi:"男朋友", pinyin:"nánpéngyou", wordClass:"danh", hanviet:"Nam bằng hữu", meaning:"bạn trai", example:{zh:"我男朋友在西安工作。", py:"Wǒ nánpéngyou zài Xī'ān gōngzuò.", vi:"Bạn trai tôi làm việc ở Tây An."}},
+  {hanzi:"几", pinyin:"jǐ", wordClass:"số từ", hanviet:"Kỷ", meaning:"mấy, vài", example:{zh:"你要坐几个小时飞机？", py:"Nǐ yào zuò jǐ ge xiǎoshí fēijī?", vi:"Bạn phải bay mấy tiếng đồng hồ?"}},
+  {hanzi:"年", pinyin:"nián", wordClass:"danh", hanviet:"Niên", meaning:"năm", example:{zh:"我在北京住了三年。", py:"Wǒ zài Běijīng zhù le sān nián.", vi:"Tôi đã sống ở Bắc Kinh ba năm."}},
+  {hanzi:"好玩儿", pinyin:"hǎowánr", wordClass:"tính", hanviet:"Hảo ngoạn", meaning:"vui, thú vị", example:{zh:"北京很好玩儿。", py:"Běijīng hěn hǎowánr.", vi:"Bắc Kinh rất vui, thú vị."}},
+  {hanzi:"西安", pinyin:"Xī'ān", wordClass:"danh riêng", hanviet:"Tây An", meaning:"Tây An", example:{zh:"西安是一个好玩儿的地方。", py:"Xī'ān shì yí ge hǎowánr de dìfang.", vi:"Tây An là một nơi rất thú vị."}},
+  {hanzi:"北京", pinyin:"Běijīng", wordClass:"danh riêng", hanviet:"Bắc Kinh", meaning:"Bắc Kinh", example:{zh:"我要去北京。", py:"Wǒ yào qù Běijīng.", vi:"Tôi muốn đi Bắc Kinh."}},
+  {hanzi:"飞机", pinyin:"fēijī", wordClass:"danh", hanviet:"Phi cơ", meaning:"máy bay", example:{zh:"我坐飞机去北京。", py:"Wǒ zuò fēijī qù Běijīng.", vi:"Tôi đi Bắc Kinh bằng máy bay."}},
+  {hanzi:"要", pinyin:"yào", wordClass:"động", hanviet:"Yếu", meaning:"muốn, cần", example:{zh:"我要去机场接家人。", py:"Wǒ yào qù jīchǎng jiē jiārén.", vi:"Tôi cần ra sân bay đón người nhà."}},
+  {hanzi:"小时", pinyin:"xiǎoshí", wordClass:"danh", hanviet:"Tiểu thời", meaning:"tiếng đồng hồ, giờ (khoảng thời gian)", example:{zh:"飞机要飞三个小时。", py:"Fēijī yào fēi sān ge xiǎoshí.", vi:"Máy bay phải bay ba tiếng đồng hồ."}},
+  {hanzi:"家人", pinyin:"jiārén", wordClass:"danh", hanviet:"Gia nhân", meaning:"người nhà, người thân", example:{zh:"我的家人明天到北京。", py:"Wǒ de jiārén míngtiān dào Běijīng.", vi:"Người nhà tôi ngày mai đến Bắc Kinh."}},
+  {hanzi:"时间", pinyin:"shíjiān", wordClass:"danh", hanviet:"Thời gian", meaning:"thời gian", example:{zh:"你有时间吗？", py:"Nǐ yǒu shíjiān ma?", vi:"Bạn có thời gian không?"}},
+  {hanzi:"机场", pinyin:"jīchǎng", wordClass:"danh", hanviet:"Cơ trường", meaning:"sân bay", example:{zh:"大兴机场见！", py:"Dàxīng Jīchǎng jiàn!", vi:"Gặp nhau ở sân bay Đại Hưng nhé!"}},
+  {hanzi:"接", pinyin:"jiē", wordClass:"động", hanviet:"Tiếp", meaning:"tiếp (tiếp đón)", example:{zh:"我去机场接你。", py:"Wǒ qù jīchǎng jiē nǐ.", vi:"Tôi đi sân bay đón bạn."}},
+  {hanzi:"住", pinyin:"zhù", wordClass:"động", hanviet:"Trú", meaning:"ở, sinh sống", example:{zh:"你住在哪里？", py:"Nǐ zhù zài nǎlǐ?", vi:"Bạn sống ở đâu?"}},
+  {hanzi:"早", pinyin:"zǎo", wordClass:"tính", hanviet:"Tảo", meaning:"sớm", example:{zh:"你来得很早。", py:"Nǐ lái de hěn zǎo.", vi:"Bạn đến rất sớm."}},
+  {hanzi:"那", pinyin:"nà", wordClass:"liên từ", hanviet:"Na", meaning:"thế thì, vậy thì", example:{zh:"你没有时间，那我们明天见。", py:"Nǐ méiyǒu shíjiān, nà wǒmen míngtiān jiàn.", vi:"Bạn không có thời gian, vậy thì chúng ta gặp nhau ngày mai nhé."}},
+  {hanzi:"大兴机场", pinyin:"Dàxīng Jīchǎng", wordClass:"danh riêng", hanviet:"Đại Hưng Cơ trường", meaning:"Sân bay Đại Hưng", example:{zh:"我们大兴机场见！", py:"Wǒmen Dàxīng Jīchǎng jiàn!", vi:"Chúng ta gặp nhau ở sân bay Đại Hưng nhé!"}}
 ];
 
 document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
@@ -1096,6 +1103,9 @@ function renderFlashcard(){
   const wcEl = document.getElementById('fcWordClass');
   wcEl.textContent = item.wordClass || '';
   wcEl.style.display = item.wordClass ? '' : 'none';
+  const hvEl = document.getElementById('fcHanviet');
+  hvEl.textContent = item.hanviet ? '(' + item.hanviet + ')' : '';
+  hvEl.style.display = item.hanviet ? '' : 'none';
   document.getElementById('fcMeaning').textContent = item.meaning;
   document.getElementById('fcExample').innerHTML =
     item.example.zh + '<span class="py">' + item.example.py + '</span><span class="vi">' + item.example.vi + '</span>';
@@ -1610,7 +1620,7 @@ vocab.forEach((item, vIndex)=>{
     '<button class="icon-btn review-actions-listen" title="Nghe phát âm">🔊</button>' +
     '<button class="icon-btn review-actions-write" title="Luyện viết nét chữ">✍️</button>' +
     '<div class="review-hanzi zh" title="'+item.example.zh+'" onclick="this.classList.toggle(\'peek\')">'+item.hanzi+'</div>' +
-    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+'</div>' +
+    '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+(item.hanviet ? '<span class="review-hanviet">'+item.hanviet+'</span>' : '')+'</div>' +
     '<div class="review-wordclass"' + (item.wordClass ? '' : ' style="visibility:hidden;"') + '>'+(item.wordClass||'')+'</div>' +
     '<div class="review-meaning" onclick="this.classList.toggle(\'peek\')">'+item.meaning+'</div>' +
     '<div class="review-input-wrap">' +
