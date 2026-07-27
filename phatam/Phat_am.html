@@ -19,6 +19,17 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;padding-bottom:48px}
 
+.back-link{
+  position:absolute;top:14px;left:14px;z-index:2;
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;
+  color:#fff;background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.35);
+  padding:6px 13px;border-radius:20px;
+  text-decoration:none;transition:all .18s;
+}
+.back-link:hover{background:rgba(255,255,255,.32);}
+
 /* ── HERO ── */
 .hero{background:linear-gradient(135deg,#7C3AED 0%,#5B21B6 50%,#4338CA 100%);padding:24px 20px 26px;position:relative;overflow:hidden}
 .hero::before,.hero::after{content:'';position:absolute;border-radius:50%;opacity:.08;background:#fff}
@@ -168,6 +179,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 
 <!-- HERO -->
 <div class="hero">
+  <a href="../../index.html#phatam" class="back-link">◀ Quay lại Phát âm</a>
   <div class="hero-tag">Tiếng Trung Halaoshi · HSK 1 · Bài 1</div>
   <div class="hero-title">🎧 Phát âm & Luyện phụ âm</div>
   <div class="hero-sub">Nghe → nhận diện âm → luyện phụ âm & vận âm</div>
