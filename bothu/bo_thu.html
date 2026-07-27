@@ -20,6 +20,17 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);min-height:100vh}
 
+.back-link{
+  position:absolute;top:14px;left:14px;z-index:2;
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;
+  color:#fff;background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.35);
+  padding:6px 13px;border-radius:20px;
+  text-decoration:none;transition:all .18s;
+}
+.back-link:hover{background:rgba(255,255,255,.32);}
+
 /* ── HEADER ── */
 .site-header{
   background:linear-gradient(135deg,#5BAD6F 0%,#3D9158 60%,#2E7A48 100%);
@@ -256,6 +267,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 <body>
 
 <div class="site-header">
+  <a href="../../index.html#bothu" class="back-link">◀ Quay lại Bộ thủ</a>
   <div class="dots-bg"></div>
   <div class="brand">🇨🇳 Tiếng Trung Halaoshi</div>
   <div class="main-title"><span class="shine">50 Bộ Thủ Thường Gặp</span> ✨</div>
