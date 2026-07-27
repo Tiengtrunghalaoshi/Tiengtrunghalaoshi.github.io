@@ -1,0 +1,2987 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSK1 · Tổng hợp Từ vựng Bài 1–15 — Tiếng Trung Halaoshi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;600&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+  :root{
+    --paper:#F8F4E9;
+    --paper-dark:#EFE7D2;
+    --paper-line:#E4D9BE;
+    --ink:#1F2B24;
+    --ink-soft:#5B6B5F;
+    --jade:#2E86DE;
+    --jade-dark:#1B4F91;
+    --jade-light:#D6EAFB;
+    --jade-pale:#EEF6FE;
+    --seal:#1B4F91;
+    --seal-light:#D6EAFB;
+    --gold:#C9A24B;
+    --correct:#3F8F5F;
+    --correct-light:#E1F1E5;
+    --wrong:#C0392B;
+    --wrong-light:#FBE4E1;
+    --radius:16px;
+    --radius-sm:10px;
+    --shadow:0 6px 20px rgba(31,43,36,0.10);
+    --shadow-sm:0 2px 8px rgba(31,43,36,0.08);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Be Vietnam Pro',sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 15% 8%, rgba(47,111,94,0.06) 0%, transparent 45%),
+      radial-gradient(circle at 85% 90%, rgba(178,58,46,0.05) 0%, transparent 40%),
+      var(--paper);
+    min-height:100vh;
+    padding-bottom:40px;
+  }
+  .zh{font-family:'Noto Serif SC',serif;}
+  .zh-sans{font-family:'Noto Sans SC',sans-serif;}
+
+  /* ---------- Back link ---------- */
+  .back-bar{max-width:920px;margin:0 auto;padding:14px 20px 0;}
+  .back-link{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'Be Vietnam Pro',sans-serif;
+    font-size:13px;font-weight:700;
+    color:var(--jade-dark);
+    background:var(--jade-pale);
+    border:1px solid var(--jade-light);
+    padding:7px 14px;border-radius:20px;
+    text-decoration:none;
+    transition:all .18s;
+  }
+  .back-link:hover{background:var(--jade); border-color:var(--jade); color:#fff;}
+
+  /* ---------- Header ---------- */
+  .app-header{
+    max-width:920px;
+    margin:0 auto;
+    padding:28px 20px 18px;
+    display:flex;
+    align-items:flex-start;
+    gap:18px;
+  }
+  .seal{
+    flex:none;
+    width:56px;height:56px;
+    border-radius:10px;
+    background:var(--seal);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Noto Serif SC',serif;
+    font-weight:900;
+    font-size:26px;
+    transform:rotate(-4deg);
+    box-shadow:var(--shadow-sm);
+    letter-spacing:-2px;
+  }
+  .app-title{min-width:0;}
+  .lesson-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--jade);
+    color:#fff;
+    font-family:'Noto Serif SC',serif;
+    font-weight:700;
+    font-size:12.5px;
+    letter-spacing:.5px;
+    padding:3px 11px 3px 9px;
+    border-radius:99px;
+    margin-bottom:7px;
+  }
+  .lesson-tag .num{
+    background:rgba(255,255,255,.22);
+    border-radius:99px;
+    padding:1px 7px;
+    font-size:11px;
+  }
+  .app-title h1{
+    margin:0;
+    font-size:26px;
+    font-weight:700;
+    letter-spacing:.3px;
+    line-height:1.25;
+    color:var(--ink);
+  }
+  .app-title .vi-title{
+    margin:4px 0 0;
+    font-size:14.5px;
+    font-weight:600;
+    font-style:italic;
+    color:var(--jade-dark);
+  }
+  .app-title .sub{
+    margin:7px 0 0;
+    font-size:12.5px;
+    color:var(--ink-soft);
+  }
+  .app-title .brand{
+    color:var(--jade-dark);
+    font-weight:600;
+    font-style:normal;
+  }
+  @media(max-width:520px){
+    .app-title h1{font-size:21px;}
+  }
+
+  /* ---------- Stats strip ---------- */
+  .stats-strip{
+    max-width:920px;
+    margin:0 auto 18px;
+    padding:0 20px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .stat-pill{
+    background:var(--jade-pale);
+    border:1px solid var(--jade-light);
+    color:var(--jade-dark);
+    font-size:12.5px;
+    font-weight:600;
+    padding:6px 12px;
+    border-radius:99px;
+  }
+
+  .disclaimer-note{
+    max-width:900px;
+    margin:0 auto 14px;
+    padding:8px 16px;
+    font-size:.82em;
+    color:#B45309;
+    text-align:center;
+    line-height:1.5;
+  }
+
+  /* ---------- Tabs ---------- */
+  .tabs-wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 20px;
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:linear-gradient(var(--paper) 78%, transparent);
+    padding-top:6px;
+  }
+  .tabs{
+    display:flex;
+    gap:6px;
+    background:var(--paper-dark);
+    border:1px solid var(--paper-line);
+    border-radius:var(--radius);
+    padding:5px;
+    overflow-x:auto;
+  }
+  .tab-btn{
+    flex:1;
+    white-space:nowrap;
+    border:none;
+    background:transparent;
+    color:var(--ink-soft);
+    font-family:inherit;
+    font-weight:600;
+    font-size:14px;
+    padding:10px 12px;
+    border-radius:var(--radius-sm);
+    cursor:pointer;
+    transition:all .18s ease;
+  }
+  .tab-btn:hover{color:var(--ink);}
+  .tab-btn.active{
+    background:var(--jade);
+    color:#fff;
+    box-shadow:var(--shadow-sm);
+  }
+
+  main{
+    max-width:920px;
+    margin:0 auto;
+    padding:22px 20px 0;
+  }
+  .panel{display:none;animation:fade .25s ease;}
+  .panel.active{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:14px;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .section-head h2{
+    font-size:17px;
+    margin:0;
+    font-weight:700;
+  }
+  .section-head .hint{
+    font-size:12.5px;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- Flashcards ---------- */
+  .fc-counter{
+    text-align:center;
+    font-size:13px;
+    color:var(--ink-soft);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .fc-stage{
+    perspective:1400px;
+    max-width:420px;
+    margin:0 auto;
+  }
+  .fc-card{
+    position:relative;
+    width:100%;
+    height:280px;
+    cursor:pointer;
+    transform-style:preserve-3d;
+    transition:transform .5s cubic-bezier(.4,.2,.2,1);
+  }
+  .fc-card.flipped{transform:rotateY(180deg);}
+  .fc-face{
+    position:absolute;
+    inset:0;
+    backface-visibility:hidden;
+    border-radius:var(--radius);
+    border:1px solid var(--paper-line);
+    background:#fff;
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    text-align:center;
+  }
+  .fc-face.back{transform:rotateY(180deg);background:var(--jade-pale);}
+  .fc-hanzi{font-size:64px;font-weight:700;line-height:1;}
+  .fc-pinyin-row{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin-top:10px;
+    flex-wrap:wrap;
+  }
+  .fc-pinyin{font-size:16px;color:var(--jade-dark);font-weight:600;}
+  .fc-wordclass{
+    background:var(--gold);
+    color:#fff;
+    font-size:10.5px;
+    font-weight:700;
+    padding:2px 9px;
+    border-radius:99px;
+    text-transform:lowercase;
+    letter-spacing:.3px;
+  }
+  .fc-hanviet{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
+  .fc-face .fc-speak{
+    margin-top:16px;
+    border:1px solid var(--jade-light);
+    background:#fff;
+    color:var(--jade-dark);
+    border-radius:99px;
+    padding:7px 16px;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+  }
+  .fc-meaning{font-size:22px;font-weight:700;color:var(--jade-dark);}
+  .fc-example{margin-top:14px;font-size:14px;line-height:1.6;color:var(--ink);}
+  .fc-example .py{color:var(--ink-soft);font-size:12.5px;display:block;}
+  .fc-example .vi{color:var(--ink-soft);font-size:12.5px;display:block;margin-top:2px;font-style:italic;}
+  .fc-hint{margin-top:14px;font-size:11.5px;color:var(--ink-soft);}
+  .fc-radicals{margin-top:14px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;}
+  .radical-pill{
+    background:#fff;
+    border:1px solid var(--jade-light);
+    color:var(--jade-dark);
+    font-size:11.5px;
+    font-weight:600;
+    padding:4px 10px;
+    border-radius:99px;
+  }
+  .radical-pill .zh{font-size:13px;}
+
+  .fc-controls{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:20px;
+    flex-wrap:wrap;
+  }
+  .fc-mastery{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:12px;
+    flex-wrap:wrap;
+  }
+  .btn-mastered{border-color:var(--correct);color:var(--correct);}
+  .btn-mastered:hover{background:var(--correct-light);}
+  .btn-mastered.active{background:var(--correct);color:#fff;}
+  .btn-unmastered{border-color:var(--wrong);color:var(--wrong);}
+  .btn-unmastered:hover{background:var(--wrong-light);}
+  .btn-unmastered.active{background:var(--wrong);color:#fff;}
+  .btn{
+    font-family:inherit;
+    border:1px solid var(--paper-line);
+    background:#fff;
+    color:var(--ink);
+    padding:10px 16px;
+    border-radius:var(--radius-sm);
+    font-weight:600;
+    font-size:13.5px;
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .btn:hover{border-color:var(--jade);color:var(--jade-dark);}
+  .btn-primary{background:var(--jade);color:#fff;border-color:var(--jade);}
+  .btn-primary:hover{background:var(--jade-dark);color:#fff;}
+  .btn-ghost{background:transparent;}
+  .btn:disabled{opacity:.4;cursor:not-allowed;}
+
+  /* ---------- Quiz ---------- */
+  .quiz-progress{
+    height:6px;
+    background:var(--paper-dark);
+    border-radius:99px;
+    overflow:hidden;
+    margin-bottom:16px;
+  }
+  .quiz-progress-bar{
+    height:100%;
+    width:0%;
+    background:var(--jade);
+    transition:width .3s ease;
+  }
+  .quiz-card{
+    background:#fff;
+    border:1px solid var(--paper-line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-sm);
+    padding:28px 24px;
+    text-align:center;
+  }
+  .quiz-q-label{font-size:12.5px;color:var(--ink-soft);font-weight:600;margin-bottom:6px;}
+  .quiz-hanzi{font-size:48px;font-weight:700;}
+  .quiz-pinyin{color:var(--jade-dark);font-weight:600;margin-top:4px;font-size:15px;}
+  .quiz-options{
+    margin-top:22px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    text-align:left;
+  }
+  @media(max-width:480px){.quiz-options{grid-template-columns:1fr;}}
+  .quiz-opt{
+    border:1.5px solid var(--paper-line);
+    background:var(--paper);
+    padding:13px 14px;
+    border-radius:var(--radius-sm);
+    font-family:inherit;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    color:var(--ink);
+    text-align:left;
+    transition:all .15s ease;
+  }
+  .quiz-opt:hover:not(:disabled){border-color:var(--jade);}
+  .quiz-opt.correct{background:var(--correct-light);border-color:var(--correct);color:var(--correct);}
+  .quiz-opt.wrong{background:var(--wrong-light);border-color:var(--wrong);color:var(--wrong);}
+  .quiz-opt:disabled{cursor:default;}
+  .quiz-footer{
+    display:flex;
+    justify-content:center;
+    margin-top:20px;
+  }
+  .quiz-result{
+    text-align:center;
+    padding:30px 20px;
+  }
+  .quiz-result .seal-big{
+    width:88px;height:88px;
+    margin:0 auto 16px;
+    border-radius:14px;
+    background:var(--seal);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Noto Serif SC',serif;
+    font-weight:900;
+    font-size:15px;
+    transform:rotate(-3deg);
+    box-shadow:var(--shadow-sm);
+  }
+  .quiz-result .score{font-size:32px;font-weight:800;color:var(--jade-dark);}
+  .quiz-result p{color:var(--ink-soft);font-size:14px;}
+
+  /* ---------- Game hub ---------- */
+  .game-menu{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  @media(max-width:560px){.game-menu{grid-template-columns:1fr;}}
+  .game-card{
+    background:#fff;
+    border:1px solid var(--paper-line);
+    border-radius:var(--radius);
+    padding:18px;
+    box-shadow:var(--shadow-sm);
+    text-align:left;
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .game-card:hover{border-color:var(--jade);transform:translateY(-2px);box-shadow:var(--shadow);}
+  .game-card .icon{font-size:26px;}
+  .game-card h3{margin:8px 0 4px;font-size:15px;}
+  .game-card p{margin:0;font-size:12.5px;color:var(--ink-soft);line-height:1.5;}
+  .game-card .play{margin-top:12px;display:inline-block;font-size:12.5px;font-weight:700;color:var(--jade-dark);}
+
+  .game-area-head{
+    display:flex;
+    align-items:center;
+    margin-bottom:16px;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .game-area-title{font-weight:700;font-size:15px;flex:1;}
+  .game-timer{
+    font-weight:700;
+    font-size:13px;
+    color:var(--jade-dark);
+    background:var(--jade-pale);
+    border:1px solid var(--jade-light);
+    padding:5px 12px;
+    border-radius:99px;
+    white-space:nowrap;
+  }
+
+  /* ---------- Match game (nối cặp) ---------- */
+  .match-wrap{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+  .match-col{display:flex;flex-direction:column;gap:8px;width:220px;}
+  .match-btn{
+    border:1.5px solid var(--paper-line);
+    background:#fff;
+    border-radius:var(--radius-sm);
+    padding:11px 12px;
+    font-family:inherit;
+    font-size:13.5px;
+    font-weight:600;
+    cursor:pointer;
+    text-align:left;
+    color:var(--ink);
+  }
+  .match-btn.hanzi{font-family:'Noto Serif SC',serif;font-size:18px;}
+  .match-btn:hover:not(.matched){border-color:var(--jade);}
+  .match-btn.selected{border-color:var(--jade);background:var(--jade-pale);}
+  .match-btn.matched{border-color:var(--correct);background:var(--correct-light);color:var(--correct);cursor:default;}
+  .match-btn.wrong{border-color:var(--wrong);background:var(--wrong-light);}
+  .match-status{text-align:center;font-size:13px;color:var(--ink-soft);margin-top:16px;font-weight:600;}
+
+  /* ---------- Memory game (lật thẻ nhớ) ---------- */
+  .mem-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    max-width:520px;
+    margin:0 auto;
+  }
+  @media(max-width:480px){.mem-grid{grid-template-columns:repeat(3,1fr);}}
+  .mem-card{aspect-ratio:1/1;perspective:800px;cursor:pointer;}
+  .mem-card-inner{
+    position:relative;width:100%;height:100%;
+    transform-style:preserve-3d;
+    transition:transform .4s ease;
+  }
+  .mem-card.flipped .mem-card-inner,.mem-card.matched .mem-card-inner{transform:rotateY(180deg);}
+  .mem-face{
+    position:absolute;inset:0;
+    border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+    backface-visibility:hidden;
+    padding:6px;
+    text-align:center;
+  }
+  .mem-face.back{background:var(--jade);color:#fff;font-family:'Noto Serif SC',serif;font-size:20px;font-weight:700;}
+  .mem-face.front{background:#fff;border:1.5px solid var(--paper-line);transform:rotateY(180deg);font-size:12.5px;font-weight:600;line-height:1.3;}
+  .mem-face.front.hanzi{font-family:'Noto Serif SC',serif;font-size:22px;}
+  .mem-card.matched .mem-face.front{border-color:var(--correct);background:var(--correct-light);color:var(--correct);}
+  .mem-status{text-align:center;font-size:13px;color:var(--ink-soft);margin-top:16px;font-weight:600;}
+
+  /* ---------- Ôn tập (review table) ---------- */
+  .review-list{display:flex;flex-direction:column;gap:8px;}
+  .review-row{
+    display:grid;
+    grid-template-columns:32px 42px 42px 76px 96px 56px 1fr 140px;
+    align-items:center;
+    gap:10px;
+    background:#fff;
+    border:1.5px solid var(--paper-line);
+    border-radius:var(--radius-sm);
+    padding:10px 14px;
+    transition:all .15s ease;
+  }
+  .review-row.mastered{background:var(--correct-light);border-color:var(--correct);}
+  .review-check{
+    width:20px;height:20px;
+    accent-color:var(--jade);
+    cursor:pointer;
+  }
+  .review-hanzi{font-size:22px;font-weight:700;cursor:help;}
+  .review-pinyin{font-size:13.5px;color:var(--jade-dark);font-weight:600;}
+  .review-hanviet{font-size:10.5px;color:var(--ink-soft);font-style:italic;font-weight:400;display:block;}
+  .review-wordclass{
+    font-size:10.5px;
+    font-weight:700;
+    color:#fff;
+    background:var(--gold);
+    padding:2px 8px;
+    border-radius:99px;
+    text-align:center;
+    justify-self:start;
+  }
+  .review-meaning{font-size:13px;color:var(--ink-soft);min-width:0;}
+  .review-input-wrap{position:relative;display:flex;align-items:center;gap:6px;}
+  .review-input{
+    width:100%;
+    font-family:'Noto Serif SC','Be Vietnam Pro',sans-serif;
+    font-size:16px;
+    border:1.5px solid var(--paper-line);
+    background:var(--paper);
+    border-radius:var(--radius-sm);
+    padding:7px 10px;
+    color:var(--ink);
+  }
+  .review-input:focus{outline:none;border-color:var(--jade);}
+  .review-input.correct{border-color:var(--correct);background:var(--correct-light);color:var(--correct);}
+  .review-input.wrong{border-color:var(--wrong);background:var(--wrong-light);color:var(--wrong);}
+  .review-status{flex:none;font-size:16px;width:18px;text-align:center;}
+  .review-stats{text-align:center;font-size:13px;color:var(--ink-soft);font-weight:600;margin-bottom:14px;}
+  .review-select-all{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:10px;
+  }
+  .review-field-toggles{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:12px;
+  }
+  .rv-toggle-btn.off{
+    background:var(--paper-dark);
+    color:var(--ink-soft);
+    border-color:var(--paper-line);
+  }
+  #panel-review.hide-hanzi .review-hanzi{filter:blur(6px);user-select:none;cursor:pointer;transition:filter .2s;}
+  #panel-review.hide-pinyin .review-pinyin{filter:blur(6px);user-select:none;cursor:pointer;transition:filter .2s;}
+  #panel-review.hide-meaning .review-meaning{filter:blur(6px);user-select:none;cursor:pointer;transition:filter .2s;}
+  #panel-review .review-hanzi.peek,
+  #panel-review .review-pinyin.peek,
+  #panel-review .review-meaning.peek{filter:none !important;}
+  .review-topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:12px;
+  }
+  .review-timer{
+    font-weight:700;
+    font-size:13px;
+    color:var(--jade-dark);
+    background:var(--jade-pale);
+    border:1px solid var(--jade-light);
+    padding:5px 12px;
+    border-radius:99px;
+    white-space:nowrap;
+  }
+  .review-score{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    font-size:12.5px;
+    font-weight:700;
+  }
+  .rs-correct{color:var(--correct);}
+  .rs-wrong{color:var(--wrong);}
+  .review-select-all label{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--ink-soft);
+    cursor:pointer;
+    user-select:none;
+  }
+  .review-select-all input{
+    width:18px;height:18px;
+    accent-color:var(--jade);
+    cursor:pointer;
+  }
+  .review-header{
+    display:grid;
+    grid-template-columns:32px 42px 42px 76px 96px 56px 1fr 140px;
+    align-items:center;
+    gap:10px;
+    padding:0 14px;
+    margin-bottom:8px;
+    font-size:11px;
+    font-weight:700;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:.4px;
+  }
+  @media(max-width:760px){
+    .review-header{display:none;}
+    .review-row{
+      grid-template-columns:28px 40px 40px 1fr;
+      grid-template-areas:
+        "check listen write hanzi"
+        "check listen write pinyin"
+        "check listen write wordclass"
+        "check listen write meaning"
+        "check listen write input";
+      row-gap:4px;
+    }
+    .review-check{grid-area:check;align-self:center;}
+    .review-actions-listen{grid-area:listen;}
+    .review-actions-write{grid-area:write;}
+    .review-hanzi{grid-area:hanzi;}
+    .review-pinyin{grid-area:pinyin;}
+    .review-wordclass{grid-area:wordclass;justify-self:start;}
+    .review-meaning{grid-area:meaning;}
+    .review-input-wrap{grid-area:input;}
+  }
+
+  /* ---------- Icon buttons (dùng trong game Nghe & bảng Ôn tập) ---------- */
+  .icon-btn{
+    flex:none;
+    width:38px;height:38px;
+    border-radius:50%;
+    border:1px solid var(--jade-light);
+    background:var(--jade-pale);
+    color:var(--jade-dark);
+    font-size:16px;
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .icon-btn:hover{background:var(--jade-light);}
+  .icon-btn.sm{width:32px;height:32px;font-size:13px;}
+
+
+  /* ---------- Hanzi writer ---------- */
+  .hz-search{
+    display:flex;
+    gap:8px;
+    margin-bottom:16px;
+  }
+  .hz-search input{
+    flex:1;
+    min-width:0;
+    font-family:'Noto Serif SC','Be Vietnam Pro',sans-serif;
+    font-size:15px;
+    border:1.5px solid var(--paper-line);
+    background:#fff;
+    border-radius:var(--radius-sm);
+    padding:10px 14px;
+    color:var(--ink);
+  }
+  .hz-search input:focus{outline:none;border-color:var(--jade);}
+  .hz-search-status{
+    font-size:12px;
+    color:var(--seal);
+    margin:-8px 0 14px;
+    min-height:14px;
+  }
+  .hz-current{
+    text-align:center;
+    font-size:13px;
+    color:var(--ink-soft);
+    font-weight:600;
+    margin-bottom:14px;
+  }
+  .hz-current .zh{font-size:15px;color:var(--ink);}
+  .hz-index{color:var(--ink-soft);font-weight:600;font-size:12px;}
+  .hz-nav{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:20px;
+  }
+  .hz-nav-btn{
+    flex:none;
+    width:38px;height:38px;
+    border-radius:99px;
+    border:1.5px solid var(--paper-line);
+    background:#fff;
+    color:var(--jade-dark);
+    font-size:15px;
+    cursor:pointer;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .hz-nav-btn:hover{background:var(--jade-pale); border-color:var(--jade-light);}
+  .hz-select{
+    flex:1;
+    min-width:0;
+    font-family:'Noto Serif SC','Be Vietnam Pro',sans-serif;
+    font-size:14.5px;
+    font-weight:600;
+    color:var(--ink);
+    background:#fff;
+    border:1.5px solid var(--paper-line);
+    border-radius:var(--radius-sm);
+    padding:10px 12px;
+    cursor:pointer;
+  }
+  .hz-select:focus{outline:none;border-color:var(--jade);}
+  .hz-board{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+  }
+  .hz-char-card{
+    background:#fff;
+    border:1px solid var(--paper-line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-sm);
+    padding:16px;
+    text-align:center;
+    width:190px;
+  }
+  .hz-target{
+    width:160px;height:160px;
+    margin:0 auto;
+    background:
+      repeating-linear-gradient(var(--paper-dark) 0 1px, transparent 1px 100%),
+      repeating-linear-gradient(90deg, var(--paper-dark) 0 1px, transparent 1px 100%),
+      #fff;
+    background-size:100% 50%, 50% 100%;
+    border:1px dashed var(--paper-line);
+    border-radius:10px;
+  }
+  .hz-actions{
+    display:flex;
+    gap:6px;
+    margin-top:10px;
+    justify-content:center;
+  }
+  .hz-actions .btn{padding:7px 10px;font-size:12px;}
+  .hz-status{font-size:11.5px;color:var(--ink-soft);margin-top:8px;min-height:14px;}
+  .hz-radical{font-size:11.5px;color:var(--jade-dark);font-weight:600;margin-top:2px;}
+
+  footer{
+    max-width:920px;
+    margin:34px auto 0;
+    padding:16px 20px;
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:12px;
+    border-top:1px solid var(--paper-line);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .fc-card,.panel,.quiz-progress-bar{transition:none;animation:none;}
+  }
+
+
+  /* ===================== FILTER PANEL (mới) ===================== */
+  .filter-wrap{
+    max-width:920px;
+    margin:18px auto 0;
+    padding:0 20px;
+  }
+  .filter-card{
+    background:#fff;
+    border:1px solid var(--paper-line);
+    border-radius:16px;
+    padding:18px 18px 16px;
+    box-shadow:0 2px 8px rgba(31,43,36,0.05);
+  }
+  .filter-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:12px;
+  }
+  .filter-head h2{
+    font-size:16px;
+    margin:0;
+    color:var(--jade-dark);
+  }
+  .filter-summary{
+    font-size:13px;
+    color:var(--ink-soft);
+    font-weight:600;
+  }
+  .filter-quick{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:12px;
+  }
+  .filter-quick-btn{
+    font-family:inherit;
+    font-size:12.5px;
+    font-weight:600;
+    padding:7px 13px;
+    border-radius:999px;
+    border:1px solid var(--jade-light);
+    background:var(--jade-pale);
+    color:var(--jade-dark);
+    cursor:pointer;
+  }
+  .filter-quick-btn:hover{ background:var(--jade-light); }
+  .filter-quick-btn.ghost{
+    background:#fff;
+    border-color:var(--paper-line);
+    color:var(--ink-soft);
+  }
+  .filter-quick-btn.ghost:hover{ background:var(--paper); }
+  /* ---- Dropdown chọn bài học ---- */
+  .lesson-dropdown{
+    position:relative;
+    margin-bottom:2px;
+  }
+  .lesson-dropdown-toggle{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    font-family:inherit;
+    font-size:14px;
+    font-weight:600;
+    color:var(--ink);
+    background:var(--paper);
+    border:1.5px solid var(--paper-line);
+    border-radius:12px;
+    padding:11px 14px;
+    cursor:pointer;
+    transition:border-color .15s ease;
+  }
+  .lesson-dropdown-toggle:hover{ border-color:var(--jade-light); }
+  .lesson-dropdown.open .lesson-dropdown-toggle{ border-color:var(--jade); }
+  .lesson-dropdown-toggle .ldd-arrow{
+    color:var(--ink-soft);
+    transition:transform .2s ease;
+    flex-shrink:0;
+  }
+  .lesson-dropdown.open .ldd-arrow{ transform:rotate(180deg); }
+  .lesson-dropdown-panel{
+    display:none;
+    position:absolute;
+    left:0; right:0; top:calc(100% + 6px);
+    background:#fff;
+    border:1px solid var(--paper-line);
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    z-index:30;
+    padding:10px;
+    max-height:340px;
+    overflow-y:auto;
+  }
+  .lesson-dropdown.open .lesson-dropdown-panel{ display:block; }
+  .ldd-quick{
+    display:flex;
+    gap:8px;
+    margin-bottom:8px;
+    padding-bottom:8px;
+    border-bottom:1px dashed var(--paper-line);
+  }
+  .lesson-list{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  .lesson-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:8px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:background .12s ease;
+  }
+  .lesson-row:hover{ background:var(--paper); }
+  .lesson-row.selected{ background:var(--jade-pale); }
+  .lesson-row input[type="checkbox"]{
+    width:16px;height:16px;
+    accent-color:var(--jade);
+    flex-shrink:0;
+    cursor:pointer;
+  }
+  .lr-num{
+    font-size:12.5px;
+    font-weight:700;
+    color:var(--jade-dark);
+    flex-shrink:0;
+    width:52px;
+  }
+  .lr-hanzi{
+    font-family:'Noto Serif SC', serif;
+    font-size:14px;
+    color:var(--ink);
+    flex:1;
+    min-width:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .lr-count{
+    font-size:11px;
+    color:var(--ink-soft);
+    flex-shrink:0;
+  }
+  .filter-apply-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px dashed var(--paper-line);
+  }
+  .filter-apply-btn{
+    font-family:inherit;
+    font-size:14.5px;
+    font-weight:700;
+    padding:11px 22px;
+    border-radius:999px;
+    border:none;
+    background:linear-gradient(135deg, var(--jade), var(--jade-dark));
+    color:#fff;
+    cursor:pointer;
+    box-shadow:0 4px 12px rgba(46,134,222,0.28);
+  }
+  .filter-apply-btn:hover{ filter:brightness(1.05); }
+  .filter-apply-btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+    box-shadow:none;
+  }
+  .filter-note{
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+
+  @media (max-width:480px){
+    .lr-hanzi{ font-size:12.5px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="back-bar">
+  <a href="../../index.html#sotaytuvung" class="back-link">◀ Quay lại Sổ tay từ vựng</a>
+</div>
+
+<div class="app-header">
+  <div class="seal zh">汉</div>
+  <div class="app-title">
+    <div class="lesson-tag zh">总复习 <span class="num" id="headerLessonCount">Bài 1–15</span></div>
+    <h1 class="zh" id="headerHanzi">标准教程 HSK1</h1>
+    <p class="vi-title" id="headerVi">Tổng hợp Từ vựng — Bài 1 đến Bài 15</p>
+    <p class="sub"><span class="brand">Tiếng Trung Halaoshi</span> — 标准教程HSK1</p>
+  </div>
+</div>
+
+<div class="stats-strip">
+  <span class="stat-pill" id="statTotal">330 từ vựng</span>
+  <span class="stat-pill" id="statLessonCount">15 bài học</span>
+  <span class="stat-pill">Flashcard · Trò chơi · Ôn tập · Nét chữ</span>
+</div>
+
+<div class="disclaimer-note">⚠️ Nên mở file này bằng trình duyệt web (Chrome, Safari...) để phần nghe (phát âm từ vựng, hội thoại) hoạt động đầy đủ; mở qua Zalo/Messenger/Facebook có thể bị lỗi không phát được âm thanh.</div>
+
+<div class="filter-wrap">
+  <div class="filter-card">
+    <div class="filter-head">
+      <h2>📚 Chọn bài học để luyện tập</h2>
+      <span class="filter-summary" id="filterSummary">Đã chọn: 15 bài · 330 từ</span>
+    </div>
+    <div class="lesson-dropdown" id="lessonDropdown">
+      <button type="button" class="lesson-dropdown-toggle" id="lessonDropdownToggle">
+        <span id="lessonDropdownLabel">Tất cả 15 bài học</span>
+        <span class="ldd-arrow">▾</span>
+      </button>
+      <div class="lesson-dropdown-panel" id="lessonDropdownPanel">
+        <div class="ldd-quick">
+          <button class="filter-quick-btn" id="btnSelectAll">✅ Chọn tất cả</button>
+          <button class="filter-quick-btn ghost" id="btnSelectNone">❌ Bỏ chọn tất cả</button>
+        </div>
+        <div class="lesson-list" id="lessonChips"></div>
+      </div>
+    </div>
+    <div class="filter-apply-row">
+      <button class="filter-apply-btn" id="btnApplyFilter">🚀 Bắt đầu học</button>
+      <span class="filter-note">Chọn 1 hoặc nhiều bài rồi bấm "Bắt đầu học" để nạp đúng bộ từ vựng vào Flashcard, Trò chơi, Ôn tập và Nét chữ.</span>
+    </div>
+  </div>
+</div>
+
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="flashcard">🗂️ Flashcard</button>
+    <button class="tab-btn" data-tab="games">🎮 Trò chơi</button>
+    <button class="tab-btn" data-tab="review">📖 Ôn tập</button>
+    <button class="tab-btn" data-tab="hanzi">✍️ Nét chữ</button>
+  </div>
+</div>
+
+<main>
+
+  <!-- ============ FLASHCARD ============ -->
+  <section class="panel active" id="panel-flashcard">
+    <div class="section-head">
+      <h2>Flashcard từ vựng</h2>
+      <span class="hint">Nhấn vào thẻ để lật</span>
+    </div>
+    <div class="fc-counter" id="fcCounter">1 / 16</div>
+    <div class="fc-stage">
+      <div class="fc-card" id="fcCard">
+        <div class="fc-face front">
+          <div class="fc-hanzi zh" id="fcHanzi">你好</div>
+          <div class="fc-pinyin-row">
+            <span class="fc-pinyin" id="fcPinyin">nǐ hǎo</span>
+            <span class="fc-wordclass" id="fcWordClass"></span>
+            <span class="fc-hanviet" id="fcHanviet"></span>
+          </div>
+          <button class="fc-speak" id="fcSpeakFront">🔊 Nghe phát âm</button>
+          <div class="fc-hint">Nhấn để xem nghĩa</div>
+        </div>
+        <div class="fc-face back">
+          <div class="fc-meaning" id="fcMeaning">Xin chào</div>
+          <div class="fc-example" id="fcExample"></div>
+          <div class="fc-radicals" id="fcRadicals"></div>
+        </div>
+      </div>
+    </div>
+    <div class="fc-controls">
+      <button class="btn" id="fcPrev">← Trước</button>
+      <button class="btn btn-primary" id="fcFlip">Lật thẻ</button>
+      <button class="btn" id="fcNext">Sau →</button>
+      <button class="btn btn-ghost" id="fcShuffle">🔀 Xáo trộn</button>
+    </div>
+    <div class="fc-mastery">
+      <button class="btn btn-mastered" id="fcMasteredBtn">✅ Đã thuộc</button>
+      <button class="btn btn-unmastered" id="fcUnmasteredBtn">❌ Chưa thuộc</button>
+    </div>
+  </section>
+
+  <!-- ============ GAMES ============ -->
+  <section class="panel" id="panel-games">
+    <div class="section-head">
+      <h2>Trò chơi luyện từ vựng</h2>
+      <span class="hint" id="gameHint">Chọn 1 dạng game để bắt đầu</span>
+    </div>
+
+    <div class="game-menu" id="gameMenu">
+      <div class="game-card" data-game="mcq">
+        <div class="icon">✅</div>
+        <h3>Trắc nghiệm 4 đáp án</h3>
+        <p>Xem chữ Hán, chọn đúng nghĩa trong 4 lựa chọn.</p>
+        <span class="play">Chơi ngay →</span>
+      </div>
+      <div class="game-card" data-game="match">
+        <div class="icon">🔗</div>
+        <h3>Nối cặp Hán tự – Nghĩa</h3>
+        <p>Nhấn chọn để ghép từng chữ Hán với đúng nghĩa.</p>
+        <span class="play">Chơi ngay →</span>
+      </div>
+      <div class="game-card" data-game="memory">
+        <div class="icon">🧠</div>
+        <h3>Lật thẻ nhớ</h3>
+        <p>Lật 2 thẻ để tìm cặp chữ Hán và nghĩa trùng khớp.</p>
+        <span class="play">Chơi ngay →</span>
+      </div>
+      <div class="game-card" data-game="listen">
+        <div class="icon">🎧</div>
+        <h3>Nghe và chọn từ đúng</h3>
+        <p>Nghe phát âm rồi chọn đúng chữ Hán tương ứng.</p>
+        <span class="play">Chơi ngay →</span>
+      </div>
+    </div>
+
+    <div class="game-area" id="gameArea" style="display:none;">
+      <div class="game-area-head">
+        <button class="btn btn-ghost" id="gameBack">← Về menu</button>
+        <div class="game-area-title" id="gameAreaTitle"></div>
+        <div class="game-timer" id="gameTimer">⏱️ 00:00</div>
+      </div>
+      <div id="gameContent"></div>
+    </div>
+
+    <div id="gameResultScreen" class="quiz-result" style="display:none;">
+      <div class="seal-big zh">及格</div>
+      <div class="score" id="gameResultScore">8 / 10</div>
+      <p id="gameResultDetail">Chi tiết kết quả</p>
+      <p id="gameResultTime" style="margin-top:-6px;"></p>
+      <div class="fc-controls">
+        <button class="btn btn-primary" id="gameResultReplayBtn">Chơi lại</button>
+        <button class="btn" id="gameResultMenuBtn">Về menu</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ÔN TẬP ============ -->
+  <section class="panel" id="panel-review">
+    <div class="section-head">
+      <h2>Ôn tập từ vựng</h2>
+      <span class="hint">Nghe phát âm, luyện viết, rồi gõ lại chữ Hán để kiểm tra trí nhớ</span>
+    </div>
+    <div class="review-stats" id="reviewStats">Đã thuộc: 0 / 16</div>
+    <div class="review-topbar">
+      <div class="review-timer" id="reviewTimer">⏱️ 00:00</div>
+      <div class="review-score">
+        <span class="rs-correct" id="rsCorrect">✅ Đúng: 0</span>
+        <span class="rs-wrong" id="rsWrong">❌ Sai: 0</span>
+      </div>
+      <button class="btn btn-ghost" id="reviewResetBtn">🔁 Làm lại</button>
+    </div>
+    <div class="review-select-all">
+      <label>
+        <input type="checkbox" id="reviewSelectAll">
+        Tick tất cả / Bỏ tick tất cả
+      </label>
+    </div>
+    <div class="review-field-toggles">
+      <button class="btn btn-ghost rv-toggle-btn" id="rvt-hanzi" onclick="toggleReviewField('hanzi')">🈴 Hán tự</button>
+      <button class="btn btn-ghost rv-toggle-btn" id="rvt-pinyin" onclick="toggleReviewField('pinyin')">🔤 Pinyin</button>
+      <button class="btn btn-ghost rv-toggle-btn" id="rvt-meaning" onclick="toggleReviewField('meaning')">🇻🇳 Nghĩa</button>
+      <span class="hint" style="align-self:center;">💡 Ẩn bớt cột để tự kiểm tra — bấm vào ô đang mờ để xem tạm</span>
+    </div>
+    <div class="review-header">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span>Hán tự</span>
+      <span>Pinyin</span>
+      <span>Từ loại</span>
+      <span>Nghĩa</span>
+      <span>Kiểm tra</span>
+    </div>
+    <div class="review-list" id="reviewList"></div>
+  </section>
+
+  <!-- ============ HANZI WRITER ============ -->
+  <section class="panel" id="panel-hanzi">
+    <div class="section-head">
+      <h2>Xem nét chữ Hán</h2>
+      <span class="hint">Chọn 1 từ, sau đó xem hoạt hình hoặc luyện viết</span>
+    </div>
+    <div class="hz-search">
+      <input type="text" id="hzSearchInput" placeholder="Nhập chữ Hán cần tra (VD: 爱, 学习...)" maxlength="12">
+      <button class="btn btn-primary" id="hzSearchBtn">🔍 Tra</button>
+    </div>
+    <div class="hz-search-status" id="hzSearchStatus"></div>
+    <div class="hz-nav">
+      <button class="hz-nav-btn" id="hzPrevBtn" title="Từ trước">◀</button>
+      <select class="hz-select" id="hzPicker"></select>
+      <button class="hz-nav-btn" id="hzNextBtn" title="Từ sau">▶</button>
+    </div>
+    <div class="hz-current" id="hzCurrent"></div>
+    <div class="hz-board" id="hzBoard"></div>
+  </section>
+
+</main>
+
+<footer>
+  标准教程HSK1 · Bài 1–15 · Tiếng Trung Halaoshi. Chúc bạn học tốt! 加油！
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7/dist/hanzi-writer.min.js"></script>
+<script>
+const ALL_VOCAB = [
+{lesson:1, hanzi:"你好", pinyin:"nǐ hǎo", wordClass:"", hanviet:"Nễ hảo", meaning:"Xin chào", example:{zh:"你好，我是李文。", py:"Nǐ hǎo, wǒ shì Lǐ Wén.", vi:"Xin chào, tôi là Lý Văn."}},
+  {lesson:1, hanzi:"王老师", pinyin:"Wáng lǎoshī", wordClass:"danh riêng", hanviet:"Vương lão sư", meaning:"Cô/thầy Vương", example:{zh:"王老师是我们的老师。", py:"Wáng lǎoshī shì wǒmen de lǎoshī.", vi:"Thầy/cô Vương là giáo viên của chúng tôi."}},
+  {lesson:1, hanzi:"大家", pinyin:"dàjiā", wordClass:"đại", hanviet:"Đại gia", meaning:"Mọi người", example:{zh:"大家好！", py:"Dàjiā hǎo!", vi:"Xin chào mọi người!"}},
+  {lesson:1, hanzi:"好", pinyin:"hǎo", wordClass:"tính", hanviet:"Hảo", meaning:"Tốt, đẹp, khỏe", example:{zh:"我很好。", py:"Wǒ hěn hǎo.", vi:"Tôi rất khỏe."}},
+  {lesson:1, hanzi:"学生", pinyin:"xuésheng", wordClass:"danh", hanviet:"Học sinh", meaning:"Học sinh", example:{zh:"我是学生。", py:"Wǒ shì xuésheng.", vi:"Tôi là học sinh."}},
+  {lesson:1, hanzi:"们", pinyin:"men", wordClass:"hậu tố", hanviet:"không có âm Hán Việt, là hậu tố số nhiều", meaning:"Chúng, các, bọn (dùng sau đại từ, chỉ nhiều người)", example:{zh:"同学们好！", py:"Tóngxuémen hǎo!", vi:"Xin chào các bạn học!"}},
+  {lesson:1, hanzi:"老师", pinyin:"lǎoshī", wordClass:"danh", hanviet:"Lão sư", meaning:"Thầy/cô giáo", example:{zh:"她是老师。", py:"Tā shì lǎoshī.", vi:"Cô ấy là giáo viên."}},
+  {lesson:1, hanzi:"您", pinyin:"nín", wordClass:"đại", hanviet:"Nẫm", meaning:"Ông/bà, ngài (dùng cho người lớn tuổi/vai vế tôn kính)", example:{zh:"您好！", py:"Nín hǎo!", vi:"Xin chào ạ! (kính ngữ)"}},
+  {lesson:1, hanzi:"你们", pinyin:"nǐmen", wordClass:"đại", hanviet:"Nễ + 们 (们 không có Hán Việt)", meaning:"Các bạn", example:{zh:"你们好！", py:"Nǐmen hǎo!", vi:"Xin chào các bạn!"}},
+  {lesson:1, hanzi:"谢谢", pinyin:"xièxie", wordClass:"động", hanviet:"Tạ tạ", meaning:"Cảm ơn", example:{zh:"谢谢老师！", py:"Xièxie lǎoshī!", vi:"Cảm ơn thầy/cô!"}},
+  {lesson:1, hanzi:"不客气", pinyin:"bú kèqi", wordClass:"", hanviet:"Bất khách khí", meaning:"Đừng khách sáo", example:{zh:"不客气！", py:"Bú kèqi!", vi:"Không có gì!"}},
+  {lesson:1, hanzi:"同学", pinyin:"tóngxué", wordClass:"danh", hanviet:"Đồng học", meaning:"Bạn học", example:{zh:"他是我的同学。", py:"Tā shì wǒ de tóngxué.", vi:"Anh ấy là bạn học của tôi."}},
+  {lesson:1, hanzi:"再见", pinyin:"zàijiàn", wordClass:"động", hanviet:"Tái kiến", meaning:"Tạm biệt", example:{zh:"老师，再见！", py:"Lǎoshī, zàijiàn!", vi:"Tạm biệt thầy/cô!"}},
+{lesson:2, hanzi:"请问", pinyin:"qǐngwèn", wordClass:"động", hanviet:"Thỉnh vấn", meaning:"Cho hỏi, xin hỏi", example:{zh:"请问，你叫什么名字？", py:"Qǐngwèn, nǐ jiào shénme míngzi?", vi:"Xin hỏi, bạn tên là gì?"}},
+  {lesson:2, hanzi:"你", pinyin:"nǐ", wordClass:"đại", hanviet:"Nễ", meaning:"Bạn, cậu", example:{zh:"你好，你是学生吗？", py:"Nǐ hǎo, nǐ shì xuésheng ma?", vi:"Xin chào, bạn là học sinh phải không?"}},
+  {lesson:2, hanzi:"叫", pinyin:"jiào", wordClass:"động", hanviet:"Khiếu", meaning:"Gọi, tên gọi", example:{zh:"我叫李文。", py:"Wǒ jiào Lǐ Wén.", vi:"Tôi tên là Lý Văn."}},
+  {lesson:2, hanzi:"什么", pinyin:"shénme", wordClass:"đại", hanviet:"Thậm ma", meaning:"Cái gì (từ để hỏi)", example:{zh:"这是什么？", py:"Zhè shì shénme?", vi:"Đây là cái gì?"}},
+  {lesson:2, hanzi:"名字", pinyin:"míngzi", wordClass:"danh", hanviet:"Danh tự", meaning:"Tên", example:{zh:"你的名字是什么？", py:"Nǐ de míngzi shì shénme?", vi:"Tên của bạn là gì?"}},
+  {lesson:2, hanzi:"我", pinyin:"wǒ", wordClass:"đại", hanviet:"Ngã", meaning:"Tôi, tớ, mình", example:{zh:"我是老师。", py:"Wǒ shì lǎoshī.", vi:"Tôi là giáo viên."}},
+  {lesson:2, hanzi:"不", pinyin:"bù", wordClass:"phó", hanviet:"Bất", meaning:"Không, chả, chẳng (phủ định)", example:{zh:"我不是学生。", py:"Wǒ bú shì xuésheng.", vi:"Tôi không phải là học sinh."}},
+  {lesson:2, hanzi:"是", pinyin:"shì", wordClass:"động", hanviet:"Thị", meaning:"Thì, là,...", example:{zh:"他是我的同学。", py:"Tā shì wǒ de tóngxué.", vi:"Anh ấy là bạn học của tôi."}},
+  {lesson:2, hanzi:"对不起", pinyin:"duìbuqǐ", wordClass:"động", hanviet:"Đối bất khởi", meaning:"Xin lỗi", example:{zh:"对不起，我来晚了。", py:"Duìbuqǐ, wǒ lái wǎn le.", vi:"Xin lỗi, tôi đến muộn rồi."}},
+  {lesson:2, hanzi:"没关系", pinyin:"méi guānxi", wordClass:"", hanviet:"Một quan hệ", meaning:"Không sao, không vấn đề gì", example:{zh:"没关系，没事的。", py:"Méi guānxi, méishì de.", vi:"Không sao đâu, không vấn đề gì."}},
+  {lesson:2, hanzi:"没事", pinyin:"méishì", wordClass:"động", hanviet:"Một sự", meaning:"Không sao, ko việc gì", example:{zh:"别担心，没事。", py:"Bié dānxīn, méishì.", vi:"Đừng lo, không sao đâu."}},
+  {lesson:2, hanzi:"很", pinyin:"hěn", wordClass:"phó", hanviet:"Ngận", meaning:"Rất, quá, hết sức", example:{zh:"我很高兴认识你。", py:"Wǒ hěn gāoxìng rènshi nǐ.", vi:"Tôi rất vui được quen biết bạn."}},
+  {lesson:2, hanzi:"高兴", pinyin:"gāoxìng", wordClass:"tính từ", hanviet:"Cao hứng", meaning:"Vui, vui vẻ", example:{zh:"认识你，我很高兴。", py:"Rènshi nǐ, wǒ hěn gāoxìng.", vi:"Quen biết bạn, tôi rất vui."}},
+  {lesson:2, hanzi:"认识", pinyin:"rènshi", wordClass:"động từ", hanviet:"Nhận thức", meaning:"Quen biết, nhận biết", example:{zh:"很高兴认识你。", py:"Hěn gāoxìng rènshi nǐ.", vi:"Rất vui được biết bạn."}},
+  {lesson:2, hanzi:"也", pinyin:"yě", wordClass:"phó từ", hanviet:"Dã", meaning:"Cũng, cũng vậy", example:{zh:"我也是学生。", py:"Wǒ yě shì xuésheng.", vi:"Tôi cũng là học sinh."}},
+{lesson:3, hanzi:"人", pinyin:"rén", wordClass:"danh", hanviet:"Nhân", meaning:"người, con người", example:{zh:"他是中国人。", py:"Tā shì Zhōngguó rén.", vi:"Anh ấy là người Trung Quốc."}},
+  {lesson:3, hanzi:"的", pinyin:"de", wordClass:"trợ", hanviet:"Đích", meaning:"của (chỉ sở hữu)", example:{zh:"这是我的名字。", py:"Zhè shì wǒ de míngzi.", vi:"Đây là tên của tôi."}},
+  {lesson:3, hanzi:"中国", pinyin:"Zhōngguó", wordClass:"danh", hanviet:"Trung Quốc", meaning:"Trung Quốc", example:{zh:"我是中国人。", py:"Wǒ shì Zhōngguó rén.", vi:"Tôi là người Trung Quốc."}},
+  {lesson:3, hanzi:"法国", pinyin:"Fǎguó", wordClass:"danh", hanviet:"Pháp Quốc", meaning:"Nước Pháp", example:{zh:"她是法国人吗？", py:"Tā shì Fǎguó rén ma?", vi:"Cô ấy là người Pháp phải không?"}},
+  {lesson:3, hanzi:"中文", pinyin:"Zhōngwén", wordClass:"danh", hanviet:"Trung văn", meaning:"Tiếng Trung", example:{zh:"我学中文。", py:"Wǒ xué Zhōngwén.", vi:"Tôi học tiếng Trung."}},
+  {lesson:3, hanzi:"这", pinyin:"zhè", wordClass:"đại", hanviet:"Giá", meaning:"đây, này", example:{zh:"这是我姐姐。", py:"Zhè shì wǒ jiějie.", vi:"Đây là chị gái của tôi."}},
+  {lesson:3, hanzi:"谁", pinyin:"shéi/shuí", wordClass:"đại", hanviet:"Thùy", meaning:"ai (dùng để hỏi)", example:{zh:"她是谁？", py:"Tā shì shéi?", vi:"Cô ấy là ai?"}},
+  {lesson:3, hanzi:"女朋友", pinyin:"nǚpéngyou", wordClass:"danh", hanviet:"Nữ bằng hữu", meaning:"bạn gái", example:{zh:"她是我的女朋友。", py:"Tā shì wǒ de nǚpéngyou.", vi:"Cô ấy là bạn gái của tôi."}},
+  {lesson:3, hanzi:"哪", pinyin:"nǎ", wordClass:"đại", hanviet:"Na", meaning:"nào, cái gì, ở đâu (dùng để hỏi)", example:{zh:"你是哪国人？", py:"Nǐ shì nǎ guó rén?", vi:"Bạn là người nước nào?"}},
+  {lesson:3, hanzi:"国", pinyin:"guó", wordClass:"danh", hanviet:"Quốc", meaning:"quốc gia, đất nước", example:{zh:"中国是一个大国。", py:"Zhōngguó shì yí ge dà guó.", vi:"Trung Quốc là một quốc gia lớn."}},
+  {lesson:3, hanzi:"她", pinyin:"tā", wordClass:"đại", hanviet:"Tha", meaning:"cô ấy, chị ấy", example:{zh:"她是我姐姐。", py:"Tā shì wǒ jiějie.", vi:"Cô ấy là chị gái của tôi."}},
+  {lesson:3, hanzi:"泰国", pinyin:"Tàiguó", wordClass:"danh", hanviet:"Thái Quốc", meaning:"Thái Lan", example:{zh:"他是泰国人。", py:"Tā shì Tàiguó rén.", vi:"Anh ấy là người Thái Lan."}},
+  {lesson:3, hanzi:"喂", pinyin:"wèi", wordClass:"thán từ", hanviet:"Úy", meaning:"alo (gọi điện), ê, này", example:{zh:"喂，你好！", py:"Wèi, nǐ hǎo!", vi:"Alo, xin chào!"}},
+  {lesson:3, hanzi:"姐姐", pinyin:"jiějie", wordClass:"danh", hanviet:"Tỷ tỷ", meaning:"chị gái", example:{zh:"我姐姐工作很忙。", py:"Wǒ jiějie gōngzuò hěn máng.", vi:"Chị gái tôi làm việc rất bận."}},
+  {lesson:3, hanzi:"工作", pinyin:"gōngzuò", wordClass:"danh", hanviet:"Công tác", meaning:"công việc", example:{zh:"你的工作忙吗？", py:"Nǐ de gōngzuò máng ma?", vi:"Công việc của bạn có bận không?"}},
+  {lesson:3, hanzi:"还", pinyin:"hái", wordClass:"phó", hanviet:"Hoàn", meaning:"vẫn", example:{zh:"你还忙吗？", py:"Nǐ hái máng ma?", vi:"Bạn vẫn bận à?"}},
+  {lesson:3, hanzi:"忙", pinyin:"máng", wordClass:"tính", hanviet:"Mang", meaning:"bận", example:{zh:"我很忙。", py:"Wǒ hěn máng.", vi:"Tôi rất bận."}},
+  {lesson:3, hanzi:"吗", pinyin:"ma", wordClass:"trợ", hanviet:"Ma", meaning:"đứng cuối câu dùng để hỏi", example:{zh:"你是学生吗？", py:"Nǐ shì xuésheng ma?", vi:"Bạn là học sinh phải không?"}},
+  {lesson:3, hanzi:"对", pinyin:"duì", wordClass:"tính", hanviet:"Đối", meaning:"đúng, phải", example:{zh:"对，我是中国人。", py:"Duì, wǒ shì Zhōngguó rén.", vi:"Đúng vậy, tôi là người Trung Quốc."}},
+  {lesson:3, hanzi:"太", pinyin:"tài", wordClass:"phó", hanviet:"Thái", meaning:"quá, rất, lắm", example:{zh:"太好了！", py:"Tài hǎo le!", vi:"Tuyệt quá!"}},
+  {lesson:3, hanzi:"我们", pinyin:"wǒmen", wordClass:"đại", hanviet:"Ngã (们 không có Hán Việt)", meaning:"chúng tôi, chúng mình", example:{zh:"我们是朋友。", py:"Wǒmen shì péngyou.", vi:"Chúng tôi là bạn bè."}},
+  {lesson:3, hanzi:"想", pinyin:"xiǎng", wordClass:"động", hanviet:"Tưởng", meaning:"nhớ", example:{zh:"我很想你。", py:"Wǒ hěn xiǎng nǐ.", vi:"Tôi rất nhớ bạn."}},
+{lesson:4, hanzi:"有", pinyin:"yǒu", wordClass:"động", hanviet:"Hữu", meaning:"có", example:{zh:"我有一个哥哥。", py:"Wǒ yǒu yí ge gēge.", vi:"Tôi có một anh trai."}},
+  {lesson:4, hanzi:"多少", pinyin:"duō shǎo", wordClass:"đại", hanviet:"Đa thiểu", meaning:"bao nhiêu", example:{zh:"你家有多少人？", py:"Nǐ jiā yǒu duōshǎo rén?", vi:"Nhà bạn có bao nhiêu người?"}},
+  {lesson:4, hanzi:"个", pinyin:"gè", wordClass:"lượng", hanviet:"Cá", meaning:"cái", example:{zh:"我有两个孩子。", py:"Wǒ yǒu liǎng ge háizi.", vi:"Tôi có hai đứa con."}},
+  {lesson:4, hanzi:"哥哥", pinyin:"ɡēɡe", wordClass:"danh", hanviet:"Ca ca", meaning:"anh trai", example:{zh:"我哥哥今年二十岁。", py:"Wǒ gēge jīnnián èrshí suì.", vi:"Anh trai tôi năm nay hai mươi tuổi."}},
+  {lesson:4, hanzi:"呢", pinyin:"ne", wordClass:"trợ", hanviet:"Ni", meaning:"đứng cuối câu dùng để hỏi lại", example:{zh:"我很好，你呢？", py:"Wǒ hěn hǎo, nǐ ne?", vi:"Tôi khỏe, còn bạn thì sao?"}},
+  {lesson:4, hanzi:"没有", pinyin:"méiyǒu", wordClass:"động", hanviet:"Một hữu", meaning:"không có", example:{zh:"我没有妹妹。", py:"Wǒ méiyǒu mèimei.", vi:"Tôi không có em gái."}},
+  {lesson:4, hanzi:"家", pinyin:"jiā", wordClass:"danh", hanviet:"Gia", meaning:"gia đình", example:{zh:"我家有五口人。", py:"Wǒ jiā yǒu wǔ kǒu rén.", vi:"Gia đình tôi có 5 người."}},
+  {lesson:4, hanzi:"几", pinyin:"jǐ", wordClass:"trợ", hanviet:"Kỷ", meaning:"bao nhiêu", example:{zh:"你家有几口人？", py:"Nǐ jiā yǒu jǐ kǒu rén?", vi:"Nhà bạn có mấy người?"}},
+  {lesson:4, hanzi:"口", pinyin:"kǒu", wordClass:"lượng", hanviet:"Khẩu", meaning:"lượng từ dùng để nói về thành viên gia đình", example:{zh:"我家有四口人。", py:"Wǒ jiā yǒu sì kǒu rén.", vi:"Nhà tôi có 4 người."}},
+  {lesson:4, hanzi:"爸爸", pinyin:"bàba", wordClass:"danh", hanviet:"không có Hán Việt", meaning:"bố", example:{zh:"我爸爸是老师。", py:"Wǒ bàba shì lǎoshī.", vi:"Bố tôi là giáo viên."}},
+  {lesson:4, hanzi:"妈妈", pinyin:"māma", wordClass:"danh", hanviet:"không có Hán Việt", meaning:"mẹ", example:{zh:"我妈妈在医院工作。", py:"Wǒ māma zài yīyuàn gōngzuò.", vi:"Mẹ tôi làm việc ở bệnh viện."}},
+  {lesson:4, hanzi:"妹妹", pinyin:"mèimei", wordClass:"danh", hanviet:"Muội muội", meaning:"em gái", example:{zh:"我妹妹很可爱。", py:"Wǒ mèimei hěn kě'ài.", vi:"Em gái tôi rất đáng yêu."}},
+  {lesson:4, hanzi:"和", pinyin:"hé", wordClass:"liên", hanviet:"Hòa", meaning:"và", example:{zh:"我和哥哥都是学生。", py:"Wǒ hé gēge dōu shì xuésheng.", vi:"Tôi và anh trai đều là học sinh."}},
+  {lesson:4, hanzi:"儿子", pinyin:"érzi", wordClass:"danh", hanviet:"Nhi tử", meaning:"con trai", example:{zh:"他有一个儿子。", py:"Tā yǒu yí ge érzi.", vi:"Anh ấy có một con trai."}},
+  {lesson:4, hanzi:"孩子", pinyin:"háizi", wordClass:"danh", hanviet:"Hài tử", meaning:"con (chung cả nam nữ)", example:{zh:"这个孩子今年五岁。", py:"Zhège háizi jīnnián wǔ suì.", vi:"Đứa trẻ này năm nay 5 tuổi."}},
+  {lesson:4, hanzi:"女儿", pinyin:"nǚ'ér", wordClass:"danh", hanviet:"Nữ nhi", meaning:"con gái", example:{zh:"我女儿今年八岁。", py:"Wǒ nǚ'ér jīnnián bā suì.", vi:"Con gái tôi năm nay 8 tuổi."}},
+  {lesson:4, hanzi:"岁", pinyin:"suì", wordClass:"lượng", hanviet:"Tuế", meaning:"tuổi", example:{zh:"我今年二十岁。", py:"Wǒ jīnnián èrshí suì.", vi:"Năm nay tôi 20 tuổi."}},
+  {lesson:4, hanzi:"他", pinyin:"tā", wordClass:"đại", hanviet:"Tha", meaning:"anh ấy, cậu ấy", example:{zh:"他是我哥哥。", py:"Tā shì wǒ gēge.", vi:"Anh ấy là anh trai tôi."}},
+  {lesson:4, hanzi:"今年", pinyin:"jīnnián", wordClass:"danh", hanviet:"Kim niên", meaning:"năm nay", example:{zh:"我今年二十五岁。", py:"Wǒ jīnnián èrshíwǔ suì.", vi:"Năm nay tôi 25 tuổi."}},
+  {lesson:4, hanzi:"多", pinyin:"duō", wordClass:"đại", hanviet:"Đa", meaning:"bao nhiêu", example:{zh:"你今年多大？", py:"Nǐ jīnnián duō dà?", vi:"Năm nay bạn bao nhiêu tuổi?"}},
+  {lesson:4, hanzi:"大", pinyin:"dà", wordClass:"tính", hanviet:"Đại", meaning:"to, lớn", example:{zh:"你哥哥多大？", py:"Nǐ gēge duō dà?", vi:"Anh trai bạn bao nhiêu tuổi?"}},
+{lesson:5, hanzi:"今天", pinyin:"jīntiān", wordClass:"danh", hanviet:"Kim thiên", meaning:"hôm nay", example:{zh:"今天我休息。", py:"Jīntiān wǒ xiūxi.", vi:"Hôm nay tôi nghỉ."}},
+  {lesson:5, hanzi:"号", pinyin:"hào", wordClass:"lượng (đơn vị thời gian)", hanviet:"Hiệu", meaning:"ngày", example:{zh:"今天几号？", py:"Jīntiān jǐ hào?", vi:"Hôm nay là ngày mấy?"}},
+  {lesson:5, hanzi:"月", pinyin:"yuè", wordClass:"danh", hanviet:"Nguyệt", meaning:"tháng", example:{zh:"现在是几月？", py:"Xiànzài shì jǐ yuè?", vi:"Bây giờ là tháng mấy?"}},
+  {lesson:5, hanzi:"日", pinyin:"rì", wordClass:"lượng (đơn vị thời gian)", hanviet:"Nhật", meaning:"ngày", example:{zh:"今天几月几日？", py:"Jīntiān jǐ yuè jǐ rì?", vi:"Hôm nay là ngày mấy tháng mấy?"}},
+  {lesson:5, hanzi:"星期", pinyin:"xīngqī", wordClass:"danh", hanviet:"Tinh kỳ", meaning:"tuần", example:{zh:"今天星期几？", py:"Jīntiān xīngqī jǐ?", vi:"Hôm nay thứ mấy?"}},
+  {lesson:5, hanzi:"星期日", pinyin:"Xīngqīrì", wordClass:"danh", hanviet:"Tinh kỳ nhật", meaning:"chủ nhật", example:{zh:"星期日我不上班。", py:"Xīngqīrì wǒ bú shàngbān.", vi:"Chủ nhật tôi không đi làm."}},
+  {lesson:5, hanzi:"星期天", pinyin:"Xīngqītiān", wordClass:"danh", hanviet:"Tinh kỳ thiên", meaning:"chủ nhật", example:{zh:"星期天我在家做饭。", py:"Xīngqītiān wǒ zài jiā zuò fàn.", vi:"Chủ nhật tôi ở nhà nấu cơm."}},
+  {lesson:5, hanzi:"休息", pinyin:"xiūxí", wordClass:"động", hanviet:"Hưu tức", meaning:"nghỉ ngơi", example:{zh:"星期六我休息。", py:"Xīngqīliù wǒ xiūxi.", vi:"Thứ bảy tôi nghỉ."}},
+  {lesson:5, hanzi:"会", pinyin:"huì", wordClass:"động từ năng nguyện", hanviet:"Hội", meaning:"biết, có thể, có khả năng", example:{zh:"我会做饺子。", py:"Wǒ huì zuò jiǎozi.", vi:"Tôi biết làm há cảo."}},
+  {lesson:5, hanzi:"做饭", pinyin:"zuò fàn", wordClass:"", hanviet:"Tố phạn", meaning:"nấu cơm", example:{zh:"我妈妈很会做饭。", py:"Wǒ māma hěn huì zuò fàn.", vi:"Mẹ tôi rất giỏi nấu cơm."}},
+  {lesson:5, hanzi:"做", pinyin:"zuò", wordClass:"động", hanviet:"Tố", meaning:"làm (tạo ra sản phẩm cụ thể)", example:{zh:"你在做什么？", py:"Nǐ zài zuò shénme?", vi:"Bạn đang làm gì?"}},
+  {lesson:5, hanzi:"面条儿", pinyin:"miàntiáo", wordClass:"danh", hanviet:"Diện điều", meaning:"mỳ", example:{zh:"我想吃面条儿。", py:"Wǒ xiǎng chī miàntiáor.", vi:"Tôi muốn ăn mỳ."}},
+  {lesson:5, hanzi:"饺子", pinyin:"jiǎozi", wordClass:"danh", hanviet:"Giảo tử", meaning:"há cảo", example:{zh:"饺子真好吃。", py:"Jiǎozi zhēn hǎochī.", vi:"Há cảo thật ngon."}},
+  {lesson:5, hanzi:"一些", pinyin:"yīxiē", wordClass:"số từ/lượng từ", hanviet:"Nhất ta", meaning:"một chút", example:{zh:"我买了一些菜。", py:"Wǒ mǎi le yīxiē cài.", vi:"Tôi đã mua một ít món ăn."}},
+  {lesson:5, hanzi:"菜", pinyin:"cài", wordClass:"danh", hanviet:"Thái", meaning:"món ăn", example:{zh:"这个菜很好吃。", py:"Zhège cài hěn hǎochī.", vi:"Món ăn này rất ngon."}},
+  {lesson:5, hanzi:"下班", pinyin:"xiàbān", wordClass:"động", hanviet:"Hạ ban", meaning:"tan ca, tan làm", example:{zh:"我六点下班。", py:"Wǒ liù diǎn xiàbān.", vi:"Tôi tan làm lúc 6 giờ."}},
+  {lesson:5, hanzi:"新", pinyin:"xīn", wordClass:"tính", hanviet:"Tân", meaning:"mới", example:{zh:"这是我的新电脑。", py:"Zhè shì wǒ de xīn diànnǎo.", vi:"Đây là máy tính mới của tôi."}},
+  {lesson:5, hanzi:"电脑", pinyin:"diànnǎo", wordClass:"danh", hanviet:"Điện não", meaning:"máy tính", example:{zh:"我买了一台新电脑。", py:"Wǒ mǎi le yì tái xīn diànnǎo.", vi:"Tôi đã mua một chiếc máy tính mới."}},
+  {lesson:5, hanzi:"真", pinyin:"zhēn", wordClass:"phó", hanviet:"Chân", meaning:"thật, sự thật", example:{zh:"这个电脑真好看。", py:"Zhège diànnǎo zhēn hǎokàn.", vi:"Chiếc máy tính này thật đẹp."}},
+  {lesson:5, hanzi:"好看", pinyin:"hǎokàn", wordClass:"tính", hanviet:"Hảo khán", meaning:"đẹp, nhìn đẹp mắt", example:{zh:"你的新电脑真好看。", py:"Nǐ de xīn diànnǎo zhēn hǎokàn.", vi:"Máy tính mới của bạn thật đẹp."}},
+  {lesson:5, hanzi:"喜欢", pinyin:"xǐhuan", wordClass:"động", hanviet:"Hỷ hoan", meaning:"thích", example:{zh:"我喜欢吃饺子。", py:"Wǒ xǐhuan chī jiǎozi.", vi:"Tôi thích ăn há cảo."}},
+  {lesson:5, hanzi:"它", pinyin:"tā", wordClass:"đại", hanviet:"Tha", meaning:"nó (chỉ vật)", example:{zh:"这是我的新电脑，我很喜欢它。", py:"Zhè shì wǒ de xīn diànnǎo, wǒ hěn xǐhuan tā.", vi:"Đây là máy tính mới của tôi, tôi rất thích nó."}},
+{lesson:6, hanzi:"手机", pinyin:"shǒujī", wordClass:"danh", hanviet:"Thủ cơ", meaning:"điện thoại di động", example:{zh:"这是我的新手机。", py:"Zhè shì wǒ de xīn shǒujī.", vi:"Đây là điện thoại di động mới của tôi."}},
+  {lesson:6, hanzi:"电话", pinyin:"diànhuà", wordClass:"danh", hanviet:"Điện thoại", meaning:"điện thoại", example:{zh:"我给妈妈打电话。", py:"Wǒ gěi māma dǎ diànhuà.", vi:"Tôi gọi điện thoại cho mẹ."}},
+  {lesson:6, hanzi:"号", pinyin:"hào", wordClass:"danh", hanviet:"Hiệu", meaning:"số (điện thoại)", example:{zh:"你的手机号是多少？", py:"Nǐ de shǒujī hào shì duōshao?", vi:"Số điện thoại của bạn là bao nhiêu?"}},
+  {lesson:6, hanzi:"明天", pinyin:"míngtiān", wordClass:"danh", hanviet:"Minh thiên", meaning:"ngày mai", example:{zh:"明天我们去超市。", py:"Míngtiān wǒmen qù chāoshì.", vi:"Ngày mai chúng ta đi siêu thị."}},
+  {lesson:6, hanzi:"去", pinyin:"qù", wordClass:"động", hanviet:"Khứ", meaning:"đi", example:{zh:"你想去哪儿？", py:"Nǐ xiǎng qù nǎr?", vi:"Bạn muốn đi đâu?"}},
+  {lesson:6, hanzi:"哪儿", pinyin:"nǎr", wordClass:"đại", hanviet:"Na", meaning:"ở đâu", example:{zh:"超市在哪儿？", py:"Chāoshì zài nǎr?", vi:"Siêu thị ở đâu?"}},
+  {lesson:6, hanzi:"想", pinyin:"xiǎng", wordClass:"động từ năng nguyện", hanviet:"Tưởng", meaning:"muốn", example:{zh:"我想买一些东西。", py:"Wǒ xiǎng mǎi yīxiē dōngxi.", vi:"Tôi muốn mua một ít đồ."}},
+  {lesson:6, hanzi:"超市", pinyin:"chāoshì", wordClass:"danh", hanviet:"Siêu thị", meaning:"siêu thị", example:{zh:"我想去超市买东西。", py:"Wǒ xiǎng qù chāoshì mǎi dōngxi.", vi:"Tôi muốn đi siêu thị mua đồ."}},
+  {lesson:6, hanzi:"买", pinyin:"mǎi", wordClass:"động", hanviet:"Mãi", meaning:"mua", example:{zh:"妈妈买了很多东西。", py:"Māma mǎi le hěn duō dōngxi.", vi:"Mẹ đã mua rất nhiều đồ."}},
+  {lesson:6, hanzi:"东西", pinyin:"dōngxi", wordClass:"danh", hanviet:"Đông tây", meaning:"đồ đạc, đồ vật", example:{zh:"你想买什么东西？", py:"Nǐ xiǎng mǎi shénme dōngxi?", vi:"Bạn muốn mua đồ gì?"}},
+  {lesson:6, hanzi:"些", pinyin:"xiē", wordClass:"lượng", hanviet:"Ta", meaning:"một ít", example:{zh:"我想买些牛奶。", py:"Wǒ xiǎng mǎi xiē niúnǎi.", vi:"Tôi muốn mua ít sữa bò."}},
+  {lesson:6, hanzi:"牛奶", pinyin:"niúnǎi", wordClass:"danh", hanviet:"Ngưu nãi", meaning:"sữa bò", example:{zh:"我每天喝牛奶。", py:"Wǒ měitiān hē niúnǎi.", vi:"Mỗi ngày tôi uống sữa bò."}},
+  {lesson:6, hanzi:"吃", pinyin:"chī", wordClass:"động", hanviet:"Ngật", meaning:"ăn", example:{zh:"我们一起吃晚饭吧。", py:"Wǒmen yīqǐ chī wǎnfàn ba.", vi:"Chúng ta cùng ăn cơm tối nhé."}},
+  {lesson:6, hanzi:"晚饭", pinyin:"wǎnfàn", wordClass:"danh", hanviet:"Vãn phạn", meaning:"cơm tối, bữa tối", example:{zh:"晚饭我想吃米饭。", py:"Wǎnfàn wǒ xiǎng chī mǐfàn.", vi:"Bữa tối tôi muốn ăn cơm trắng."}},
+  {lesson:6, hanzi:"那边", pinyin:"nàbiān", wordClass:"đại", hanviet:"Na biên", meaning:"ở đằng kia", example:{zh:"你看，出租车在那边。", py:"Nǐ kàn, chūzūchē zài nàbiān.", vi:"Bạn xem, taxi ở đằng kia."}},
+  {lesson:6, hanzi:"包子", pinyin:"bāozi", wordClass:"danh", hanviet:"Bao tử", meaning:"bánh bao", example:{zh:"那边的包子非常好吃。", py:"Nàbiān de bāozi fēicháng hǎochī.", vi:"Bánh bao ở đằng kia rất ngon."}},
+  {lesson:6, hanzi:"非常", pinyin:"fēicháng", wordClass:"phó", hanviet:"Phi thường", meaning:"rất, vô cùng", example:{zh:"这个米饭非常好吃。", py:"Zhège mǐfàn fēicháng hǎochī.", vi:"Cơm trắng này rất ngon."}},
+  {lesson:6, hanzi:"好吃", pinyin:"hǎochī", wordClass:"tính", hanviet:"Hảo ngật", meaning:"ngon, ngon miệng", example:{zh:"妈妈做的包子很好吃。", py:"Māma zuò de bāozi hěn hǎochī.", vi:"Bánh bao mẹ làm rất ngon."}},
+  {lesson:6, hanzi:"米饭", pinyin:"mǐfàn", wordClass:"danh", hanviet:"Mễ phạn", meaning:"cơm trắng", example:{zh:"我每天吃米饭。", py:"Wǒ měitiān chī mǐfàn.", vi:"Mỗi ngày tôi ăn cơm trắng."}},
+  {lesson:6, hanzi:"怎么", pinyin:"zěnme", wordClass:"đại", hanviet:"Chẩm ma", meaning:"sao, thế nào, làm sao", example:{zh:"你怎么去超市？", py:"Nǐ zěnme qù chāoshì?", vi:"Bạn đi siêu thị bằng cách nào?"}},
+  {lesson:6, hanzi:"坐", pinyin:"zuò", wordClass:"động", hanviet:"Tọa", meaning:"ngồi, đi (bằng xe)", example:{zh:"我坐出租车去超市。", py:"Wǒ zuò chūzūchē qù chāoshì.", vi:"Tôi đi taxi đến siêu thị."}},
+  {lesson:6, hanzi:"出租车", pinyin:"chūzūchē", wordClass:"danh", hanviet:"Xuất tô xa", meaning:"taxi", example:{zh:"那边有出租车。", py:"Nàbiān yǒu chūzūchē.", vi:"Đằng kia có taxi."}},
+  {lesson:6, hanzi:"西安饭店", pinyin:"Xī'ān Fàndiàn", wordClass:"danh riêng", hanviet:"Tây An phạn điếm", meaning:"Nhà hàng Tây An", example:{zh:"我们在西安饭店吃饭。", py:"Wǒmen zài Xī'ān Fàndiàn chī fàn.", vi:"Chúng tôi ăn cơm ở Nhà hàng Tây An."}},
+{lesson:7, hanzi:"现在", pinyin:"xiànzài", wordClass:"danh", hanviet:"Hiện tại", meaning:"bây giờ, hiện tại", example:{zh:"现在几点？", py:"Xiànzài jǐ diǎn?", vi:"Bây giờ là mấy giờ?"}},
+  {lesson:7, hanzi:"点", pinyin:"diǎn", wordClass:"lượng", hanviet:"Điểm", meaning:"giờ", example:{zh:"现在五点。", py:"Xiànzài wǔ diǎn.", vi:"Bây giờ là 5 giờ."}},
+  {lesson:7, hanzi:"早上", pinyin:"zǎoshang", wordClass:"danh", hanviet:"Tảo thượng", meaning:"buổi sáng sớm (5–8h)", example:{zh:"我早上七点上课。", py:"Wǒ zǎoshang qī diǎn shàngkè.", vi:"Buổi sáng tôi vào học lúc 7 giờ."}},
+  {lesson:7, hanzi:"上午", pinyin:"shàngwǔ", wordClass:"danh", hanviet:"Thượng ngọ", meaning:"buổi sáng (8–11h)", example:{zh:"我上午有课。", py:"Wǒ shàngwǔ yǒu kè.", vi:"Buổi sáng tôi có lớp."}},
+  {lesson:7, hanzi:"分", pinyin:"fēn", wordClass:"lượng", hanviet:"Phân", meaning:"phút (giờ...phút)", example:{zh:"现在五点二十分。", py:"Xiànzài wǔ diǎn èrshí fēn.", vi:"Bây giờ là 5 giờ 20 phút."}},
+  {lesson:7, hanzi:"课", pinyin:"kè", wordClass:"danh", hanviet:"Khóa", meaning:"lớp, bài học", example:{zh:"今天我有汉语课。", py:"Jīntiān wǒ yǒu Hànyǔ kè.", vi:"Hôm nay tôi có lớp tiếng Hán."}},
+  {lesson:7, hanzi:"下午", pinyin:"xiàwǔ", wordClass:"danh", hanviet:"Hạ ngọ", meaning:"buổi chiều (13–18h)", example:{zh:"下午我们去看电影。", py:"Xiàwǔ wǒmen qù kàn diànyǐng.", vi:"Buổi chiều chúng ta đi xem phim."}},
+  {lesson:7, hanzi:"见", pinyin:"jiàn", wordClass:"động", hanviet:"Kiến", meaning:"gặp, thấy, gặp gỡ", example:{zh:"我们六点见。", py:"Wǒmen liù diǎn jiàn.", vi:"Chúng ta gặp nhau lúc 6 giờ."}},
+  {lesson:7, hanzi:"吧", pinyin:"ba", wordClass:"trợ", hanviet:"Ba", meaning:"trợ từ cuối câu: đề nghị, khuyên nhủ", example:{zh:"我们一起去看电影吧。", py:"Wǒmen yīqǐ qù kàn diànyǐng ba.", vi:"Chúng ta cùng đi xem phim nhé."}},
+  {lesson:7, hanzi:"电影院", pinyin:"diànyǐngyuàn", wordClass:"danh", hanviet:"Điện ảnh viện", meaning:"rạp chiếu phim", example:{zh:"电影院在那边。", py:"Diànyǐngyuàn zài nàbiān.", vi:"Rạp chiếu phim ở đằng kia."}},
+  {lesson:7, hanzi:"看", pinyin:"kàn", wordClass:"động", hanviet:"Khán", meaning:"xem, thấy, nhìn", example:{zh:"我想看电影。", py:"Wǒ xiǎng kàn diànyǐng.", vi:"Tôi muốn xem phim."}},
+  {lesson:7, hanzi:"电影", pinyin:"diànyǐng", wordClass:"danh", hanviet:"Điện ảnh", meaning:"phim", example:{zh:"这个电影非常好看。", py:"Zhège diànyǐng fēicháng hǎokàn.", vi:"Bộ phim này rất hay."}},
+  {lesson:7, hanzi:"事", pinyin:"shì", wordClass:"danh", hanviet:"Sự", meaning:"việc (sự việc)", example:{zh:"我下午有事。", py:"Wǒ xiàwǔ yǒu shì.", vi:"Buổi chiều tôi có việc."}},
+  {lesson:7, hanzi:"上课", pinyin:"shàngkè", wordClass:"động", hanviet:"Thượng khóa", meaning:"lên lớp, vào học", example:{zh:"我们八点上课。", py:"Wǒmen bā diǎn shàngkè.", vi:"Chúng tôi vào học lúc 8 giờ."}},
+  {lesson:7, hanzi:"呢", pinyin:"ne", wordClass:"trợ", hanviet:"Ni", meaning:"trợ từ ngữ khí (hỏi lại, nhấn mạnh)", example:{zh:"我很忙，你呢？", py:"Wǒ hěn máng, nǐ ne?", vi:"Tôi rất bận, còn bạn thì sao?"}},
+  {lesson:7, hanzi:"半", pinyin:"bàn", wordClass:"số từ", hanviet:"Bán", meaning:"nửa, rưỡi (thời gian)", example:{zh:"现在六点半。", py:"Xiànzài liù diǎn bàn.", vi:"Bây giờ là 6 giờ rưỡi."}},
+  {lesson:7, hanzi:"下课", pinyin:"xiàkè", wordClass:"động", hanviet:"Hạ khóa", meaning:"tan học", example:{zh:"我们十二点下课。", py:"Wǒmen shí\u2019èr diǎn xiàkè.", vi:"Chúng tôi tan học lúc 12 giờ."}},
+  {lesson:7, hanzi:"在", pinyin:"zài", wordClass:"động", hanviet:"Tại", meaning:"tại, ở", example:{zh:"我在家。", py:"Wǒ zài jiā.", vi:"Tôi ở nhà."}},
+  {lesson:7, hanzi:"家", pinyin:"jiā", wordClass:"danh", hanviet:"Gia", meaning:"nhà", example:{zh:"晚上我在家吃饭。", py:"Wǎnshang wǒ zài jiā chī fàn.", vi:"Buổi tối tôi ăn cơm ở nhà."}},
+  {lesson:7, hanzi:"里", pinyin:"li / lǐ", wordClass:"danh", hanviet:"Lý", meaning:"ở trong", example:{zh:"电影院里有很多人。", py:"Diànyǐngyuàn li yǒu hěn duō rén.", vi:"Trong rạp chiếu phim có rất nhiều người."}},
+  {lesson:7, hanzi:"晚上", pinyin:"wǎnshang", wordClass:"danh", hanviet:"Vãn thượng", meaning:"buổi tối", example:{zh:"晚上我们去看电影。", py:"Wǎnshang wǒmen qù kàn diànyǐng.", vi:"Buổi tối chúng ta đi xem phim."}},
+  {lesson:7, hanzi:"医院", pinyin:"yīyuàn", wordClass:"danh", hanviet:"Y viện", meaning:"bệnh viện", example:{zh:"我爸爸在医院上班。", py:"Wǒ bàba zài yīyuàn shàngbān.", vi:"Bố tôi làm việc ở bệnh viện."}},
+  {lesson:7, hanzi:"上班", pinyin:"shàngbān", wordClass:"động", hanviet:"Thượng ban", meaning:"đi làm, lên ca", example:{zh:"我九点上班。", py:"Wǒ jiǔ diǎn shàngbān.", vi:"Tôi đi làm lúc 9 giờ."}},
+  {lesson:7, hanzi:"店", pinyin:"diàn", wordClass:"danh", hanviet:"Điếm", meaning:"cửa hàng, tiệm", example:{zh:"那个店有很多东西。", py:"Nàge diàn yǒu hěn duō dōngxi.", vi:"Cửa hàng đó có rất nhiều đồ."}},
+  {lesson:7, hanzi:"菜", pinyin:"cài", wordClass:"danh", hanviet:"Thái", meaning:"rau", example:{zh:"我想买些菜。", py:"Wǒ xiǎng mǎi xiē cài.", vi:"Tôi muốn mua ít rau."}},
+  {lesson:7, hanzi:"分钟", pinyin:"fēnzhōng", wordClass:"lượng", hanviet:"Phân chung", meaning:"phút (khoảng thời gian)", example:{zh:"我五分钟后到。", py:"Wǒ wǔ fēnzhōng hòu dào.", vi:"5 phút nữa tôi đến."}},
+  {lesson:7, hanzi:"后", pinyin:"hòu", wordClass:"danh", hanviet:"Hậu", meaning:"sau, sau đó", example:{zh:"下课后我们去看电影。", py:"Xiàkè hòu wǒmen qù kàn diànyǐng.", vi:"Sau khi tan học chúng ta đi xem phim."}},
+{lesson:8, hanzi:"房间", pinyin:"fángjiān", wordClass:"danh", hanviet:"Phòng gian", meaning:"phòng", example:{zh:"我的房间很干净。", py:"Wǒ de fángjiān hěn gānjìng.", vi:"Phòng của tôi rất sạch sẽ."}},
+  {lesson:8, hanzi:"外", pinyin:"wài", wordClass:"danh", hanviet:"Ngoại", meaning:"ngoài, bên ngoài", example:{zh:"猫在房间外。", py:"Māo zài fángjiān wài.", vi:"Con mèo ở bên ngoài phòng."}},
+  {lesson:8, hanzi:"只", pinyin:"zhī", wordClass:"lượng", hanviet:"Chích", meaning:"lượng từ chỉ con vật", example:{zh:"我家有一只猫。", py:"Wǒ jiā yǒu yī zhī māo.", vi:"Nhà tôi có một con mèo."}},
+  {lesson:8, hanzi:"小", pinyin:"xiǎo", wordClass:"tính", hanviet:"Tiểu", meaning:"nhỏ, nhỏ bé", example:{zh:"这只猫很小。", py:"Zhè zhī māo hěn xiǎo.", vi:"Con mèo này rất nhỏ."}},
+  {lesson:8, hanzi:"猫", pinyin:"māo", wordClass:"danh", hanviet:"Miêu", meaning:"con mèo", example:{zh:"我很喜欢猫。", py:"Wǒ hěn xǐhuan māo.", vi:"Tôi rất thích mèo."}},
+  {lesson:8, hanzi:"没", pinyin:"méi", wordClass:"phó", hanviet:"Một", meaning:"chưa, không", example:{zh:"我没看见我的猫。", py:"Wǒ méi kànjiàn wǒ de māo.", vi:"Tôi không nhìn thấy con mèo của tôi."}},
+  {lesson:8, hanzi:"看见", pinyin:"kànjiàn", wordClass:"động", hanviet:"Khán kiến", meaning:"nhìn thấy", example:{zh:"你看见我的猫了吗？", py:"Nǐ kànjiàn wǒ de māo le ma?", vi:"Bạn có nhìn thấy con mèo của tôi không?"}},
+  {lesson:8, hanzi:"桌子", pinyin:"zhuōzi", wordClass:"danh", hanviet:"Trác tử", meaning:"bàn", example:{zh:"猫在桌子下面。", py:"Māo zài zhuōzi xiàmian.", vi:"Con mèo ở dưới bàn."}},
+  {lesson:8, hanzi:"下", pinyin:"xià", wordClass:"danh", hanviet:"Hạ", meaning:"ở dưới", example:{zh:"猫在桌子下。", py:"Māo zài zhuōzi xià.", vi:"Con mèo ở dưới bàn."}},
+  {lesson:8, hanzi:"漂亮", pinyin:"piàoliang", wordClass:"tính", hanviet:"Phiêu lượng", meaning:"xinh đẹp", example:{zh:"这只猫很漂亮。", py:"Zhè zhī māo hěn piàoliang.", vi:"Con mèo này rất xinh đẹp."}},
+  {lesson:8, hanzi:"在", pinyin:"zài", wordClass:"giới", hanviet:"Tại", meaning:"ở, tại", example:{zh:"猫在房间里。", py:"Māo zài fángjiān li.", vi:"Con mèo ở trong phòng."}},
+  {lesson:8, hanzi:"学校", pinyin:"xuéxiào", wordClass:"danh", hanviet:"Học hiệu", meaning:"trường học", example:{zh:"我在学校学习汉语。", py:"Wǒ zài xuéxiào xuéxí Hànyǔ.", vi:"Tôi học tiếng Hán ở trường."}},
+  {lesson:8, hanzi:"书店", pinyin:"shūdiàn", wordClass:"danh", hanviet:"Thư điếm", meaning:"tiệm sách", example:{zh:"书店在学校前边。", py:"Shūdiàn zài xuéxiào qiánbian.", vi:"Tiệm sách ở phía trước trường học."}},
+  {lesson:8, hanzi:"前", pinyin:"qián", wordClass:"danh", hanviet:"Tiền", meaning:"ở trước, trước", example:{zh:"书店在学校前面。", py:"Shūdiàn zài xuéxiào qiánmiàn.", vi:"Tiệm sách ở trước trường học."}},
+  {lesson:8, hanzi:"能", pinyin:"néng", wordClass:"động từ năng nguyện", hanviet:"Năng", meaning:"có thể, có khả năng", example:{zh:"我能去书店吗？", py:"Wǒ néng qù shūdiàn ma?", vi:"Tôi có thể đi tiệm sách không?"}},
+  {lesson:8, hanzi:"到", pinyin:"dào", wordClass:"động", hanviet:"Đáo", meaning:"đến, tới nơi", example:{zh:"我十二点到学校。", py:"Wǒ shí’èr diǎn dào xuéxiào.", vi:"Tôi đến trường lúc 12 giờ."}},
+  {lesson:8, hanzi:"午饭", pinyin:"wǔfàn", wordClass:"danh", hanviet:"Ngọ phạn", meaning:"bữa trưa", example:{zh:"我十二点吃午饭。", py:"Wǒ shí’èr diǎn chī wǔfàn.", vi:"Tôi ăn cơm trưa lúc 12 giờ."}},
+  {lesson:8, hanzi:"饭", pinyin:"fàn", wordClass:"danh", hanviet:"Phạn", meaning:"cơm, bữa ăn", example:{zh:"我们一起吃饭吧。", py:"Wǒmen yìqǐ chī fàn ba.", vi:"Chúng ta cùng ăn cơm nhé."}},
+  {lesson:8, hanzi:"大", pinyin:"dà", wordClass:"tính", hanviet:"Đại", meaning:"to, lớn", example:{zh:"这个房间很大。", py:"Zhège fángjiān hěn dà.", vi:"Căn phòng này rất to."}},
+  {lesson:8, hanzi:"病人", pinyin:"bìngrén", wordClass:"danh", hanviet:"Bệnh nhân", meaning:"bệnh nhân", example:{zh:"医院里有很多病人。", py:"Yīyuàn li yǒu hěn duō bìngrén.", vi:"Trong bệnh viện có rất nhiều bệnh nhân."}},
+  {lesson:8, hanzi:"多", pinyin:"duō", wordClass:"tính", hanviet:"Đa", meaning:"nhiều, rất nhiều", example:{zh:"医院里的病人很多。", py:"Yīyuàn li de bìngrén hěn duō.", vi:"Bệnh nhân trong bệnh viện rất nhiều."}},
+  {lesson:8, hanzi:"医生", pinyin:"yīshēng", wordClass:"danh", hanviet:"Y sinh", meaning:"bác sĩ", example:{zh:"我妈妈是医生。", py:"Wǒ māma shì yīshēng.", vi:"Mẹ tôi là bác sĩ."}},
+  {lesson:8, hanzi:"工作", pinyin:"gōngzuò", wordClass:"động", hanviet:"Công tác", meaning:"làm việc", example:{zh:"我爸爸在医院工作。", py:"Wǒ bàba zài yīyuàn gōngzuò.", vi:"Bố tôi làm việc ở bệnh viện."}},
+  {lesson:8, hanzi:"胡医生", pinyin:"Hú yīshēng", wordClass:"danh riêng", hanviet:"Hồ y sinh", meaning:"Bác sĩ Hồ", example:{zh:"胡医生在医院工作。", py:"Hú yīshēng zài yīyuàn gōngzuò.", vi:"Bác sĩ Hồ làm việc ở bệnh viện."}},
+{lesson:9, hanzi:"前边", pinyin:"qiánbian", wordClass:"danh", hanviet:"Tiền biên", meaning:"phía trước", example:{zh:"书店在学校前边。", py:"Shūdiàn zài xuéxiào qiánbian.", vi:"Tiệm sách ở phía trước trường học."}},
+  {lesson:9, hanzi:"边", pinyin:"bian / biān", wordClass:"hậu tố/danh", hanviet:"Biên", meaning:"bên, bên cạnh", example:{zh:"猫在桌子边。", py:"Māo zài zhuōzi biān.", vi:"Con mèo ở bên cạnh bàn."}},
+  {lesson:9, hanzi:"家", pinyin:"jiā", wordClass:"lượng", hanviet:"Gia", meaning:"ngôi; hiệu; tiệm; quán; nhà (lượng từ dùng cho nhà hoặc xí nghiệp)", example:{zh:"学校前边有一家书店。", py:"Xuéxiào qiánbian yǒu yī jiā shūdiàn.", vi:"Phía trước trường học có một tiệm sách."}},
+  {lesson:9, hanzi:"那个", pinyin:"nàge", wordClass:"đại", hanviet:"Na cá (个 = Cá)", meaning:"cái đó, cái kia", example:{zh:"那个椅子很漂亮。", py:"Nàge yǐzi hěn piàoliang.", vi:"Cái ghế đó rất đẹp."}},
+  {lesson:9, hanzi:"外边", pinyin:"wàibian", wordClass:"danh", hanviet:"Ngoại biên", meaning:"bên ngoài", example:{zh:"狗在外边。", py:"Gǒu zài wàibian.", vi:"Con chó ở bên ngoài."}},
+  {lesson:9, hanzi:"椅子", pinyin:"yǐzi", wordClass:"danh", hanviet:"Ỷ tử", meaning:"cái ghế", example:{zh:"猫在椅子下面。", py:"Māo zài yǐzi xiàmian.", vi:"Con mèo ở dưới ghế."}},
+  {lesson:9, hanzi:"上", pinyin:"shang / shàng", wordClass:"danh", hanviet:"Thượng", meaning:"(sử dụng sau danh từ) chỉ vị trí ở trên/cao hơn", example:{zh:"狗在椅子上。", py:"Gǒu zài yǐzi shàng.", vi:"Con chó ở trên ghế."}},
+  {lesson:9, hanzi:"本", pinyin:"běn", wordClass:"lượng", hanviet:"Bản", meaning:"quyển, cuốn (lượng từ dùng cho sách vở)", example:{zh:"我有三本书。", py:"Wǒ yǒu sān běn shū.", vi:"Tôi có ba quyển sách."}},
+  {lesson:9, hanzi:"书", pinyin:"shū", wordClass:"danh", hanviet:"Thư", meaning:"sách", example:{zh:"这本书很好看。", py:"Zhè běn shū hěn hǎokàn.", vi:"Quyển sách này rất hay."}},
+  {lesson:9, hanzi:"那", pinyin:"nà", wordClass:"đại", hanviet:"Na", meaning:"đó, kia", example:{zh:"那是我的书。", py:"Nà shì wǒ de shū.", vi:"Đó là sách của tôi."}},
+  {lesson:9, hanzi:"第", pinyin:"dì", wordClass:"tiền tố", hanviet:"Đệ", meaning:"thứ (thứ tự, thứ hạng)", example:{zh:"这是我第一次看电影。", py:"Zhè shì wǒ dì yī cì kàn diànyǐng.", vi:"Đây là lần đầu tiên tôi xem phim."}},
+  {lesson:9, hanzi:"学习", pinyin:"xuéxí", wordClass:"động", hanviet:"Học tập", meaning:"học, học tập", example:{zh:"我在学校学习汉语。", py:"Wǒ zài xuéxiào xuéxí Hànyǔ.", vi:"Tôi học tiếng Hán ở trường."}},
+  {lesson:9, hanzi:"做", pinyin:"zuò", wordClass:"động", hanviet:"Tố", meaning:"làm (thực hiện một hoạt động, công việc...)", example:{zh:"你在做什么？", py:"Nǐ zài zuò shénme?", vi:"Bạn đang làm gì?"}},
+  {lesson:9, hanzi:"白天", pinyin:"báitiān", wordClass:"danh", hanviet:"Bạch thiên", meaning:"ban ngày", example:{zh:"我白天学习，晚上看电视。", py:"Wǒ báitiān xuéxí, wǎnshang kàn diànshì.", vi:"Ban ngày tôi học, buổi tối tôi xem tivi."}},
+  {lesson:9, hanzi:"读书", pinyin:"dúshū", wordClass:"động", hanviet:"Độc thư", meaning:"đọc sách", example:{zh:"我喜欢读书。", py:"Wǒ xǐhuan dúshū.", vi:"Tôi thích đọc sách."}},
+  {lesson:9, hanzi:"和", pinyin:"hé", wordClass:"liên", hanviet:"Hòa", meaning:"và, với", example:{zh:"我和朋友一起读书。", py:"Wǒ hé péngyou yìqǐ dúshū.", vi:"Tôi cùng bạn đọc sách."}},
+  {lesson:9, hanzi:"朋友", pinyin:"péngyou", wordClass:"danh", hanviet:"Bằng hữu", meaning:"bạn bè", example:{zh:"他是我的好朋友。", py:"Tā shì wǒ de hǎo péngyou.", vi:"Anh ấy là bạn tốt của tôi."}},
+  {lesson:9, hanzi:"唱", pinyin:"chàng", wordClass:"động", hanviet:"Xướng", meaning:"hát", example:{zh:"我朋友很会唱歌。", py:"Wǒ péngyou hěn huì chàng gē.", vi:"Bạn tôi rất biết hát."}},
+  {lesson:9, hanzi:"歌", pinyin:"gē", wordClass:"danh", hanviet:"Ca", meaning:"bài hát", example:{zh:"这首歌很好听。", py:"Zhè shǒu gē hěn hǎotīng.", vi:"Bài hát này rất hay."}},
+  {lesson:9, hanzi:"好听", pinyin:"hǎotīng", wordClass:"tính", hanviet:"Hảo thính", meaning:"hay, nghe hay", example:{zh:"她唱的歌很好听。", py:"Tā chàng de gē hěn hǎotīng.", vi:"Bài hát cô ấy hát rất hay."}},
+  {lesson:9, hanzi:"电视", pinyin:"diànshì", wordClass:"danh", hanviet:"Điện thị", meaning:"tivi", example:{zh:"我和朋友一起看电视。", py:"Wǒ hé péngyou yìqǐ kàn diànshì.", vi:"Tôi cùng bạn xem tivi."}},
+  {lesson:9, hanzi:"狗", pinyin:"gǒu", wordClass:"danh", hanviet:"Cẩu", meaning:"con chó", example:{zh:"我家有一只狗。", py:"Wǒ jiā yǒu yī zhī gǒu.", vi:"Nhà tôi có một con chó."}},
+  {lesson:9, hanzi:"玩", pinyin:"wán", wordClass:"động", hanviet:"Ngoạn", meaning:"chơi", example:{zh:"下午我和朋友一起玩。", py:"Xiàwǔ wǒ hé péngyou yìqǐ wán.", vi:"Buổi chiều tôi chơi cùng bạn."}},
+{lesson:10, hanzi:"杯子", pinyin:"bēizi", wordClass:"danh", hanviet:"Bôi tử", meaning:"cái ly/cốc", example:{zh:"这个杯子很漂亮。", py:"Zhège bēizi hěn piàoliang.", vi:"Cái ly này rất đẹp."}},
+  {lesson:10, hanzi:"售货员", pinyin:"shòuhuòyuán", wordClass:"danh", hanviet:"Thụ hóa viên", meaning:"nhân viên bán hàng", example:{zh:"售货员在商店里工作。", py:"Shòuhuòyuán zài shāngdiàn li gōngzuò.", vi:"Nhân viên bán hàng làm việc trong cửa hàng."}},
+  {lesson:10, hanzi:"这边", pinyin:"zhèbiān", wordClass:"đại", hanviet:"Giá biên", meaning:"bên này", example:{zh:"苹果在这边。", py:"Píngguǒ zài zhèbiān.", vi:"Táo ở bên này."}},
+  {lesson:10, hanzi:"钱", pinyin:"qián", wordClass:"danh", hanviet:"Tiền", meaning:"tiền", example:{zh:"这个多少钱？", py:"Zhège duōshao qián?", vi:"Cái này giá bao nhiêu tiền?"}},
+  {lesson:10, hanzi:"这些", pinyin:"zhèxiē", wordClass:"đại", hanviet:"Giá ta", meaning:"những cái này", example:{zh:"这些苹果很便宜。", py:"Zhèxiē píngguǒ hěn piányi.", vi:"Những quả táo này rất rẻ."}},
+  {lesson:10, hanzi:"块", pinyin:"kuài", wordClass:"lượng", hanviet:"Khối", meaning:"đồng (đơn vị tiền tệ Trung Quốc)", example:{zh:"这件衣服三十块。", py:"Zhè jiàn yīfu sānshí kuài.", vi:"Bộ quần áo này giá 30 đồng."}},
+  {lesson:10, hanzi:"那些", pinyin:"nàxiē", wordClass:"đại", hanviet:"Na ta", meaning:"những cái đó", example:{zh:"那些衣服很贵。", py:"Nàxiē yīfu hěn guì.", vi:"Những bộ quần áo đó rất đắt."}},
+  {lesson:10, hanzi:"这儿", pinyin:"zhèr", wordClass:"đại", hanviet:"Giá", meaning:"ở đây", example:{zh:"水果店在这儿。", py:"Shuǐguǒ diàn zài zhèr.", vi:"Tiệm hoa quả ở đây."}},
+  {lesson:10, hanzi:"水果", pinyin:"shuǐguǒ", wordClass:"danh", hanviet:"Thủy quả", meaning:"hoa quả", example:{zh:"我喜欢吃水果。", py:"Wǒ xǐhuan chī shuǐguǒ.", vi:"Tôi thích ăn hoa quả."}},
+  {lesson:10, hanzi:"少", pinyin:"shǎo", wordClass:"tính", hanviet:"Thiểu", meaning:"ít", example:{zh:"这儿的水果不少。", py:"Zhèr de shuǐguǒ bù shǎo.", vi:"Hoa quả ở đây không ít."}},
+  {lesson:10, hanzi:"斤", pinyin:"jīn", wordClass:"lượng", hanviet:"Cân", meaning:"cân (0,5kg – đơn vị Trung Quốc)", example:{zh:"我买一斤苹果。", py:"Wǒ mǎi yī jīn píngguǒ.", vi:"Tôi mua một cân táo."}},
+  {lesson:10, hanzi:"苹果", pinyin:"píngguǒ", wordClass:"danh", hanviet:"Bình quả", meaning:"quả táo", example:{zh:"苹果不贵，很便宜。", py:"Píngguǒ bù guì, hěn piányi.", vi:"Táo không đắt, rất rẻ."}},
+  {lesson:10, hanzi:"便宜", pinyin:"piányi", wordClass:"tính", hanviet:"Tiện nghi", meaning:"rẻ", example:{zh:"这儿的水果很便宜。", py:"Zhèr de shuǐguǒ hěn piányi.", vi:"Hoa quả ở đây rất rẻ."}},
+  {lesson:10, hanzi:"商店", pinyin:"shāngdiàn", wordClass:"danh", hanviet:"Thương điếm", meaning:"cửa hàng", example:{zh:"这个商店很大。", py:"Zhège shāngdiàn hěn dà.", vi:"Cửa hàng này rất to."}},
+  {lesson:10, hanzi:"衣服", pinyin:"yīfu", wordClass:"danh", hanviet:"Y phục", meaning:"quần áo", example:{zh:"这件衣服很漂亮。", py:"Zhè jiàn yīfu hěn piàoliang.", vi:"Bộ quần áo này rất đẹp."}},
+  {lesson:10, hanzi:"件", pinyin:"jiàn", wordClass:"lượng", hanviet:"Kiện", meaning:"kiện, gói, chiếc...", example:{zh:"我想买一件衣服。", py:"Wǒ xiǎng mǎi yī jiàn yīfu.", vi:"Tôi muốn mua một bộ quần áo."}},
+  {lesson:10, hanzi:"元", pinyin:"yuán", wordClass:"lượng", hanviet:"Nguyên", meaning:"đồng", example:{zh:"这件衣服一百元。", py:"Zhè jiàn yīfu yìbǎi yuán.", vi:"Bộ quần áo này giá 100 đồng."}},
+  {lesson:10, hanzi:"怎么样", pinyin:"zěnmeyàng", wordClass:"đại", hanviet:"Chẩm ma dạng", meaning:"thế nào; như thế nào", example:{zh:"这件衣服怎么样？", py:"Zhè jiàn yīfu zěnmeyàng?", vi:"Bộ quần áo này thế nào?"}},
+  {lesson:10, hanzi:"贵", pinyin:"guì", wordClass:"tính", hanviet:"Quý", meaning:"đắt, quý", example:{zh:"这件衣服很贵。", py:"Zhè jiàn yīfu hěn guì.", vi:"Bộ quần áo này rất đắt."}},
+  {lesson:10, hanzi:"穿", pinyin:"chuān", wordClass:"động", hanviet:"Xuyên", meaning:"mặc, đeo vào", example:{zh:"我想穿这件衣服。", py:"Wǒ xiǎng chuān zhè jiàn yīfu.", vi:"Tôi muốn mặc bộ quần áo này."}},
+  {lesson:10, hanzi:"女", pinyin:"nǚ", wordClass:"tính", hanviet:"Nữ", meaning:"nữ, con gái", example:{zh:"那个女售货员很热情。", py:"Nàge nǚ shòuhuòyuán hěn rèqíng.", vi:"Nhân viên bán hàng nữ đó rất nhiệt tình."}},
+  {lesson:10, hanzi:"男", pinyin:"nán", wordClass:"tính", hanviet:"Nam", meaning:"nam, con trai", example:{zh:"那个男的在买水果。", py:"Nàge nán de zài mǎi shuǐguǒ.", vi:"Người nam đó đang mua hoa quả."}},
+  {lesson:10, hanzi:"那儿", pinyin:"nàr", wordClass:"đại", hanviet:"Na", meaning:"ở kia, ở đó", example:{zh:"商店在那儿。", py:"Shāngdiàn zài nàr.", vi:"Cửa hàng ở đó."}},
+{lesson:11, hanzi:"时候", pinyin:"shíhou", wordClass:"danh", hanviet:"Thời hậu", meaning:"lúc, khi", example:{zh:"你什么时候来？", py:"Nǐ shénme shíhou lái?", vi:"Bạn đến lúc nào?"}},
+  {lesson:11, hanzi:"饭店", pinyin:"fàndiàn", wordClass:"danh", hanviet:"Phạn điếm", meaning:"nhà hàng", example:{zh:"我们在饭店吃饭。", py:"Wǒmen zài fàndiàn chī fàn.", vi:"Chúng tôi ăn cơm ở nhà hàng."}},
+  {lesson:11, hanzi:"知道", pinyin:"zhīdào", wordClass:"động", hanviet:"Tri đạo", meaning:"biết, hiểu", example:{zh:"我不知道他在哪里。", py:"Wǒ bù zhīdào tā zài nǎlǐ.", vi:"Tôi không biết anh ấy ở đâu."}},
+  {lesson:11, hanzi:"正在", pinyin:"zhèngzài", wordClass:"phó", hanviet:"Chính tại", meaning:"đang", example:{zh:"他正在开车。", py:"Tā zhèngzài kāichē.", vi:"Anh ấy đang lái xe."}},
+  {lesson:11, hanzi:"找", pinyin:"zhǎo", wordClass:"động", hanviet:"Trảo", meaning:"tìm, tìm kiếm", example:{zh:"你在找什么？", py:"Nǐ zài zhǎo shénme?", vi:"Bạn đang tìm gì?"}},
+  {lesson:11, hanzi:"开车", pinyin:"kāichē", wordClass:"động", hanviet:"Khai xa", meaning:"lái (xe)", example:{zh:"爸爸在开车。", py:"Bàba zài kāichē.", vi:"Bố đang lái xe."}},
+  {lesson:11, hanzi:"车", pinyin:"chē", wordClass:"danh", hanviet:"Xa", meaning:"xe", example:{zh:"那辆车很大。", py:"Nà liàng chē hěn dà.", vi:"Chiếc xe đó rất to."}},
+  {lesson:11, hanzi:"在", pinyin:"zài", wordClass:"phó", hanviet:"Tại", meaning:"đang", example:{zh:"他在看书。", py:"Tā zài kàn shū.", vi:"Anh ấy đang đọc sách."}},
+  {lesson:11, hanzi:"读", pinyin:"dú", wordClass:"động", hanviet:"Độc", meaning:"đọc; học", example:{zh:"我在读大学。", py:"Wǒ zài dú dàxué.", vi:"Tôi đang học đại học."}},
+  {lesson:11, hanzi:"大学", pinyin:"dàxué", wordClass:"danh", hanviet:"Đại học", meaning:"đại học", example:{zh:"我姐姐在大学工作。", py:"Wǒ jiějie zài dàxué gōngzuò.", vi:"Chị tôi làm việc ở trường đại học."}},
+  {lesson:11, hanzi:"大学生", pinyin:"dàxuéshēng", wordClass:"danh", hanviet:"Đại học sinh", meaning:"sinh viên", example:{zh:"我哥哥是大学生。", py:"Wǒ gēge shì dàxuéshēng.", vi:"Anh trai tôi là sinh viên."}},
+  {lesson:11, hanzi:"学", pinyin:"xué", wordClass:"động", hanviet:"Học", meaning:"học", example:{zh:"我在学汉语。", py:"Wǒ zài xué Hànyǔ.", vi:"Tôi đang học tiếng Hán."}},
+  {lesson:11, hanzi:"医", pinyin:"yī", wordClass:"danh", hanviet:"Y", meaning:"y học", example:{zh:"他在大学学医。", py:"Tā zài dàxué xué yī.", vi:"Anh ấy học y ở trường đại học."}},
+  {lesson:11, hanzi:"弟弟", pinyin:"dìdi", wordClass:"danh", hanviet:"Đệ đệ", meaning:"em trai", example:{zh:"我弟弟是大学生。", py:"Wǒ dìdi shì dàxuéshēng.", vi:"Em trai tôi là sinh viên."}},
+  {lesson:11, hanzi:"起床", pinyin:"qǐchuáng", wordClass:"động", hanviet:"Khởi sàng", meaning:"thức dậy", example:{zh:"我七点起床。", py:"Wǒ qī diǎn qǐchuáng.", vi:"Tôi thức dậy lúc 7 giờ."}},
+  {lesson:11, hanzi:"睡觉", pinyin:"shuìjiào", wordClass:"động", hanviet:"Thụy giác", meaning:"ngủ", example:{zh:"弟弟已经睡觉了。", py:"Dìdi yǐjīng shuìjiào le.", vi:"Em trai đã ngủ rồi."}},
+  {lesson:11, hanzi:"睡", pinyin:"shuì", wordClass:"động", hanviet:"Thụy", meaning:"ngủ", example:{zh:"小朋友在睡。", py:"Xiǎopéngyǒu zài shuì.", vi:"Em bé đang ngủ."}},
+  {lesson:11, hanzi:"那里", pinyin:"nàlǐ", wordClass:"đại", hanviet:"Na lý", meaning:"ở đó, ở kia", example:{zh:"我弟弟在那里睡觉。", py:"Wǒ dìdi zài nàlǐ shuìjiào.", vi:"Em trai tôi đang ngủ ở đó."}},
+  {lesson:11, hanzi:"哪里", pinyin:"nǎlǐ", wordClass:"đại", hanviet:"Na lý", meaning:"ở đâu", example:{zh:"你弟弟在哪里？", py:"Nǐ dìdi zài nǎlǐ?", vi:"Em trai bạn ở đâu?"}},
+  {lesson:11, hanzi:"昨天", pinyin:"zuótiān", wordClass:"danh", hanviet:"Tạc thiên", meaning:"hôm qua", example:{zh:"昨天我很晚睡觉。", py:"Zuótiān wǒ hěn wǎn shuìjiào.", vi:"Hôm qua tôi ngủ rất muộn."}},
+  {lesson:11, hanzi:"问", pinyin:"wèn", wordClass:"động", hanviet:"Vấn", meaning:"hỏi", example:{zh:"我想问你一个问题。", py:"Wǒ xiǎng wèn nǐ yī ge wèntí.", vi:"Tôi muốn hỏi bạn một câu hỏi."}},
+  {lesson:11, hanzi:"对", pinyin:"duì", wordClass:"giới từ", hanviet:"Đối", meaning:"đối với, với", example:{zh:"这本书对我很有用。", py:"Zhè běn shū duì wǒ hěn yǒuyòng.", vi:"Quyển sách này rất có ích đối với tôi."}},
+  {lesson:11, hanzi:"说", pinyin:"shuō", wordClass:"động", hanviet:"Thuyết", meaning:"nói", example:{zh:"他在说汉语。", py:"Tā zài shuō Hànyǔ.", vi:"Anh ấy đang nói tiếng Hán."}},
+  {lesson:11, hanzi:"要", pinyin:"yào", wordClass:"động từ năng nguyện", hanviet:"Yếu", meaning:"muốn, ước (động từ khuyết thiếu)", example:{zh:"我要去饭店吃饭。", py:"Wǒ yào qù fàndiàn chī fàn.", vi:"Tôi muốn đi nhà hàng ăn cơm."}},
+  {lesson:11, hanzi:"小朋友", pinyin:"xiǎopéngyǒu", wordClass:"danh", hanviet:"Tiểu bằng hữu", meaning:"trẻ em, bạn nhỏ", example:{zh:"小朋友们在睡觉。", py:"Xiǎopéngyǒumen zài shuìjiào.", vi:"Các bạn nhỏ đang ngủ."}},
+{lesson:12, hanzi:"天气", pinyin:"tiānqì", wordClass:"danh", hanviet:"Thiên khí", meaning:"thời tiết", example:{zh:"今天天气怎么样？", py:"Jīntiān tiānqì zěnmeyàng?", vi:"Hôm nay thời tiết thế nào?"}},
+  {lesson:12, hanzi:"这里", pinyin:"zhèlǐ", wordClass:"đại", hanviet:"Giá lý", meaning:"ở đây", example:{zh:"这里冬天很冷。", py:"Zhèlǐ dōngtiān hěn lěng.", vi:"Ở đây mùa đông rất lạnh."}},
+  {lesson:12, hanzi:"天", pinyin:"tiān", wordClass:"danh", hanviet:"Thiên", meaning:"trời, thời tiết", example:{zh:"天有点儿阴。", py:"Tiān yǒudiǎnr yīn.", vi:"Trời hơi âm u."}},
+  {lesson:12, hanzi:"下雨", pinyin:"xià yǔ", wordClass:"", hanviet:"Hạ vũ", meaning:"mưa, mưa rơi", example:{zh:"外面下雨了。", py:"Wàimiàn xià yǔ le.", vi:"Bên ngoài trời đang mưa."}},
+  {lesson:12, hanzi:"了", pinyin:"le", wordClass:"trợ từ", hanviet:"Liễu", meaning:"đặt cuối câu, biểu thị sự thay đổi tình huống hoặc trạng thái", example:{zh:"天气冷了。", py:"Tiānqì lěng le.", vi:"Thời tiết đã lạnh rồi."}},
+  {lesson:12, hanzi:"雨", pinyin:"yǔ", wordClass:"danh", hanviet:"Vũ", meaning:"mưa", example:{zh:"雨很大。", py:"Yǔ hěn dà.", vi:"Mưa rất to."}},
+  {lesson:12, hanzi:"有点儿", pinyin:"yǒudiǎnr", wordClass:"phó", hanviet:"Hữu điểm", meaning:"hơi, có chút", example:{zh:"我有点儿冷。", py:"Wǒ yǒudiǎnr lěng.", vi:"Tôi hơi lạnh."}},
+  {lesson:12, hanzi:"觉得", pinyin:"juéde", wordClass:"động", hanviet:"Giác đắc", meaning:"cảm thấy", example:{zh:"我觉得今天很冷。", py:"Wǒ juéde jīntiān hěn lěng.", vi:"Tôi cảm thấy hôm nay rất lạnh."}},
+  {lesson:12, hanzi:"冷", pinyin:"lěng", wordClass:"tính", hanviet:"Lãnh", meaning:"lạnh", example:{zh:"今天很冷。", py:"Jīntiān hěn lěng.", vi:"Hôm nay rất lạnh."}},
+  {lesson:12, hanzi:"下", pinyin:"xià", wordClass:"động", hanviet:"Hạ", meaning:"biểu thị sự đi xuống (rơi, rớt...)", example:{zh:"雪下得很大。", py:"Xuě xià de hěn dà.", vi:"Tuyết rơi rất to."}},
+  {lesson:12, hanzi:"雪", pinyin:"xuě", wordClass:"danh", hanviet:"Tuyết", meaning:"tuyết", example:{zh:"昨天下雪了。", py:"Zuótiān xià xuě le.", vi:"Hôm qua tuyết rơi rồi."}},
+  {lesson:12, hanzi:"来", pinyin:"lái", wordClass:"động", hanviet:"Lai", meaning:"đến, tới", example:{zh:"你什么时候来公司？", py:"Nǐ shénme shíhou lái gōngsī?", vi:"Bạn khi nào đến công ty?"}},
+  {lesson:12, hanzi:"公司", pinyin:"gōngsī", wordClass:"danh", hanviet:"Công ty", meaning:"công ty", example:{zh:"我在公司工作。", py:"Wǒ zài gōngsī gōngzuò.", vi:"Tôi làm việc ở công ty."}},
+  {lesson:12, hanzi:"生病", pinyin:"shēngbìng", wordClass:"động", hanviet:"Sinh bệnh", meaning:"bị bệnh, bị ốm", example:{zh:"我弟弟生病了。", py:"Wǒ dìdi shēngbìng le.", vi:"Em trai tôi bị ốm rồi."}},
+  {lesson:12, hanzi:"看病", pinyin:"kànbìng", wordClass:"động", hanviet:"Khán bệnh", meaning:"khám bệnh", example:{zh:"他去医院看病。", py:"Tā qù yīyuàn kànbìng.", vi:"Anh ấy đi bệnh viện khám bệnh."}},
+  {lesson:12, hanzi:"病", pinyin:"bìng", wordClass:"động", hanviet:"Bệnh", meaning:"bệnh, ốm", example:{zh:"他病了，没来公司。", py:"Tā bìng le, méi lái gōngsī.", vi:"Anh ấy bị bệnh, không đến công ty."}},
+  {lesson:12, hanzi:"一点儿", pinyin:"yìdiǎnr", wordClass:"số từ/lượng từ", hanviet:"Nhất điểm", meaning:"1 ít, 1 chút", example:{zh:"请喝一点儿水。", py:"Qǐng hē yìdiǎnr shuǐ.", vi:"Mời uống một chút nước."}},
+  {lesson:12, hanzi:"药", pinyin:"yào", wordClass:"danh", hanviet:"Dược", meaning:"thuốc", example:{zh:"生病了要吃药。", py:"Shēngbìng le yào chī yào.", vi:"Bị ốm rồi phải uống thuốc."}},
+  {lesson:12, hanzi:"天", pinyin:"tiān", wordClass:"lượng (đơn vị thời gian)", hanviet:"Thiên", meaning:"ngày", example:{zh:"我病了三天。", py:"Wǒ bìng le sān tiān.", vi:"Tôi bị bệnh ba ngày."}},
+  {lesson:12, hanzi:"回", pinyin:"huí", wordClass:"động", hanviet:"Hồi", meaning:"về, quay về", example:{zh:"他生病了，要回家。", py:"Tā shēngbìng le, yào huí jiā.", vi:"Anh ấy bị ốm, phải về nhà."}},
+  {lesson:12, hanzi:"再", pinyin:"zài", wordClass:"phó", hanviet:"Tái", meaning:"sau đó", example:{zh:"你先喝水，再吃药。", py:"Nǐ xiān hē shuǐ, zài chī yào.", vi:"Bạn uống nước trước, sau đó uống thuốc."}},
+  {lesson:12, hanzi:"喝", pinyin:"hē", wordClass:"động", hanviet:"Hát", meaning:"uống", example:{zh:"我想喝热水。", py:"Wǒ xiǎng hē rè shuǐ.", vi:"Tôi muốn uống nước nóng."}},
+  {lesson:12, hanzi:"热", pinyin:"rè", wordClass:"tính", hanviet:"Nhiệt", meaning:"nóng", example:{zh:"这杯水很热。", py:"Zhè bēi shuǐ hěn rè.", vi:"Cốc nước này rất nóng."}},
+  {lesson:12, hanzi:"水", pinyin:"shuǐ", wordClass:"danh", hanviet:"Thủy", meaning:"nước", example:{zh:"请给我一杯水。", py:"Qǐng gěi wǒ yì bēi shuǐ.", vi:"Làm ơn cho tôi một cốc nước."}},
+{lesson:13, hanzi:"可以", pinyin:"kěyǐ", wordClass:"động từ năng nguyện", hanviet:"Khả dĩ", meaning:"có thể", example:{zh:"我可以坐这里吗？", py:"Wǒ kěyǐ zuò zhèlǐ ma?", vi:"Tôi có thể ngồi ở đây không?"}},
+  {lesson:13, hanzi:"再", pinyin:"zài", wordClass:"phó", hanviet:"Tái", meaning:"lại, lần nữa", example:{zh:"请再给我一杯茶。", py:"Qǐng zài gěi wǒ yì bēi chá.", vi:"Làm ơn cho tôi thêm một cốc trà nữa."}},
+  {lesson:13, hanzi:"问题", pinyin:"wèntí", wordClass:"danh", hanviet:"Vấn đề", meaning:"vấn đề, câu hỏi", example:{zh:"我有一个问题。", py:"Wǒ yǒu yí ge wèntí.", vi:"Tôi có một câu hỏi."}},
+  {lesson:13, hanzi:"卖", pinyin:"mài", wordClass:"động", hanviet:"Mại", meaning:"bán", example:{zh:"这里卖面包吗？", py:"Zhèlǐ mài miànbāo ma?", vi:"Ở đây có bán bánh mì không?"}},
+  {lesson:13, hanzi:"打电话", pinyin:"dǎ diànhuà", wordClass:"động", hanviet:"Đả điện thoại", meaning:"gọi điện thoại", example:{zh:"我想给服务员打电话。", py:"Wǒ xiǎng gěi fúwùyuán dǎ diànhuà.", vi:"Tôi muốn gọi điện cho nhân viên phục vụ."}},
+  {lesson:13, hanzi:"一下", pinyin:"yíxià", wordClass:"số từ + lượng từ", hanviet:"Nhất hạ", meaning:"1 tý, 1 chút, thử xem", example:{zh:"请等一下。", py:"Qǐng děng yíxià.", vi:"Xin chờ một chút."}},
+  {lesson:13, hanzi:"服务员", pinyin:"fúwùyuán", wordClass:"danh", hanviet:"Phục vụ viên", meaning:"nhân viên phục vụ", example:{zh:"服务员，请给我一杯茶。", py:"Fúwùyuán, qǐng gěi wǒ yì bēi chá.", vi:"Phục vụ ơi, cho tôi một cốc trà."}},
+  {lesson:13, hanzi:"女士", pinyin:"nǚshì", wordClass:"danh", hanviet:"Nữ sĩ", meaning:"quý bà, bà", example:{zh:"这位女士要一杯茶。", py:"Zhè wèi nǚshì yào yì bēi chá.", vi:"Quý bà này muốn một cốc trà."}},
+  {lesson:13, hanzi:"请", pinyin:"qǐng", wordClass:"động", hanviet:"Thỉnh", meaning:"mời, hãy", example:{zh:"请坐。", py:"Qǐng zuò.", vi:"Mời ngồi."}},
+  {lesson:13, hanzi:"坐", pinyin:"zuò", wordClass:"động", hanviet:"Tọa", meaning:"ngồi", example:{zh:"请坐这里。", py:"Qǐng zuò zhèlǐ.", vi:"Mời ngồi ở đây."}},
+  {lesson:13, hanzi:"给", pinyin:"gěi", wordClass:"động", hanviet:"Cấp", meaning:"cho, đưa", example:{zh:"请给我一杯水。", py:"Qǐng gěi wǒ yì bēi shuǐ.", vi:"Làm ơn cho tôi một cốc nước."}},
+  {lesson:13, hanzi:"杯", pinyin:"bēi", wordClass:"danh", hanviet:"Bôi", meaning:"cái ly, cốc", example:{zh:"我要一杯茶。", py:"Wǒ yào yì bēi chá.", vi:"Tôi muốn một cốc trà."}},
+  {lesson:13, hanzi:"要", pinyin:"yào", wordClass:"động", hanviet:"Yếu", meaning:"cần", example:{zh:"你要什么？", py:"Nǐ yào shénme?", vi:"Bạn cần gì?"}},
+  {lesson:13, hanzi:"早饭", pinyin:"zǎofàn", wordClass:"danh", hanviet:"Tảo phạn", meaning:"bữa sáng", example:{zh:"我早饭吃面包和鸡蛋。", py:"Wǒ zǎofàn chī miànbāo hé jīdàn.", vi:"Bữa sáng tôi ăn bánh mì và trứng gà."}},
+  {lesson:13, hanzi:"这个", pinyin:"zhège", wordClass:"đại", hanviet:"Giá cá", meaning:"cái này", example:{zh:"这个多少钱？", py:"Zhège duōshao qián?", vi:"Cái này bao nhiêu tiền?"}},
+  {lesson:13, hanzi:"面包", pinyin:"miànbāo", wordClass:"danh", hanviet:"Diện bao", meaning:"bánh mì", example:{zh:"我要一个面包。", py:"Wǒ yào yí ge miànbāo.", vi:"Tôi muốn một cái bánh mì."}},
+  {lesson:13, hanzi:"鸡蛋", pinyin:"jīdàn", wordClass:"danh", hanviet:"Kê đản", meaning:"trứng gà", example:{zh:"早饭有鸡蛋吗？", py:"Zǎofàn yǒu jīdàn ma?", vi:"Bữa sáng có trứng gà không?"}},
+  {lesson:13, hanzi:"先生", pinyin:"xiānsheng", wordClass:"danh", hanviet:"Tiên sinh", meaning:"ông, ngài", example:{zh:"先生，您要喝什么？", py:"Xiānsheng, nín yào hē shénme?", vi:"Thưa ông, ông muốn uống gì?"}},
+  {lesson:13, hanzi:"一半", pinyin:"yíbàn", wordClass:"số từ", hanviet:"Nhất bán", meaning:"1 nửa", example:{zh:"我只吃了一半。", py:"Wǒ zhǐ chī le yíbàn.", vi:"Tôi chỉ ăn hết một nửa."}},
+  {lesson:13, hanzi:"茶", pinyin:"chá", wordClass:"danh", hanviet:"Trà", meaning:"trà", example:{zh:"请给我一杯茶。", py:"Qǐng gěi wǒ yì bēi chá.", vi:"Hãy cho tôi một cốc trà."}},
+{lesson:14, hanzi:"上", pinyin:"shàng", wordClass:"động", hanviet:"Thượng", meaning:"lên, đi (tàu/xe)", example:{zh:"我们上火车吧。", py:"Wǒmen shàng huǒchē ba.", vi:"Chúng ta lên tàu hỏa thôi."}},
+  {lesson:14, hanzi:"火车", pinyin:"huǒchē", wordClass:"danh", hanviet:"Hỏa xa", meaning:"tàu hỏa", example:{zh:"火车中午开。", py:"Huǒchē zhōngwǔ kāi.", vi:"Tàu hỏa khởi hành vào buổi trưa."}},
+  {lesson:14, hanzi:"中午", pinyin:"zhōngwǔ", wordClass:"danh", hanviet:"Trung ngọ", meaning:"buổi trưa", example:{zh:"我们中午看了一个电影。", py:"Wǒmen zhōngwǔ kàn le yí ge diànyǐng.", vi:"Buổi trưa chúng tôi đã xem một bộ phim."}},
+  {lesson:14, hanzi:"开", pinyin:"kāi", wordClass:"động", hanviet:"Khai", meaning:"lái (lái xe)", example:{zh:"谁开火车？", py:"Shéi kāi huǒchē?", vi:"Ai lái tàu hỏa?"}},
+  {lesson:14, hanzi:"有些", pinyin:"yǒuxiē", wordClass:"đại", hanviet:"Hữu ta", meaning:"một số, một vài", example:{zh:"有些学生喜欢看电影。", py:"Yǒuxiē xuésheng xǐhuan kàn diànyǐng.", vi:"Một số học sinh thích xem phim."}},
+  {lesson:14, hanzi:"有的", pinyin:"yǒude", wordClass:"đại", hanviet:"Hữu đích", meaning:"một số, một vài", example:{zh:"有的字我不认识。", py:"Yǒude zì wǒ bú rènshi.", vi:"Có một số chữ tôi không biết."}},
+  {lesson:14, hanzi:"了", pinyin:"le", wordClass:"trợ từ", hanviet:"Liễu", meaning:"thường dùng sau động từ để chỉ sự hoàn thành của hành động", example:{zh:"我看了一个电影。", py:"Wǒ kàn le yí ge diànyǐng.", vi:"Tôi đã xem một bộ phim."}},
+  {lesson:14, hanzi:"写", pinyin:"xiě", wordClass:"động", hanviet:"Tả", meaning:"viết", example:{zh:"请写汉字。", py:"Qǐng xiě Hànzì.", vi:"Hãy viết chữ Hán."}},
+  {lesson:14, hanzi:"都", pinyin:"dōu", wordClass:"phó", hanviet:"Đô", meaning:"đều", example:{zh:"他们都喜欢汉语。", py:"Tāmen dōu xǐhuan Hànyǔ.", vi:"Họ đều thích tiếng Trung."}},
+  {lesson:14, hanzi:"听见", pinyin:"tīngjiàn", wordClass:"động", hanviet:"Thính kiến", meaning:"nghe thấy, nghe được", example:{zh:"你听见了吗？", py:"Nǐ tīngjiàn le ma?", vi:"Bạn nghe thấy chưa?"}},
+  {lesson:14, hanzi:"不要", pinyin:"búyào", wordClass:"phó", hanviet:"Bất yếu", meaning:"đừng", example:{zh:"上课的时候不要说话。", py:"Shàngkè de shíhou búyào shuōhuà.", vi:"Trong giờ học đừng nói chuyện."}},
+  {lesson:14, hanzi:"说话", pinyin:"shuōhuà", wordClass:"động", hanviet:"Thuyết thoại", meaning:"nói (nói chuyện)", example:{zh:"老师在说话。", py:"Lǎoshī zài shuōhuà.", vi:"Thầy giáo đang nói chuyện."}},
+  {lesson:14, hanzi:"听", pinyin:"tīng", wordClass:"động", hanviet:"Thính", meaning:"nghe", example:{zh:"我喜欢听汉语。", py:"Wǒ xǐhuan tīng Hànyǔ.", vi:"Tôi thích nghe tiếng Trung."}},
+  {lesson:14, hanzi:"哪些", pinyin:"nǎxiē", wordClass:"đại", hanviet:"Na ta", meaning:"những cái nào (số nhiều)", example:{zh:"你喜欢哪些电影？", py:"Nǐ xǐhuan nǎxiē diànyǐng?", vi:"Bạn thích những bộ phim nào?"}},
+  {lesson:14, hanzi:"字", pinyin:"zì", wordClass:"danh", hanviet:"Tự", meaning:"chữ", example:{zh:"这个字很难写。", py:"Zhège zì hěn nán xiě.", vi:"Chữ này rất khó viết."}},
+  {lesson:14, hanzi:"汉语", pinyin:"Hànyǔ", wordClass:"danh", hanviet:"Hán ngữ", meaning:"tiếng Trung", example:{zh:"我在学汉语。", py:"Wǒ zài xué Hànyǔ.", vi:"Tôi đang học tiếng Trung."}},
+  {lesson:14, hanzi:"汉字", pinyin:"Hànzì", wordClass:"danh", hanviet:"Hán tự", meaning:"chữ Hán", example:{zh:"汉字有意思。", py:"Hànzì yǒu yìsi.", vi:"Chữ Hán rất thú vị."}},
+  {lesson:14, hanzi:"明年", pinyin:"míngnián", wordClass:"danh", hanviet:"Minh niên", meaning:"năm sau", example:{zh:"明年我要上中学。", py:"Míngnián wǒ yào shàng zhōngxué.", vi:"Năm sau tôi sẽ vào học trung học."}},
+  {lesson:14, hanzi:"上", pinyin:"shàng", wordClass:"động", hanviet:"Thượng", meaning:"lên, đi (học)", example:{zh:"他明年上中学。", py:"Tā míngnián shàng zhōngxué.", vi:"Năm sau anh ấy sẽ học lên trung học."}},
+  {lesson:14, hanzi:"中学", pinyin:"zhōngxué", wordClass:"danh", hanviet:"Trung học", meaning:"trường trung học", example:{zh:"这是一所中学。", py:"Zhè shì yì suǒ zhōngxué.", vi:"Đây là một trường trung học."}},
+  {lesson:14, hanzi:"小学", pinyin:"xiǎoxué", wordClass:"danh", hanviet:"Tiểu học", meaning:"trường tiểu học", example:{zh:"我妹妹在小学学习。", py:"Wǒ mèimei zài xiǎoxué xuéxí.", vi:"Em gái tôi đang học ở trường tiểu học."}},
+  {lesson:14, hanzi:"中学生", pinyin:"zhōngxuéshēng", wordClass:"danh", hanviet:"Trung học sinh", meaning:"học sinh trung học", example:{zh:"我哥哥是中学生。", py:"Wǒ gēge shì zhōngxuéshēng.", vi:"Anh trai tôi là học sinh trung học."}},
+  {lesson:14, hanzi:"小学生", pinyin:"xiǎoxuéshēng", wordClass:"danh", hanviet:"Tiểu học sinh", meaning:"học sinh tiểu học", example:{zh:"妹妹是小学生。", py:"Mèimei shì xiǎoxuéshēng.", vi:"Em gái là học sinh tiểu học."}},
+  {lesson:14, hanzi:"上学", pinyin:"shàngxué", wordClass:"động", hanviet:"Thượng học", meaning:"đi học, đến trường", example:{zh:"我每天八点上学。", py:"Wǒ měitiān bā diǎn shàngxué.", vi:"Mỗi ngày tôi đi học lúc 8 giờ."}},
+  {lesson:14, hanzi:"他们", pinyin:"tāmen", wordClass:"đại", hanviet:"Tha (们 không có Hán Việt)", meaning:"họ, bọn họ (nói chung)", example:{zh:"他们是中学生。", py:"Tāmen shì zhōngxuéshēng.", vi:"Họ là học sinh trung học."}},
+  {lesson:14, hanzi:"她们", pinyin:"tāmen", wordClass:"đại", hanviet:"Tha (们 không có Hán Việt)", meaning:"họ, bọn họ (dành cho nữ)", example:{zh:"她们在写汉字。", py:"Tāmen zài xiě Hànzì.", vi:"Các cô ấy đang viết chữ Hán."}},
+  {lesson:14, hanzi:"它们", pinyin:"tāmen", wordClass:"đại", hanviet:"Tha (们 không có Hán Việt)", meaning:"những cái đó (chỉ vật)", example:{zh:"这些字，它们都很难。", py:"Zhèxiē zì, tāmen dōu hěn nán.", vi:"Những chữ này, chúng đều rất khó."}},
+  {lesson:14, hanzi:"晚", pinyin:"wǎn", wordClass:"tính", hanviet:"Vãn", meaning:"tối, trễ, muộn", example:{zh:"今天他来得很晚。", py:"Jīntiān tā lái de hěn wǎn.", vi:"Hôm nay anh ấy đến rất muộn."}},
+{lesson:15, hanzi:"爱", pinyin:"ài", wordClass:"động", hanviet:"Ái", meaning:"yêu, thích", example:{zh:"我爱我的男朋友。", py:"Wǒ ài wǒ de nánpéngyou.", vi:"Tôi yêu bạn trai của tôi."}},
+  {lesson:15, hanzi:"哪个", pinyin:"nǎge", wordClass:"đại từ", hanviet:"Na cá", meaning:"cái nào", example:{zh:"你要坐哪个飞机？", py:"Nǐ yào zuò nǎge fēijī?", vi:"Bạn định đi chuyến máy bay nào?"}},
+  {lesson:15, hanzi:"去年", pinyin:"qùnián", wordClass:"danh", hanviet:"Khứ niên", meaning:"năm ngoái", example:{zh:"去年我去了北京。", py:"Qùnián wǒ qù le Běijīng.", vi:"Năm ngoái tôi đã đi Bắc Kinh."}},
+  {lesson:15, hanzi:"男朋友", pinyin:"nánpéngyou", wordClass:"danh", hanviet:"Nam bằng hữu", meaning:"bạn trai", example:{zh:"我男朋友在西安工作。", py:"Wǒ nánpéngyou zài Xī'ān gōngzuò.", vi:"Bạn trai tôi làm việc ở Tây An."}},
+  {lesson:15, hanzi:"几", pinyin:"jǐ", wordClass:"số từ", hanviet:"Kỷ", meaning:"mấy, vài", example:{zh:"你要坐几个小时飞机？", py:"Nǐ yào zuò jǐ ge xiǎoshí fēijī?", vi:"Bạn phải bay mấy tiếng đồng hồ?"}},
+  {lesson:15, hanzi:"年", pinyin:"nián", wordClass:"danh", hanviet:"Niên", meaning:"năm", example:{zh:"我在北京住了三年。", py:"Wǒ zài Běijīng zhù le sān nián.", vi:"Tôi đã sống ở Bắc Kinh ba năm."}},
+  {lesson:15, hanzi:"好玩儿", pinyin:"hǎowánr", wordClass:"tính", hanviet:"Hảo ngoạn", meaning:"vui, thú vị", example:{zh:"北京很好玩儿。", py:"Běijīng hěn hǎowánr.", vi:"Bắc Kinh rất vui, thú vị."}},
+  {lesson:15, hanzi:"西安", pinyin:"Xī'ān", wordClass:"danh riêng", hanviet:"Tây An", meaning:"Tây An", example:{zh:"西安是一个好玩儿的地方。", py:"Xī'ān shì yí ge hǎowánr de dìfang.", vi:"Tây An là một nơi rất thú vị."}},
+  {lesson:15, hanzi:"北京", pinyin:"Běijīng", wordClass:"danh riêng", hanviet:"Bắc Kinh", meaning:"Bắc Kinh", example:{zh:"我要去北京。", py:"Wǒ yào qù Běijīng.", vi:"Tôi muốn đi Bắc Kinh."}},
+  {lesson:15, hanzi:"飞机", pinyin:"fēijī", wordClass:"danh", hanviet:"Phi cơ", meaning:"máy bay", example:{zh:"我坐飞机去北京。", py:"Wǒ zuò fēijī qù Běijīng.", vi:"Tôi đi Bắc Kinh bằng máy bay."}},
+  {lesson:15, hanzi:"要", pinyin:"yào", wordClass:"động", hanviet:"Yếu", meaning:"muốn, cần", example:{zh:"我要去机场接家人。", py:"Wǒ yào qù jīchǎng jiē jiārén.", vi:"Tôi cần ra sân bay đón người nhà."}},
+  {lesson:15, hanzi:"小时", pinyin:"xiǎoshí", wordClass:"danh", hanviet:"Tiểu thời", meaning:"tiếng đồng hồ, giờ (khoảng thời gian)", example:{zh:"飞机要飞三个小时。", py:"Fēijī yào fēi sān ge xiǎoshí.", vi:"Máy bay phải bay ba tiếng đồng hồ."}},
+  {lesson:15, hanzi:"家人", pinyin:"jiārén", wordClass:"danh", hanviet:"Gia nhân", meaning:"người nhà, người thân", example:{zh:"我的家人明天到北京。", py:"Wǒ de jiārén míngtiān dào Běijīng.", vi:"Người nhà tôi ngày mai đến Bắc Kinh."}},
+  {lesson:15, hanzi:"时间", pinyin:"shíjiān", wordClass:"danh", hanviet:"Thời gian", meaning:"thời gian", example:{zh:"你有时间吗？", py:"Nǐ yǒu shíjiān ma?", vi:"Bạn có thời gian không?"}},
+  {lesson:15, hanzi:"机场", pinyin:"jīchǎng", wordClass:"danh", hanviet:"Cơ trường", meaning:"sân bay", example:{zh:"大兴机场见！", py:"Dàxīng Jīchǎng jiàn!", vi:"Gặp nhau ở sân bay Đại Hưng nhé!"}},
+  {lesson:15, hanzi:"接", pinyin:"jiē", wordClass:"động", hanviet:"Tiếp", meaning:"tiếp (tiếp đón)", example:{zh:"我去机场接你。", py:"Wǒ qù jīchǎng jiē nǐ.", vi:"Tôi đi sân bay đón bạn."}},
+  {lesson:15, hanzi:"住", pinyin:"zhù", wordClass:"động", hanviet:"Trú", meaning:"ở, sinh sống", example:{zh:"你住在哪里？", py:"Nǐ zhù zài nǎlǐ?", vi:"Bạn sống ở đâu?"}},
+  {lesson:15, hanzi:"早", pinyin:"zǎo", wordClass:"tính", hanviet:"Tảo", meaning:"sớm", example:{zh:"你来得很早。", py:"Nǐ lái de hěn zǎo.", vi:"Bạn đến rất sớm."}},
+  {lesson:15, hanzi:"那", pinyin:"nà", wordClass:"liên từ", hanviet:"Na", meaning:"thế thì, vậy thì", example:{zh:"你没有时间，那我们明天见。", py:"Nǐ méiyǒu shíjiān, nà wǒmen míngtiān jiàn.", vi:"Bạn không có thời gian, vậy thì chúng ta gặp nhau ngày mai nhé."}},
+  {lesson:15, hanzi:"大兴机场", pinyin:"Dàxīng Jīchǎng", wordClass:"danh riêng", hanviet:"Đại Hưng Cơ trường", meaning:"Sân bay Đại Hưng", example:{zh:"我们大兴机场见！", py:"Wǒmen Dàxīng Jīchǎng jiàn!", vi:"Chúng ta gặp nhau ở sân bay Đại Hưng nhé!"}}
+];
+const ALL_RADICALS = {
+'你': {radical:'亻', name:'Bộ Nhân (人)'},
+  '好': {radical:'女', name:'Bộ Nữ'},
+  '王': {radical:'王', name:'Bộ Vương (Ngọc)'},
+  '老': {radical:'老', name:'Bộ Lão'},
+  '师': {radical:'巾', name:'Bộ Cân'},
+  '大': {radical:'大', name:'Bộ Đại'},
+  '家': {radical:'宀', name:'Bộ Miên'},
+  '学': {radical:'子', name:'Bộ Tử'},
+  '生': {radical:'生', name:'Bộ Sinh'},
+  '们': {radical:'亻', name:'Bộ Nhân (人)'},
+  '您': {radical:'心', name:'Bộ Tâm'},
+  '谢': {radical:'讠', name:'Bộ Ngôn (言)'},
+  '不': {radical:'一', name:'Bộ Nhất'},
+  '客': {radical:'宀', name:'Bộ Miên'},
+  '气': {radical:'气', name:'Bộ Khí'},
+  '同': {radical:'口', name:'Bộ Khẩu'},
+  '再': {radical:'冂', name:'Bộ Quynh'},
+  '见': {radical:'见', name:'Bộ Kiến'},
+'请': {radical:'讠', name:'Bộ Ngôn (言)'},
+  '问': {radical:'门', name:'Bộ Môn'},
+  '你': {radical:'亻', name:'Bộ Nhân (人)'},
+  '叫': {radical:'口', name:'Bộ Khẩu'},
+  '什': {radical:'亻', name:'Bộ Nhân (人)'},
+  '么': {radical:'幺', name:'Bộ Yêu'},
+  '名': {radical:'口', name:'Bộ Khẩu'},
+  '字': {radical:'子', name:'Bộ Tử'},
+  '我': {radical:'戈', name:'Bộ Qua'},
+  '不': {radical:'一', name:'Bộ Nhất'},
+  '是': {radical:'日', name:'Bộ Nhật'},
+  '对': {radical:'寸', name:'Bộ Thốn'},
+  '起': {radical:'走', name:'Bộ Tẩu'},
+  '没': {radical:'氵', name:'Bộ Thủy (水)'},
+  '关': {radical:'八', name:'Bộ Bát'},
+  '系': {radical:'糸', name:'Bộ Mịch (糸)'},
+  '事': {radical:'亅', name:'Bộ Quyết'},
+  '很': {radical:'彳', name:'Bộ Sách (彳)'},
+  '高': {radical:'高', name:'Bộ Cao'},
+  '兴': {radical:'八', name:'Bộ Bát'},
+  '认': {radical:'讠', name:'Bộ Ngôn (言)'},
+  '识': {radical:'讠', name:'Bộ Ngôn (言)'},
+  '也': {radical:'乙', name:'Bộ Ất'},
+'人': {radical:'人', name:'Bộ Nhân (人)'},
+  '的': {radical:'白', name:'Bộ Bạch'},
+  '中': {radical:'丨', name:'Bộ Cổn'},
+  '国': {radical:'囗', name:'Bộ Vi (囗)'},
+  '法': {radical:'氵', name:'Bộ Thủy (水)'},
+  '文': {radical:'文', name:'Bộ Văn'},
+  '这': {radical:'辶', name:'Bộ Sước (辵)'},
+  '谁': {radical:'讠', name:'Bộ Ngôn (言)'},
+  '女': {radical:'女', name:'Bộ Nữ'},
+  '朋': {radical:'月', name:'Bộ Nguyệt'},
+  '友': {radical:'又', name:'Bộ Hựu'},
+  '哪': {radical:'口', name:'Bộ Khẩu'},
+  '她': {radical:'女', name:'Bộ Nữ'},
+  '泰': {radical:'水', name:'Bộ Thủy (水)'},
+  '喂': {radical:'口', name:'Bộ Khẩu'},
+  '姐': {radical:'女', name:'Bộ Nữ'},
+  '工': {radical:'工', name:'Bộ Công'},
+  '作': {radical:'亻', name:'Bộ Nhân (人)'},
+  '还': {radical:'辶', name:'Bộ Sước (辵)'},
+  '忙': {radical:'忄', name:'Bộ Tâm (心)'},
+  '吗': {radical:'口', name:'Bộ Khẩu'},
+  '对': {radical:'寸', name:'Bộ Thốn'},
+  '太': {radical:'大', name:'Bộ Đại'},
+  '我': {radical:'戈', name:'Bộ Qua'},
+  '们': {radical:'亻', name:'Bộ Nhân (人)'},
+  '想': {radical:'心', name:'Bộ Tâm (心)'},
+'有': {radical:'月', name:'Bộ Nguyệt'},
+  '多': {radical:'夕', name:'Bộ Tịch'},
+  '少': {radical:'小', name:'Bộ Tiểu'},
+  '个': {radical:'人', name:'Bộ Nhân (人)'},
+  '哥': {radical:'口', name:'Bộ Khẩu'},
+  '呢': {radical:'口', name:'Bộ Khẩu'},
+  '没': {radical:'氵', name:'Bộ Thủy (水)'},
+  '家': {radical:'宀', name:'Bộ Miên'},
+  '几': {radical:'几', name:'Bộ Kỷ'},
+  '口': {radical:'口', name:'Bộ Khẩu'},
+  '爸': {radical:'父', name:'Bộ Phụ'},
+  '妈': {radical:'女', name:'Bộ Nữ'},
+  '妹': {radical:'女', name:'Bộ Nữ'},
+  '和': {radical:'口', name:'Bộ Khẩu'},
+  '儿': {radical:'儿', name:'Bộ Nhân (儿)'},
+  '子': {radical:'子', name:'Bộ Tử'},
+  '孩': {radical:'子', name:'Bộ Tử'},
+  '女': {radical:'女', name:'Bộ Nữ'},
+  '岁': {radical:'山', name:'Bộ Sơn'},
+  '他': {radical:'亻', name:'Bộ Nhân (人)'},
+  '今': {radical:'人', name:'Bộ Nhân (人)'},
+  '年': {radical:'干', name:'Bộ Can'},
+  '大': {radical:'大', name:'Bộ Đại'},
+'今': {radical:'人', name:'Bộ Nhân (人)'},
+  '天': {radical:'大', name:'Bộ Đại'},
+  '号': {radical:'口', name:'Bộ Khẩu'},
+  '月': {radical:'月', name:'Bộ Nguyệt'},
+  '日': {radical:'日', name:'Bộ Nhật'},
+  '星': {radical:'日', name:'Bộ Nhật'},
+  '期': {radical:'月', name:'Bộ Nguyệt'},
+  '休': {radical:'亻', name:'Bộ Nhân (人)'},
+  '息': {radical:'心', name:'Bộ Tâm (心)'},
+  '会': {radical:'人', name:'Bộ Nhân (人)'},
+  '做': {radical:'亻', name:'Bộ Nhân (人)'},
+  '饭': {radical:'饣', name:'Bộ Thực (食)'},
+  '面': {radical:'面', name:'Bộ Diện'},
+  '条': {radical:'木', name:'Bộ Mộc'},
+  '儿': {radical:'儿', name:'Bộ Nhân (儿)'},
+  '饺': {radical:'饣', name:'Bộ Thực (食)'},
+  '子': {radical:'子', name:'Bộ Tử'},
+  '一': {radical:'一', name:'Bộ Nhất'},
+  '些': {radical:'二', name:'Bộ Nhị'},
+  '菜': {radical:'艹', name:'Bộ Thảo (艸)'},
+  '下': {radical:'一', name:'Bộ Nhất'},
+  '班': {radical:'王', name:'Bộ Vương (玉)'},
+  '新': {radical:'斤', name:'Bộ Cân'},
+  '电': {radical:'田', name:'Bộ Điền'},
+  '脑': {radical:'月', name:'Bộ Nhục (肉)'},
+  '真': {radical:'目', name:'Bộ Mục'},
+  '好': {radical:'女', name:'Bộ Nữ'},
+  '看': {radical:'目', name:'Bộ Mục'},
+  '喜': {radical:'口', name:'Bộ Khẩu'},
+  '欢': {radical:'又', name:'Bộ Hựu'},
+  '它': {radical:'宀', name:'Bộ Miên'},
+'手': {radical:'手', name:'Bộ Thủ (手)'},
+  '机': {radical:'木', name:'Bộ Mộc'},
+  '电': {radical:'田', name:'Bộ Điền'},
+  '话': {radical:'讠', name:'Bộ Ngôn (言)'},
+  '号': {radical:'口', name:'Bộ Khẩu'},
+  '明': {radical:'日', name:'Bộ Nhật'},
+  '天': {radical:'大', name:'Bộ Đại'},
+  '去': {radical:'厶', name:'Bộ Khư'},
+  '哪': {radical:'口', name:'Bộ Khẩu'},
+  '儿': {radical:'儿', name:'Bộ Nhân (儿)'},
+  '想': {radical:'心', name:'Bộ Tâm (心)'},
+  '超': {radical:'走', name:'Bộ Tẩu'},
+  '市': {radical:'巾', name:'Bộ Cân (巾)'},
+  '买': {radical:'一', name:'Bộ Nhất'},
+  '东': {radical:'一', name:'Bộ Nhất'},
+  '西': {radical:'西', name:'Bộ Tây'},
+  '些': {radical:'二', name:'Bộ Nhị'},
+  '牛': {radical:'牛', name:'Bộ Ngưu (牛)'},
+  '奶': {radical:'女', name:'Bộ Nữ'},
+  '吃': {radical:'口', name:'Bộ Khẩu'},
+  '晚': {radical:'日', name:'Bộ Nhật'},
+  '饭': {radical:'饣', name:'Bộ Thực (食)'},
+  '那': {radical:'阝', name:'Bộ Ấp (邑)'},
+  '边': {radical:'辶', name:'Bộ Sước (辵)'},
+  '包': {radical:'勹', name:'Bộ Bao'},
+  '子': {radical:'子', name:'Bộ Tử'},
+  '非': {radical:'非', name:'Bộ Phi'},
+  '常': {radical:'巾', name:'Bộ Cân (巾)'},
+  '好': {radical:'女', name:'Bộ Nữ'},
+  '米': {radical:'米', name:'Bộ Mễ'},
+  '怎': {radical:'心', name:'Bộ Tâm (心)'},
+  '么': {radical:'幺', name:'Bộ Yêu'},
+  '坐': {radical:'土', name:'Bộ Thổ'},
+  '出': {radical:'凵', name:'Bộ Khảm'},
+  '租': {radical:'禾', name:'Bộ Hòa'},
+  '车': {radical:'车', name:'Bộ Xa (車)'},
+  '安': {radical:'宀', name:'Bộ Miên'},
+  '店': {radical:'广', name:'Bộ Nghiễm'},
+'现': {radical:'王', name:'Bộ Ngọc (玉)'},
+  '在': {radical:'土', name:'Bộ Thổ'},
+  '点': {radical:'灬', name:'Bộ Hỏa (火)'},
+  '早': {radical:'日', name:'Bộ Nhật'},
+  '上': {radical:'一', name:'Bộ Nhất'},
+  '午': {radical:'十', name:'Bộ Thập'},
+  '分': {radical:'刀', name:'Bộ Đao (刀)'},
+  '课': {radical:'讠', name:'Bộ Ngôn (言)'},
+  '下': {radical:'一', name:'Bộ Nhất'},
+  '见': {radical:'见', name:'Bộ Kiến (見)'},
+  '吧': {radical:'口', name:'Bộ Khẩu'},
+  '电': {radical:'田', name:'Bộ Điền'},
+  '影': {radical:'彡', name:'Bộ Sam'},
+  '院': {radical:'阝', name:'Bộ Phụ (阜)'},
+  '看': {radical:'目', name:'Bộ Mục'},
+  '事': {radical:'亅', name:'Bộ Quyết'},
+  '呢': {radical:'口', name:'Bộ Khẩu'},
+  '半': {radical:'十', name:'Bộ Thập'},
+  '家': {radical:'宀', name:'Bộ Miên'},
+  '里': {radical:'里', name:'Bộ Lý (里)'},
+  '晚': {radical:'日', name:'Bộ Nhật'},
+  '医': {radical:'匚', name:'Bộ Hễ'},
+  '班': {radical:'王', name:'Bộ Vương (玉)'},
+  '店': {radical:'广', name:'Bộ Nghiễm'},
+  '菜': {radical:'艹', name:'Bộ Thảo (艸)'},
+  '钟': {radical:'钅', name:'Bộ Kim (金)'},
+  '后': {radical:'口', name:'Bộ Khẩu'},
+'房': {radical:'户', name:'Bộ Hộ'},
+  '间': {radical:'门', name:'Bộ Môn'},
+  '外': {radical:'夕', name:'Bộ Tịch'},
+  '只': {radical:'口', name:'Bộ Khẩu'},
+  '小': {radical:'小', name:'Bộ Tiểu'},
+  '猫': {radical:'犭', name:'Bộ Khuyển (犬)'},
+  '没': {radical:'氵', name:'Bộ Thủy (水)'},
+  '看': {radical:'目', name:'Bộ Mục'},
+  '见': {radical:'见', name:'Bộ Kiến (見)'},
+  '桌': {radical:'木', name:'Bộ Mộc'},
+  '子': {radical:'子', name:'Bộ Tử'},
+  '下': {radical:'一', name:'Bộ Nhất'},
+  '漂': {radical:'氵', name:'Bộ Thủy (水)'},
+  '亮': {radical:'亠', name:'Bộ Đầu'},
+  '在': {radical:'土', name:'Bộ Thổ'},
+  '学': {radical:'子', name:'Bộ Tử'},
+  '校': {radical:'木', name:'Bộ Mộc'},
+  '书': {radical:'乙', name:'Bộ Ất'},
+  '店': {radical:'广', name:'Bộ Nghiễm'},
+  '前': {radical:'刀', name:'Bộ Đao (刀)'},
+  '能': {radical:'月', name:'Bộ Nhục (肉)'},
+  '到': {radical:'刂', name:'Bộ Đao (刀)'},
+  '午': {radical:'十', name:'Bộ Thập'},
+  '饭': {radical:'饣', name:'Bộ Thực (食)'},
+  '大': {radical:'大', name:'Bộ Đại'},
+  '病': {radical:'疒', name:'Bộ Nạch'},
+  '人': {radical:'人', name:'Bộ Nhân'},
+  '多': {radical:'夕', name:'Bộ Tịch'},
+  '医': {radical:'匚', name:'Bộ Hễ'},
+  '生': {radical:'生', name:'Bộ Sinh'},
+  '工': {radical:'工', name:'Bộ Công'},
+  '作': {radical:'亻', name:'Bộ Nhân (人)'},
+'前': {radical:'刀', name:'Bộ Đao (刀)'},
+  '边': {radical:'辶', name:'Bộ Sước (辵)'},
+  '家': {radical:'宀', name:'Bộ Miên'},
+  '那': {radical:'阝', name:'Bộ Ấp (邑)'},
+  '个': {radical:'人', name:'Bộ Nhân'},
+  '外': {radical:'夕', name:'Bộ Tịch'},
+  '椅': {radical:'木', name:'Bộ Mộc'},
+  '子': {radical:'子', name:'Bộ Tử'},
+  '上': {radical:'一', name:'Bộ Nhất'},
+  '本': {radical:'木', name:'Bộ Mộc'},
+  '书': {radical:'乙', name:'Bộ Ất'},
+  '第': {radical:'竹', name:'Bộ Trúc (竹)'},
+  '学': {radical:'子', name:'Bộ Tử'},
+  '习': {radical:'乙', name:'Bộ Ất'},
+  '做': {radical:'亻', name:'Bộ Nhân (人)'},
+  '白': {radical:'白', name:'Bộ Bạch'},
+  '天': {radical:'大', name:'Bộ Đại'},
+  '读': {radical:'讠', name:'Bộ Ngôn (言)'},
+  '和': {radical:'口', name:'Bộ Khẩu'},
+  '朋': {radical:'月', name:'Bộ Nguyệt'},
+  '友': {radical:'又', name:'Bộ Hựu'},
+  '唱': {radical:'口', name:'Bộ Khẩu'},
+  '歌': {radical:'欠', name:'Bộ Khiếm'},
+  '好': {radical:'女', name:'Bộ Nữ'},
+  '听': {radical:'口', name:'Bộ Khẩu'},
+  '电': {radical:'田', name:'Bộ Điền'},
+  '视': {radical:'见', name:'Bộ Kiến (見)'},
+  '狗': {radical:'犭', name:'Bộ Khuyển (犬)'},
+  '玩': {radical:'王', name:'Bộ Ngọc (玉)'},
+'杯': {radical:'木', name:'Bộ Mộc'},
+  '子': {radical:'子', name:'Bộ Tử'},
+  '售': {radical:'口', name:'Bộ Khẩu'},
+  '货': {radical:'贝', name:'Bộ Bối (貝)'},
+  '员': {radical:'口', name:'Bộ Khẩu'},
+  '这': {radical:'辶', name:'Bộ Sước (辵)'},
+  '边': {radical:'辶', name:'Bộ Sước (辵)'},
+  '钱': {radical:'钅', name:'Bộ Kim (金)'},
+  '些': {radical:'二', name:'Bộ Nhị'},
+  '块': {radical:'土', name:'Bộ Thổ'},
+  '那': {radical:'阝', name:'Bộ Ấp (邑)'},
+  '儿': {radical:'儿', name:'Bộ Nhân/Nhi'},
+  '水': {radical:'水', name:'Bộ Thủy'},
+  '果': {radical:'木', name:'Bộ Mộc'},
+  '少': {radical:'小', name:'Bộ Tiểu'},
+  '斤': {radical:'斤', name:'Bộ Cân'},
+  '苹': {radical:'艹', name:'Bộ Thảo (艸)'},
+  '便': {radical:'亻', name:'Bộ Nhân (人)'},
+  '宜': {radical:'宀', name:'Bộ Miên'},
+  '商': {radical:'口', name:'Bộ Khẩu'},
+  '店': {radical:'广', name:'Bộ Nghiễm'},
+  '衣': {radical:'衣', name:'Bộ Y'},
+  '服': {radical:'月', name:'Bộ Nguyệt'},
+  '件': {radical:'亻', name:'Bộ Nhân (人)'},
+  '元': {radical:'儿', name:'Bộ Nhân/Nhi'},
+  '怎': {radical:'心', name:'Bộ Tâm'},
+  '么': {radical:'幺', name:'Bộ Yêu'},
+  '样': {radical:'木', name:'Bộ Mộc'},
+  '贵': {radical:'贝', name:'Bộ Bối (貝)'},
+  '穿': {radical:'穴', name:'Bộ Huyệt'},
+  '女': {radical:'女', name:'Bộ Nữ'},
+  '男': {radical:'田', name:'Bộ Điền'},
+'时': {radical:'日', name:'Bộ Nhật'},
+  '候': {radical:'亻', name:'Bộ Nhân (人)'},
+  '饭': {radical:'饣', name:'Bộ Thực (食)'},
+  '店': {radical:'广', name:'Bộ Nghiễm'},
+  '知': {radical:'矢', name:'Bộ Thỉ'},
+  '道': {radical:'辶', name:'Bộ Sước (辵)'},
+  '正': {radical:'止', name:'Bộ Chỉ'},
+  '在': {radical:'土', name:'Bộ Thổ'},
+  '找': {radical:'扌', name:'Bộ Thủ (手)'},
+  '开': {radical:'廾', name:'Bộ Củng'},
+  '车': {radical:'车', name:'Bộ Xa'},
+  '读': {radical:'讠', name:'Bộ Ngôn (言)'},
+  '大': {radical:'大', name:'Bộ Đại'},
+  '学': {radical:'子', name:'Bộ Tử'},
+  '生': {radical:'生', name:'Bộ Sinh'},
+  '医': {radical:'匚', name:'Bộ Hễ'},
+  '弟': {radical:'弓', name:'Bộ Cung'},
+  '起': {radical:'走', name:'Bộ Tẩu'},
+  '床': {radical:'广', name:'Bộ Nghiễm'},
+  '睡': {radical:'目', name:'Bộ Mục'},
+  '觉': {radical:'见', name:'Bộ Kiến (見)'},
+  '那': {radical:'阝', name:'Bộ Ấp (邑)'},
+  '里': {radical:'里', name:'Bộ Lý (里)'},
+  '哪': {radical:'口', name:'Bộ Khẩu'},
+  '昨': {radical:'日', name:'Bộ Nhật'},
+  '天': {radical:'大', name:'Bộ Đại'},
+  '问': {radical:'口', name:'Bộ Khẩu'},
+  '对': {radical:'寸', name:'Bộ Thốn'},
+  '说': {radical:'讠', name:'Bộ Ngôn (言)'},
+  '要': {radical:'西', name:'Bộ Tây'},
+  '小': {radical:'小', name:'Bộ Tiểu'},
+  '朋': {radical:'月', name:'Bộ Nguyệt'},
+  '友': {radical:'又', name:'Bộ Hựu'},
+'天': {radical:'大', name:'Bộ Đại'},
+  '气': {radical:'气', name:'Bộ Khí'},
+  '这': {radical:'辶', name:'Bộ Sước (辵)'},
+  '里': {radical:'里', name:'Bộ Lý (里)'},
+  '下': {radical:'一', name:'Bộ Nhất'},
+  '雨': {radical:'雨', name:'Bộ Vũ'},
+  '了': {radical:'亅', name:'Bộ Quyết'},
+  '有': {radical:'月', name:'Bộ Nguyệt'},
+  '点': {radical:'灬', name:'Bộ Hỏa (火)'},
+  '儿': {radical:'儿', name:'Bộ Nhân đi (儿)'},
+  '觉': {radical:'见', name:'Bộ Kiến (見)'},
+  '得': {radical:'彳', name:'Bộ Xích'},
+  '冷': {radical:'冫', name:'Bộ Băng'},
+  '雪': {radical:'雨', name:'Bộ Vũ'},
+  '来': {radical:'木', name:'Bộ Mộc'},
+  '公': {radical:'八', name:'Bộ Bát'},
+  '司': {radical:'口', name:'Bộ Khẩu'},
+  '生': {radical:'生', name:'Bộ Sinh'},
+  '病': {radical:'疒', name:'Bộ Nạch (bệnh)'},
+  '看': {radical:'目', name:'Bộ Mục'},
+  '一': {radical:'一', name:'Bộ Nhất'},
+  '药': {radical:'艹', name:'Bộ Thảo (艸)'},
+  '回': {radical:'囗', name:'Bộ Vi (囗)'},
+  '再': {radical:'冂', name:'Bộ Quynh'},
+  '喝': {radical:'口', name:'Bộ Khẩu'},
+  '热': {radical:'灬', name:'Bộ Hỏa (火)'},
+  '水': {radical:'水', name:'Bộ Thủy'},
+'可': {radical:'口', name:'Bộ Khẩu'},
+  '以': {radical:'人', name:'Bộ Nhân'},
+  '再': {radical:'冂', name:'Bộ Quynh'},
+  '问': {radical:'口', name:'Bộ Khẩu'},
+  '题': {radical:'页', name:'Bộ Hiệt (頁)'},
+  '卖': {radical:'十', name:'Bộ Thập'},
+  '打': {radical:'扌', name:'Bộ Thủ (手)'},
+  '电': {radical:'田', name:'Bộ Điền'},
+  '话': {radical:'讠', name:'Bộ Ngôn (言)'},
+  '一': {radical:'一', name:'Bộ Nhất'},
+  '下': {radical:'一', name:'Bộ Nhất'},
+  '服': {radical:'月', name:'Bộ Nguyệt'},
+  '务': {radical:'力', name:'Bộ Lực'},
+  '员': {radical:'口', name:'Bộ Khẩu'},
+  '女': {radical:'女', name:'Bộ Nữ'},
+  '士': {radical:'士', name:'Bộ Sĩ'},
+  '请': {radical:'讠', name:'Bộ Ngôn (言)'},
+  '坐': {radical:'土', name:'Bộ Thổ'},
+  '给': {radical:'纟', name:'Bộ Mịch (糸)'},
+  '杯': {radical:'木', name:'Bộ Mộc'},
+  '要': {radical:'西', name:'Bộ Tây'},
+  '早': {radical:'日', name:'Bộ Nhật'},
+  '饭': {radical:'饣', name:'Bộ Thực (食)'},
+  '这': {radical:'辶', name:'Bộ Sước (辵)'},
+  '个': {radical:'人', name:'Bộ Nhân'},
+  '面': {radical:'面', name:'Bộ Diện'},
+  '包': {radical:'勹', name:'Bộ Bao'},
+  '鸡': {radical:'鸟', name:'Bộ Điểu'},
+  '蛋': {radical:'虫', name:'Bộ Trùng'},
+  '先': {radical:'儿', name:'Bộ Nhân đi (儿)'},
+  '生': {radical:'生', name:'Bộ Sinh'},
+  '半': {radical:'十', name:'Bộ Thập'},
+  '茶': {radical:'艹', name:'Bộ Thảo (艸)'},
+'上': {radical:'一', name:'Bộ Nhất'},
+  '火': {radical:'火', name:'Bộ Hỏa'},
+  '车': {radical:'车', name:'Bộ Xa'},
+  '中': {radical:'丨', name:'Bộ Cổn'},
+  '午': {radical:'十', name:'Bộ Thập'},
+  '开': {radical:'廾', name:'Bộ Củng'},
+  '有': {radical:'月', name:'Bộ Nguyệt'},
+  '些': {radical:'二', name:'Bộ Nhị'},
+  '的': {radical:'白', name:'Bộ Bạch'},
+  '了': {radical:'亅', name:'Bộ Quyết'},
+  '写': {radical:'冖', name:'Bộ Mịch'},
+  '都': {radical:'阝', name:'Bộ Ấp (邑)'},
+  '听': {radical:'口', name:'Bộ Khẩu'},
+  '见': {radical:'见', name:'Bộ Kiến (見)'},
+  '不': {radical:'一', name:'Bộ Nhất'},
+  '要': {radical:'西', name:'Bộ Tây'},
+  '说': {radical:'讠', name:'Bộ Ngôn (言)'},
+  '话': {radical:'讠', name:'Bộ Ngôn (言)'},
+  '哪': {radical:'口', name:'Bộ Khẩu'},
+  '字': {radical:'子', name:'Bộ Tử'},
+  '汉': {radical:'氵', name:'Bộ Thủy (水)'},
+  '语': {radical:'讠', name:'Bộ Ngôn (言)'},
+  '明': {radical:'日', name:'Bộ Nhật'},
+  '年': {radical:'干', name:'Bộ Can'},
+  '学': {radical:'子', name:'Bộ Tử'},
+  '生': {radical:'生', name:'Bộ Sinh'},
+  '小': {radical:'小', name:'Bộ Tiểu'},
+  '他': {radical:'亻', name:'Bộ Nhân (人)'},
+  '们': {radical:'亻', name:'Bộ Nhân (人)'},
+  '她': {radical:'女', name:'Bộ Nữ'},
+  '它': {radical:'宀', name:'Bộ Miên'},
+  '晚': {radical:'日', name:'Bộ Nhật'},
+'爱': {radical:'爪', name:'Bộ Trảo'},
+  '哪': {radical:'口', name:'Bộ Khẩu'},
+  '个': {radical:'人', name:'Bộ Nhân'},
+  '去': {radical:'厶', name:'Bộ Khư'},
+  '年': {radical:'干', name:'Bộ Can'},
+  '男': {radical:'田', name:'Bộ Điền'},
+  '朋': {radical:'月', name:'Bộ Nguyệt'},
+  '友': {radical:'又', name:'Bộ Hựu'},
+  '几': {radical:'几', name:'Bộ Kỷ'},
+  '好': {radical:'女', name:'Bộ Nữ'},
+  '玩': {radical:'王', name:'Bộ Ngọc (玉)'},
+  '儿': {radical:'儿', name:'Bộ Nhân đi (儿)'},
+  '西': {radical:'西', name:'Bộ Tây'},
+  '安': {radical:'宀', name:'Bộ Miên'},
+  '北': {radical:'匕', name:'Bộ Chủy'},
+  '京': {radical:'亠', name:'Bộ Đầu'},
+  '飞': {radical:'飞', name:'Bộ Phi'},
+  '机': {radical:'木', name:'Bộ Mộc'},
+  '要': {radical:'西', name:'Bộ Tây'},
+  '小': {radical:'小', name:'Bộ Tiểu'},
+  '时': {radical:'日', name:'Bộ Nhật'},
+  '家': {radical:'宀', name:'Bộ Miên'},
+  '人': {radical:'人', name:'Bộ Nhân'},
+  '间': {radical:'门', name:'Bộ Môn'},
+  '场': {radical:'土', name:'Bộ Thổ'},
+  '接': {radical:'扌', name:'Bộ Thủ (手)'},
+  '住': {radical:'亻', name:'Bộ Nhân (人)'},
+  '早': {radical:'日', name:'Bộ Nhật'},
+  '那': {radical:'阝', name:'Bộ Ấp (邑)'},
+  '大': {radical:'大', name:'Bộ Đại'},
+  '兴': {radical:'八', name:'Bộ Bát'}
+};
+const LESSON_META = [
+  {n:1, tag:'第一课', hanzi:'AI小语，你好', vi:'Xin chào, AI Tiểu Ngữ', count:13},
+  {n:2, tag:'第二课', hanzi:'我叫李文', vi:'Tôi tên là Lý Văn', count:15},
+  {n:3, tag:'第三课', hanzi:'我是中国人', vi:'Tôi là người Trung Quốc', count:22},
+  {n:4, tag:'第四课', hanzi:'我有两个孩子', vi:'Tôi có hai đứa con', count:21},
+  {n:5, tag:'第五课', hanzi:'今天我休息', vi:'Hôm nay tôi nghỉ', count:22},
+  {n:6, tag:'第六课', hanzi:'你的手机号是多少？', vi:'Số điện thoại của bạn là bao nhiêu?', count:23},
+  {n:7, tag:'第七课', hanzi:'晚上我们看电影吧', vi:'Buổi tối chúng ta xem phim nhé', count:27},
+  {n:8, tag:'第八课', hanzi:'我爸爸也在医院工作', vi:'Bố tôi cũng làm việc ở bệnh viện', count:24},
+  {n:9, tag:'第九课', hanzi:'我明天上午在学校学习', vi:'Tôi học ở trường vào sáng mai', count:23},
+  {n:10, tag:'第十课', hanzi:'这儿的苹果真便宜', vi:'Táo ở đây rẻ thật!', count:23},
+  {n:11, tag:'第十一课', hanzi:'我读大学呢', vi:'Tôi đang học đại học', count:25},
+  {n:12, tag:'第十二课', hanzi:'昨天下雪了', vi:'Hôm qua tuyết rơi rồi', count:24},
+  {n:13, tag:'第十三课', hanzi:'请给我一杯茶', vi:'Hãy cho tôi một cốc trà', count:20},
+  {n:14, tag:'第十四课', hanzi:'我看了一个电影', vi:'Tôi đã xem một bộ phim', count:28},
+  {n:15, tag:'第十五课', hanzi:'大兴机场见！', vi:'Gặp nhau ở sân bay Đại Hưng nhé!', count:20},
+];
+
+/* Trạng thái "đã thuộc" dùng chung giữa tab Flashcard và tab Ôn tập (null = chưa đánh dấu) */
+let masteredState = [];
+
+/* ===================== BỘ THỦ (RADICAL) ===================== */
+let radicalMap = ALL_RADICALS;
+function getRadicalsForWord(word){
+  const seen = [];
+  Array.from(word).forEach(ch=>{
+    if(seen.indexOf(ch) === -1) seen.push(ch);
+  });
+  return seen.map(ch => ({char: ch, ...(radicalMap[ch] || {radical:'?', name:'Chưa có dữ liệu'})}));
+}
+
+/* ===================== TABS ===================== */
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-'+btn.dataset.tab).classList.add('active');
+    if(btn.dataset.tab==='hanzi') initHanziTab();
+    if(btn.dataset.tab==='review') startReviewTimer();
+  });
+});
+
+/* ===================== SPEECH (Web Speech API) ===================== */
+let zhVoice = null;
+function loadVoices(){
+  if(!('speechSynthesis' in window)) return;
+  const voices = speechSynthesis.getVoices();
+  zhVoice = voices.find(v=>v.lang && v.lang.toLowerCase().startsWith('zh')) || null;
+}
+loadVoices();
+if('speechSynthesis' in window && 'onvoiceschanged' in speechSynthesis) speechSynthesis.onvoiceschanged = loadVoices;
+
+function speak(text){
+  if(!('speechSynthesis' in window)){
+    alert('Trình duyệt này không hỗ trợ phát âm giọng nói.');
+    return;
+  }
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'zh-CN';
+  if(zhVoice) u.voice = zhVoice;
+  u.rate = 0.85;
+  speechSynthesis.speak(u);
+}
+
+/* ===================== FLASHCARD ===================== */
+let fcOrder = [];
+let fcIndex = 0;
+let fcFlipped = false;
+
+function renderFlashcard(){
+  const item = vocab[fcOrder[fcIndex]];
+  document.getElementById('fcHanzi').textContent = item.hanzi;
+  document.getElementById('fcPinyin').textContent = item.pinyin;
+  const wcEl = document.getElementById('fcWordClass');
+  wcEl.textContent = item.wordClass || '';
+  wcEl.style.display = item.wordClass ? '' : 'none';
+  const hvEl = document.getElementById('fcHanviet');
+  hvEl.textContent = item.hanviet ? '(' + item.hanviet + ')' : '';
+  hvEl.style.display = item.hanviet ? '' : 'none';
+  document.getElementById('fcMeaning').textContent = item.meaning;
+  document.getElementById('fcExample').innerHTML =
+    item.example.zh + '<span class="py">' + item.example.py + '</span><span class="vi">' + item.example.vi + '</span>';
+  const radicals = getRadicalsForWord(item.hanzi);
+  document.getElementById('fcRadicals').innerHTML = radicals.map(r =>
+    '<span class="radical-pill"><span class="zh">' + r.radical + '</span> ' + r.name + '</span>'
+  ).join('');
+  document.getElementById('fcCounter').textContent = (fcIndex+1) + ' / ' + fcOrder.length;
+  fcFlipped = false;
+  document.getElementById('fcCard').classList.remove('flipped');
+  updateFcMasteryUI();
+}
+
+function updateFcMasteryUI(){
+  const idx = fcOrder[fcIndex];
+  const state = masteredState[idx];
+  document.getElementById('fcMasteredBtn').classList.toggle('active', state === true);
+  document.getElementById('fcUnmasteredBtn').classList.toggle('active', state === false);
+}
+document.getElementById('fcCard').addEventListener('click', ()=>{
+  fcFlipped = !fcFlipped;
+  document.getElementById('fcCard').classList.toggle('flipped', fcFlipped);
+});
+document.getElementById('fcFlip').addEventListener('click', (e)=>{
+  e.stopPropagation();
+  document.getElementById('fcCard').click();
+});
+document.getElementById('fcSpeakFront').addEventListener('click', (e)=>{
+  e.stopPropagation();
+  speak(vocab[fcOrder[fcIndex]].hanzi);
+});
+document.getElementById('fcPrev').addEventListener('click', ()=>{
+  fcIndex = (fcIndex - 1 + fcOrder.length) % fcOrder.length;
+  renderFlashcard();
+});
+document.getElementById('fcNext').addEventListener('click', ()=>{
+  if(fcIndex + 1 < fcOrder.length){
+    fcIndex++;
+    renderFlashcard();
+    return;
+  }
+  /* Hết lượt duyệt hiện tại -> xây danh sách ôn riêng các từ chưa thuộc */
+  const remaining = vocab.map((_,i)=>i).filter(i => masteredState[i] !== true);
+  if(remaining.length === 0){
+    fcOrder = vocab.map((_,i)=>i);
+    fcIndex = 0;
+    renderFlashcard();
+    alert('🎉 Bạn đã thuộc hết ' + vocab.length + ' từ! Đang quay lại ôn toàn bộ danh sách.');
+    return;
+  }
+  fcOrder = remaining;
+  fcIndex = 0;
+  renderFlashcard();
+  if(remaining.length < vocab.length){
+    alert('Đã hết lượt! Giờ ôn riêng ' + remaining.length + ' từ chưa thuộc.');
+  }
+});
+document.getElementById('fcShuffle').addEventListener('click', ()=>{
+  for(let i=fcOrder.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [fcOrder[i],fcOrder[j]] = [fcOrder[j],fcOrder[i]];
+  }
+  fcIndex = 0;
+  renderFlashcard();
+});
+document.getElementById('fcMasteredBtn').addEventListener('click', (e)=>{
+  e.stopPropagation();
+  setMastered(fcOrder[fcIndex], true);
+  document.getElementById('fcNext').click();
+});
+document.getElementById('fcUnmasteredBtn').addEventListener('click', (e)=>{
+  e.stopPropagation();
+  setMastered(fcOrder[fcIndex], false);
+  document.getElementById('fcNext').click();
+});
+
+/* ===================== GAME HUB ===================== */
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+const GAME_TITLES = {
+  mcq: 'Trắc nghiệm 4 đáp án',
+  match: 'Nối cặp Hán tự – Nghĩa',
+  memory: 'Lật thẻ nhớ',
+  listen: 'Nghe và chọn từ đúng'
+};
+
+const gameMenuEl = document.getElementById('gameMenu');
+const gameAreaEl = document.getElementById('gameArea');
+const gameContentEl = document.getElementById('gameContent');
+const gameAreaTitleEl = document.getElementById('gameAreaTitle');
+const gameResultEl = document.getElementById('gameResultScreen');
+let currentGameType = null;
+
+/* ---- Đồng hồ bấm giờ (đếm tăng dần, không giới hạn) ---- */
+let gameTimerInterval = null;
+let gameStartTime = null;
+
+function formatTime(sec){
+  const m = Math.floor(sec/60).toString().padStart(2,'0');
+  const s = (sec%60).toString().padStart(2,'0');
+  return m + ':' + s;
+}
+function updateGameTimerDisplay(sec){
+  const el = document.getElementById('gameTimer');
+  if(el) el.textContent = '⏱️ ' + formatTime(sec);
+}
+function startGameTimer(){
+  stopGameTimer();
+  gameStartTime = Date.now();
+  updateGameTimerDisplay(0);
+  gameTimerInterval = setInterval(()=>{
+    updateGameTimerDisplay(getElapsedSeconds());
+  }, 1000);
+}
+function stopGameTimer(){
+  if(gameTimerInterval){
+    clearInterval(gameTimerInterval);
+    gameTimerInterval = null;
+  }
+}
+function getElapsedSeconds(){
+  return gameStartTime ? Math.floor((Date.now() - gameStartTime) / 1000) : 0;
+}
+
+function showGameMenu(){
+  stopGameTimer();
+  gameMenuEl.style.display = '';
+  gameAreaEl.style.display = 'none';
+  gameResultEl.style.display = 'none';
+}
+
+function openGame(type){
+  currentGameType = type;
+  gameMenuEl.style.display = 'none';
+  gameResultEl.style.display = 'none';
+  gameAreaEl.style.display = '';
+  gameAreaTitleEl.textContent = GAME_TITLES[type];
+  gameContentEl.innerHTML = '';
+  startGameTimer();
+  if(type === 'mcq') initMCQGame();
+  if(type === 'match') initMatchGame();
+  if(type === 'memory') initMemoryGame();
+  if(type === 'listen') initListenGame();
+}
+
+function showGameResult(scoreLine, detailLine){
+  const elapsed = getElapsedSeconds();
+  stopGameTimer();
+  gameAreaEl.style.display = 'none';
+  gameResultEl.style.display = '';
+  document.getElementById('gameResultScore').textContent = scoreLine;
+  document.getElementById('gameResultDetail').textContent = detailLine;
+  document.getElementById('gameResultTime').textContent = 'Thời gian chơi: ' + formatTime(elapsed);
+}
+
+document.querySelectorAll('.game-card').forEach(card=>{
+  card.addEventListener('click', ()=> openGame(card.dataset.game));
+});
+document.getElementById('gameBack').addEventListener('click', showGameMenu);
+document.getElementById('gameResultMenuBtn').addEventListener('click', showGameMenu);
+document.getElementById('gameResultReplayBtn').addEventListener('click', ()=> openGame(currentGameType));
+
+/* ---- Game 1: Trắc nghiệm 4 đáp án ---- */
+function initMCQGame(){
+  const LEN = Math.min(10, vocab.length);
+  const order = shuffle(vocab.map((_,i)=>i)).slice(0, LEN);
+  let qi = 0, score = 0;
+
+  gameContentEl.innerHTML =
+    '<div class="quiz-progress"><div class="quiz-progress-bar" id="mcqBar"></div></div>' +
+    '<div class="quiz-card">' +
+      '<div class="quiz-q-label" id="mcqLabel"></div>' +
+      '<div class="quiz-hanzi zh" id="mcqHanzi"></div>' +
+      '<div class="quiz-pinyin" id="mcqPinyin"></div>' +
+      '<div class="quiz-options" id="mcqOptions"></div>' +
+    '</div>' +
+    '<div class="quiz-footer"><button class="btn btn-primary" id="mcqNext" disabled>Câu tiếp theo →</button></div>';
+
+  const bar = gameContentEl.querySelector('#mcqBar');
+  const label = gameContentEl.querySelector('#mcqLabel');
+  const hanziEl = gameContentEl.querySelector('#mcqHanzi');
+  const pinyinEl = gameContentEl.querySelector('#mcqPinyin');
+  const optsEl = gameContentEl.querySelector('#mcqOptions');
+  const nextBtn = gameContentEl.querySelector('#mcqNext');
+
+  function renderQ(){
+    const item = vocab[order[qi]];
+    label.textContent = 'Câu ' + (qi+1) + ' / ' + LEN;
+    hanziEl.textContent = item.hanzi;
+    pinyinEl.textContent = item.pinyin;
+    bar.style.width = (qi/LEN*100) + '%';
+
+    const distractors = shuffle(vocab.filter((_,i)=>i!==order[qi]).map(v=>v.meaning)).slice(0,3);
+    const options = shuffle([item.meaning, ...distractors]);
+    optsEl.innerHTML = '';
+    options.forEach(opt=>{
+      const b = document.createElement('button');
+      b.className = 'quiz-opt';
+      b.textContent = opt;
+      b.addEventListener('click', ()=>{
+        const isCorrect = opt === item.meaning;
+        optsEl.querySelectorAll('.quiz-opt').forEach(o=>{
+          o.disabled = true;
+          if(o.textContent === item.meaning) o.classList.add('correct');
+          else if(o === b && !isCorrect) o.classList.add('wrong');
+        });
+        if(isCorrect) score++;
+        nextBtn.disabled = false;
+      });
+      optsEl.appendChild(b);
+    });
+    nextBtn.disabled = true;
+  }
+
+  nextBtn.addEventListener('click', ()=>{
+    qi++;
+    if(qi >= LEN){
+      bar.style.width = '100%';
+      showGameResult(score + ' / ' + LEN + ' câu đúng', 'Trắc nghiệm 4 đáp án · ' + GAME_TITLES.mcq);
+      return;
+    }
+    renderQ();
+  });
+  renderQ();
+}
+
+/* ---- Game 2: Nối cặp Hán tự – Nghĩa ---- */
+function initMatchGame(){
+  const N = Math.min(8, vocab.length);
+  const idxs = shuffle(vocab.map((_,i)=>i)).slice(0, N);
+  const leftItems = shuffle(idxs.map(i=>({vi:i, text:vocab[i].hanzi})));
+  const rightItems = shuffle(idxs.map(i=>({vi:i, text:vocab[i].meaning})));
+  let selectedLeftBtn = null, selectedLeftIdx = null;
+  let matched = 0, mistakes = 0, locked = false;
+
+  gameContentEl.innerHTML =
+    '<div class="match-wrap">' +
+      '<div class="match-col" id="matchLeft"></div>' +
+      '<div class="match-col" id="matchRight"></div>' +
+    '</div>' +
+    '<div class="match-status" id="matchStatus">Đã ghép: 0 / ' + N + ' · Số lần sai: 0</div>';
+
+  const leftCol = gameContentEl.querySelector('#matchLeft');
+  const rightCol = gameContentEl.querySelector('#matchRight');
+  const statusEl = gameContentEl.querySelector('#matchStatus');
+
+  function updateStatus(){
+    statusEl.textContent = 'Đã ghép: ' + matched + ' / ' + N + ' · Số lần sai: ' + mistakes;
+  }
+
+  leftItems.forEach(li=>{
+    const b = document.createElement('button');
+    b.className = 'match-btn hanzi zh';
+    b.textContent = li.text;
+    b.addEventListener('click', ()=>{
+      if(locked || b.classList.contains('matched')) return;
+      leftCol.querySelectorAll('.match-btn').forEach(x=>x.classList.remove('selected'));
+      b.classList.add('selected');
+      selectedLeftBtn = b;
+      selectedLeftIdx = li.vi;
+    });
+    leftCol.appendChild(b);
+  });
+
+  rightItems.forEach(ri=>{
+    const b = document.createElement('button');
+    b.className = 'match-btn';
+    b.textContent = ri.text;
+    b.addEventListener('click', ()=>{
+      if(locked || !selectedLeftBtn || b.classList.contains('matched')) return;
+      if(ri.vi === selectedLeftIdx){
+        selectedLeftBtn.classList.remove('selected');
+        selectedLeftBtn.classList.add('matched');
+        b.classList.add('matched');
+        matched++;
+        selectedLeftBtn = null;
+        selectedLeftIdx = null;
+        updateStatus();
+        if(matched === N){
+          setTimeout(()=> showGameResult(N + ' / ' + N + ' cặp đúng', 'Số lần chọn sai: ' + mistakes + ' · ' + GAME_TITLES.match), 400);
+        }
+      } else {
+        locked = true;
+        mistakes++;
+        b.classList.add('wrong');
+        selectedLeftBtn.classList.add('wrong');
+        updateStatus();
+        setTimeout(()=>{
+          b.classList.remove('wrong');
+          selectedLeftBtn.classList.remove('wrong','selected');
+          selectedLeftBtn = null;
+          selectedLeftIdx = null;
+          locked = false;
+        }, 600);
+      }
+    });
+    rightCol.appendChild(b);
+  });
+}
+
+/* ---- Game 3: Lật thẻ nhớ ---- */
+function initMemoryGame(){
+  const N = Math.min(8, vocab.length);
+  const idxs = shuffle(vocab.map((_,i)=>i)).slice(0, N);
+  let cards = [];
+  idxs.forEach(i=>{
+    cards.push({pair:i, type:'hanzi', text:vocab[i].hanzi});
+    cards.push({pair:i, type:'meaning', text:vocab[i].meaning});
+  });
+  cards = shuffle(cards);
+
+  let flipped = [], matchedCount = 0, moves = 0, locked = false;
+
+  gameContentEl.innerHTML =
+    '<div class="mem-grid" id="memGrid"></div>' +
+    '<div class="mem-status" id="memStatus">Số lượt lật: 0 · Đã ghép: 0 / ' + N + '</div>';
+
+  const grid = gameContentEl.querySelector('#memGrid');
+  const statusEl = gameContentEl.querySelector('#memStatus');
+
+  function updateStatus(){
+    statusEl.textContent = 'Số lượt lật: ' + moves + ' · Đã ghép: ' + matchedCount + ' / ' + N;
+  }
+
+  cards.forEach(c=>{
+    const card = document.createElement('div');
+    card.className = 'mem-card';
+    card.innerHTML =
+      '<div class="mem-card-inner">' +
+        '<div class="mem-face back">汉</div>' +
+        '<div class="mem-face front ' + (c.type==='hanzi' ? 'hanzi zh' : '') + '">' + c.text + '</div>' +
+      '</div>';
+    card.addEventListener('click', ()=>{
+      if(locked || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+      card.classList.add('flipped');
+      flipped.push({card, c});
+      if(flipped.length === 2){
+        moves++;
+        locked = true;
+        const [a, b] = flipped;
+        if(a.c.pair === b.c.pair && a.c.type !== b.c.type){
+          a.card.classList.add('matched');
+          b.card.classList.add('matched');
+          matchedCount++;
+          flipped = [];
+          locked = false;
+          updateStatus();
+          if(matchedCount === N){
+            setTimeout(()=> showGameResult('Hoàn thành! 🎉', 'Số lượt lật: ' + moves + ' · ' + GAME_TITLES.memory), 400);
+          }
+        } else {
+          updateStatus();
+          setTimeout(()=>{
+            a.card.classList.remove('flipped');
+            b.card.classList.remove('flipped');
+            flipped = [];
+            locked = false;
+          }, 700);
+        }
+      }
+    });
+    grid.appendChild(card);
+  });
+}
+
+/* ---- Game 4: Nghe và chọn từ đúng ---- */
+function initListenGame(){
+  const LEN = Math.min(8, vocab.length);
+  const order = shuffle(vocab.map((_,i)=>i)).slice(0, LEN);
+  let qi = 0, score = 0;
+
+  gameContentEl.innerHTML =
+    '<div class="quiz-progress"><div class="quiz-progress-bar" id="lsnBar"></div></div>' +
+    '<div class="quiz-card">' +
+      '<div class="quiz-q-label" id="lsnLabel"></div>' +
+      '<button class="icon-btn" id="lsnPlay" style="width:64px;height:64px;font-size:26px;margin:6px auto;">🔊</button>' +
+      '<div class="hint" style="margin-top:2px;">Nghe rồi chọn đúng chữ Hán</div>' +
+      '<div class="quiz-options" id="lsnOptions"></div>' +
+    '</div>' +
+    '<div class="quiz-footer"><button class="btn btn-primary" id="lsnNext" disabled>Câu tiếp theo →</button></div>';
+
+  const bar = gameContentEl.querySelector('#lsnBar');
+  const label = gameContentEl.querySelector('#lsnLabel');
+  const playBtn = gameContentEl.querySelector('#lsnPlay');
+  const optsEl = gameContentEl.querySelector('#lsnOptions');
+  const nextBtn = gameContentEl.querySelector('#lsnNext');
+
+  function renderQ(){
+    const item = vocab[order[qi]];
+    label.textContent = 'Câu ' + (qi+1) + ' / ' + LEN;
+    bar.style.width = (qi/LEN*100) + '%';
+    playBtn.onclick = ()=> speak(item.hanzi);
+    speak(item.hanzi);
+
+    const distractors = shuffle(vocab.filter((_,i)=>i!==order[qi]).map(v=>v.hanzi)).slice(0,3);
+    const options = shuffle([item.hanzi, ...distractors]);
+    optsEl.innerHTML = '';
+    options.forEach(opt=>{
+      const b = document.createElement('button');
+      b.className = 'quiz-opt zh';
+      b.textContent = opt;
+      b.addEventListener('click', ()=>{
+        const isCorrect = opt === item.hanzi;
+        optsEl.querySelectorAll('.quiz-opt').forEach(o=>{
+          o.disabled = true;
+          if(o.textContent === item.hanzi) o.classList.add('correct');
+          else if(o === b && !isCorrect) o.classList.add('wrong');
+        });
+        if(isCorrect) score++;
+        nextBtn.disabled = false;
+      });
+      optsEl.appendChild(b);
+    });
+    nextBtn.disabled = true;
+  }
+
+  nextBtn.addEventListener('click', ()=>{
+    qi++;
+    if(qi >= LEN){
+      bar.style.width = '100%';
+      showGameResult(score + ' / ' + LEN + ' câu đúng', GAME_TITLES.listen);
+      return;
+    }
+    renderQ();
+  });
+  renderQ();
+}
+
+/* ===================== ÔN TẬP TAB ===================== */
+const reviewList = document.getElementById('reviewList');
+const reviewStatsEl = document.getElementById('reviewStats');
+const reviewRows = [];
+
+/* ---- Đồng hồ đếm giờ phiên Ôn tập ---- */
+let reviewTimerInterval = null;
+let reviewStartTime = null;
+function startReviewTimer(){
+  if(reviewTimerInterval) return;
+  if(!reviewStartTime) reviewStartTime = Date.now();
+  reviewTimerInterval = setInterval(()=>{
+    const sec = Math.floor((Date.now() - reviewStartTime) / 1000);
+    document.getElementById('reviewTimer').textContent = '⏱️ ' + formatTime(sec);
+  }, 1000);
+}
+function resetReviewTimer(){
+  reviewStartTime = Date.now();
+  document.getElementById('reviewTimer').textContent = '⏱️ 00:00';
+}
+
+/* ---- Tổng hợp số câu Đúng / Sai (dựa trên ô gõ lại Hán tự) ---- */
+function updateReviewScoreSummary(){
+  let correct = 0, wrong = 0;
+  reviewList.querySelectorAll('.review-input').forEach(inp=>{
+    if(inp.classList.contains('correct')) correct++;
+    else if(inp.classList.contains('wrong')) wrong++;
+  });
+  document.getElementById('rsCorrect').textContent = '✅ Đúng: ' + correct;
+  document.getElementById('rsWrong').textContent = '❌ Sai: ' + wrong;
+}
+
+const reviewCheckboxes = [];
+let masteredCount = 0;
+
+function updateReviewStats(){
+  reviewStatsEl.textContent = 'Đã thuộc: ' + masteredCount + ' / ' + vocab.length;
+}
+
+/* Đồng bộ trạng thái "đã thuộc / chưa thuộc" giữa tab Flashcard và tab Ôn tập */
+function setMastered(index, value){
+  const prev = masteredState[index];
+  if(prev === value) return;
+  masteredState[index] = value;
+  if(value === true && prev !== true) masteredCount++;
+  else if(value !== true && prev === true) masteredCount--;
+  updateReviewStats();
+  const row = reviewRows[index];
+  if(row) row.classList.toggle('mastered', value === true);
+  const checkbox = reviewCheckboxes[index];
+  if(checkbox) checkbox.checked = value === true;
+  updateFcMasteryUI();
+  updateSelectAllUI();
+}
+
+function updateSelectAllUI(){
+  const selectAll = document.getElementById('reviewSelectAll');
+  if(!selectAll) return;
+  if(masteredCount === 0){
+    selectAll.checked = false;
+    selectAll.indeterminate = false;
+  } else if(masteredCount === vocab.length){
+    selectAll.checked = true;
+    selectAll.indeterminate = false;
+  } else {
+    selectAll.checked = false;
+    selectAll.indeterminate = true;
+  }
+}
+
+function buildReviewRows(){
+  reviewList.innerHTML = '';
+  reviewRows.length = 0;
+  reviewCheckboxes.length = 0;
+  vocab.forEach((item, vIndex)=>{
+    const row = document.createElement('div');
+    row.className = 'review-row';
+    row.innerHTML =
+      '<input type="checkbox" class="review-check" title="Đánh dấu đã thuộc">' +
+      '<button class="icon-btn review-actions-listen" title="Nghe phát âm">🔊</button>' +
+      '<button class="icon-btn review-actions-write" title="Luyện viết nét chữ">✍️</button>' +
+      '<div class="review-hanzi zh" title="'+item.example.zh+'" onclick="this.classList.toggle(\'peek\')">'+item.hanzi+'</div>' +
+      '<div class="review-pinyin" onclick="this.classList.toggle(\'peek\')">'+item.pinyin+(item.hanviet ? '<span class="review-hanviet">'+item.hanviet+'</span>' : '')+'</div>' +
+      '<div class="review-wordclass"' + (item.wordClass ? '' : ' style="visibility:hidden;"') + '>'+(item.wordClass||'')+'</div>' +
+      '<div class="review-meaning" onclick="this.classList.toggle(\'peek\')">'+item.meaning+'</div>' +
+      '<div class="review-input-wrap">' +
+        '<input type="text" class="review-input zh" placeholder="Gõ lại Hán tự..." maxlength="6">' +
+        '<span class="review-status"></span>' +
+      '</div>';
+  
+    const checkbox = row.querySelector('.review-check');
+    const listenBtn = row.querySelector('.review-actions-listen');
+    const writeBtn = row.querySelector('.review-actions-write');
+    const input = row.querySelector('.review-input');
+    const status = row.querySelector('.review-status');
+  
+    reviewRows[vIndex] = row;
+    reviewCheckboxes[vIndex] = checkbox;
+  
+    checkbox.addEventListener('change', ()=>{
+      setMastered(vIndex, checkbox.checked);
+    });
+    listenBtn.addEventListener('click', ()=> speak(item.hanzi));
+    writeBtn.addEventListener('click', ()=> goToHanziTab(item));
+    input.addEventListener('input', ()=>{
+      const val = input.value.trim();
+      input.classList.remove('correct','wrong');
+      if(val.length === 0){
+        status.textContent = '';
+      } else if(val === item.hanzi){
+        input.classList.add('correct');
+        status.textContent = '✅';
+      } else {
+        input.classList.add('wrong');
+        status.textContent = '❌';
+      }
+      updateReviewScoreSummary();
+    });
+  
+    reviewList.appendChild(row);
+  });
+}
+
+
+document.getElementById('reviewSelectAll').addEventListener('change', (e)=>{
+  const checked = e.target.checked;
+  vocab.forEach((_, i)=> setMastered(i, checked));
+});
+
+/* Nút "Làm lại": xoá các ô đã gõ, reset điểm Đúng/Sai và đồng hồ giờ (không đụng tới trạng thái "đã thuộc") */
+document.getElementById('reviewResetBtn').addEventListener('click', ()=>{
+  reviewList.querySelectorAll('.review-input').forEach(inp=>{
+    inp.value = '';
+    inp.classList.remove('correct','wrong');
+  });
+  reviewList.querySelectorAll('.review-status').forEach(status=>{
+    status.textContent = '';
+  });
+  updateReviewScoreSummary();
+  resetReviewTimer();
+  startReviewTimer();
+});
+
+/* Ẩn/hiện Hán tự, Pinyin, Nghĩa trong bảng Ôn tập để học sinh tự chọn cách kiểm tra trí nhớ */
+let reviewFieldState = {hanzi:true, pinyin:true, meaning:true};
+function toggleReviewField(f){
+  reviewFieldState[f] = !reviewFieldState[f];
+  const panel = document.getElementById('panel-review');
+  const btn = document.getElementById('rvt-' + f);
+  const cls = 'hide-' + f;
+  if(reviewFieldState[f]){ panel.classList.remove(cls); btn.classList.remove('off'); }
+  else { panel.classList.add(cls); btn.classList.add('off'); }
+  reviewList.querySelectorAll('.peek').forEach(el => el.classList.remove('peek'));
+}
+
+/* ===================== HANZI WRITER TAB ===================== */
+let hzInitialized = false;
+let hzActiveWord = null;
+let hzWriters = [];
+
+function goToHanziTab(item){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector('.tab-btn[data-tab="hanzi"]').classList.add('active');
+  document.getElementById('panel-hanzi').classList.add('active');
+  initHanziTab();
+  const idx = vocab.indexOf(item);
+  selectHanziIndex(idx >= 0 ? idx : 0);
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+let hzActiveIndex = 0;
+
+function selectHanziIndex(i){
+  hzActiveIndex = i;
+  hzActiveWord = vocab[i];
+  const picker = document.getElementById('hzPicker');
+  picker.value = i;
+  hzSearchInput.value = '';
+  hzSearchStatus.textContent = '';
+  renderHanziBoard();
+}
+
+function initHanziTab(){
+  if(!hzInitialized){
+    const picker = document.getElementById('hzPicker');
+    picker.innerHTML = '';
+    vocab.forEach((item, i)=>{
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = item.hanzi + ' · ' + item.pinyin;
+      picker.appendChild(opt);
+    });
+    picker.value = 0;
+    hzActiveIndex = 0;
+    hzInitialized = true;
+  }
+  renderHanziBoard();
+}
+
+document.getElementById('hzPicker').addEventListener('change', (e)=>{
+  selectHanziIndex(Number(e.target.value));
+});
+document.getElementById('hzPrevBtn').addEventListener('click', ()=>{
+  if(vocab.length === 0) return;
+  selectHanziIndex((hzActiveIndex - 1 + vocab.length) % vocab.length);
+});
+document.getElementById('hzNextBtn').addEventListener('click', ()=>{
+  if(vocab.length === 0) return;
+  selectHanziIndex((hzActiveIndex + 1) % vocab.length);
+});
+
+function renderHanziBoard(){
+  const board = document.getElementById('hzBoard');
+  const currentEl = document.getElementById('hzCurrent');
+  board.innerHTML = '';
+  hzWriters = [];
+  const chars = Array.from(hzActiveWord.hanzi);
+
+  let label = '<span class="zh">' + hzActiveWord.hanzi + '</span>';
+  if(hzActiveWord.pinyin) label += ' · ' + hzActiveWord.pinyin;
+  if(hzActiveWord.meaning) label += ' · ' + hzActiveWord.meaning;
+  if(hzActiveIndex >= 0) label += ' <span class="hz-index">(' + (hzActiveIndex+1) + '/' + vocab.length + ')</span>';
+  currentEl.innerHTML = label;
+
+  chars.forEach((ch, i)=>{
+    const card = document.createElement('div');
+    card.className = 'hz-char-card';
+    const targetId = 'hzTarget_' + i + '_' + Date.now();
+    const rInfo = radicalMap[ch] || {radical:'?', name:'Chưa có dữ liệu'};
+    card.innerHTML =
+      '<div class="hz-target" id="'+targetId+'"></div>' +
+      '<div class="hz-status" id="'+targetId+'_status">Đang tải nét chữ...</div>' +
+      '<div class="hz-radical zh">Bộ: ' + rInfo.radical + ' &middot; ' + rInfo.name + '</div>' +
+      '<div class="hz-actions">' +
+        '<button class="btn" data-action="animate">▶ Hoạt hình</button>' +
+        '<button class="btn" data-action="quiz">✍ Luyện viết</button>' +
+      '</div>';
+    board.appendChild(card);
+
+    const statusEl = document.getElementById(targetId + '_status');
+    const animateBtn = card.querySelector('[data-action="animate"]');
+    const quizBtn = card.querySelector('[data-action="quiz"]');
+    animateBtn.disabled = true;
+    quizBtn.disabled = true;
+
+    const writer = HanziWriter.create(targetId, ch, {
+      width: 160,
+      height: 160,
+      padding: 8,
+      strokeAnimationSpeed: 1,
+      delayBetweenStrokes: 250,
+      strokeColor: '#1F2B24',
+      radicalColor: '#B23A2E',
+      outlineColor: '#E4D9BE',
+      showCharacter: true,
+      onLoadCharDataSuccess: ()=>{
+        statusEl.textContent = '';
+        animateBtn.disabled = false;
+        quizBtn.disabled = false;
+        writer.animateCharacter();
+      },
+      onLoadCharDataError: ()=>{
+        statusEl.textContent = 'Không tìm thấy dữ liệu nét chữ cho "' + ch + '"';
+      }
+    });
+    hzWriters.push(writer);
+
+    animateBtn.addEventListener('click', ()=>{
+      writer.showCharacter();
+      writer.animateCharacter();
+    });
+    quizBtn.addEventListener('click', ()=>{
+      statusEl.textContent = 'Đang luyện viết... hãy vẽ từng nét';
+      writer.quiz({
+        onCorrectStroke: ()=>{ statusEl.textContent = 'Đúng nét! Tiếp tục...'; },
+        onMistake: ()=>{ statusEl.textContent = 'Sai nét, thử lại nhé'; },
+        onComplete: ()=>{ statusEl.textContent = 'Hoàn thành! 🎉'; }
+      });
+    });
+  });
+}
+
+/* Tìm kiếm chữ Hán tự do */
+const hzSearchInput = document.getElementById('hzSearchInput');
+const hzSearchBtn = document.getElementById('hzSearchBtn');
+const hzSearchStatus = document.getElementById('hzSearchStatus');
+
+function doHanziSearch(){
+  const raw = hzSearchInput.value || '';
+  const chars = Array.from(raw).filter(ch => /[\u4e00-\u9fff\u3400-\u4dbf]/.test(ch));
+  if(chars.length === 0){
+    hzSearchStatus.textContent = 'Vui lòng nhập ít nhất 1 chữ Hán hợp lệ.';
+    return;
+  }
+  hzSearchStatus.textContent = '';
+  hzActiveIndex = -1;
+  document.getElementById('hzPicker').selectedIndex = -1;
+  hzActiveWord = {hanzi: chars.slice(0,6).join(''), pinyin:'', meaning:''};
+  renderHanziBoard();
+}
+hzSearchBtn.addEventListener('click', doHanziSearch);
+hzSearchInput.addEventListener('keydown', (e)=>{
+  if(e.key === 'Enter'){
+    e.preventDefault();
+    doHanziSearch();
+  }
+});
+
+/* ===================== BỘ LỌC CHỌN BÀI HỌC (mới) ===================== */
+let selectedLessons = new Set(LESSON_META.map(m => m.n));
+
+const lessonChipsEl = document.getElementById('lessonChips');
+const filterSummaryEl = document.getElementById('filterSummary');
+const btnApplyFilter = document.getElementById('btnApplyFilter');
+const btnSelectAll = document.getElementById('btnSelectAll');
+const btnSelectNone = document.getElementById('btnSelectNone');
+const lessonDropdown = document.getElementById('lessonDropdown');
+const lessonDropdownToggle = document.getElementById('lessonDropdownToggle');
+const lessonDropdownLabel = document.getElementById('lessonDropdownLabel');
+
+function renderLessonChips(){
+  lessonChipsEl.innerHTML = '';
+  LESSON_META.forEach(m=>{
+    const isSelected = selectedLessons.has(m.n);
+    const row = document.createElement('label');
+    row.className = 'lesson-row' + (isSelected ? ' selected' : '');
+    row.innerHTML =
+      '<input type="checkbox"' + (isSelected ? ' checked' : '') + '>' +
+      '<span class="lr-num">Bài ' + m.n + '</span>' +
+      '<span class="lr-hanzi zh">' + m.hanzi + '</span>' +
+      '<span class="lr-count">' + m.count + ' từ</span>';
+    const checkbox = row.querySelector('input');
+    checkbox.addEventListener('change', ()=>{
+      if(checkbox.checked) selectedLessons.add(m.n);
+      else selectedLessons.delete(m.n);
+      row.classList.toggle('selected', checkbox.checked);
+      updateFilterSummary();
+    });
+    lessonChipsEl.appendChild(row);
+  });
+}
+
+function updateDropdownLabel(){
+  const n = selectedLessons.size;
+  if(n === LESSON_META.length){
+    lessonDropdownLabel.textContent = 'Tất cả 15 bài học';
+  } else if(n === 0){
+    lessonDropdownLabel.textContent = 'Chưa chọn bài nào';
+  } else if(n === 1){
+    const only = LESSON_META.find(m => selectedLessons.has(m.n));
+    lessonDropdownLabel.textContent = 'Bài ' + only.n + ' — ' + only.vi;
+  } else {
+    lessonDropdownLabel.textContent = n + ' bài đã chọn';
+  }
+}
+
+function updateFilterSummary(){
+  const n = selectedLessons.size;
+  const wordCount = LESSON_META.filter(m => selectedLessons.has(m.n)).reduce((sum,m)=> sum + m.count, 0);
+  filterSummaryEl.textContent = 'Đã chọn: ' + n + ' bài · ' + wordCount + ' từ';
+  btnApplyFilter.disabled = (n === 0);
+  updateDropdownLabel();
+}
+
+btnSelectAll.addEventListener('click', ()=>{
+  LESSON_META.forEach(m => selectedLessons.add(m.n));
+  renderLessonChips();
+  updateFilterSummary();
+});
+btnSelectNone.addEventListener('click', ()=>{
+  selectedLessons.clear();
+  renderLessonChips();
+  updateFilterSummary();
+});
+lessonDropdownToggle.addEventListener('click', (e)=>{
+  e.stopPropagation();
+  lessonDropdown.classList.toggle('open');
+});
+document.addEventListener('click', (e)=>{
+  if(!lessonDropdown.contains(e.target)){
+    lessonDropdown.classList.remove('open');
+  }
+});
+
+function updateHeaderInfo(){
+  const sorted = Array.from(selectedLessons).sort((a,b)=>a-b);
+  const n = sorted.length;
+  document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
+  document.getElementById('statLessonCount').textContent = n + ' bài học';
+  const tagEl = document.getElementById('headerLessonCount');
+  const hanziEl = document.getElementById('headerHanzi');
+  const viEl = document.getElementById('headerVi');
+  if(n === LESSON_META.length){
+    tagEl.textContent = 'Bài 1–15';
+    hanziEl.textContent = '标准教程 HSK1';
+    viEl.textContent = 'Tổng hợp Từ vựng — Bài 1 đến Bài 15';
+  } else if(n === 1){
+    const m = LESSON_META.find(x=>x.n===sorted[0]);
+    tagEl.textContent = 'Bài ' + m.n;
+    hanziEl.textContent = m.hanzi;
+    viEl.textContent = m.vi;
+  } else {
+    tagEl.textContent = n + ' bài đã chọn';
+    hanziEl.textContent = '标准教程 HSK1';
+    viEl.textContent = 'Bài ' + sorted.join(', ');
+  }
+}
+
+/* Xáo trộn mảng tại chỗ (Fisher-Yates) */
+function shuffleArray(arr){
+  for(let i=arr.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]] = [arr[j],arr[i]];
+  }
+  return arr;
+}
+
+/* Nạp lại toàn bộ 4 tab (Flashcard / Trò chơi / Ôn tập / Nét chữ) theo đúng bộ từ vựng vừa lọc */
+function applyFilter(){
+  if(selectedLessons.size === 0){
+    alert('Vui lòng chọn ít nhất 1 bài học trước khi bắt đầu.');
+    return;
+  }
+  vocab = ALL_VOCAB.filter(v => selectedLessons.has(v.lesson));
+
+  /* Khi học tất cả 15 bài cùng lúc, xáo trộn thứ tự từ vựng để tránh học tuần tự bài 1 -> 15 */
+  if(selectedLessons.size === LESSON_META.length){
+    shuffleArray(vocab);
+  }
+
+  masteredState = new Array(vocab.length).fill(null);
+  masteredCount = 0;
+
+  updateHeaderInfo();
+  updateFilterSummary();
+
+  /* Flashcard */
+  fcOrder = vocab.map((_,i)=>i);
+  fcIndex = 0;
+  renderFlashcard();
+
+  /* Ôn tập */
+  buildReviewRows();
+  updateReviewStats();
+  updateSelectAllUI();
+  document.getElementById('reviewSelectAll').checked = false;
+  updateReviewScoreSummary();
+
+  /* Nét chữ */
+  hzInitialized = false;
+  document.getElementById('hzPicker').innerHTML = '';
+  document.getElementById('hzBoard').innerHTML = '';
+  document.getElementById('hzCurrent').innerHTML = '';
+  document.getElementById('hzSearchInput').value = '';
+  document.getElementById('hzSearchStatus').textContent = '';
+  hzActiveWord = vocab[0];
+  hzActiveIndex = 0;
+
+  /* Trò chơi */
+  showGameMenu();
+}
+
+btnApplyFilter.addEventListener('click', ()=>{
+  applyFilter();
+  lessonDropdown.classList.remove('open');
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector('.tab-btn[data-tab="flashcard"]').classList.add('active');
+  document.getElementById('panel-flashcard').classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+/* ===================== KHỞI ĐỘNG (mặc định: chọn tất cả 15 bài) ===================== */
+renderLessonChips();
+updateFilterSummary();
+applyFilter();
+</script>
+</body>
+</html>
