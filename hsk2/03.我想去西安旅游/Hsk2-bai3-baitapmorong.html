@@ -762,21 +762,21 @@ const errData = [
 
 const sentData = [
   {
-    vn: 'Sao bây giờ con mới về nhà vậy?',
-    zh: ['你怎么现在才回来？'],
+    vn: 'Trời mưa rồi, chúng mình quay trở về đi.',
+    zh: ['下雨了，我们回去吧。'],
     words: [
-      {zh:'你',   vn:'con / bạn'},
-      {zh:'怎么', vn:'sao, thế nào'},
-      {zh:'现在', vn:'bây giờ'},
-      {zh:'才',   vn:'mới'},
-      {zh:'回来', vn:'về'},
-      {zh:'？',   vn:''},
+      {zh:'下雨了', vn:'trời mưa rồi'},
+      {zh:'，',     vn:''},
+      {zh:'我们',   vn:'chúng mình'},
+      {zh:'回去',   vn:'quay trở về'},
+      {zh:'吧',     vn:'đi (đề nghị)'},
+      {zh:'。',     vn:''},
     ],
-    note: '怎么...才... = sao mà mới...; 回来 dùng khi người nói đang ở điểm đến (ở nhà).'
+    note: '下雨了 = trời mưa rồi (了 chỉ sự thay đổi trạng thái); 回去 dùng khi rời khỏi nơi đang đứng để quay về nơi xuất phát; 吧 dùng để đưa ra đề nghị, rủ rê.'
   },
   {
-    vn: 'Con cùng bạn bè ra ngoài chơi, chơi rất vui nhưng hơi mệt.',
-    zh: ['我和朋友们一起出去玩，玩得很开心，但是有点儿累。'],
+    vn: 'Con cùng bạn bè ra ngoài chơi, rất vui nhưng hơi mệt.',
+    zh: ['我和朋友们一起出去玩，很开心，但是有点儿累。'],
     words: [
       {zh:'我',     vn:'tôi'},
       {zh:'和',     vn:'với, cùng'},
@@ -785,7 +785,6 @@ const sentData = [
       {zh:'出去',   vn:'ra ngoài'},
       {zh:'玩',     vn:'chơi'},
       {zh:'，',     vn:''},
-      {zh:'玩得',   vn:'chơi (như thế nào)'},
       {zh:'很开心', vn:'rất vui'},
       {zh:'，',     vn:''},
       {zh:'但是',   vn:'nhưng'},
@@ -793,20 +792,23 @@ const sentData = [
       {zh:'累',     vn:'mệt'},
       {zh:'。',     vn:''},
     ],
-    note: '一起 + động từ = cùng nhau làm gì; động từ + 得 + tính từ = làm (như thế nào), ví dụ 玩得开心.'
+    note: '一起 + động từ = cùng nhau làm gì.'
   },
   {
-    vn: 'Bạn làm xong bài tập chưa?',
-    zh: ['你作业写完了吗？'],
+    vn: 'Bộ quần áo này đắt thế, tôi chỉ có 200.000VND thôi.',
+    zh: ['这件衣服这么贵，我只有20万越南盾。'],
     words: [
-      {zh:'你',   vn:'bạn'},
-      {zh:'作业', vn:'bài tập'},
-      {zh:'写完', vn:'viết xong'},
-      {zh:'了',   vn:'rồi'},
-      {zh:'吗',   vn:'chưa/không'},
-      {zh:'？',   vn:''},
+      {zh:'这件衣服', vn:'bộ quần áo này'},
+      {zh:'这么',     vn:'thế, như vậy'},
+      {zh:'贵',       vn:'đắt'},
+      {zh:'，',       vn:''},
+      {zh:'我',       vn:'tôi'},
+      {zh:'只有',     vn:'chỉ có'},
+      {zh:'20万',     vn:'200.000'},
+      {zh:'越南盾',   vn:'đồng Việt Nam (VND)'},
+      {zh:'。',       vn:''},
     ],
-    note: '完 là bổ ngữ kết quả, đứng ngay sau động từ chính (写完 = viết xong).'
+    note: '这么 + tính từ = như thế/thế này (这么贵 = đắt thế); 只有 = chỉ có; 万 (vạn) = 10.000, nên 20万 = 200.000.'
   },
   {
     vn: 'Trước khi ăn cơm phải rửa tay.',
@@ -821,19 +823,23 @@ const sentData = [
     note: '洗手 = rửa tay; 以前 đứng sau cụm từ/sự việc mà nó chỉ thời điểm trước đó.'
   },
   {
-    vn: 'Việc này để tôi tự mình giải quyết là được rồi.',
-    zh: ['这件事让我自己解决就行了。'],
-    new_words: '解决 (jiějué) – giải quyết',
+    vn: 'Cậu ăn cơm xong chưa? Bọn tớ đợi cậu ở bên ngoài nhé.',
+    zh: ['你吃完饭了吗？我们在外面等你吧。'],
     words: [
-      {zh:'这件事', vn:'việc này'},
-      {zh:'让',     vn:'để cho'},
-      {zh:'我',     vn:'tôi'},
-      {zh:'自己',   vn:'tự mình'},
-      {zh:'解决',   vn:'giải quyết'},
-      {zh:'就行了', vn:'là được rồi'},
+      {zh:'你',     vn:'cậu'},
+      {zh:'吃完',   vn:'ăn xong'},
+      {zh:'饭',     vn:'cơm'},
+      {zh:'了',     vn:'rồi'},
+      {zh:'吗',     vn:'chưa'},
+      {zh:'？',     vn:''},
+      {zh:'我们',   vn:'bọn tớ'},
+      {zh:'在外面', vn:'ở bên ngoài'},
+      {zh:'等',     vn:'đợi'},
+      {zh:'你',     vn:'cậu'},
+      {zh:'吧',     vn:'nhé'},
       {zh:'。',     vn:''},
     ],
-    note: '让 + người + động từ = để cho ai làm gì; 自己 đứng ngay sau người/chủ ngữ để nhấn mạnh việc tự làm.'
+    note: '吃完 = ăn xong (完 là bổ ngữ kết quả đứng ngay sau động từ chính 吃); 在 + nơi chốn + động từ = làm gì ở đâu; 等 = đợi, chờ.'
   },
   {
     vn: 'Làm ơn giúp tôi lấy quyển sách kia một chút.',
@@ -871,37 +877,32 @@ const sentData = [
     note: '不错 = không tệ, khá tốt, thường dùng để khen nhẹ nhàng.'
   },
   {
-    vn: 'Trời tối rồi, để tôi đưa bạn về nhé.',
-    zh: ['天黑了，我送你回去吧。'],
+    vn: 'Anh ấy tặng tôi 1 chú mèo con rất đáng yêu.',
+    zh: ['他送我一只很可爱的小猫。'],
     words: [
-      {zh:'天黑了', vn:'trời tối rồi'},
-      {zh:'，',     vn:''},
-      {zh:'我',     vn:'tôi'},
-      {zh:'送',     vn:'đưa'},
-      {zh:'你',     vn:'bạn'},
-      {zh:'回去',   vn:'về'},
-      {zh:'吧',     vn:'nhé'},
-      {zh:'。',     vn:''},
+      {zh:'他',       vn:'anh ấy'},
+      {zh:'送',       vn:'tặng'},
+      {zh:'我',       vn:'tôi'},
+      {zh:'一只',     vn:'một chú'},
+      {zh:'很可爱的', vn:'rất đáng yêu'},
+      {zh:'小猫',     vn:'mèo con'},
+      {zh:'。',       vn:''},
     ],
-    note: '送 + người + 回去 = đưa ai đó về; 吧 dùng để đưa ra đề nghị.'
+    note: '送 ở đây mang nghĩa "tặng" (quà), không phải "đưa ai đó đi đâu"; 只 là lượng từ dùng cho động vật; tính từ + 的 + danh từ để miêu tả danh từ đứng sau.'
   },
   {
-    vn: 'Mỗi ngày anh ấy đều rất mệt vì phải làm nhiều việc.',
-    zh: ['他每天都很累，因为要做很多工作。'],
-    new_words: '因为 (yīnwèi) – vì, bởi vì',
+    vn: 'Chiếc xe này là cô ấy tự mua đấy.',
+    zh: ['这辆车是她自己买的。'],
     words: [
-      {zh:'他',     vn:'anh ấy'},
-      {zh:'每天',   vn:'mỗi ngày'},
-      {zh:'都',     vn:'đều'},
-      {zh:'很累',   vn:'rất mệt'},
-      {zh:'，',     vn:''},
-      {zh:'因为',   vn:'vì'},
-      {zh:'要做',   vn:'phải làm'},
-      {zh:'很多',   vn:'nhiều'},
-      {zh:'工作',   vn:'việc'},
+      {zh:'这辆车', vn:'chiếc xe này'},
+      {zh:'是',     vn:'là'},
+      {zh:'她',     vn:'cô ấy'},
+      {zh:'自己',   vn:'tự mình'},
+      {zh:'买',     vn:'mua'},
+      {zh:'的',     vn:'(trợ từ nhấn mạnh)'},
       {zh:'。',     vn:''},
     ],
-    note: '每...都... = mỗi...đều...; 因为 + lý do để giải thích nguyên nhân.'
+    note: '是...的 dùng để nhấn mạnh chủ thể/cách thức của một việc đã xảy ra rồi; 自己 đứng ngay sau chủ ngữ để nhấn mạnh việc tự làm.'
   },
 ];
 
