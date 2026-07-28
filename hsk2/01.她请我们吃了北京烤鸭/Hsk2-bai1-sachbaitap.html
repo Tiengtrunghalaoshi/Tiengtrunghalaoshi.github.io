@@ -525,13 +525,14 @@ function renderQuestion(q){
   if(q.passage){
     const p = document.createElement('div');
     p.className='passage';
-    p.innerHTML = q.passage;
+    const passLabelPrefix = q.label ? ('<b>'+q.label+'.</b> ') : '';
+    p.innerHTML = passLabelPrefix + q.passage;
     card.appendChild(p);
   }
 
   const qt = document.createElement('div');
   qt.className='qtext';
-  const labelPrefix = q.label ? ('<b>'+q.label+'.</b> ') : '';
+  const labelPrefix = (q.label && !q.passage) ? ('<b>'+q.label+'.</b> ') : '';
   qt.innerHTML = labelPrefix + (q.text||'');
   card.appendChild(qt);
 
