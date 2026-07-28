@@ -523,17 +523,18 @@ function renderQuestion(q){
   card.className='qcard';
   card.dataset.qid = q.id;
 
+  const labelPrefix = q.label ? ('<b>'+q.label+'.</b> ') : '';
+
   if(q.passage){
     const p = document.createElement('div');
     p.className='passage';
-    p.innerHTML = q.passage;
+    p.innerHTML = labelPrefix + q.passage;
     card.appendChild(p);
   }
 
   const qt = document.createElement('div');
   qt.className='qtext';
-  const labelPrefix = q.label ? ('<b>'+q.label+'.</b> ') : '';
-  qt.innerHTML = labelPrefix + (q.text||'');
+  qt.innerHTML = (q.passage ? '' : labelPrefix) + (q.text||'');
   card.appendChild(qt);
 
   const opts = document.createElement('div');
