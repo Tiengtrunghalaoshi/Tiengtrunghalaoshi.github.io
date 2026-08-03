@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HSK 2 – Bài 3: Tôi muốn đi Tây An du lịch | Tiếng Trung Halaoshi</title>
+<title>HSK 2 – Bài 3: Em muốn đi Tây An du lịch | Tiếng Trung Halaoshi</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -192,6 +192,8 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 .flip-back .fc-py{font-size:15px;font-weight:800;color:#fff;letter-spacing:.03em;text-align:center;line-height:1.3}
 .flip-back .fc-vn{font-size:13px;font-weight:700;color:rgba(255,255,255,.85);text-align:center;margin-top:2px}
 .flip-back .fc-zh-sm{font-size:17px;font-weight:700;font-family:'Noto Serif SC',serif;color:rgba(255,255,255,.5);margin-bottom:2px}
+.flip-back .fc-hv{font-size:11px;font-weight:600;font-style:italic;color:rgba(255,255,255,.55);letter-spacing:.02em;margin-top:1px}
+.flip-back .fc-pos{font-size:10px;font-weight:700;color:#0F766E;background:#CCFBF1;border-radius:20px;padding:1px 9px;letter-spacing:.03em;margin-top:3px}
 .fc-speak-btn{margin-top:8px;background:rgba(255,255,255,.22);border:1.5px solid rgba(255,255,255,.4);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:800;color:#fff;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .15s;display:flex;align-items:center;gap:5px;}
 .fc-speak-btn:hover{background:rgba(255,255,255,.35);transform:scale(1.05)}
 .fc-speak-btn.speaking{background:rgba(255,255,255,.4);animation:pulse .5s ease infinite}
@@ -367,7 +369,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
   <div class="hero-float">✈️</div>
   <div class="hero-float2">🦆</div>
   <div class="hero-tag">Tiếng Trung Halaoshi · HSK 2</div>
-  <div class="hero-title">Bài 3: Tôi muốn đi Tây An du lịch<span class="blink-cursor"></span></div>
+  <div class="hero-title">Bài 3: Em muốn đi Tây An du lịch<span class="blink-cursor"></span></div>
   <div class="hero-sub">Chủ đề: Về nhà muộn, đi chơi với bạn bè, việc nhà (回来/回去/出去/一起/洗/送) · Nhấn mạnh & hỏi nguyên nhân (自己/为什么/这么) · Trạng thái, đánh giá (完/不错/每/累)</div>
   <div class="hero-badges">
     <span class="hbadge">📚 HSK 2.0</span>
@@ -603,21 +605,21 @@ startTimer();
 
 // DATA
 const vocabData = [
-  {zh:'回来',   py:'Huílái',    vn:'Về, quay lại, trở về',       e:'🔙'},
-  {zh:'这么',   py:'Zhème',     vn:'Như thế, như vậy',            e:'👉'},
-  {zh:'完',     py:'Wán',       vn:'Xong',                        e:'✅'},
-  {zh:'一起',   py:'Yìqǐ',      vn:'Cùng nhau',                   e:'🤝'},
-  {zh:'出去',   py:'Chūqù',     vn:'Ra ngoài',                    e:'🚶'},
-  {zh:'洗',     py:'Xǐ',        vn:'Rửa, giặt',                   e:'🧼'},
-  {zh:'自己',   py:'Zìjǐ',      vn:'Tự mình',                     e:'🙋'},
-  {zh:'拿',     py:'Ná',        vn:'Lấy, cầm',                    e:'🤲'},
-  {zh:'手',     py:'Shǒu',      vn:'Tay',                         e:'✋'},
-  {zh:'为什么', py:'Wèi shénme',vn:'Tại sao',                     e:'❓'},
-  {zh:'不错',   py:'Búcuò',     vn:'Không tệ, rất được',          e:'👍'},
-  {zh:'送',     py:'Sòng',      vn:'Đưa ai đó đi đâu; tặng (quà)', e:'🚙'},
-  {zh:'回去',   py:'Huíqù',     vn:'Về, quay trở về',             e:'🔁'},
-  {zh:'每',     py:'Měi',       vn:'Mỗi',                          e:'🔢'},
-  {zh:'累',     py:'Lèi',       vn:'Mệt',                          e:'😪'},
+  {zh:'回来',   py:'Huílái',    vn:'Quay về, quay lại',           e:'🔙', pos:'đgt.', hv:'Hồi lai'},
+  {zh:'这么',   py:'Zhème',     vn:'Như vậy, như thế',            e:'👉', pos:'đt.',  hv:'Giá ma'},
+  {zh:'完',     py:'Wán',       vn:'Xong',                        e:'✅', pos:'đgt.', hv:'Hoàn'},
+  {zh:'一起',   py:'Yìqǐ',      vn:'Cùng, cùng nhau',             e:'🤝', pos:'phó.', hv:'Nhất khởi'},
+  {zh:'出去',   py:'Chūqù',     vn:'Đi ra, đi khỏi, đi, ra ngoài',e:'🚶', pos:'đgt.', hv:'Xuất khứ'},
+  {zh:'洗',     py:'Xǐ',        vn:'Rửa, giặt',                   e:'🧼', pos:'đgt.', hv:'Tẩy'},
+  {zh:'自己',   py:'Zìjǐ',      vn:'Tự, tự mình, bản thân',       e:'🙋', pos:'đt.',  hv:'Tự kỷ'},
+  {zh:'拿',     py:'Ná',        vn:'Cầm, nắm, lấy',               e:'🤲', pos:'đgt.', hv:'Nã'},
+  {zh:'手',     py:'Shǒu',      vn:'Tay',                         e:'✋', pos:'dt.',  hv:'Thủ'},
+  {zh:'为什么', py:'Wèi shénme',vn:'Tại sao, vì sao',             e:'❓', pos:'',     hv:'Vị thậm ma'},
+  {zh:'不错',   py:'Búcuò',     vn:'Không tồi, hay',              e:'👍', pos:'tt.',  hv:'Bất thác'},
+  {zh:'送',     py:'Sòng',      vn:'Đưa, tiễn; tặng',             e:'🚙', pos:'đgt.', hv:'Tống'},
+  {zh:'回去',   py:'Huíqù',     vn:'Quay về, về',                 e:'🔁', pos:'đgt.', hv:'Hồi khứ'},
+  {zh:'每',     py:'Měi',       vn:'Mỗi, hàng (ngày, năm…)',      e:'🔢', pos:'đt.',  hv:'Mỗi'},
+  {zh:'累',     py:'Lèi',       vn:'Mệt',                          e:'😪', pos:'tt.',  hv:'Lụy'},
 ];
 
 const mcQ = [
@@ -966,6 +968,8 @@ function buildVocab() {
         <div class="flip-back">
           <div class="fc-zh-sm">${v.zh}</div>
           <div class="fc-py">${v.py}</div>
+          <div class="fc-hv">${v.hv || ''}</div>
+          ${v.pos ? `<div class="fc-pos">${v.pos}</div>` : ''}
           <div class="fc-vn">${v.vn}</div>
           <button class="fc-speak-btn" id="spk-${pos}" onclick="event.stopPropagation();doSpeak(${pos},'${v.zh}')">🔊 Nghe</button>
         </div>
