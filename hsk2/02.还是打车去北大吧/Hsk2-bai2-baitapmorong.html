@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HSK 2 – Bài 2: Hay là đi taxi đến Bắc Đại đi | Tiếng Trung Halaoshi</title>
+<title>HSK 2 – Bài 2: Chúng ta vẫn nên gọi taxi đi Đại học Bắc Kinh nhé | Tiếng Trung Halaoshi</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -367,7 +367,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
   <div class="hero-float">✈️</div>
   <div class="hero-float2">🦆</div>
   <div class="hero-tag">Tiếng Trung Halaoshi · HSK 2</div>
-  <div class="hero-title">Bài 2: Hay là đi taxi đến Bắc Đại đi<span class="blink-cursor"></span></div>
+  <div class="hero-title">Bài 2: Chúng ta vẫn nên gọi taxi đi Đại học Bắc Kinh nhé<span class="blink-cursor"></span></div>
   <div class="hero-sub">Chủ đề: Đi lại — xe buýt, bến xe, bắt taxi (公交车/车站/打车) · Đề nghị & lựa chọn (还是...吧/但) · Số đếm, vé, phòng học (万/名/间/教室/票)</div>
   <div class="hero-badges">
     <span class="hbadge">📚 HSK 2.0</span>
@@ -605,34 +605,34 @@ startTimer();
 const vocabData = [
   {zh:'公交车',   py:'Gōngjiāochē',    vn:'Xe buýt',                              e:'🚌'},
   {zh:'但',       py:'Dàn',            vn:'Nhưng, nhưng mà (liên từ)',            e:'🔀'},
-  {zh:'车站',     py:'Chēzhàn',        vn:'Bến xe, trạm xe',                      e:'🚏'},
+  {zh:'车站',     py:'Chēzhàn',        vn:'Bến xe buýt, trạm xe',                 e:'🚏'},
   {zh:'远',       py:'Yuǎn',           vn:'Xa',                                   e:'📏'},
-  {zh:'打车',     py:'Dǎchē',          vn:'Bắt taxi, gọi taxi',                   e:'🚕'},
-  {zh:'还是',     py:'Háishi',         vn:'Hay là (dùng để đề nghị/lựa chọn)',    e:'🤷'},
+  {zh:'打车',     py:'Dǎchē',          vn:'Gọi xe, đi xe, bắt (taxi)',            e:'🚕'},
+  {zh:'还是',     py:'Háishi',         vn:'Vẫn, tốt hơn là… (dùng để đề nghị/lựa chọn)', e:'🤷'},
   {zh:'北京大学', py:'Běijīng Dàxué',  vn:'Đại học Bắc Kinh (danh từ riêng)',     e:'🎓'},
-  {zh:'啊',       py:'A',              vn:'À, nhé, vậy (trợ từ ngữ khí cuối câu)', e:'💬'},
-  {zh:'万',       py:'Wàn',            vn:'Vạn (10.000)',                         e:'🔢'},
-  {zh:'名',       py:'Míng',           vn:'Vị, người (lượng từ xếp hạng) / tên',  e:'📛'},
+  {zh:'啊',       py:'A',              vn:'À, nhé, vậy, hả... (trợ từ ngữ khí)',  e:'💬'},
+  {zh:'万',       py:'Wàn',            vn:'Vạn, mười nghìn (10.000)',             e:'🔢'},
+  {zh:'名',       py:'Míng',           vn:'Vị, người (lượng từ dùng cho người - thứ hạng); tên, tên gọi', e:'📛'},
   {zh:'网上',     py:'Wǎngshang',      vn:'Trên mạng, trên internet',             e:'🌐'},
   {zh:'外国',     py:'Wàiguó',         vn:'Nước ngoài',                           e:'🌍'},
-  {zh:'间',       py:'Jiān',           vn:'Căn, phòng, gian (lượng từ)',          e:'🚪'},
-  {zh:'教室',     py:'Jiàoshì',        vn:'Lớp học, phòng học',                   e:'🏫'},
+  {zh:'间',       py:'Jiān',           vn:'Gian, căn, phòng (lượng từ)',          e:'🚪'},
+  {zh:'教室',     py:'Jiàoshì',        vn:'Phòng học',                            e:'🏫'},
   {zh:'票',       py:'Piào',           vn:'Vé',                                   e:'🎫'},
   {zh:'别',       py:'Bié',            vn:'Đừng (phó từ mệnh lệnh phủ định)',     e:'🚫'},
-  {zh:'过来',     py:'Guòlái',         vn:'Qua đây, lại đây',                     e:'👋'},
+  {zh:'过来',     py:'Guòlái',         vn:'Đến, đến đây, qua đây, lại đây',       e:'👋'},
 ];
 
 const mcQ = [
   {img:'🚌', q:'"Xe buýt" tiếng Trung là?',
    opts:['公交车','车站','打车'], ans:0},
-  {img:'🚏', q:'"Bến xe" tiếng Trung là?',
+  {img:'🚏', q:'"Bến xe buýt" tiếng Trung là?',
    opts:['车站','公交车','教室'], ans:0},
   {img:'📏', q:'"Xa" tiếng Trung là?',
    opts:['远','近','大'], ans:0},
-  {img:'🚕', q:'"Bắt taxi" tiếng Trung là?',
+  {img:'🚕', q:'"Gọi xe, bắt taxi" tiếng Trung là?',
    opts:['打车','开车','坐车'], ans:0},
   {img:'🤷', q:'Trong câu "我们还是坐公交车吧", 还是 nghĩa là gì?',
-   opts:['Vẫn là','Hay là (đề nghị lựa chọn)','Cũng là'], ans:1},
+   opts:['Vẫn là','Vẫn, tốt hơn là (đề nghị lựa chọn)','Cũng là'], ans:1},
   {img:'🎓', q:'"Đại học Bắc Kinh" tiếng Trung là?',
    opts:['北京大学','北京烤鸭','北京教室'], ans:0},
   {img:'🔢', q:'"Vạn" (10.000) tiếng Trung là?',
@@ -646,7 +646,7 @@ const mcQ = [
 ];
 
 const matchZH = ['车站','远','打车','北京大学','网上','外国','教室','过来'];
-const matchVN = ['Bến xe','Xa','Bắt taxi','Đại học Bắc Kinh','Trên mạng','Nước ngoài','Lớp học','Qua đây'];
+const matchVN = ['Bến xe buýt','Xa','Gọi xe, bắt taxi','Đại học Bắc Kinh','Trên mạng','Nước ngoài','Phòng học','Đến, qua đây'];
 const mCorrect = {0:0, 1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7};
 const mShuffled = [5,2,7,0,4,1,6,3];
 
