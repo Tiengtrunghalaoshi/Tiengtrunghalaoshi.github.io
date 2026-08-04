@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HSK 2 – Bài 1: Cô ấy đã mời chúng tôi món Vịt quay Bắc Kinh | Tiếng Trung Halaoshi</title>
+<title>HSK 2 – Bài 1: Chị ấy đã mời chúng em ăn vịt quay Bắc Kinh | Tiếng Trung Halaoshi</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -367,7 +367,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
   <div class="hero-float">✈️</div>
   <div class="hero-float2">🦆</div>
   <div class="hero-tag">Tiếng Trung Halaoshi · HSK 2</div>
-  <div class="hero-title">Bài 1: Cô ấy đã mời chúng tôi món Vịt quay Bắc Kinh<span class="blink-cursor"></span></div>
+  <div class="hero-title">Bài 1: Chị ấy đã mời chúng em ăn vịt quay Bắc Kinh<span class="blink-cursor"></span></div>
   <div class="hero-sub">Chủ đề: Đón bạn ở sân bay (接/已经) · Giới thiệu & nhờ giúp đỡ (介绍/帮忙/让) · Đi ăn vịt quay Bắc Kinh (北京烤鸭/旅游)</div>
   <div class="hero-badges">
     <span class="hbadge">📚 HSK 2.0</span>
@@ -603,19 +603,19 @@ startTimer();
 
 // DATA
 const vocabData = [
-  {zh:'就',       py:'Jiù',            vn:'Chính là / thôi (nhấn mạnh sự xác định)', e:'👉'},
+  {zh:'就',       py:'Jiù',            vn:'Chính (là), thì',                    e:'👉'},
   {zh:'给',       py:'Gěi',            vn:'Cho / tặng, đưa cho',                e:'🎁'},
-  {zh:'让',       py:'Ràng',           vn:'Để cho / khiến, bảo (ai làm gì)',    e:'🙏'},
-  {zh:'接',       py:'Jiē',            vn:'Đón / tiếp nhận',                    e:'🤝'},
+  {zh:'让',       py:'Ràng',           vn:'Bảo, để, cho phép, nhờ',             e:'🙏'},
+  {zh:'接',       py:'Jiē',            vn:'Đón',                                e:'🤝'},
   {zh:'次',       py:'Cì',             vn:'Lần (lượng từ chỉ số lần)',          e:'🔢'},
   {zh:'旅游',     py:'Lǚyóu',          vn:'Du lịch',                            e:'🧳'},
-  {zh:'帮忙',     py:'Bāngmáng',       vn:'Giúp đỡ',                            e:'🆘'},
-  {zh:'不好意思', py:'Bùhǎoyìsi',      vn:'Ngại quá / xin lỗi (câu giao tiếp)', e:'😳'},
+  {zh:'帮忙',     py:'Bāngmáng',       vn:'Giúp đỡ, giúp',                      e:'🆘'},
+  {zh:'不好意思', py:'Bùhǎoyìsi',      vn:'Xin lỗi, áy náy, ngại',              e:'😳'},
   {zh:'已经',     py:'Yǐjīng',         vn:'Đã / rồi (việc đã hoàn thành)',      e:'✅'},
-  {zh:'那',       py:'Nà',             vn:'Đó / cái đó — Vậy thì (đầu câu)',    e:'🔸'},
+  {zh:'那',       py:'Nà',             vn:'Vậy, vậy thì, thế, thế thì',         e:'🔸'},
   {zh:'介绍',     py:'Jièshào',        vn:'Giới thiệu',                         e:'🗣️'},
-  {zh:'有时',     py:'Yǒushí',         vn:'Có lúc / đôi khi',                   e:'⏳'},
-  {zh:'懂',       py:'Dǒng',           vn:'Hiểu, hiểu rõ',                      e:'💡'},
+  {zh:'有时',     py:'Yǒushí',         vn:'Có lúc, có khi',                     e:'⏳'},
+  {zh:'懂',       py:'Dǒng',           vn:'Hiểu',                                e:'💡'},
   {zh:'意思',     py:'Yìsi',           vn:'Ý nghĩa / ý tứ',                     e:'🤔'},
   {zh:'北京烤鸭', py:'Běijīng kǎoyā',  vn:'Vịt quay Bắc Kinh',                  e:'🦆'},
 ];
@@ -629,7 +629,7 @@ const mcQ = [
    opts:['送','接','等'], ans:1},
   {img:'🆘', q:'"Giúp đỡ" tiếng Trung là?',
    opts:['帮忙','工作','旅游'], ans:0},
-  {img:'😳', q:'"Ngại quá / Xin lỗi" (câu giao tiếp) tiếng Trung là?',
+  {img:'😳', q:'"Xin lỗi / Ngại quá" (câu giao tiếp) tiếng Trung là?',
    opts:['不客气','不好意思','没关系'], ans:1},
   {img:'✅', q:'Trong câu "我已经吃饭了", chữ 已经 nghĩa là gì?',
    opts:['Sắp / chuẩn bị','Đã / rồi','Đang'], ans:1},
@@ -644,7 +644,7 @@ const mcQ = [
 ];
 
 const matchZH = ['给','让','接','旅游','帮忙','已经','介绍','懂'];
-const matchVN = ['Cho / tặng','Để cho / khiến','Đón','Du lịch','Giúp đỡ','Đã / rồi','Giới thiệu','Hiểu'];
+const matchVN = ['Cho / tặng','Bảo, để, cho phép','Đón','Du lịch','Giúp đỡ, giúp','Đã / rồi','Giới thiệu','Hiểu'];
 const mCorrect = {0:0, 1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7};
 const mShuffled = [3,6,0,5,1,7,2,4];
 
