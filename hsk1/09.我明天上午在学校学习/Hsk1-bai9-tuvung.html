@@ -804,7 +804,7 @@
   <div class="app-title">
     <div class="lesson-tag zh">第九课 <span class="num">Bài 9</span></div>
     <h1 class="zh">我明天上午在学校学习</h1>
-    <p class="vi-title">Tôi học ở trường vào sáng mai</p>
+    <p class="vi-title">Sáng mai mình học ở trường</p>
     <p class="sub"><span class="brand">Tiếng Trung Halaoshi</span> — 标准教程HSK1</p>
   </div>
 </div>
@@ -987,29 +987,29 @@
 <script>
 /* ===================== DATA (HSK1 · Bài 9 — 23 từ vựng) ===================== */
 const vocab = [
-  {hanzi:"前边", pinyin:"qiánbian", wordClass:"danh", hanviet:"Tiền biên", meaning:"phía trước", example:{zh:"书店在学校前边。", py:"Shūdiàn zài xuéxiào qiánbian.", vi:"Tiệm sách ở phía trước trường học."}},
-  {hanzi:"边", pinyin:"bian / biān", wordClass:"hậu tố/danh", hanviet:"Biên", meaning:"bên, bên cạnh", example:{zh:"猫在桌子边。", py:"Māo zài zhuōzi biān.", vi:"Con mèo ở bên cạnh bàn."}},
-  {hanzi:"家", pinyin:"jiā", wordClass:"lượng", hanviet:"Gia", meaning:"ngôi; hiệu; tiệm; quán; nhà (lượng từ dùng cho nhà hoặc xí nghiệp)", example:{zh:"学校前边有一家书店。", py:"Xuéxiào qiánbian yǒu yī jiā shūdiàn.", vi:"Phía trước trường học có một tiệm sách."}},
-  {hanzi:"那个", pinyin:"nàge", wordClass:"đại", hanviet:"Na cá (个 = Cá)", meaning:"cái đó, cái kia", example:{zh:"那个椅子很漂亮。", py:"Nàge yǐzi hěn piàoliang.", vi:"Cái ghế đó rất đẹp."}},
-  {hanzi:"外边", pinyin:"wàibian", wordClass:"danh", hanviet:"Ngoại biên", meaning:"bên ngoài", example:{zh:"狗在外边。", py:"Gǒu zài wàibian.", vi:"Con chó ở bên ngoài."}},
-  {hanzi:"椅子", pinyin:"yǐzi", wordClass:"danh", hanviet:"Ỷ tử", meaning:"cái ghế", example:{zh:"猫在椅子下面。", py:"Māo zài yǐzi xiàmian.", vi:"Con mèo ở dưới ghế."}},
-  {hanzi:"上", pinyin:"shang / shàng", wordClass:"danh", hanviet:"Thượng", meaning:"(sử dụng sau danh từ) chỉ vị trí ở trên/cao hơn", example:{zh:"狗在椅子上。", py:"Gǒu zài yǐzi shàng.", vi:"Con chó ở trên ghế."}},
-  {hanzi:"本", pinyin:"běn", wordClass:"lượng", hanviet:"Bản", meaning:"quyển, cuốn (lượng từ dùng cho sách vở)", example:{zh:"我有三本书。", py:"Wǒ yǒu sān běn shū.", vi:"Tôi có ba quyển sách."}},
-  {hanzi:"书", pinyin:"shū", wordClass:"danh", hanviet:"Thư", meaning:"sách", example:{zh:"这本书很好看。", py:"Zhè běn shū hěn hǎokàn.", vi:"Quyển sách này rất hay."}},
-  {hanzi:"那", pinyin:"nà", wordClass:"đại", hanviet:"Na", meaning:"đó, kia", example:{zh:"那是我的书。", py:"Nà shì wǒ de shū.", vi:"Đó là sách của tôi."}},
-  {hanzi:"第", pinyin:"dì", wordClass:"tiền tố", hanviet:"Đệ", meaning:"thứ (thứ tự, thứ hạng)", example:{zh:"这是我第一次看电影。", py:"Zhè shì wǒ dì yī cì kàn diànyǐng.", vi:"Đây là lần đầu tiên tôi xem phim."}},
-  {hanzi:"学习", pinyin:"xuéxí", wordClass:"động", hanviet:"Học tập", meaning:"học, học tập", example:{zh:"我在学校学习汉语。", py:"Wǒ zài xuéxiào xuéxí Hànyǔ.", vi:"Tôi học tiếng Hán ở trường."}},
-  {hanzi:"做", pinyin:"zuò", wordClass:"động", hanviet:"Tố", meaning:"làm (thực hiện một hoạt động, công việc...)", example:{zh:"你在做什么？", py:"Nǐ zài zuò shénme?", vi:"Bạn đang làm gì?"}},
-  {hanzi:"白天", pinyin:"báitiān", wordClass:"danh", hanviet:"Bạch thiên", meaning:"ban ngày", example:{zh:"我白天学习，晚上看电视。", py:"Wǒ báitiān xuéxí, wǎnshang kàn diànshì.", vi:"Ban ngày tôi học, buổi tối tôi xem tivi."}},
-  {hanzi:"读书", pinyin:"dúshū", wordClass:"động", hanviet:"Độc thư", meaning:"đọc sách", example:{zh:"我喜欢读书。", py:"Wǒ xǐhuan dúshū.", vi:"Tôi thích đọc sách."}},
-  {hanzi:"和", pinyin:"hé", wordClass:"liên", hanviet:"Hòa", meaning:"và, với", example:{zh:"我和朋友一起读书。", py:"Wǒ hé péngyou yìqǐ dúshū.", vi:"Tôi cùng bạn đọc sách."}},
-  {hanzi:"朋友", pinyin:"péngyou", wordClass:"danh", hanviet:"Bằng hữu", meaning:"bạn bè", example:{zh:"他是我的好朋友。", py:"Tā shì wǒ de hǎo péngyou.", vi:"Anh ấy là bạn tốt của tôi."}},
-  {hanzi:"唱", pinyin:"chàng", wordClass:"động", hanviet:"Xướng", meaning:"hát", example:{zh:"我朋友很会唱歌。", py:"Wǒ péngyou hěn huì chàng gē.", vi:"Bạn tôi rất biết hát."}},
-  {hanzi:"歌", pinyin:"gē", wordClass:"danh", hanviet:"Ca", meaning:"bài hát", example:{zh:"这首歌很好听。", py:"Zhè shǒu gē hěn hǎotīng.", vi:"Bài hát này rất hay."}},
-  {hanzi:"好听", pinyin:"hǎotīng", wordClass:"tính", hanviet:"Hảo thính", meaning:"hay, nghe hay", example:{zh:"她唱的歌很好听。", py:"Tā chàng de gē hěn hǎotīng.", vi:"Bài hát cô ấy hát rất hay."}},
-  {hanzi:"电视", pinyin:"diànshì", wordClass:"danh", hanviet:"Điện thị", meaning:"tivi", example:{zh:"我和朋友一起看电视。", py:"Wǒ hé péngyou yìqǐ kàn diànshì.", vi:"Tôi cùng bạn xem tivi."}},
-  {hanzi:"狗", pinyin:"gǒu", wordClass:"danh", hanviet:"Cẩu", meaning:"con chó", example:{zh:"我家有一只狗。", py:"Wǒ jiā yǒu yī zhī gǒu.", vi:"Nhà tôi có một con chó."}},
-  {hanzi:"玩", pinyin:"wán", wordClass:"động", hanviet:"Ngoạn", meaning:"chơi", example:{zh:"下午我和朋友一起玩。", py:"Xiàwǔ wǒ hé péngyou yìqǐ wán.", vi:"Buổi chiều tôi chơi cùng bạn."}}
+  {hanzi:"前边", pinyin:"qiánbian", wordClass:"dt.", hanviet:"Tiền biên", meaning:"phía trước", example:{zh:"书店在学校前边。", py:"Shūdiàn zài xuéxiào qiánbian.", vi:"Tiệm sách ở phía trước trường học."}},
+  {hanzi:"边", pinyin:"bian/biān", wordClass:"hậu tố/dt.", hanviet:"Biên", meaning:"phía, bên", example:{zh:"猫在桌子边。", py:"Māo zài zhuōzi biān.", vi:"Con mèo ở bên cạnh bàn."}},
+  {hanzi:"家", pinyin:"jiā", wordClass:"lượng.", hanviet:"Gia", meaning:"cái, chiếc, ngôi, hiệu, tiệm, nhà... (dùng cho cửa hàng, cơ quan, doanh nghiệp)", example:{zh:"学校前边有一家书店。", py:"Xuéxiào qiánbian yǒu yī jiā shūdiàn.", vi:"Phía trước trường học có một tiệm sách."}},
+  {hanzi:"那个", pinyin:"nàge", wordClass:"đt.", hanviet:"Na cá", meaning:"đó, cái đó", example:{zh:"那个椅子很漂亮。", py:"Nàge yǐzi hěn piàoliang.", vi:"Cái ghế đó rất đẹp."}},
+  {hanzi:"外边", pinyin:"wàibian", wordClass:"dt.", hanviet:"Ngoại biên", meaning:"phía ngoài, bên ngoài", example:{zh:"狗在外边。", py:"Gǒu zài wàibian.", vi:"Con chó ở bên ngoài."}},
+  {hanzi:"椅子", pinyin:"yǐzi", wordClass:"dt.", hanviet:"Ỷ tử", meaning:"ghế, cái ghế", example:{zh:"猫在椅子下面。", py:"Māo zài yǐzi xiàmian.", vi:"Con mèo ở dưới ghế."}},
+  {hanzi:"上", pinyin:"shang/shàng", wordClass:"dt.", hanviet:"Thượng", meaning:"trên, trước (dùng sau danh từ, chỉ vị trí)", example:{zh:"狗在椅子上。", py:"Gǒu zài yǐzi shàng.", vi:"Con chó ở trên ghế."}},
+  {hanzi:"本", pinyin:"běn", wordClass:"lượng.", hanviet:"Bản", meaning:"Quyển, cuốn (dùng cho sách vở)", example:{zh:"我有三本书。", py:"Wǒ yǒu sān běn shū.", vi:"Tôi có ba quyển sách."}},
+  {hanzi:"书", pinyin:"shū", wordClass:"dt.", hanviet:"Thư", meaning:"sách", example:{zh:"这本书很好看。", py:"Zhè běn shū hěn hǎokàn.", vi:"Quyển sách này rất hay."}},
+  {hanzi:"那", pinyin:"nà", wordClass:"đt.", hanviet:"Na", meaning:"kia, đó", example:{zh:"那是我的书。", py:"Nà shì wǒ de shū.", vi:"Đó là sách của tôi."}},
+  {hanzi:"第", pinyin:"dì", wordClass:"tiền tố", hanviet:"Đệ", meaning:"thứ (dùng để biểu thị số thứ tự)", example:{zh:"这是我第一次看电影。", py:"Zhè shì wǒ dì yī cì kàn diànyǐng.", vi:"Đây là lần đầu tiên tôi xem phim."}},
+  {hanzi:"学习", pinyin:"xuéxí", wordClass:"đgt.", hanviet:"Học tập", meaning:"học, học tập", example:{zh:"我在学校学习汉语。", py:"Wǒ zài xuéxiào xuéxí Hànyǔ.", vi:"Tôi học tiếng Hán ở trường."}},
+  {hanzi:"做", pinyin:"zuò", wordClass:"đgt.", hanviet:"Tố", meaning:"Làm (thực hiện 1 hoạt động, công việc…)", example:{zh:"你在做什么？", py:"Nǐ zài zuò shénme?", vi:"Bạn đang làm gì?"}},
+  {hanzi:"白天", pinyin:"báitiān", wordClass:"dt.", hanviet:"Bạch thiên", meaning:"ban ngày", example:{zh:"我白天学习，晚上看电视。", py:"Wǒ báitiān xuéxí, wǎnshang kàn diànshì.", vi:"Ban ngày tôi học, buổi tối tôi xem tivi."}},
+  {hanzi:"读书", pinyin:"dúshū", wordClass:"đgt.", hanviet:"Độc thư", meaning:"đọc sách, xem sách", example:{zh:"我喜欢读书。", py:"Wǒ xǐhuan dúshū.", vi:"Tôi thích đọc sách."}},
+  {hanzi:"和", pinyin:"hé", wordClass:"giới.", hanviet:"Hòa", meaning:"với, cùng, và", example:{zh:"我和朋友一起读书。", py:"Wǒ hé péngyou yìqǐ dúshū.", vi:"Tôi cùng bạn đọc sách."}},
+  {hanzi:"朋友", pinyin:"péngyou", wordClass:"dt.", hanviet:"Bằng hữu", meaning:"bạn, bạn bè", example:{zh:"他是我的好朋友。", py:"Tā shì wǒ de hǎo péngyou.", vi:"Anh ấy là bạn tốt của tôi."}},
+  {hanzi:"唱", pinyin:"chàng", wordClass:"đgt.", hanviet:"Xướng", meaning:"hát", example:{zh:"我朋友很会唱歌。", py:"Wǒ péngyou hěn huì chàng gē.", vi:"Bạn tôi rất biết hát."}},
+  {hanzi:"歌", pinyin:"gē", wordClass:"dt.", hanviet:"Ca", meaning:"bài hát", example:{zh:"这首歌很好听。", py:"Zhè shǒu gē hěn hǎotīng.", vi:"Bài hát này rất hay."}},
+  {hanzi:"好听", pinyin:"hǎotīng", wordClass:"tt.", hanviet:"Hảo thính", meaning:"hay, nghe hay", example:{zh:"她唱的歌很好听。", py:"Tā chàng de gē hěn hǎotīng.", vi:"Bài hát cô ấy hát rất hay."}},
+  {hanzi:"电视", pinyin:"diànshì", wordClass:"dt.", hanviet:"Điện thị", meaning:"ti vi, vô tuyến", example:{zh:"我和朋友一起看电视。", py:"Wǒ hé péngyou yìqǐ kàn diànshì.", vi:"Tôi cùng bạn xem tivi."}},
+  {hanzi:"狗", pinyin:"gǒu", wordClass:"dt.", hanviet:"Cẩu", meaning:"chó, con chó", example:{zh:"我家有一只狗。", py:"Wǒ jiā yǒu yī zhī gǒu.", vi:"Nhà tôi có một con chó."}},
+  {hanzi:"玩", pinyin:"wán", wordClass:"đgt.", hanviet:"Ngoạn", meaning:"chơi", example:{zh:"下午我和朋友一起玩。", py:"Xiàwǔ wǒ hé péngyou yìqǐ wán.", vi:"Buổi chiều tôi chơi cùng bạn."}}
 ];
 
 document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
