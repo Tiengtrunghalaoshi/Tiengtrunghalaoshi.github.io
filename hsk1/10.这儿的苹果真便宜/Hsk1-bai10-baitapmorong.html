@@ -187,6 +187,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 .flip-front .fc-hint{font-size:10px;color:var(--text2);font-weight:600;margin-top:6px;background:#FEF3C7;border-radius:20px;padding:2px 9px;letter-spacing:.03em;}
 .flip-back{background:linear-gradient(135deg,#B45309,#78350F);transform:rotateY(180deg);gap:5px;border-color:transparent}
 .flip-back .fc-py{font-size:15px;font-weight:800;color:#fff;letter-spacing:.03em;text-align:center;line-height:1.3}
+.flip-back .fc-wc{font-size:11px;font-weight:700;color:rgba(255,255,255,.75);text-align:center;font-style:italic;margin-top:1px}
 .flip-back .fc-vn{font-size:13px;font-weight:700;color:rgba(255,255,255,.85);text-align:center;margin-top:2px}
 .flip-back .fc-zh-sm{font-size:17px;font-weight:700;font-family:'Noto Serif SC',serif;color:rgba(255,255,255,.5);margin-bottom:2px}
 .fc-speak-btn{margin-top:8px;background:rgba(255,255,255,.22);border:1.5px solid rgba(255,255,255,.4);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:800;color:#fff;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .15s;display:flex;align-items:center;gap:5px;}
@@ -593,29 +594,29 @@ startTimer();
 
 // ─── DATA ───
 const vocabData = [
-  {zh:'杯子',   py:'Bēizi',      vn:'Cái cốc / Ly',                   e:'🥤'},
-  {zh:'售货员',  py:'Shòuhuòyuán',vn:'Nhân viên bán hàng',             e:'🧑‍💼'},
-  {zh:'这边',   py:'Zhèbiān',    vn:'Phía này / Bên này',              e:'👈'},
-  {zh:'钱',     py:'Qián',       vn:'Tiền',                            e:'💰'},
-  {zh:'这些',   py:'Zhèxiē',     vn:'Những cái này',                   e:'📦'},
-  {zh:'块',     py:'Kuài',       vn:'Đồng (đơn vị tiền tệ khẩu ngữ)', e:'🪙'},
-  {zh:'那些',   py:'Nàxiē',      vn:'Những cái kia',                   e:'📫'},
-  {zh:'这儿',   py:'Zhèr',       vn:'Ở đây / Chỗ này',                 e:'📍'},
-  {zh:'水果',   py:'Shuǐguǒ',    vn:'Hoa quả / Trái cây',              e:'🍇'},
-  {zh:'少',     py:'Shǎo',       vn:'Ít',                              e:'🔽'},
-  {zh:'斤',     py:'Jīn',        vn:'Cân (500g, đơn vị đo lường)',     e:'⚖️'},
-  {zh:'苹果',   py:'Píngguǒ',    vn:'Quả táo',                         e:'🍎'},
-  {zh:'便宜',   py:'Piányí',     vn:'Rẻ',                              e:'💸'},
-  {zh:'商店',   py:'Shāngdiàn',  vn:'Cửa hàng',                        e:'🏪'},
-  {zh:'衣服',   py:'Yīfu',       vn:'Quần áo',                         e:'👗'},
-  {zh:'件',     py:'Jiàn',       vn:'Chiếc (lượng từ cho áo quần)',    e:'🏷️'},
-  {zh:'元',     py:'Yuán',       vn:'Nhân dân tệ (đơn vị tiền chính)', e:'💴'},
-  {zh:'怎么样', py:'Zěnmeyàng',  vn:'Như thế nào / Thế nào',           e:'🤔'},
-  {zh:'贵',     py:'Guì',        vn:'Đắt tiền',                        e:'💎'},
-  {zh:'穿',     py:'Chuān',      vn:'Mặc / Đi (giày)',                 e:'👘'},
-  {zh:'女',     py:'Nǚ',         vn:'Nữ / Phụ nữ',                     e:'👩'},
-  {zh:'男',     py:'Nán',        vn:'Nam / Đàn ông',                   e:'👨'},
-  {zh:'那儿',   py:'Nàr',        vn:'Ở đó / Chỗ kia',                  e:'🗺️'},
+  {zh:'杯子',   py:'Bēizi',      wc:'dt.',       vn:'Cốc, ly',                                                          e:'🥤'},
+  {zh:'售货员',  py:'Shòuhuòyuán',wc:'dt.',       vn:'Nhân viên bán hàng',                                              e:'🧑‍💼'},
+  {zh:'这边',   py:'Zhèbiān',    wc:'đt.',       vn:'Bên này, phía này',                                               e:'👈'},
+  {zh:'钱',     py:'Qián',       wc:'dt.',       vn:'Tiền',                                                            e:'💰'},
+  {zh:'这些',   py:'Zhèxiē',     wc:'đt.',       vn:'Những cái này',                                                   e:'📦'},
+  {zh:'块',     py:'Kuài',       wc:'lượng.',    vn:'Đồng (đơn vị tiền tệ Trung Quốc)',                                e:'🪙'},
+  {zh:'那些',   py:'Nàxiē',      wc:'đt.',       vn:'Những cái kia',                                                   e:'📫'},
+  {zh:'这儿',   py:'Zhèr',       wc:'đt.',       vn:'Ở đây, chỗ này',                                                  e:'📍'},
+  {zh:'水果',   py:'Shuǐguǒ',    wc:'dt.',       vn:'Hoa quả, trái cây',                                               e:'🍇'},
+  {zh:'少',     py:'Shǎo',       wc:'tt.',       vn:'Ít',                                                              e:'🔽'},
+  {zh:'斤',     py:'Jīn',        wc:'lượng.',    vn:'Cân ( đơn vị đo lường của Trung Quốc, 1 cân bằng 0,5kg)',        e:'⚖️'},
+  {zh:'苹果',   py:'Píngguǒ',    wc:'dt.',       vn:'Táo, quả táo',                                                    e:'🍎'},
+  {zh:'便宜',   py:'Piányi',     wc:'tt.',       vn:'Rẻ',                                                              e:'💸'},
+  {zh:'商店',   py:'Shāngdiàn',  wc:'dt.',       vn:'Cửa hàng',                                                        e:'🏪'},
+  {zh:'衣服',   py:'Yīfu',       wc:'dt.',       vn:'Quần áo',                                                         e:'👗'},
+  {zh:'件',     py:'Jiàn',       wc:'lượng.',    vn:'Chiếc, cái (dùng cho quần áo)',                                   e:'🏷️'},
+  {zh:'元',     py:'Yuán',       wc:'lượng.',    vn:'Đồng (nhân dân tệ)',                                              e:'💴'},
+  {zh:'怎么样', py:'Zěnmeyàng',  wc:'đt.',       vn:'Thế nào, như thế nào',                                            e:'🤔'},
+  {zh:'贵',     py:'Guì',        wc:'tt.',       vn:'Đắt, quý',                                                        e:'💎'},
+  {zh:'穿',     py:'Chuān',      wc:'đgt.',      vn:'Mặc',                                                             e:'👘'},
+  {zh:'女',     py:'Nǚ',         wc:'tt.',       vn:'Nữ, con gái',                                                     e:'👩'},
+  {zh:'男',     py:'Nán',        wc:'tt.',       vn:'Nam, con trai',                                                   e:'👨'},
+  {zh:'那儿',   py:'Nàr',        wc:'đt.',       vn:'Ở kia, chỗ đó',                                                   e:'🗺️'},
 ];
 
 const mcQ = [
@@ -913,6 +914,7 @@ function buildVocab() {
         <div class="flip-back">
           <div class="fc-zh-sm">${v.zh}</div>
           <div class="fc-py">${v.py}</div>
+          ${v.wc ? `<div class="fc-wc">${v.wc}</div>` : ''}
           <div class="fc-vn">${v.vn}</div>
           <button class="fc-speak-btn" id="spk-${pos}" onclick="event.stopPropagation();doSpeak(${pos},'${v.zh}')">🔊 Nghe</button>
         </div>
