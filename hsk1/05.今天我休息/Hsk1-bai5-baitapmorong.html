@@ -174,6 +174,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 .flip-front .fc-hint{font-size:10px;color:var(--text2);font-weight:600;margin-top:6px;background:#EEF0FF;border-radius:20px;padding:2px 9px;letter-spacing:.03em;}
 .flip-back{background:linear-gradient(135deg,#5B6AF0,#2230B8);transform:rotateY(180deg);gap:5px;border-color:transparent}
 .flip-back .fc-py{font-size:15px;font-weight:800;color:#fff;letter-spacing:.03em;text-align:center;line-height:1.3}
+.flip-back .fc-wc{font-size:11px;font-weight:700;color:rgba(255,255,255,.6);text-align:center;font-style:italic;margin-top:1px}
 .flip-back .fc-vn{font-size:13px;font-weight:700;color:rgba(255,255,255,.85);text-align:center;margin-top:2px}
 .flip-back .fc-zh-sm{font-size:17px;font-weight:700;font-family:'Noto Serif SC',serif;color:rgba(255,255,255,.5);margin-bottom:2px}
 .fc-speak-btn{margin-top:8px;background:rgba(255,255,255,.22);border:1.5px solid rgba(255,255,255,.4);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:800;color:#fff;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .15s;display:flex;align-items:center;gap:5px;}
@@ -575,28 +576,28 @@ startTimer();
 
 // ─── DATA ───
 const vocabData = [
-  {zh:'今天',   py:'Jīntiān',    vn:'Hôm nay',                          e:'📅'},
-  {zh:'号',     py:'Hào',        vn:'Ngày (số) / Số thứ tự',            e:'🔢'},
-  {zh:'月',     py:'Yuè',        vn:'Tháng',                            e:'🗓️'},
-  {zh:'日',     py:'Rì',         vn:'Ngày (văn viết)',                   e:'☀️'},
-  {zh:'星期',   py:'Xīngqī',     vn:'Tuần / Thứ trong tuần',            e:'📆'},
-  {zh:'星期日', py:'Xīngqīrì',   vn:'Chủ nhật',                         e:'🌞'},
-  {zh:'星期天', py:'Xīngqītiān', vn:'Chủ nhật (thông dụng)',            e:'😊'},
-  {zh:'休息',   py:'Xiūxí',      vn:'Nghỉ ngơi',                        e:'😴'},
-  {zh:'会',     py:'Huì',        vn:'Có thể / Biết làm gì',             e:'💡'},
-  {zh:'做饭',   py:'Zuòfàn',     vn:'Nấu ăn',                           e:'🍳'},
-  {zh:'做',     py:'Zuò',        vn:'Làm / Làm gì đó',                  e:'🛠️'},
-  {zh:'面条儿', py:'Miàntiáor',  vn:'Mì sợi',                           e:'🍜'},
-  {zh:'饺子',   py:'Jiǎozi',     vn:'Sủi cảo',                          e:'🥟'},
-  {zh:'一些',   py:'Yīxiē',      vn:'Một số / Một ít',                  e:'🤏'},
-  {zh:'菜',     py:'Cài',        vn:'Rau / Món ăn / Thức ăn',           e:'🥦'},
-  {zh:'下班',   py:'Xiàbān',     vn:'Tan ca / Tan làm',                 e:'🏃'},
-  {zh:'新',     py:'Xīn',        vn:'Mới',                              e:'✨'},
-  {zh:'电脑',   py:'Diànnǎo',    vn:'Máy tính',                         e:'💻'},
-  {zh:'真',     py:'Zhēn',       vn:'Thật / Thực sự',                   e:'💯'},
-  {zh:'好看',   py:'Hǎokàn',     vn:'Đẹp / Trông đẹp',                 e:'😍'},
-  {zh:'喜欢',   py:'Xǐhuan',     vn:'Thích',                            e:'❤️'},
-  {zh:'它',     py:'Tā',         vn:'Nó (chỉ vật / động vật)',          e:'🐾'},
+  {zh:'今天',   py:'Jīntiān',    wc:'dt.',    vn:'Hôm nay',                  e:'📅'},
+  {zh:'号',     py:'Hào',        wc:'lượng.', vn:'Ngày, mùng',               e:'🔢'},
+  {zh:'月',     py:'Yuè',        wc:'dt.',    vn:'Tháng',                    e:'🗓️'},
+  {zh:'日',     py:'Rì',         wc:'lượng.', vn:'Ngày',                     e:'☀️'},
+  {zh:'星期',   py:'Xīngqī',     wc:'dt.',    vn:'Thứ, tuần',                e:'📆'},
+  {zh:'星期日', py:'Xīngqīrì',   wc:'dt.',    vn:'Chủ nhật',                 e:'🌞'},
+  {zh:'星期天', py:'Xīngqītiān', wc:'dt.',    vn:'Chủ nhật',                 e:'😊'},
+  {zh:'休息',   py:'Xiūxí',      wc:'đgt.',   vn:'Nghỉ, nghỉ ngơi',          e:'😴'},
+  {zh:'会',     py:'Huì',        wc:'đtnn.',  vn:'Biết, có thể',             e:'💡'},
+  {zh:'做饭',   py:'Zuòfàn',     wc:'',       vn:'Nấu ăn, nấu cơm',          e:'🍳'},
+  {zh:'做',     py:'Zuò',        wc:'đgt.',   vn:'Nấu, làm (tạo ra sản phẩm cụ thể)', e:'🛠️'},
+  {zh:'面条儿', py:'Miàntiáor',  wc:'dt.',    vn:'Mì, mì sợi',               e:'🍜'},
+  {zh:'饺子',   py:'Jiǎozi',     wc:'dt.',    vn:'Sủi cảo',                  e:'🥟'},
+  {zh:'一些',   py:'Yīxiē',      wc:'s.l.',   vn:'Một số, một vài',          e:'🤏'},
+  {zh:'菜',     py:'Cài',        wc:'dt.',    vn:'Món ăn, rau',              e:'🥦'},
+  {zh:'下班',   py:'Xiàbān',     wc:'đgt.',   vn:'Tan làm, tan ca',          e:'🏃'},
+  {zh:'新',     py:'Xīn',        wc:'tt.',    vn:'Mới',                      e:'✨'},
+  {zh:'电脑',   py:'Diànnǎo',    wc:'dt.',    vn:'Máy tính, may vi tính',    e:'💻'},
+  {zh:'真',     py:'Zhēn',       wc:'phó.',   vn:'Thật, thực sự',            e:'💯'},
+  {zh:'好看',   py:'Hǎokàn',     wc:'tt.',    vn:'Đẹp',                      e:'😍'},
+  {zh:'喜欢',   py:'Xǐhuan',     wc:'đgt.',   vn:'Thích',                    e:'❤️'},
+  {zh:'它',     py:'Tā',         wc:'đt.',    vn:'Nó (chỉ vật)',             e:'🐾'},
 ];
 
 const mcQ = [
@@ -700,16 +701,16 @@ const typeData = [
   {vn:'Hôm nay',              zh:'今天',   py:'Jīntiān',    e:'📅'},
   {vn:'Tháng',                zh:'月',     py:'Yuè',        e:'🗓️'},
   {vn:'Chủ nhật',             zh:'星期日', py:'Xīngqīrì',   e:'🌞'},
-  {vn:'Nghỉ ngơi',            zh:'休息',   py:'Xiūxí',      e:'😴'},
-  {vn:'Nấu ăn',               zh:'做饭',   py:'Zuòfàn',     e:'🍳'},
-  {vn:'Mì sợi',               zh:'面条儿', py:'Miàntiáor',  e:'🍜'},
+  {vn:'Nghỉ, nghỉ ngơi',      zh:'休息',   py:'Xiūxí',      e:'😴'},
+  {vn:'Nấu ăn, nấu cơm',      zh:'做饭',   py:'Zuòfàn',     e:'🍳'},
+  {vn:'Mì, mì sợi',           zh:'面条儿', py:'Miàntiáor',  e:'🍜'},
   {vn:'Sủi cảo',              zh:'饺子',   py:'Jiǎozi',     e:'🥟'},
-  {vn:'Máy tính',             zh:'电脑',   py:'Diànnǎo',    e:'💻'},
+  {vn:'Máy tính, may vi tính',zh:'电脑',   py:'Diànnǎo',    e:'💻'},
   {vn:'Thích',                zh:'喜欢',   py:'Xǐhuan',     e:'❤️'},
-  {vn:'Thật / Thực sự',       zh:'真',     py:'Zhēn',       e:'💯'},
+  {vn:'Thật, thực sự',        zh:'真',     py:'Zhēn',       e:'💯'},
   {vn:'Mới',                  zh:'新',     py:'Xīn',        e:'✨'},
-  {vn:'Đẹp / Trông đẹp',     zh:'好看',   py:'Hǎokàn',     e:'😍'},
-  {vn:'Tan ca / Tan làm',   zh:'下班',   py:'Xiàbān',     e:'🏃'},
+  {vn:'Đẹp',                  zh:'好看',   py:'Hǎokàn',     e:'😍'},
+  {vn:'Tan làm, tan ca',      zh:'下班',   py:'Xiàbān',     e:'🏃'},
   {vn:'Nó (chỉ vật)',         zh:'它',     py:'Tā',         e:'🐾'},
 ];
 
@@ -770,6 +771,7 @@ function buildVocab() {
         <div class="flip-back">
           <div class="fc-zh-sm">${v.zh}</div>
           <div class="fc-py">${v.py}</div>
+          <div class="fc-wc">${v.wc || ''}</div>
           <div class="fc-vn">${v.vn}</div>
           <button class="fc-speak-btn" id="spk-${pos}" onclick="event.stopPropagation();doSpeak(${pos},'${v.zh}')">🔊 Nghe</button>
         </div>
