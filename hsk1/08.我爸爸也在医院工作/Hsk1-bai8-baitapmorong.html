@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HSK 1 – Bài 8: Bố tôi cũng làm việc ở bệnh viện | Tiếng Trung Halaoshi</title>
+<title>HSK 1 – Bài 8: Bố em cũng làm việc ở bệnh viện | Tiếng Trung Halaoshi</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -188,6 +188,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 .flip-front .fc-hint{font-size:10px;color:var(--text2);font-weight:600;margin-top:6px;background:#D1FAE5;border-radius:20px;padding:2px 9px;letter-spacing:.03em;}
 .flip-back{background:linear-gradient(135deg,#059669,#064E3B);transform:rotateY(180deg);gap:5px;border-color:transparent}
 .flip-back .fc-py{font-size:15px;font-weight:800;color:#fff;letter-spacing:.03em;text-align:center;line-height:1.3}
+.flip-back .fc-wc{font-size:11px;font-weight:700;color:rgba(255,255,255,.75);text-align:center;font-style:italic;margin-top:1px}
 .flip-back .fc-vn{font-size:13px;font-weight:700;color:rgba(255,255,255,.85);text-align:center;margin-top:2px}
 .flip-back .fc-zh-sm{font-size:17px;font-weight:700;font-family:'Noto Serif SC',serif;color:rgba(255,255,255,.5);margin-bottom:2px}
 .fc-speak-btn{margin-top:8px;background:rgba(255,255,255,.22);border:1.5px solid rgba(255,255,255,.4);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:800;color:#fff;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .15s;display:flex;align-items:center;gap:5px;}
@@ -353,7 +354,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
   <div class="hero-float">🐱</div>
   <div class="hero-float2">🏫</div>
   <div class="hero-tag">Tiếng Trung Halaoshi · HSK 1</div>
-  <div class="hero-title">Bài 8: Bố tôi cũng làm việc ở bệnh viện<span class="blink-cursor"></span></div>
+  <div class="hero-title">Bài 8: Bố em cũng làm việc ở bệnh viện<span class="blink-cursor"></span></div>
   <div class="hero-sub">Chủ đề: Vị trí · Mô tả · Công việc · Địa điểm</div>
   <div class="hero-badges">
     <span class="hbadge">📚 HSK 1.0</span>
@@ -589,30 +590,30 @@ startTimer();
 
 // ─── DATA ───
 const vocabData = [
-  {zh:'房间', py:'Fángjiān',  vn:'Căn phòng',                      e:'🛏'},
-  {zh:'外',   py:'Wài',       vn:'Ngoài / Bên ngoài',              e:'🌿'},
-  {zh:'只',   py:'Zhī',       vn:'Con (lượng từ cho động vật)',     e:'🐾'},
-  {zh:'小',   py:'Xiǎo',      vn:'Nhỏ / Bé',                       e:'🔹'},
-  {zh:'猫',   py:'Māo',       vn:'Con mèo',                        e:'🐱'},
-  {zh:'没',   py:'Méi',       vn:'Không có (phủ định quá khứ)',    e:'❌'},
-  {zh:'看见', py:'Kànjiàn',   vn:'Nhìn thấy / Trông thấy',         e:'👁'},
-  {zh:'桌子', py:'Zhuōzi',    vn:'Cái bàn',                        e:'🪑'},
-  {zh:'下',   py:'Xià',       vn:'Dưới / Phía dưới',               e:'⬇️'},
-  {zh:'漂亮', py:'Piàoliang', vn:'Đẹp / Xinh đẹp',                 e:'✨'},
-  {zh:'在',   py:'Zài',       vn:'Ở / Đang (ở nơi nào đó)',        e:'📍'},
-  {zh:'学校', py:'Xuéxiào',   vn:'Trường học',                     e:'🏫'},
-  {zh:'书店', py:'Shūdiàn',   vn:'Hiệu sách',                      e:'📚'},
-  {zh:'前',   py:'Qián',      vn:'Trước / Phía trước',             e:'⬆️'},
-  {zh:'能',   py:'Néng',      vn:'Có thể / Có khả năng',           e:'💪'},
-  {zh:'到',   py:'Dào',       vn:'Đến / Tới',                      e:'🚩'},
-  {zh:'午饭', py:'Wǔfàn',     vn:'Bữa trưa / Cơm trưa',           e:'🍱'},
-  {zh:'饭',   py:'Fàn',       vn:'Cơm / Bữa ăn',                  e:'🍚'},
-  {zh:'大',   py:'Dà',        vn:'To / Lớn',                       e:'🔶'},
-  {zh:'病人', py:'Bìngrén',   vn:'Bệnh nhân',                      e:'🤒'},
-  {zh:'多',   py:'Duō',       vn:'Nhiều',                          e:'➕'},
-  {zh:'医生', py:'Yīshēng',   vn:'Bác sĩ',                         e:'👨‍⚕️'},
-  {zh:'工作', py:'Gōngzuò',   vn:'Làm việc / Công việc',           e:'💼'},
-  {zh:'胡医生',py:'Hú yīshēng',vn:'Bác sĩ Hồ (tên người)',        e:'🩺'},
+  {zh:'房间', py:'Fángjiān',  wc:'dt.',                         vn:'Căn phòng',              e:'🛏'},
+  {zh:'外',   py:'Wài',       wc:'dt.',                         vn:'Ngoài, bên ngoài',       e:'🌿'},
+  {zh:'只',   py:'Zhī',       wc:'lượng.',                      vn:'Con (chim, chó, hổ…)',   e:'🐾'},
+  {zh:'小',   py:'Xiǎo',      wc:'tt.',                         vn:'Nhỏ, bé',                e:'🔹'},
+  {zh:'猫',   py:'Māo',       wc:'dt.',                         vn:'Mèo, con mèo',           e:'🐱'},
+  {zh:'没',   py:'Méi',       wc:'phó.',                        vn:'Không, chưa',            e:'❌'},
+  {zh:'看见', py:'Kànjiàn',   wc:'đgt.',                        vn:'Nhìn thấy, trông thấy',  e:'👁'},
+  {zh:'桌子', py:'Zhuōzi',    wc:'dt.',                         vn:'Bàn, cái bàn',           e:'🪑'},
+  {zh:'下',   py:'Xià',       wc:'dt.',                         vn:'Dưới, bên dưới',         e:'⬇️'},
+  {zh:'漂亮', py:'Piàoliang', wc:'tt.',                         vn:'Đẹp, xinh đẹp',          e:'✨'},
+  {zh:'在',   py:'Zài',       wc:'giới.',                       vn:'Ở, tại',                 e:'📍'},
+  {zh:'学校', py:'Xuéxiào',   wc:'dt.',                         vn:'Trường học',             e:'🏫'},
+  {zh:'书店', py:'Shūdiàn',   wc:'dt.',                         vn:'Hiệu sách, nhà sách',    e:'📚'},
+  {zh:'前',   py:'Qián',      wc:'dt.',                         vn:'Phía trước, trước',      e:'⬆️'},
+  {zh:'能',   py:'Néng',      wc:'đtnn.',                       vn:'Có thể',                 e:'💪'},
+  {zh:'到',   py:'Dào',       wc:'đgt.',                        vn:'Đến',                    e:'🚩'},
+  {zh:'午饭', py:'Wǔfàn',     wc:'dt.',                         vn:'Bữa trưa',               e:'🍱'},
+  {zh:'饭',   py:'Fàn',       wc:'dt.',                         vn:'Cơm',                    e:'🍚'},
+  {zh:'大',   py:'Dà',        wc:'tt.',                         vn:'Lớn, to',                e:'🔶'},
+  {zh:'病人', py:'Bìngrén',   wc:'dt.',                         vn:'Bệnh nhân',              e:'🤒'},
+  {zh:'多',   py:'Duō',       wc:'tt.',                         vn:'Nhiều',                  e:'➕'},
+  {zh:'医生', py:'Yīshēng',   wc:'dt.',                         vn:'Bác sĩ',                 e:'👨‍⚕️'},
+  {zh:'工作', py:'Gōngzuò',   wc:'đgt.',                        vn:'Làm việc',               e:'💼'},
+  {zh:'胡医生',py:'Hú yīshēng',wc:'',                           vn:'Bác sỹ Hồ',              e:'🩺'},
 ];
 
 const mcQ = [
@@ -924,6 +925,7 @@ function buildVocab() {
         <div class="flip-back">
           <div class="fc-zh-sm">${v.zh}</div>
           <div class="fc-py">${v.py}</div>
+          ${v.wc ? `<div class="fc-wc">${v.wc}</div>` : ''}
           <div class="fc-vn">${v.vn}</div>
           <button class="fc-speak-btn" id="spk-${pos}" onclick="event.stopPropagation();doSpeak(${pos},'${v.zh}')">🔊 Nghe</button>
         </div>
