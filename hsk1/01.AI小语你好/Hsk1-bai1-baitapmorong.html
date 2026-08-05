@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HSK 1 – Bài 1: Xin chào | Tiếng Trung Halaoshi</title>
+<title>HSK 1 – Bài 1: Xin chào AI Tiểu Ngữ! | Tiếng Trung Halaoshi</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -574,6 +574,12 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
   color:rgba(255,255,255,.85);
   text-align:center;margin-top:2px;
 }
+.flip-back .fc-wc{
+  font-size:10.5px;font-weight:700;
+  color:rgba(255,255,255,.65);
+  text-align:center;margin-top:1px;
+  font-style:italic;
+}
 .flip-back .fc-zh-sm{
   font-size:18px;font-weight:700;
   font-family:'Noto Serif SC',serif;
@@ -848,19 +854,19 @@ startTimer();
 
 // ─── DATA ───
 const vocabData=[
-  {zh:'你好',py:'Nǐ hǎo',vn:'Xin chào',e:'👋'},
-  {zh:'王老师',py:'Wáng lǎoshī',vn:'Thầy/Cô Wang',e:'👩‍🏫'},
-  {zh:'大家',py:'Dàjiā',vn:'Mọi người',e:'👥'},
-  {zh:'好',py:'Hǎo',vn:'Tốt / Được',e:'👍'},
-  {zh:'学生',py:'Xuéshēng',vn:'Học sinh',e:'🧑‍🎓'},
-  {zh:'们',py:'Men',vn:'(số nhiều)',e:'👫'},
-  {zh:'老师',py:'Lǎoshī',vn:'Thầy/Cô giáo',e:'👨‍🏫'},
-  {zh:'您',py:'Nín',vn:'Bạn (lịch sự)',e:'🙏'},
-  {zh:'你们',py:'Nǐmen',vn:'Các bạn',e:'🫂'},
-  {zh:'谢谢',py:'Xièxiè',vn:'Cảm ơn',e:'😊'},
-  {zh:'不客气',py:'Bù kèqì',vn:'Không có gì',e:'🤗'},
-  {zh:'同学',py:'Tóngxué',vn:'Bạn học',e:'🧑‍🤝‍🧑'},
-  {zh:'再见',py:'Zàijiàn',vn:'Tạm biệt',e:'👋'},
+  {zh:'你好',py:'Nǐ hǎo',wc:'',vn:'Xin chào, chào bạn',e:'👋'},
+  {zh:'王老师',py:'Wáng lǎoshī',wc:'',vn:'Cô Vương',e:'👩‍🏫'},
+  {zh:'大家',py:'Dàjiā',wc:'đt.',vn:'Mọi người',e:'👥'},
+  {zh:'好',py:'Hǎo',wc:'tt.',vn:'Tốt, khỏe',e:'👍'},
+  {zh:'学生',py:'Xuéshēng',wc:'dt.',vn:'Học sinh, sinh viên',e:'🧑‍🎓'},
+  {zh:'们',py:'Men',wc:'hậu tố.',vn:'Chúng, các, bọn (dùng sau đại từ nhân xưng hoặc danh từ để chỉ số nhiều)',e:'👫'},
+  {zh:'老师',py:'Lǎoshī',wc:'dt.',vn:'Thầy giáo, cô giáo, giáo viên',e:'👨‍🏫'},
+  {zh:'您',py:'Nín',wc:'đt.',vn:'Ngài, ông, bà... (đại từ nhân xưng ngôi thứ hai thể hiện sự trang trọng)',e:'🙏'},
+  {zh:'你们',py:'Nǐmen',wc:'đt.',vn:'Các bạn, các anh, các chị… (đại từ nhân xưng ngôi thứ hai số nhiều)',e:'🫂'},
+  {zh:'谢谢',py:'Xièxiè',wc:'đgt.',vn:'Cảm ơn',e:'😊'},
+  {zh:'不客气',py:'Bù kèqì',wc:'',vn:'Đừng khách sáo, không cần khách khí',e:'🤗'},
+  {zh:'同学',py:'Tóngxué',wc:'dt.',vn:'Bạn học',e:'🧑‍🤝‍🧑'},
+  {zh:'再见',py:'Zàijiàn',wc:'đgt.',vn:'Tạm biệt',e:'👋'},
 ];
 
 const mcQ=[
@@ -895,7 +901,7 @@ const dlgQ=[
    q:'Tiểu Ngữ đang nói gì?',opts:['Tạm biệt các học sinh','Xin chào các học sinh','Cảm ơn các học sinh'],ans:1},
   {lines:[{n:'Nam',s:'l',t:'谢谢你！'},{n:'Linh',s:'r',t:'不客气！'}],
    q:'Linh trả lời bằng câu nào?',opts:['Xin chào','Không có gì (bạn không cần cảm ơn)','Tạm biệt'],ans:1},
-  {lines:[{n:'Học sinh',s:'l',t:'老师，再见！'},{n:'Cô Wang',s:'r',t:'同学们，再见！'}],
+  {lines:[{n:'Học sinh',s:'l',t:'老师，再见！'},{n:'Cô Vương',s:'r',t:'同学们，再见！'}],
    q:'Hai bên đang làm gì?',opts:['Chào nhau buổi sáng','Cảm ơn nhau','Tạm biệt nhau'],ans:2},
 ];
 
@@ -952,6 +958,7 @@ function buildVocab(){
         <div class="flip-back">
           <div class="fc-zh-sm">${v.zh}</div>
           <div class="fc-py">${v.py}</div>
+          ${v.wc ? `<div class="fc-wc">${v.wc}</div>` : ''}
           <div class="fc-vn">${v.vn}</div>
           <button class="fc-speak-btn" id="spk-${pos}" onclick="event.stopPropagation();doSpeak(${pos},'${v.zh}')">🔊 Nghe</button>
         </div>
@@ -1307,16 +1314,16 @@ function calcScoreP6(){
 
 // ─── TYPING EXERCISE ───
 const typeData = [
-  {vn:'Xin chào',     zh:'你好',    py:'Nǐ hǎo',      e:'👋'},
+  {vn:'Xin chào, chào bạn',     zh:'你好',    py:'Nǐ hǎo',      e:'👋'},
   {vn:'Cảm ơn',       zh:'谢谢',    py:'Xièxiè',       e:'😊'},
   {vn:'Tạm biệt',     zh:'再见',    py:'Zàijiàn',      e:'🚪'},
-  {vn:'Thầy/Cô giáo', zh:'老师',    py:'Lǎoshī',       e:'👨‍🏫'},
-  {vn:'Học sinh',      zh:'学生',    py:'Xuéshēng',     e:'🧑‍🎓'},
+  {vn:'Thầy giáo, cô giáo, giáo viên', zh:'老师',    py:'Lǎoshī',       e:'👨‍🏫'},
+  {vn:'Học sinh, sinh viên',      zh:'学生',    py:'Xuéshēng',     e:'🧑‍🎓'},
   {vn:'Bạn học',       zh:'同学',    py:'Tóngxué',      e:'🧑‍🤝‍🧑'},
   {vn:'Mọi người',     zh:'大家',    py:'Dàjiā',        e:'👥'},
-  {vn:'Không có gì',   zh:'不客气',  py:'Bù kèqì',      e:'🤗'},
-  {vn:'Bạn (lịch sự)', zh:'您',     py:'Nín',          e:'🙏'},
-  {vn:'(số nhiều)',    zh:'们',      py:'men',          e:'👫'},
+  {vn:'Đừng khách sáo, không cần khách khí',   zh:'不客气',  py:'Bù kèqì',      e:'🤗'},
+  {vn:'Ngài, ông, bà... (đại từ nhân xưng ngôi thứ hai thể hiện sự trang trọng)', zh:'您',     py:'Nín',          e:'🙏'},
+  {vn:'Chúng, các, bọn (dùng sau đại từ nhân xưng hoặc danh từ để chỉ số nhiều)',    zh:'们',      py:'men',          e:'👫'},
 ];
 
 let typeAnswers = {};
