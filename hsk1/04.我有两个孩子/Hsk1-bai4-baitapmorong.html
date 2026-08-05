@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HSK 1 – Bài 4: Tôi có hai đứa con | Tiếng Trung Halaoshi</title>
+<title>HSK 1 – Bài 4: Chị có hai con | Tiếng Trung Halaoshi</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -172,9 +172,9 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 .sec-desc{font-size:13px;color:var(--text2);margin-left:44px;margin-bottom:16px;line-height:1.6}
 
 /* ─── FLIP VOCAB CARDS ─── */
-.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
 .flip-card{
-  perspective:900px;height:170px;cursor:pointer;
+  perspective:900px;height:210px;cursor:pointer;
   animation:pop .4s ease both;
 }
 .flip-card:nth-child(1){animation-delay:.04s}
@@ -223,7 +223,8 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 .flip-front .fc-hint{font-size:10px;color:var(--text2);font-weight:600;margin-top:6px;background:#E6FBF5;border-radius:20px;padding:2px 9px;letter-spacing:.03em;}
 .flip-back{background:linear-gradient(135deg,#43B89C,#1A6B55);transform:rotateY(180deg);gap:5px;border-color:transparent}
 .flip-back .fc-py{font-size:15px;font-weight:800;color:#fff;letter-spacing:.03em;text-align:center;line-height:1.3}
-.flip-back .fc-vn{font-size:13px;font-weight:700;color:rgba(255,255,255,.85);text-align:center;margin-top:2px}
+.flip-back .fc-pos{font-size:10px;font-weight:700;color:#B83B6A;background:#fff;border-radius:20px;padding:1px 9px;letter-spacing:.03em;margin-top:2px}
+.flip-back .fc-vn{font-size:12.5px;font-weight:700;color:rgba(255,255,255,.9);text-align:center;margin-top:3px;line-height:1.35;padding:0 4px}
 .flip-back .fc-zh-sm{font-size:17px;font-weight:700;font-family:'Noto Serif SC',serif;color:rgba(255,255,255,.5);margin-bottom:2px}
 .fc-speak-btn{
   margin-top:8px;background:rgba(255,255,255,.22);border:1.5px solid rgba(255,255,255,.4);
@@ -579,7 +580,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
   <div class="hero-float">👨‍👩‍👧‍👦</div>
   <div class="hero-float2">🏠</div>
   <div class="hero-tag">Tiếng Trung Halaoshi · HSK 1</div>
-  <div class="hero-title">Bài 4: Tôi có hai đứa con 👨‍👩‍👧‍👦<span class="blink-cursor"></span></div>
+  <div class="hero-title">Bài 4: Chị có hai con 👨‍👩‍👧‍👦<span class="blink-cursor"></span></div>
   <div class="hero-sub">Chủ đề: Gia đình · Số lượng · Hỏi tuổi</div>
   <div class="hero-badges">
     <span class="hbadge">📚 HSK 1.0</span>
@@ -804,27 +805,27 @@ startTimer();
 
 // ─── DATA ───
 const vocabData = [
-  {zh:'有',    py:'Yǒu',      vn:'Có (sở hữu)',           e:'✅'},
-  {zh:'多少',  py:'Duōshao',  vn:'Bao nhiêu (số lớn)',    e:'🔢'},
-  {zh:'个',    py:'Gè',       vn:'Cái / Chiếc (lượng từ)',e:'🔖'},
-  {zh:'哥哥',  py:'Gēge',     vn:'Anh trai',              e:'👦'},
-  {zh:'呢',    py:'Ne',       vn:'Còn ... thì sao? (trợ từ)',e:'❓'},
-  {zh:'没有',  py:'Méiyǒu',   vn:'Không có',              e:'❌'},
-  {zh:'家',    py:'Jiā',      vn:'Nhà / Gia đình',        e:'🏠'},
-  {zh:'几',    py:'Jǐ',       vn:'Mấy / Bao nhiêu (số nhỏ)',e:'🤏'},
-  {zh:'口',    py:'Kǒu',      vn:'Miệng / Người (lượng từ gia đình)',e:'👄'},
-  {zh:'爸爸',  py:'Bàba',     vn:'Bố / Ba',               e:'👨'},
-  {zh:'妈妈',  py:'Māma',     vn:'Mẹ / Má',               e:'👩'},
-  {zh:'妹妹',  py:'Mèimei',   vn:'Em gái',                e:'👧'},
-  {zh:'和',    py:'Hé',       vn:'Và / Cùng',             e:'🤝'},
-  {zh:'儿子',  py:'Érzi',     vn:'Con trai',              e:'👦'},
-  {zh:'孩子',  py:'Háizi',    vn:'Trẻ em / Con cái',      e:'🧒'},
-  {zh:'女儿',  py:'Nǚér',     vn:'Con gái',               e:'👧'},
-  {zh:'岁',    py:'Suì',      vn:'Tuổi',                  e:'🎂'},
-  {zh:'他',    py:'Tā',       vn:'Anh ấy / Ông ấy',       e:'🧑'},
-  {zh:'今年',  py:'Jīnnián',  vn:'Năm nay',               e:'📅'},
-  {zh:'多',    py:'Duō',      vn:'Nhiều / Bao nhiêu (hỏi mức độ)',e:'➕'},
-  {zh:'大',    py:'Dà',       vn:'Lớn / To',              e:'📏'},
+  {zh:'有',    py:'yǒu',       pos:'đgt.',  vn:'có',                                          e:'✅'},
+  {zh:'多少',  py:'duō shǎo',  pos:'đt.',   vn:'bao nhiêu',                                   e:'🔢'},
+  {zh:'个',    py:'gè',        pos:'lượng.',vn:'cái (dùng cho nhiều danh từ)',                e:'🔖'},
+  {zh:'哥哥',  py:'ɡēɡe',      pos:'dt.',   vn:'anh trai',                                    e:'👦'},
+  {zh:'呢',    py:'ne',        pos:'trợ.',  vn:'thì sao (dùng ở cuối câu hỏi)',               e:'❓'},
+  {zh:'没有',  py:'méiyǒu',    pos:'đgt.',  vn:'không có',                                    e:'❌'},
+  {zh:'家',    py:'jiā',       pos:'dt.',   vn:'gia đình, nhà',                               e:'🏠'},
+  {zh:'几',    py:'jǐ',        pos:'đt.',   vn:'mấy',                                         e:'🤏'},
+  {zh:'口',    py:'kǒu',       pos:'lượng.',vn:'chỉ người trong gia đình',                    e:'👄'},
+  {zh:'爸爸',  py:'bàba',      pos:'dt.',   vn:'bố, ba',                                      e:'👨'},
+  {zh:'妈妈',  py:'māma',      pos:'dt.',   vn:'mẹ',                                          e:'👩'},
+  {zh:'妹妹',  py:'mèimei',    pos:'dt.',   vn:'em gái',                                      e:'👧'},
+  {zh:'和',    py:'hé',        pos:'liên.', vn:'và',                                          e:'🤝'},
+  {zh:'儿子',  py:'érzi',      pos:'dt.',   vn:'con trai',                                    e:'👦'},
+  {zh:'孩子',  py:'háizi',     pos:'dt.',   vn:'con, trẻ con, trẻ em',                         e:'🧒'},
+  {zh:'女儿',  py:'nǚ\'ér',    pos:'dt.',   vn:'con gái',                                     e:'👧'},
+  {zh:'岁',    py:'suì',       pos:'lượng.',vn:'tuổi',                                        e:'🎂'},
+  {zh:'他',    py:'tā',        pos:'đt.',   vn:'anh ấy, cậu ấy, ông ấy…',                     e:'🧑'},
+  {zh:'今年',  py:'jīnnián',   pos:'dt.',   vn:'năm nay',                                     e:'📅'},
+  {zh:'多',    py:'duō',       pos:'đt.',   vn:'bao nhiêu (phó từ chỉ mức độ)',               e:'➕'},
+  {zh:'大',    py:'dà',        pos:'tt.',   vn:'to, lớn (chỉ tuổi tác)',                      e:'📏'},
 ];
 
 const mcQ = [
@@ -993,6 +994,7 @@ function buildVocab() {
         <div class="flip-back">
           <div class="fc-zh-sm">${v.zh}</div>
           <div class="fc-py">${v.py}</div>
+          ${v.pos ? `<div class="fc-pos">${v.pos}</div>` : ''}
           <div class="fc-vn">${v.vn}</div>
           <button class="fc-speak-btn" id="spk-${pos}" onclick="event.stopPropagation();doSpeak(${pos},'${v.zh}')">🔊 Nghe</button>
         </div>
@@ -1317,23 +1319,23 @@ function resetWO(qi) {
 
 // ─── TYPING EXERCISE ───
 const typeData = [
-  {vn:'Có (sở hữu)',             zh:'有',    py:'Yǒu',      e:'✅'},
-  {vn:'Bao nhiêu (số lớn)',      zh:'多少',  py:'Duōshao',  e:'🔢'},
-  {vn:'Cái / Chiếc (lượng từ)', zh:'个',    py:'Gè',       e:'🔖'},
-  {vn:'Anh trai',                zh:'哥哥',  py:'Gēge',     e:'👦'},
-  {vn:'Không có',                zh:'没有',  py:'Méiyǒu',   e:'❌'},
-  {vn:'Nhà / Gia đình',          zh:'家',    py:'Jiā',      e:'🏠'},
-  {vn:'Mấy / Bao nhiêu (số nhỏ)',zh:'几',    py:'Jǐ',       e:'🤏'},
-  {vn:'Bố / Ba',                 zh:'爸爸',  py:'Bàba',     e:'👨'},
-  {vn:'Mẹ / Má',                 zh:'妈妈',  py:'Māma',     e:'👩'},
-  {vn:'Em gái',                  zh:'妹妹',  py:'Mèimei',   e:'👧'},
-  {vn:'Và / Cùng',               zh:'和',    py:'Hé',       e:'🤝'},
-  {vn:'Con trai',                zh:'儿子',  py:'Érzi',     e:'👦'},
-  {vn:'Trẻ em / Con cái',        zh:'孩子',  py:'Háizi',    e:'🧒'},
-  {vn:'Con gái',                 zh:'女儿',  py:'Nǚér',     e:'👧'},
-  {vn:'Tuổi',                    zh:'岁',    py:'Suì',      e:'🎂'},
-  {vn:'Anh ấy / Ông ấy',         zh:'他',    py:'Tā',       e:'🧑'},
-  {vn:'Năm nay',                 zh:'今年',  py:'Jīnnián',  e:'📅'},
+  {vn:'có',                          zh:'有',    py:'yǒu',      e:'✅'},
+  {vn:'bao nhiêu',                   zh:'多少',  py:'duō shǎo', e:'🔢'},
+  {vn:'cái (dùng cho nhiều danh từ)',zh:'个',    py:'gè',       e:'🔖'},
+  {vn:'anh trai',                    zh:'哥哥',  py:'ɡēɡe',     e:'👦'},
+  {vn:'không có',                    zh:'没有',  py:'méiyǒu',   e:'❌'},
+  {vn:'gia đình, nhà',               zh:'家',    py:'jiā',      e:'🏠'},
+  {vn:'mấy',                         zh:'几',    py:'jǐ',       e:'🤏'},
+  {vn:'bố, ba',                      zh:'爸爸',  py:'bàba',     e:'👨'},
+  {vn:'mẹ',                          zh:'妈妈',  py:'māma',     e:'👩'},
+  {vn:'em gái',                      zh:'妹妹',  py:'mèimei',   e:'👧'},
+  {vn:'và',                          zh:'和',    py:'hé',       e:'🤝'},
+  {vn:'con trai',                    zh:'儿子',  py:'érzi',     e:'👦'},
+  {vn:'con, trẻ con, trẻ em',        zh:'孩子',  py:'háizi',    e:'🧒'},
+  {vn:'con gái',                     zh:'女儿',  py:'nǚ\'ér',   e:'👧'},
+  {vn:'tuổi',                        zh:'岁',    py:'suì',      e:'🎂'},
+  {vn:'anh ấy, cậu ấy, ông ấy…',     zh:'他',    py:'tā',       e:'🧑'},
+  {vn:'năm nay',                     zh:'今年',  py:'jīnnián',  e:'📅'},
 ];
 
 let typeAnswers = {};
