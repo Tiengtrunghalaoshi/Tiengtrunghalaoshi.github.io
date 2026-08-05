@@ -191,6 +191,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 .flip-back{background:linear-gradient(135deg,#0F766E,#115E59);transform:rotateY(180deg);gap:5px;border-color:transparent}
 .flip-back .fc-py{font-size:15px;font-weight:800;color:#fff;letter-spacing:.03em;text-align:center;line-height:1.3}
 .flip-back .fc-vn{font-size:13px;font-weight:700;color:rgba(255,255,255,.85);text-align:center;margin-top:2px}
+.flip-back .fc-wc{font-size:10.5px;font-weight:700;color:rgba(255,255,255,.65);text-align:center;margin-top:1px;font-style:italic}
 .flip-back .fc-zh-sm{font-size:17px;font-weight:700;font-family:'Noto Serif SC',serif;color:rgba(255,255,255,.5);margin-bottom:2px}
 .fc-speak-btn{margin-top:8px;background:rgba(255,255,255,.22);border:1.5px solid rgba(255,255,255,.4);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:800;color:#fff;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .15s;display:flex;align-items:center;gap:5px;}
 .fc-speak-btn:hover{background:rgba(255,255,255,.35);transform:scale(1.05)}
@@ -603,23 +604,23 @@ startTimer();
 
 // DATA
 const vocabData = [
-  {zh:'公交车',   py:'Gōngjiāochē',    vn:'Xe buýt',                              e:'🚌'},
-  {zh:'但',       py:'Dàn',            vn:'Nhưng, nhưng mà (liên từ)',            e:'🔀'},
-  {zh:'车站',     py:'Chēzhàn',        vn:'Bến xe buýt, trạm xe',                 e:'🚏'},
-  {zh:'远',       py:'Yuǎn',           vn:'Xa',                                   e:'📏'},
-  {zh:'打车',     py:'Dǎchē',          vn:'Gọi xe, đi xe, bắt (taxi)',            e:'🚕'},
-  {zh:'还是',     py:'Háishi',         vn:'Vẫn, tốt hơn là… (dùng để đề nghị/lựa chọn)', e:'🤷'},
-  {zh:'北京大学', py:'Běijīng Dàxué',  vn:'Đại học Bắc Kinh (danh từ riêng)',     e:'🎓'},
-  {zh:'啊',       py:'A',              vn:'À, nhé, vậy, hả... (trợ từ ngữ khí)',  e:'💬'},
-  {zh:'万',       py:'Wàn',            vn:'Vạn, mười nghìn (10.000)',             e:'🔢'},
-  {zh:'名',       py:'Míng',           vn:'Vị, người (lượng từ dùng cho người - thứ hạng); tên, tên gọi', e:'📛'},
-  {zh:'网上',     py:'Wǎngshang',      vn:'Trên mạng, trên internet',             e:'🌐'},
-  {zh:'外国',     py:'Wàiguó',         vn:'Nước ngoài',                           e:'🌍'},
-  {zh:'间',       py:'Jiān',           vn:'Gian, căn, phòng (lượng từ)',          e:'🚪'},
-  {zh:'教室',     py:'Jiàoshì',        vn:'Phòng học',                            e:'🏫'},
-  {zh:'票',       py:'Piào',           vn:'Vé',                                   e:'🎫'},
-  {zh:'别',       py:'Bié',            vn:'Đừng (phó từ mệnh lệnh phủ định)',     e:'🚫'},
-  {zh:'过来',     py:'Guòlái',         vn:'Đến, đến đây, qua đây, lại đây',       e:'👋'},
+  {zh:'公交车',   py:'Gōngjiāochē',    wc:'dt.',        vn:'Xe buýt',                                                        e:'🚌'},
+  {zh:'但',       py:'Dàn',            wc:'liên.',      vn:'Nhưng, nhưng mà',                                               e:'🔀'},
+  {zh:'车站',     py:'Chēzhàn',        wc:'dt.',        vn:'Bến xe buýt',                                                   e:'🚏'},
+  {zh:'远',       py:'Yuǎn',           wc:'tt.',        vn:'Xa',                                                            e:'📏'},
+  {zh:'打车',     py:'Dǎchē',          wc:'đgt.',       vn:'Gọi xe, đi xe, bắt (taxi)',                                     e:'🚕'},
+  {zh:'还是',     py:'Háishi',         wc:'phó.',       vn:'Vẫn, tốt hơn là…',                                              e:'🤷'},
+  {zh:'北京大学', py:'Běijīng Dàxué',  wc:'',           vn:'Đại học Bắc Kinh',                                              e:'🎓'},
+  {zh:'啊',       py:'A',              wc:'trợ.',       vn:'À, nhé, vậy, hả... (trợ từ ngữ khí)',                           e:'💬'},
+  {zh:'万',       py:'Wàn',            wc:'số.',        vn:'Vạn, mười nghìn',                                               e:'🔢'},
+  {zh:'名',       py:'Míng',           wc:'lượng./dt.', vn:'Vị, người (lượng từ dùng cho người - thứ hạng trong cuộc thi); tên, tên gọi', e:'📛'},
+  {zh:'网上',     py:'Wǎngshang',      wc:'dt.',        vn:'Trên mạng',                                                     e:'🌐'},
+  {zh:'外国',     py:'Wàiguó',         wc:'dt.',        vn:'Nước ngoài',                                                    e:'🌍'},
+  {zh:'间',       py:'Jiān',           wc:'lượng.',     vn:'Gian, căn… (phòng)',                                            e:'🚪'},
+  {zh:'教室',     py:'Jiàoshì',        wc:'dt.',        vn:'Phòng học',                                                     e:'🏫'},
+  {zh:'票',       py:'Piào',           wc:'dt.',        vn:'Vé',                                                            e:'🎫'},
+  {zh:'别',       py:'Bié',            wc:'phó.',       vn:'Đừng',                                                          e:'🚫'},
+  {zh:'过来',     py:'Guòlái',         wc:'đgt.',       vn:'Đến, đến đây, qua đây',                                         e:'👋'},
 ];
 
 const mcQ = [
@@ -978,6 +979,7 @@ function buildVocab() {
         <div class="flip-back">
           <div class="fc-zh-sm">${v.zh}</div>
           <div class="fc-py">${v.py}</div>
+          ${v.wc ? `<div class="fc-wc">${v.wc}</div>` : ''}
           <div class="fc-vn">${v.vn}</div>
           <button class="fc-speak-btn" id="spk-${pos}" onclick="event.stopPropagation();doSpeak(${pos},'${v.zh}')">🔊 Nghe</button>
         </div>
