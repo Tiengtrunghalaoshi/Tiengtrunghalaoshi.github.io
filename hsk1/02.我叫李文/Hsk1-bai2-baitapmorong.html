@@ -174,9 +174,9 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 .sec-desc{font-size:13px;color:var(--text2);margin-left:44px;margin-bottom:16px;line-height:1.6}
 
 /* ─── FLIP VOCAB CARDS ─── */
-.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
 .flip-card{
-  perspective:900px;height:170px;cursor:pointer;
+  perspective:900px;height:215px;cursor:pointer;
   animation:pop .4s ease both;
 }
 .flip-card:nth-child(1){animation-delay:.04s}
@@ -219,7 +219,9 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 .flip-front .fc-hint{font-size:10px;color:var(--text2);font-weight:600;margin-top:6px;background:#FFF0F5;border-radius:20px;padding:2px 9px;letter-spacing:.03em;}
 .flip-back{background:linear-gradient(135deg,#E05480,#B83B6A);transform:rotateY(180deg);gap:5px;border-color:transparent}
 .flip-back .fc-py{font-size:15px;font-weight:800;color:#fff;letter-spacing:.03em;text-align:center;line-height:1.3}
-.flip-back .fc-vn{font-size:13px;font-weight:700;color:rgba(255,255,255,.85);text-align:center;margin-top:2px}
+.flip-back .fc-pos{font-size:10px;font-weight:700;color:#B83B6A;background:#fff;border-radius:20px;padding:1px 9px;letter-spacing:.03em;margin-top:2px}
+.flip-back .fc-hv{font-size:11px;font-style:italic;color:rgba(255,255,255,.65);text-align:center;margin-top:2px}
+.flip-back .fc-vn{font-size:12.5px;font-weight:700;color:rgba(255,255,255,.9);text-align:center;margin-top:2px;line-height:1.35;padding:0 4px}
 .flip-back .fc-zh-sm{font-size:17px;font-weight:700;font-family:'Noto Serif SC',serif;color:rgba(255,255,255,.5);margin-bottom:2px}
 .fc-speak-btn{
   margin-top:8px;background:rgba(255,255,255,.22);border:1.5px solid rgba(255,255,255,.4);
@@ -809,21 +811,21 @@ startTimer();
 
 // ─── DATA ───
 const vocabData = [
-  {zh:'请问',  py:'Qǐngwèn',   vn:'Xin hỏi / Cho hỏi',    e:'🙋'},
-  {zh:'你',    py:'Nǐ',        vn:'Bạn / Mày',              e:'👉'},
-  {zh:'叫',    py:'Jiào',      vn:'Tên là / Gọi là',        e:'📛'},
-  {zh:'什么',  py:'Shénme',    vn:'Gì / Cái gì',            e:'❓'},
-  {zh:'名字',  py:'Míngzi',    vn:'Tên',                    e:'🏷️'},
-  {zh:'我',    py:'Wǒ',        vn:'Tôi / Mình',             e:'🙋‍♂️'},
-  {zh:'不',    py:'Bù',        vn:'Không (phủ định)',        e:'🚫'},
-  {zh:'是',    py:'Shì',       vn:'Là',                     e:'✅'},
-  {zh:'对不起', py:'Duìbuqǐ',  vn:'Xin lỗi',                e:'🙏'},
-  {zh:'没关系', py:'Méi guānxi',vn:'Không sao',              e:'😊'},
-  {zh:'没事',  py:'Méi shì',   vn:'Không có gì / Không sao',e:'🤗'},
-  {zh:'很',    py:'Hěn',       vn:'Rất',                    e:'💯'},
-  {zh:'高兴',  py:'Gāoxìng',   vn:'Vui / Vui mừng',         e:'😄'},
-  {zh:'认识',  py:'Rènshi',    vn:'Quen biết / Gặp gỡ',     e:'🤝'},
-  {zh:'也',    py:'Yě',        vn:'Cũng',                   e:'👯'},
+  {zh:'请问',  py:'Qǐngwèn',    pos:'đgt.', hv:'Thỉnh vấn',    vn:'xin hỏi',                                          e:'🙋'},
+  {zh:'你',    py:'Nǐ',         pos:'đt.',  hv:'Nễ',           vn:'bạn, anh, chị, em… (đại từ nhân xưng ngôi thứ hai số ít)', e:'👉'},
+  {zh:'叫',    py:'Jiào',       pos:'đgt.', hv:'Khiếu',        vn:'gọi là, tên là',                                   e:'📛'},
+  {zh:'什么',  py:'Shénme',     pos:'đt.',  hv:'Thậm ma',      vn:'gì, cái gì',                                       e:'❓'},
+  {zh:'名字',  py:'Míngzi',     pos:'dt.',  hv:'Danh tự',      vn:'tên',                                              e:'🏷️'},
+  {zh:'我',    py:'Wǒ',         pos:'đt.',  hv:'Ngã',          vn:'tôi, mình… (đại từ nhân xưng ngôi thứ hai số ít)', e:'🙋‍♂️'},
+  {zh:'不',    py:'Bù',         pos:'phó.', hv:'Bất',          vn:'không',                                            e:'🚫'},
+  {zh:'是',    py:'Shì',        pos:'đgt.', hv:'Thị',          vn:'là',                                               e:'✅'},
+  {zh:'对不起', py:'Duìbuqǐ',   pos:'đgt.', hv:'Đối bất khởi', vn:'xin lỗi',                                          e:'🙏'},
+  {zh:'没关系', py:'Méi guānxi',pos:'',     hv:'Một quan hệ',  vn:'không sao, không có gì',                           e:'😊'},
+  {zh:'没事',  py:'Méishì',     pos:'đgt.', hv:'Một sự',       vn:'không sao, không có gì',                           e:'🤗'},
+  {zh:'很',    py:'Hěn',        pos:'phó.', hv:'Ngận',         vn:'rất',                                              e:'💯'},
+  {zh:'高兴',  py:'Gāoxìng',    pos:'tt.',  hv:'Cao hứng',     vn:'vui, vui vẻ',                                      e:'😄'},
+  {zh:'认识',  py:'Rènshi',     pos:'đgt.', hv:'Nhận thức',    vn:'quen, làm quen',                                   e:'🤝'},
+  {zh:'也',    py:'Yě',         pos:'phó.', hv:'Dã',           vn:'cũng',                                             e:'👯'},
 ];
 
 const mcQ = [
@@ -991,6 +993,8 @@ function buildVocab() {
         <div class="flip-back">
           <div class="fc-zh-sm">${v.zh}</div>
           <div class="fc-py">${v.py}</div>
+          ${v.pos ? `<div class="fc-pos">${v.pos}</div>` : ''}
+          <div class="fc-hv">${v.hv}</div>
           <div class="fc-vn">${v.vn}</div>
           <button class="fc-speak-btn" id="spk-${pos}" onclick="event.stopPropagation();doSpeak(${pos},'${v.zh}')">🔊 Nghe</button>
         </div>
@@ -1317,20 +1321,20 @@ function resetWO(qi) {
 
 // ─── TYPING EXERCISE ───
 const typeData = [
-  {vn:'Xin hỏi / Cho hỏi',        zh:'请问',   py:'Qǐngwèn',   e:'🙋'},
-  {vn:'Bạn / Mày',                 zh:'你',     py:'Nǐ',        e:'👉'},
-  {vn:'Tên là / Gọi là',           zh:'叫',     py:'Jiào',      e:'📛'},
-  {vn:'Gì / Cái gì',               zh:'什么',   py:'Shénme',    e:'❓'},
-  {vn:'Tên',                       zh:'名字',   py:'Míngzi',    e:'🏷️'},
-  {vn:'Tôi / Mình',                zh:'我',     py:'Wǒ',        e:'🙋‍♂️'},
-  {vn:'Không (phủ định)',           zh:'不',     py:'Bù',        e:'🚫'},
-  {vn:'Là',                        zh:'是',     py:'Shì',       e:'✅'},
-  {vn:'Xin lỗi',                   zh:'对不起', py:'Duìbuqǐ',   e:'🙏'},
-  {vn:'Không sao / Không có gì',   zh:'没关系', alt:'没事', py:'Méi guānxi / Méi shì', e:'😊'},
-  {vn:'Rất',                       zh:'很',     py:'Hěn',       e:'💯'},
-  {vn:'Vui / Vui mừng',            zh:'高兴',   py:'Gāoxìng',   e:'😄'},
-  {vn:'Quen biết / Gặp gỡ',        zh:'认识',   py:'Rènshi',    e:'🤝'},
-  {vn:'Cũng',                      zh:'也',     py:'Yě',        e:'👯'},
+  {vn:'xin hỏi',                   zh:'请问',   py:'Qǐngwèn',   e:'🙋'},
+  {vn:'bạn, anh, chị, em…',         zh:'你',     py:'Nǐ',        e:'👉'},
+  {vn:'gọi là, tên là',            zh:'叫',     py:'Jiào',      e:'📛'},
+  {vn:'gì, cái gì',                zh:'什么',   py:'Shénme',    e:'❓'},
+  {vn:'tên',                       zh:'名字',   py:'Míngzi',    e:'🏷️'},
+  {vn:'tôi, mình…',                zh:'我',     py:'Wǒ',        e:'🙋‍♂️'},
+  {vn:'không',                     zh:'不',     py:'Bù',        e:'🚫'},
+  {vn:'là',                        zh:'是',     py:'Shì',       e:'✅'},
+  {vn:'xin lỗi',                   zh:'对不起', py:'Duìbuqǐ',   e:'🙏'},
+  {vn:'không sao, không có gì',    zh:'没关系', alt:'没事', py:'Méi guānxi / Méishì', e:'😊'},
+  {vn:'rất',                       zh:'很',     py:'Hěn',       e:'💯'},
+  {vn:'vui, vui vẻ',               zh:'高兴',   py:'Gāoxìng',   e:'😄'},
+  {vn:'quen, làm quen',            zh:'认识',   py:'Rènshi',    e:'🤝'},
+  {vn:'cũng',                      zh:'也',     py:'Yě',        e:'👯'},
 ];
 
 let typeAnswers = {};
