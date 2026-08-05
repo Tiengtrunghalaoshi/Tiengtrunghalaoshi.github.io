@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HSK 1 – Bài 6: Số điện thoại của bạn là bao nhiêu? | Tiếng Trung Halaoshi</title>
+<title>HSK 1 – Bài 6: Số điện thoại di động của bạn là bao nhiêu? | Tiếng Trung Halaoshi</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -186,6 +186,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 .flip-front .fc-hint{font-size:10px;color:var(--text2);font-weight:600;margin-top:6px;background:#FFE8EF;border-radius:20px;padding:2px 9px;letter-spacing:.03em;}
 .flip-back{background:linear-gradient(135deg,#F05B8A,#B81A50);transform:rotateY(180deg);gap:5px;border-color:transparent}
 .flip-back .fc-py{font-size:15px;font-weight:800;color:#fff;letter-spacing:.03em;text-align:center;line-height:1.3}
+.flip-back .fc-wc{font-size:11px;font-weight:700;color:rgba(255,255,255,.6);text-align:center;font-style:italic;margin-top:1px}
 .flip-back .fc-vn{font-size:13px;font-weight:700;color:rgba(255,255,255,.85);text-align:center;margin-top:2px}
 .flip-back .fc-zh-sm{font-size:17px;font-weight:700;font-family:'Noto Serif SC',serif;color:rgba(255,255,255,.5);margin-bottom:2px}
 .fc-speak-btn{margin-top:8px;background:rgba(255,255,255,.22);border:1.5px solid rgba(255,255,255,.4);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:800;color:#fff;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .15s;display:flex;align-items:center;gap:5px;}
@@ -386,7 +387,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
   <div class="hero-float">📱</div>
   <div class="hero-float2">🛒</div>
   <div class="hero-tag">Tiếng Trung Halaoshi · HSK 1</div>
-  <div class="hero-title">Bài 6: Số điện thoại của bạn là bao nhiêu? 📱<span class="blink-cursor"></span></div>
+  <div class="hero-title">Bài 6: Số điện thoại di động của bạn là bao nhiêu? 📱<span class="blink-cursor"></span></div>
   <div class="hero-sub">Chủ đề: Số điện thoại · Mua sắm · Ăn uống · Đi lại</div>
   <div class="hero-badges">
     <span class="hbadge">📚 HSK 1.0</span>
@@ -630,28 +631,28 @@ startTimer();
 
 // ─── DATA ───
 const vocabData = [
-  {zh:'手机',   py:'Shǒujī',    vn:'Điện thoại di động',               e:'📱'},
-  {zh:'电话',   py:'Diànhuà',   vn:'Điện thoại / Cuộc gọi',            e:'☎️'},
-  {zh:'号',     py:'Hào',       vn:'Số (số điện thoại, ngày...)',       e:'🔢'},
-  {zh:'明天',   py:'Míngtiān',  vn:'Ngày mai',                          e:'🌅'},
-  {zh:'去',     py:'Qù',        vn:'Đi (đến một nơi nào đó)',           e:'🚶'},
-  {zh:'哪儿',   py:'Nǎr',       vn:'Ở đâu / Đi đâu',                   e:'📍'},
-  {zh:'想',     py:'Xiǎng',     vn:'Muốn / Nghĩ / Nhớ',                e:'💭'},
-  {zh:'超市',   py:'Chāoshì',   vn:'Siêu thị',                         e:'🛒'},
-  {zh:'买',     py:'Mǎi',       vn:'Mua',                               e:'🛍️'},
-  {zh:'东西',   py:'Dōngxi',    vn:'Đồ vật / Thứ gì đó',               e:'📦'},
-  {zh:'些',     py:'Xiē',       vn:'Một số / Một ít (lượng từ)',        e:'🤏'},
-  {zh:'牛奶',   py:'Niúnǎi',    vn:'Sữa bò',                           e:'🥛'},
-  {zh:'吃',     py:'Chī',       vn:'Ăn',                                e:'🍽️'},
-  {zh:'晚饭',   py:'Wǎnfàn',    vn:'Bữa tối',                          e:'🌙'},
-  {zh:'那边',   py:'Nàbiān',    vn:'Bên đó / Chỗ đó',                  e:'👉'},
-  {zh:'包子',   py:'Bāozi',     vn:'Bánh bao',                          e:'🥟'},
-  {zh:'非常',   py:'Fēicháng',  vn:'Rất / Vô cùng',                    e:'💥'},
-  {zh:'好吃',   py:'Hǎochī',    vn:'Ngon',                              e:'😋'},
-  {zh:'米饭',   py:'Mǐfàn',     vn:'Cơm (gạo nấu)',                    e:'🍚'},
-  {zh:'怎么',   py:'Zěnme',     vn:'Như thế nào / Làm thế nào',        e:'❓'},
-  {zh:'坐',     py:'Zuò',       vn:'Ngồi / Đi (phương tiện)',           e:'🚌'},
-  {zh:'出租车', py:'Chūzūchē',  vn:'Taxi',                              e:'🚕'},
+  {zh:'手机',   py:'Shǒujī',    wc:'dt.',    vn:'Điện thoại di động',        e:'📱'},
+  {zh:'电话',   py:'Diànhuà',   wc:'dt.',    vn:'Điện thoại (máy cố định)',  e:'☎️'},
+  {zh:'号',     py:'Hào',       wc:'dt.',    vn:'Số (điện thoại)',           e:'🔢'},
+  {zh:'明天',   py:'Míngtiān',  wc:'dt.',    vn:'Ngày mai',                  e:'🌅'},
+  {zh:'去',     py:'Qù',        wc:'đgt.',   vn:'Đi',                        e:'🚶'},
+  {zh:'哪儿',   py:'Nǎr',       wc:'đt.',    vn:'Đâu, chỗ nào, nơi nào',     e:'📍'},
+  {zh:'想',     py:'Xiǎng',     wc:'đtnn.',  vn:'Muốn',                      e:'💭'},
+  {zh:'超市',   py:'Chāoshì',   wc:'dt.',    vn:'Siêu thị',                  e:'🛒'},
+  {zh:'买',     py:'Mǎi',       wc:'đgt.',   vn:'Mua',                       e:'🛍️'},
+  {zh:'东西',   py:'Dōngxi',    wc:'dt.',    vn:'Đồ, đồ đạc',                e:'📦'},
+  {zh:'些',     py:'Xiē',       wc:'lượng.', vn:'Một ít, một vài',           e:'🤏'},
+  {zh:'牛奶',   py:'Niúnǎi',    wc:'dt.',    vn:'Sữa (bò)',                  e:'🥛'},
+  {zh:'吃',     py:'Chī',       wc:'đgt.',   vn:'Ăn',                        e:'🍽️'},
+  {zh:'晚饭',   py:'Wǎnfàn',    wc:'dt.',    vn:'Bữa tối, cơm tối',          e:'🌙'},
+  {zh:'那边',   py:'Nàbiān',    wc:'đt.',    vn:'Bên kia, chỗ đó',           e:'👉'},
+  {zh:'包子',   py:'Bāozi',     wc:'dt.',    vn:'Bánh bao (có nhân)',        e:'🥟'},
+  {zh:'非常',   py:'Fēicháng',  wc:'phó.',   vn:'Rất, vô cùng, cực kỳ',      e:'💥'},
+  {zh:'好吃',   py:'Hǎochī',    wc:'tt.',    vn:'Ngon, ngon miệng',          e:'😋'},
+  {zh:'米饭',   py:'Mǐfàn',     wc:'dt.',    vn:'Cơm (cơm trắng)',           e:'🍚'},
+  {zh:'怎么',   py:'Zěnme',     wc:'đt.',    vn:'Thế nào, bằng cách nào, như thế nào', e:'❓'},
+  {zh:'坐',     py:'Zuò',       wc:'đgt.',   vn:'Ngồi, đi (xe, tàu...)',     e:'🚌'},
+  {zh:'出租车', py:'Chūzūchē',  wc:'dt.',    vn:'Xe taxi',                   e:'🚕'},
 ];
 
 const mcQ = [
@@ -751,21 +752,21 @@ const woData = [
 ];
 
 const typeData = [
-  {vn:'Điện thoại di động',    zh:'手机',   py:'Shǒujī',    e:'📱'},
-  {vn:'Điện thoại / Cuộc gọi', zh:'电话',   py:'Diànhuà',   e:'☎️'},
-  {vn:'Ngày mai',              zh:'明天',   py:'Míngtiān',  e:'🌅'},
-  {vn:'Đi (đến nơi)',          zh:'去',     py:'Qù',        e:'🚶'},
-  {vn:'Ở đâu / Đi đâu',       zh:'哪儿',   py:'Nǎr',       e:'📍'},
-  {vn:'Muốn / Nghĩ',          zh:'想',     py:'Xiǎng',     e:'💭'},
-  {vn:'Siêu thị',              zh:'超市',   py:'Chāoshì',   e:'🛒'},
-  {vn:'Mua',                   zh:'买',     py:'Mǎi',       e:'🛍️'},
-  {vn:'Sữa bò',                zh:'牛奶',   py:'Niúnǎi',    e:'🥛'},
-  {vn:'Bữa tối',               zh:'晚饭',   py:'Wǎnfàn',    e:'🌙'},
-  {vn:'Bánh bao',              zh:'包子',   py:'Bāozi',     e:'🥟'},
-  {vn:'Rất / Vô cùng',        zh:'非常',   py:'Fēicháng',  e:'💥'},
-  {vn:'Ngon',                  zh:'好吃',   py:'Hǎochī',    e:'😋'},
-  {vn:'Cơm',                   zh:'米饭',   py:'Mǐfàn',     e:'🍚'},
-  {vn:'Taxi',                  zh:'出租车', py:'Chūzūchē',  e:'🚕'},
+  {vn:'Điện thoại di động',       zh:'手机',   py:'Shǒujī',    e:'📱'},
+  {vn:'Điện thoại (máy cố định)', zh:'电话',   py:'Diànhuà',   e:'☎️'},
+  {vn:'Ngày mai',                 zh:'明天',   py:'Míngtiān',  e:'🌅'},
+  {vn:'Đi',                       zh:'去',     py:'Qù',        e:'🚶'},
+  {vn:'Đâu, chỗ nào, nơi nào',    zh:'哪儿',   py:'Nǎr',       e:'📍'},
+  {vn:'Muốn',                     zh:'想',     py:'Xiǎng',     e:'💭'},
+  {vn:'Siêu thị',                 zh:'超市',   py:'Chāoshì',   e:'🛒'},
+  {vn:'Mua',                      zh:'买',     py:'Mǎi',       e:'🛍️'},
+  {vn:'Sữa (bò)',                 zh:'牛奶',   py:'Niúnǎi',    e:'🥛'},
+  {vn:'Bữa tối, cơm tối',         zh:'晚饭',   py:'Wǎnfàn',    e:'🌙'},
+  {vn:'Bánh bao (có nhân)',       zh:'包子',   py:'Bāozi',     e:'🥟'},
+  {vn:'Rất, vô cùng, cực kỳ',     zh:'非常',   py:'Fēicháng',  e:'💥'},
+  {vn:'Ngon, ngon miệng',         zh:'好吃',   py:'Hǎochī',    e:'😋'},
+  {vn:'Cơm (cơm trắng)',          zh:'米饭',   py:'Mǐfàn',     e:'🍚'},
+  {vn:'Xe taxi',                  zh:'出租车', py:'Chūzūchē',  e:'🚕'},
 ];
 
 // ─── STATE ───
@@ -825,6 +826,7 @@ function buildVocab() {
         <div class="flip-back">
           <div class="fc-zh-sm">${v.zh}</div>
           <div class="fc-py">${v.py}</div>
+          <div class="fc-wc">${v.wc || ''}</div>
           <div class="fc-vn">${v.vn}</div>
           <button class="fc-speak-btn" id="spk-${pos}" onclick="event.stopPropagation();doSpeak(${pos},'${v.zh}')">🔊 Nghe</button>
         </div>
