@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HSK 1 – Bài 7: Tôi tan ca vào lúc 6 giờ rưỡi tối | Tiếng Trung Halaoshi</title>
+<title>HSK 1 – Bài 7: Em tan làm lúc 6 rưỡi tối | Tiếng Trung Halaoshi</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -189,6 +189,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 .flip-front .fc-hint{font-size:10px;color:var(--text2);font-weight:600;margin-top:6px;background:#DBEAFE;border-radius:20px;padding:2px 9px;letter-spacing:.03em;}
 .flip-back{background:linear-gradient(135deg,#3B82F6,#1E3A8A);transform:rotateY(180deg);gap:5px;border-color:transparent}
 .flip-back .fc-py{font-size:15px;font-weight:800;color:#fff;letter-spacing:.03em;text-align:center;line-height:1.3}
+.flip-back .fc-wc{font-size:11px;font-weight:700;color:rgba(255,255,255,.6);text-align:center;font-style:italic;margin-top:1px}
 .flip-back .fc-vn{font-size:13px;font-weight:700;color:rgba(255,255,255,.85);text-align:center;margin-top:2px}
 .flip-back .fc-zh-sm{font-size:17px;font-weight:700;font-family:'Noto Serif SC',serif;color:rgba(255,255,255,.5);margin-bottom:2px}
 .fc-speak-btn{margin-top:8px;background:rgba(255,255,255,.22);border:1.5px solid rgba(255,255,255,.4);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:800;color:#fff;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .15s;display:flex;align-items:center;gap:5px;}
@@ -360,7 +361,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
   <div class="hero-float">🕐</div>
   <div class="hero-float2">🏥</div>
   <div class="hero-tag">Tiếng Trung Halaoshi · HSK 1</div>
-  <div class="hero-title">Bài 7: Tôi tan ca vào lúc 6 giờ rưỡi tối 🕕<span class="blink-cursor"></span></div>
+  <div class="hero-title">Bài 7: Em tan làm lúc 6 rưỡi tối 🕕<span class="blink-cursor"></span></div>
   <div class="hero-sub">Chủ đề: Thời gian · Lịch trình · Địa điểm · Hoạt động hàng ngày</div>
   <div class="hero-badges">
     <span class="hbadge">📚 HSK 1.0</span>
@@ -596,33 +597,33 @@ startTimer();
 
 // ─── DATA ───
 const vocabData = [
-  {zh:'现在', py:'Xiànzài',   vn:'Bây giờ / Hiện tại',             e:'⏰'},
-  {zh:'点',   py:'Diǎn',      vn:'Giờ (đồng hồ)',                  e:'🕐'},
-  {zh:'早上', py:'Zǎoshang',  vn:'Buổi sáng sớm',                  e:'🌄'},
-  {zh:'上午', py:'Shàngwǔ',   vn:'Buổi sáng (trước trưa)',         e:'🌅'},
-  {zh:'分',   py:'Fēn',       vn:'Phút',                            e:'⏱'},
-  {zh:'课',   py:'Kè',        vn:'Tiết học / Bài học',              e:'📚'},
-  {zh:'下午', py:'Xiàwǔ',     vn:'Buổi chiều',                     e:'🌤'},
-  {zh:'见',   py:'Jiàn',      vn:'Gặp / Nhìn thấy',                e:'👋'},
-  {zh:'吧',   py:'Ba',        vn:'Đi thôi / Nhỉ (trợ từ)',         e:'💬'},
-  {zh:'电影院',py:'Diànyǐngyuàn',vn:'Rạp chiếu phim',             e:'🎬'},
-  {zh:'看',   py:'Kàn',       vn:'Xem / Nhìn / Đọc',               e:'👀'},
-  {zh:'电影', py:'Diànyǐng',  vn:'Phim (điện ảnh)',                 e:'🎥'},
-  {zh:'事',   py:'Shì',       vn:'Việc / Chuyện',                  e:'📋'},
-  {zh:'上课', py:'Shàngkè',   vn:'Đi học / Lên lớp',               e:'🏫'},
-  {zh:'呢',   py:'Ne',        vn:'Còn ... thì sao? (trợ từ hỏi)',  e:'🤔'},
-  {zh:'半',   py:'Bàn',       vn:'Nửa (30 phút)',                   e:'🕧'},
-  {zh:'下课', py:'Xiàkè',     vn:'Tan học / Ra khỏi lớp',          e:'🔔'},
-  {zh:'在',   py:'Zài',       vn:'Ở / Đang (ở nơi nào đó)',        e:'📍'},
-  {zh:'家',   py:'Jiā',       vn:'Nhà / Gia đình',                  e:'🏠'},
-  {zh:'里',   py:'Lǐ',        vn:'Trong / Bên trong',              e:'📦'},
-  {zh:'晚上', py:'Wǎnshang',  vn:'Buổi tối',                       e:'🌙'},
-  {zh:'医院', py:'Yīyuàn',    vn:'Bệnh viện',                      e:'🏥'},
-  {zh:'上班', py:'Shàngbān',  vn:'Đi làm / Đi làm việc',           e:'💼'},
-  {zh:'店',   py:'Diàn',      vn:'Cửa hàng / Tiệm',                e:'🏪'},
-  {zh:'菜',   py:'Cài',       vn:'Món ăn / Rau',                   e:'🥬'},
-  {zh:'分钟', py:'Fēnzhōng',  vn:'Phút (đơn vị thời gian)',        e:'⌛'},
-  {zh:'后',   py:'Hòu',       vn:'Sau / Phía sau',                 e:'➡️'},
+  {zh:'现在', py:'Xiànzài',       wc:'dt.',    vn:'Bây giờ, hiện tại',                         e:'⏰'},
+  {zh:'点',   py:'Diǎn',          wc:'lượng.', vn:'Giờ',                                       e:'🕐'},
+  {zh:'早上', py:'Zǎoshang',      wc:'dt.',    vn:'Buổi sáng, sáng sớm (5-8h)',                e:'🌄'},
+  {zh:'上午', py:'Shàngwǔ',       wc:'dt.',    vn:'Buổi sáng (8-11h)',                         e:'🌅'},
+  {zh:'分',   py:'Fēn',           wc:'lượng.', vn:'Phút',                                       e:'⏱'},
+  {zh:'课',   py:'Kè',            wc:'dt.',    vn:'Tiết học, giờ học',                          e:'📚'},
+  {zh:'下午', py:'Xiàwǔ',         wc:'dt.',    vn:'Buổi chiều (13-18h)',                        e:'🌤'},
+  {zh:'见',   py:'Jiàn',          wc:'đgt.',   vn:'Gặp, gặp mặt',                               e:'👋'},
+  {zh:'吧',   py:'Ba',            wc:'trợ.',   vn:'Nhé (dùng ở cuối câu để đưa ra đề nghị, gợi ý, thương lượng hoặc yêu cầu)', e:'💬'},
+  {zh:'电影院',py:'Diànyǐngyuàn', wc:'dt.',    vn:'Rạp chiếu phim, rạp chiếu bóng',             e:'🎬'},
+  {zh:'看',   py:'Kàn',           wc:'đgt.',   vn:'Xem, nhìn, đọc',                             e:'👀'},
+  {zh:'电影', py:'Diànyǐng',      wc:'dt.',    vn:'Phim, điện ảnh',                             e:'🎥'},
+  {zh:'事',   py:'Shì',           wc:'dt.',    vn:'Việc, sự việc',                              e:'📋'},
+  {zh:'上课', py:'Shàngkè',       wc:'đgt.',   vn:'Lên lớp, đi học',                            e:'🏫'},
+  {zh:'呢',   py:'Ne',            wc:'trợ.',   vn:'Trợ từ ngữ khí (đặt ở cuối câu, dùng để nhấn mạnh hoặc duy trì ngữ khí trong câu trần thuật và câu hỏi)', e:'🤔'},
+  {zh:'半',   py:'Bàn',           wc:'số.',    vn:'1 nửa, rưỡi (thời gian)',                    e:'🕧'},
+  {zh:'下课', py:'Xiàkè',         wc:'đgt.',   vn:'Tan học',                                    e:'🔔'},
+  {zh:'在',   py:'Zài',           wc:'đgt.',   vn:'Ở, tại',                                     e:'📍'},
+  {zh:'家',   py:'Jiā',           wc:'dt.',    vn:'Nhà',                                        e:'🏠'},
+  {zh:'里',   py:'Li/Lǐ',         wc:'dt.',    vn:'Trong, bên trong',                           e:'📦'},
+  {zh:'晚上', py:'Wǎnshang',      wc:'dt.',    vn:'Buổi tối',                                   e:'🌙'},
+  {zh:'医院', py:'Yīyuàn',        wc:'dt.',    vn:'Bệnh viện',                                  e:'🏥'},
+  {zh:'上班', py:'Shàngbān',      wc:'đgt.',   vn:'Đi làm, vào ca',                             e:'💼'},
+  {zh:'店',   py:'Diàn',          wc:'dt.',    vn:'Cửa hàng, cửa tiệm',                         e:'🏪'},
+  {zh:'菜',   py:'Cài',           wc:'dt.',    vn:'Thức ăn, món ăn, rau',                       e:'🥬'},
+  {zh:'分钟', py:'Fēnzhōng',      wc:'lượng.', vn:'Phút',                                       e:'⌛'},
+  {zh:'后',   py:'Hòu',           wc:'dt.',    vn:'Sau, sau đó',                                e:'➡️'},
 ];
 
 const mcQ = [
@@ -930,6 +931,7 @@ function buildVocab() {
         <div class="flip-back">
           <div class="fc-zh-sm">${v.zh}</div>
           <div class="fc-py">${v.py}</div>
+          <div class="fc-wc">${v.wc || ''}</div>
           <div class="fc-vn">${v.vn}</div>
           <button class="fc-speak-btn" id="spk-${pos}" onclick="event.stopPropagation();doSpeak(${pos},'${v.zh}')">🔊 Nghe</button>
         </div>
