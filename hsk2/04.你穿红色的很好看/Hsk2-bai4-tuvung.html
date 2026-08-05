@@ -987,22 +987,22 @@
 <script>
 /* ===================== DATA (HSK2 · Bài 4 — 16 từ vựng) ===================== */
 const vocab = [
-  {hanzi:"过", pinyin:"guo", wordClass:"trợ", hanviet:"Quá", meaning:"Đã từng, qua", example:{zh:"我去过北京。", py:"Wǒ qùguo Běijīng.", vi:"Tôi đã từng đi Bắc Kinh."}},
-  {hanzi:"商场", pinyin:"shāngchǎng", wordClass:"danh", hanviet:"Thương trường", meaning:"Trung tâm thương mại, khu mua sắm", example:{zh:"我们去商场买衣服吧。", py:"Wǒmen qù shāngchǎng mǎi yīfu ba.", vi:"Chúng ta đi trung tâm thương mại mua quần áo đi."}},
-  {hanzi:"进去", pinyin:"jìnqù", wordClass:"động", hanviet:"Tiến khứ", meaning:"Đi vào", example:{zh:"请进去吧。", py:"Qǐng jìnqù ba.", vi:"Mời vào đi."}},
-  {hanzi:"条", pinyin:"tiáo", wordClass:"lượng", hanviet:"Điều", meaning:"Cái, chiếc (quần, váy…)", example:{zh:"我想买一条裤子。", py:"Wǒ xiǎng mǎi yì tiáo kùzi.", vi:"Tôi muốn mua một cái quần."}},
-  {hanzi:"裤子", pinyin:"kùzi", wordClass:"danh", hanviet:"Khố tử", meaning:"Quần", example:{zh:"这条裤子太长了。", py:"Zhè tiáo kùzi tài cháng le.", vi:"Cái quần này dài quá."}},
-  {hanzi:"白色", pinyin:"báisè", wordClass:"danh", hanviet:"Bạch sắc", meaning:"Màu trắng", example:{zh:"我喜欢白色的衣服。", py:"Wǒ xǐhuan báisè de yīfu.", vi:"Tôi thích quần áo màu trắng."}},
-  {hanzi:"因为", pinyin:"yīnwèi", wordClass:"liên", hanviet:"Nhân vị", meaning:"Bởi vì, vì", example:{zh:"因为下雨，所以我没去。", py:"Yīnwèi xià yǔ, suǒyǐ wǒ méi qù.", vi:"Vì trời mưa nên tôi đã không đi."}},
-  {hanzi:"试", pinyin:"shì", wordClass:"động", hanviet:"Thí", meaning:"Thử", example:{zh:"我可以试一下吗？", py:"Wǒ kěyǐ shì yíxià ma?", vi:"Tôi có thể thử một chút được không?"}},
-  {hanzi:"红色", pinyin:"hóngsè", wordClass:"danh", hanviet:"Hồng sắc", meaning:"Màu đỏ", example:{zh:"她穿红色的衣服很好看。", py:"Tā chuān hóngsè de yīfu hěn hǎokàn.", vi:"Cô ấy mặc quần áo màu đỏ rất đẹp."}},
-  {hanzi:"所以", pinyin:"suǒyǐ", wordClass:"liên", hanviet:"Sở dĩ", meaning:"Cho nên, nên", example:{zh:"因为很累，所以我想回家。", py:"Yīnwèi hěn lèi, suǒyǐ wǒ xiǎng huí jiā.", vi:"Vì rất mệt nên tôi muốn về nhà."}},
-  {hanzi:"书包", pinyin:"shūbāo", wordClass:"danh", hanviet:"Thư bao", meaning:"Cặp sách", example:{zh:"这是我的书包。", py:"Zhè shì wǒ de shūbāo.", vi:"Đây là cặp sách của tôi."}},
-  {hanzi:"过去", pinyin:"guòqù", wordClass:"động", hanviet:"Quá khứ", meaning:"Sang, đi sang", example:{zh:"你过去看看吧。", py:"Nǐ guòqù kànkan ba.", vi:"Bạn sang xem thử đi."}},
-  {hanzi:"绿色", pinyin:"lǜsè", wordClass:"danh", hanviet:"Lục sắc", meaning:"Màu xanh lá cây", example:{zh:"我不喜欢绿色。", py:"Wǒ bù xǐhuan lǜsè.", vi:"Tôi không thích màu xanh lá cây."}},
-  {hanzi:"黑色", pinyin:"hēisè", wordClass:"danh", hanviet:"Hắc sắc", meaning:"Màu đen", example:{zh:"他的头发是黑色的。", py:"Tā de tóufa shì hēisè de.", vi:"Tóc của anh ấy màu đen."}},
-  {hanzi:"更", pinyin:"gèng", wordClass:"phó", hanviet:"Canh", meaning:"Càng, hơn", example:{zh:"今天比昨天更冷。", py:"Jīntiān bǐ zuótiān gèng lěng.", vi:"Hôm nay lạnh hơn hôm qua."}},
-  {hanzi:"颜色", pinyin:"yánsè", wordClass:"danh", hanviet:"Nhan sắc", meaning:"Màu sắc", example:{zh:"你喜欢什么颜色？", py:"Nǐ xǐhuan shénme yánsè?", vi:"Bạn thích màu gì?"}}
+  {hanzi:"过", pinyin:"guo", wordClass:"trợ.", hanviet:"Quá", meaning:"Đã từng, qua", example:{zh:"我去过北京。", py:"Wǒ qùguo Běijīng.", vi:"Tôi đã từng đi Bắc Kinh."}},
+  {hanzi:"商场", pinyin:"shāngchǎng", wordClass:"dt.", hanviet:"Thương trường", meaning:"Trung tâm thương mại, khu mua sắm", example:{zh:"我们去商场买衣服吧。", py:"Wǒmen qù shāngchǎng mǎi yīfu ba.", vi:"Chúng ta đi trung tâm thương mại mua quần áo đi."}},
+  {hanzi:"进去", pinyin:"jìnqù", wordClass:"đgt.", hanviet:"Tiến khứ", meaning:"Đi vào", example:{zh:"请进去吧。", py:"Qǐng jìnqù ba.", vi:"Mời vào đi."}},
+  {hanzi:"条", pinyin:"tiáo", wordClass:"lượng.", hanviet:"Điều", meaning:"Cái, chiếc (quần, váy…)", example:{zh:"我想买一条裤子。", py:"Wǒ xiǎng mǎi yì tiáo kùzi.", vi:"Tôi muốn mua một cái quần."}},
+  {hanzi:"裤子", pinyin:"kùzi", wordClass:"dt.", hanviet:"Khố tử", meaning:"Quần", example:{zh:"这条裤子太长了。", py:"Zhè tiáo kùzi tài cháng le.", vi:"Cái quần này dài quá."}},
+  {hanzi:"白色", pinyin:"báisè", wordClass:"dt.", hanviet:"Bạch sắc", meaning:"Màu trắng", example:{zh:"我喜欢白色的衣服。", py:"Wǒ xǐhuan báisè de yīfu.", vi:"Tôi thích quần áo màu trắng."}},
+  {hanzi:"因为", pinyin:"yīnwèi", wordClass:"liên.", hanviet:"Nhân vị", meaning:"Bởi vì, vì", example:{zh:"因为下雨，所以我没去。", py:"Yīnwèi xià yǔ, suǒyǐ wǒ méi qù.", vi:"Vì trời mưa nên tôi đã không đi."}},
+  {hanzi:"试", pinyin:"shì", wordClass:"đgt.", hanviet:"Thí", meaning:"Thử", example:{zh:"我可以试一下吗？", py:"Wǒ kěyǐ shì yíxià ma?", vi:"Tôi có thể thử một chút được không?"}},
+  {hanzi:"红色", pinyin:"hóngsè", wordClass:"dt.", hanviet:"Hồng sắc", meaning:"Màu đỏ", example:{zh:"她穿红色的衣服很好看。", py:"Tā chuān hóngsè de yīfu hěn hǎokàn.", vi:"Cô ấy mặc quần áo màu đỏ rất đẹp."}},
+  {hanzi:"所以", pinyin:"suǒyǐ", wordClass:"liên.", hanviet:"Sở dĩ", meaning:"Cho nên, nên", example:{zh:"因为很累，所以我想回家。", py:"Yīnwèi hěn lèi, suǒyǐ wǒ xiǎng huí jiā.", vi:"Vì rất mệt nên tôi muốn về nhà."}},
+  {hanzi:"书包", pinyin:"shūbāo", wordClass:"dt.", hanviet:"Thư bao", meaning:"Cặp sách", example:{zh:"这是我的书包。", py:"Zhè shì wǒ de shūbāo.", vi:"Đây là cặp sách của tôi."}},
+  {hanzi:"过去", pinyin:"guòqù", wordClass:"đgt.", hanviet:"Quá khứ", meaning:"Sang, đi sang", example:{zh:"你过去看看吧。", py:"Nǐ guòqù kànkan ba.", vi:"Bạn sang xem thử đi."}},
+  {hanzi:"绿色", pinyin:"lǜsè", wordClass:"dt.", hanviet:"Lục sắc", meaning:"Màu xanh lá cây", example:{zh:"我不喜欢绿色。", py:"Wǒ bù xǐhuan lǜsè.", vi:"Tôi không thích màu xanh lá cây."}},
+  {hanzi:"黑色", pinyin:"hēisè", wordClass:"dt.", hanviet:"Hắc sắc", meaning:"Màu đen", example:{zh:"他的头发是黑色的。", py:"Tā de tóufa shì hēisè de.", vi:"Tóc của anh ấy màu đen."}},
+  {hanzi:"更", pinyin:"gèng", wordClass:"phó.", hanviet:"Canh", meaning:"Càng, hơn", example:{zh:"今天比昨天更冷。", py:"Jīntiān bǐ zuótiān gèng lěng.", vi:"Hôm nay lạnh hơn hôm qua."}},
+  {hanzi:"颜色", pinyin:"yánsè", wordClass:"dt.", hanviet:"Nhan sắc", meaning:"Màu sắc", example:{zh:"你喜欢什么颜色？", py:"Nǐ xǐhuan shénme yánsè?", vi:"Bạn thích màu gì?"}}
 ];
 
 document.getElementById('statTotal').textContent = vocab.length + ' từ vựng';
