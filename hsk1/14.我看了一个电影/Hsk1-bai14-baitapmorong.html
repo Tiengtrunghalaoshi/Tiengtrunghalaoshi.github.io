@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HSK 1 – Bài 14: Tôi đã xem 1 bộ phim | Tiếng Trung Halaoshi</title>
+<title>HSK 1 – Bài 14: Mình đã xem một bộ phim | Tiếng Trung Halaoshi</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -188,6 +188,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 .flip-front .fc-hint{font-size:10px;color:var(--text2);font-weight:600;margin-top:6px;background:#F3E8FF;border-radius:20px;padding:2px 9px;letter-spacing:.03em;}
 .flip-back{background:linear-gradient(135deg,#7C3AED,#4C1D95);transform:rotateY(180deg);gap:5px;border-color:transparent}
 .flip-back .fc-py{font-size:15px;font-weight:800;color:#fff;letter-spacing:.03em;text-align:center;line-height:1.3}
+.flip-back .fc-loai{font-size:10px;font-weight:700;color:rgba(255,255,255,.75);font-style:italic;letter-spacing:0;margin-left:2px;}
 .flip-back .fc-vn{font-size:13px;font-weight:700;color:rgba(255,255,255,.85);text-align:center;margin-top:2px}
 .flip-back .fc-zh-sm{font-size:17px;font-weight:700;font-family:'Noto Serif SC',serif;color:rgba(255,255,255,.5);margin-bottom:2px}
 .fc-speak-btn{margin-top:8px;background:rgba(255,255,255,.22);border:1.5px solid rgba(255,255,255,.4);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:800;color:#fff;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .15s;display:flex;align-items:center;gap:5px;}
@@ -353,7 +354,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
   <div class="hero-float">🍵</div>
   <div class="hero-float2">🍞</div>
   <div class="hero-tag">Tiếng Trung Halaoshi · HSK 1</div>
-  <div class="hero-title">Bài 14: Tôi đã xem 1 bộ phim<span class="blink-cursor"></span></div>
+  <div class="hero-title">Bài 14: Mình đã xem một bộ phim<span class="blink-cursor"></span></div>
   <div class="hero-sub">Chủ đề: Đi tàu hỏa (火车/开) · Trật tự nơi công cộng (不要说话/听见) · Chuyện đi học (上学/中学/小学)</div>
   <div class="hero-badges">
     <span class="hbadge">📚 HSK 1.0</span>
@@ -589,34 +590,34 @@ startTimer();
 
 // DATA
 const vocabData = [
-  {zh:'上',   py:'Shàng',      vn:'Lên / Đi (tàu, xe) — VD: 上火车',   e:'🚉'},
-  {zh:'火车', py:'Huǒchē',     vn:'Tàu hỏa',                          e:'🚂'},
-  {zh:'中午', py:'Zhōngwǔ',    vn:'Buổi trưa',                        e:'🌞'},
-  {zh:'开',   py:'Kāi',        vn:'Khởi hành / Lái / Mở',             e:'🚦'},
-  {zh:'有些', py:'Yǒuxiē',     vn:'Có một số / Vài',                  e:'🔹'},
-  {zh:'有的', py:'Yǒude',      vn:'Có người / Có cái (dùng liệt kê)', e:'👥'},
-  {zh:'了',   py:'Le',         vn:'Trợ từ chỉ hoàn thành / thay đổi', e:'✅'},
-  {zh:'写',   py:'Xiě',        vn:'Viết',                             e:'✍️'},
-  {zh:'都',   py:'Dōu',        vn:'Đều',                              e:'🔗'},
-  {zh:'听见', py:'Tīngjiàn',   vn:'Nghe thấy',                        e:'👂'},
-  {zh:'不要', py:'Búyào',      vn:'Đừng / Không muốn',                e:'🚫'},
-  {zh:'说话', py:'Shuōhuà',    vn:'Nói chuyện',                       e:'💬'},
-  {zh:'听',   py:'Tīng',       vn:'Nghe',                             e:'🎧'},
-  {zh:'哪些', py:'Nǎxiē',      vn:'Những cái nào / Những ai',         e:'❓'},
-  {zh:'字',   py:'Zì',         vn:'Chữ',                              e:'🔤'},
-  {zh:'汉语', py:'Hànyǔ',      vn:'Tiếng Hán / Tiếng Trung',          e:'🇨🇳'},
-  {zh:'汉字', py:'Hànzì',      vn:'Chữ Hán',                          e:'🈶'},
-  {zh:'明年', py:'Míngnián',   vn:'Năm sau',                          e:'📅'},
-  {zh:'上',   py:'Shàng',      vn:'Lên (học) — VD: 上中学/上学',       e:'🎓'},
-  {zh:'中学', py:'Zhōngxué',   vn:'Trường trung học (cấp 2/3)',       e:'🏫'},
-  {zh:'小学', py:'Xiǎoxué',    vn:'Trường tiểu học',                  e:'🏫'},
-  {zh:'中学生',py:'Zhōngxuéshēng',vn:'Học sinh trung học',            e:'🧑\u200d🎓'},
-  {zh:'小学生',py:'Xiǎoxuéshēng', vn:'Học sinh tiểu học',             e:'🧒'},
-  {zh:'上学', py:'Shàngxué',   vn:'Đi học',                           e:'🎒'},
-  {zh:'他们', py:'Tāmen',      vn:'Họ (nam / chung)',                 e:'👬'},
-  {zh:'她们', py:'Tāmen',      vn:'Họ (nữ)',                          e:'👭'},
-  {zh:'它们', py:'Tāmen',      vn:'Chúng nó (đồ vật / con vật)',      e:'🐾'},
-  {zh:'晚',   py:'Wǎn',        vn:'Muộn / Tối',                       e:'🌙'},
+  {zh:'上',   py:'Shàng',      loai:'đgt.',      vn:'Lên, đi (xe, tàu...)',                                        e:'🚉'},
+  {zh:'火车', py:'Huǒchē',     loai:'dt.',       vn:'Tàu, tàu hoả, xe lửa',                                        e:'🚂'},
+  {zh:'中午', py:'Zhōngwǔ',    loai:'dt.',       vn:'Buổi trưa',                                                   e:'🌞'},
+  {zh:'开',   py:'Kāi',        loai:'đgt.',      vn:'Lái, chạy, khởi hành (phương tiện giao thông)',               e:'🚦'},
+  {zh:'有些', py:'Yǒuxiē',     loai:'đt.',       vn:'Có một số, có một vài',                                       e:'🔹'},
+  {zh:'有的', py:'Yǒude',      loai:'đt.',       vn:'Có người, có cái',                                            e:'👥'},
+  {zh:'了',   py:'Le',         loai:'trợ.',      vn:'Dùng sau động từ chỉ sự hoàn thành của động tác',             e:'✅'},
+  {zh:'写',   py:'Xiě',        loai:'đgt.',      vn:'Viết',                                                        e:'✍️'},
+  {zh:'都',   py:'Dōu',        loai:'phó.',      vn:'Đều',                                                         e:'🔗'},
+  {zh:'听见', py:'Tīngjiàn',   loai:'đgt.',      vn:'Nghe thấy',                                                   e:'👂'},
+  {zh:'不要', py:'Búyào',      loai:'phó.',      vn:'Đừng, không được',                                            e:'🚫'},
+  {zh:'说话', py:'Shuōhuà',    loai:'đgt.',      vn:'Nói chuyện',                                                  e:'💬'},
+  {zh:'听',   py:'Tīng',       loai:'đgt.',      vn:'Nghe',                                                        e:'🎧'},
+  {zh:'哪些', py:'Nǎxiē',      loai:'đt.',       vn:'Những...nào',                                                 e:'❓'},
+  {zh:'字',   py:'Zì',         loai:'dt.',       vn:'Chữ',                                                         e:'🔤'},
+  {zh:'汉语', py:'Hànyǔ',      loai:'',          vn:'Tiếng Trung Quốc, tiếng Hán',                                 e:'🇨🇳'},
+  {zh:'汉字', py:'Hànzì',      loai:'',          vn:'Chữ Hán',                                                     e:'🈶'},
+  {zh:'明年', py:'Míngnián',   loai:'dt.',       vn:'Sang năm, năm tới, năm sau',                                  e:'📅'},
+  {zh:'上',   py:'Shàng',      loai:'đgt.',      vn:'Lên, bắt đầu (làm gì đó vào thời gian cố định)',              e:'🎓'},
+  {zh:'中学', py:'Zhōngxué',   loai:'dt.',       vn:'Trường trung học, trung học',                                 e:'🏫'},
+  {zh:'小学', py:'Xiǎoxué',    loai:'dt.',       vn:'Trường tiểu học, tiểu học',                                   e:'🏫'},
+  {zh:'中学生',py:'Zhōngxuéshēng',loai:'dt.',    vn:'Học sinh trung học, học sinh cấp hai',                        e:'🧑\u200d🎓'},
+  {zh:'小学生',py:'Xiǎoxuéshēng', loai:'dt.',    vn:'Học sinh tiểu học, học sinh cấp một',                         e:'🧒'},
+  {zh:'上学', py:'Shàngxué',   loai:'đgt.',      vn:'Đi học, bắt đầu đi học',                                      e:'🎒'},
+  {zh:'他们', py:'Tāmen',      loai:'đt.',       vn:'Họ, chúng, bọn họ, các anh ấy, các em ấy (dành cho cả nam và nữ)', e:'👬'},
+  {zh:'她们', py:'Tāmen',      loai:'đt.',       vn:'Họ, chúng, bọn họ, các chị ấy, các em ấy (dành cho nữ)',      e:'👭'},
+  {zh:'它们', py:'Tāmen',      loai:'đt.',       vn:'Chúng, những cái đó (đại từ nhân xưng ngôi thứ ba số nhiều, chỉ vật)', e:'🐾'},
+  {zh:'晚',   py:'Wǎn',        loai:'tt.',       vn:'Muộn, trễ',                                                   e:'🌙'},
 ];
 
 const mcQ = [
@@ -985,7 +986,7 @@ function buildVocab() {
         </div>
         <div class="flip-back">
           <div class="fc-zh-sm">${v.zh}</div>
-          <div class="fc-py">${v.py}</div>
+          <div class="fc-py">${v.py} <span class="fc-loai">${v.loai}</span></div>
           <div class="fc-vn">${v.vn}</div>
           <button class="fc-speak-btn" id="spk-${pos}" onclick="event.stopPropagation();doSpeak(${pos},'${v.zh}')">🔊 Nghe</button>
         </div>
