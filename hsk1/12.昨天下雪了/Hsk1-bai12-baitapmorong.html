@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HSK 1 – Bài 12: Hôm qua tuyết rơi rồi! | Tiếng Trung Halaoshi</title>
+<title>HSK 1 – Bài 12: Hôm qua tuyết rơi rồi | Tiếng Trung Halaoshi</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -189,6 +189,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 .flip-back{background:linear-gradient(135deg,#DC2626,#7F1D1D);transform:rotateY(180deg);gap:5px;border-color:transparent}
 .flip-back .fc-py{font-size:15px;font-weight:800;color:#fff;letter-spacing:.03em;text-align:center;line-height:1.3}
 .flip-back .fc-vn{font-size:13px;font-weight:700;color:rgba(255,255,255,.85);text-align:center;margin-top:2px}
+.flip-back .fc-pos{font-size:10px;font-weight:700;color:#DC2626;background:#fff;border-radius:20px;padding:2px 10px;letter-spacing:.03em;margin-top:3px;}
 .flip-back .fc-zh-sm{font-size:17px;font-weight:700;font-family:'Noto Serif SC',serif;color:rgba(255,255,255,.5);margin-bottom:2px}
 .fc-speak-btn{margin-top:8px;background:rgba(255,255,255,.22);border:1.5px solid rgba(255,255,255,.4);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:800;color:#fff;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .15s;display:flex;align-items:center;gap:5px;}
 .fc-speak-btn:hover{background:rgba(255,255,255,.35);transform:scale(1.05)}
@@ -353,7 +354,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
   <div class="hero-float">🌧️</div>
   <div class="hero-float2">🤒</div>
   <div class="hero-tag">Tiếng Trung Halaoshi · HSK 1</div>
-  <div class="hero-title">Bài 12: Hôm qua tuyết rơi rồi!<span class="blink-cursor"></span></div>
+  <div class="hero-title">Bài 12: Hôm qua tuyết rơi rồi<span class="blink-cursor"></span></div>
   <div class="hero-sub">Chủ đề: Thời tiết (天气) · Cảm giác (觉得) · Ốm đau & khám bệnh (看病)</div>
   <div class="hero-badges">
     <span class="hbadge">📚 HSK 1.0</span>
@@ -589,29 +590,29 @@ startTimer();
 
 // DATA
 const vocabData = [
-  {zh:'天气', py:'Tiānqì',    vn:'Thời tiết',                       e:'🌤️'},
-  {zh:'这里', py:'Zhèlǐ',     vn:'Ở đây',                            e:'📍'},
-  {zh:'天',   py:'Tiān',      vn:'Trời / Ngày',                      e:'☀️'},
-  {zh:'下雨', py:'Xiàyǔ',     vn:'Trời mưa',                         e:'🌧️'},
-  {zh:'了',   py:'Le',        vn:'Rồi (trợ từ chỉ sự thay đổi)',    e:'✅'},
-  {zh:'雨',   py:'Yǔ',        vn:'Mưa',                              e:'💧'},
-  {zh:'有点儿',py:'Yǒudiǎnr', vn:'Hơi / Có chút',                   e:'🔹'},
-  {zh:'觉得', py:'Juéde',     vn:'Cảm thấy',                         e:'💭'},
-  {zh:'冷',   py:'Lěng',      vn:'Lạnh',                             e:'🥶'},
-  {zh:'下',   py:'Xià',       vn:'Rơi / Xuống',                      e:'⬇️'},
-  {zh:'雪',   py:'Xuě',       vn:'Tuyết',                            e:'❄️'},
-  {zh:'来',   py:'Lái',       vn:'Đến',                              e:'🚶'},
-  {zh:'公司', py:'Gōngsī',    vn:'Công ty',                          e:'🏢'},
-  {zh:'生病', py:'Shēngbìng', vn:'Bị ốm / Bị bệnh',                 e:'🤒'},
-  {zh:'看病', py:'Kànbìng',   vn:'Khám bệnh',                        e:'🩺'},
-  {zh:'病',   py:'Bìng',      vn:'Bệnh / Ốm',                        e:'🤧'},
-  {zh:'一点儿',py:'Yìdiǎnr',  vn:'Một chút',                         e:'🤏'},
-  {zh:'药',   py:'Yào',       vn:'Thuốc',                            e:'💊'},
-  {zh:'回',   py:'Huí',       vn:'Trở về / Quay về',                e:'🔙'},
-  {zh:'再',   py:'Zài',       vn:'Lại / Thêm lần nữa / Sau đó',              e:'🔁'},
-  {zh:'喝',   py:'Hē',        vn:'Uống',                             e:'🥤'},
-  {zh:'热',   py:'Rè',        vn:'Nóng',                             e:'🔥'},
-  {zh:'水',   py:'Shuǐ',      vn:'Nước',                             e:'🚰'},
+  {zh:'天气', py:'Tiānqì',    pos:'dt.',        vn:'Thời tiết',                                            e:'🌤️'},
+  {zh:'这里', py:'Zhèlǐ',     pos:'đt.',        vn:'Ở đây, chỗ này',                                       e:'📍'},
+  {zh:'天',   py:'Tiān',      pos:'dt./lượng.', vn:'Trời, thời tiết / Ngày',                               e:'☀️'},
+  {zh:'下雨', py:'Xià yǔ',    pos:'',           vn:'Mưa, mưa rơi',                                         e:'🌧️'},
+  {zh:'了',   py:'Le',        pos:'trợ.',       vn:'Dùng cuối câu chỉ sự thay đổi tình hình hoặc trạng thái', e:'✅'},
+  {zh:'雨',   py:'Yǔ',        pos:'dt.',        vn:'Mưa',                                                  e:'💧'},
+  {zh:'有点儿',py:'Yǒudiǎnr', pos:'phó.',       vn:'Hơi, hơi…một chút',                                    e:'🔹'},
+  {zh:'觉得', py:'Juéde',     pos:'đgt.',       vn:'Cảm thấy',                                             e:'💭'},
+  {zh:'冷',   py:'Lěng',      pos:'tt.',        vn:'Lạnh',                                                 e:'🥶'},
+  {zh:'下',   py:'Xià',       pos:'đgt.',       vn:'(Mưa, tuyết…) rơi',                                    e:'⬇️'},
+  {zh:'雪',   py:'Xuě',       pos:'dt.',        vn:'Tuyết',                                                e:'❄️'},
+  {zh:'来',   py:'Lái',       pos:'đgt.',       vn:'Đến, tới',                                             e:'🚶'},
+  {zh:'公司', py:'Gōngsī',    pos:'dt.',        vn:'Công ty',                                              e:'🏢'},
+  {zh:'生病', py:'Shēngbìng', pos:'đgt.',       vn:'Ốm, bị ốm, bệnh, bị bệnh',                             e:'🤒'},
+  {zh:'看病', py:'Kànbìng',   pos:'đgt.',       vn:'Khám bệnh',                                            e:'🩺'},
+  {zh:'病',   py:'Bìng',      pos:'đgt.',       vn:'Ốm, bị ốm, bệnh, bị bệnh',                             e:'🤧'},
+  {zh:'一点儿',py:'Yìdiǎnr',  pos:'số.lượng.',  vn:'Một chút, một ít',                                     e:'🤏'},
+  {zh:'药',   py:'Yào',       pos:'dt.',        vn:'Thuốc',                                                e:'💊'},
+  {zh:'回',   py:'Huí',       pos:'đgt.',       vn:'Về, quay về',                                          e:'🔙'},
+  {zh:'再',   py:'Zài',       pos:'phó.',       vn:'Sau đó, mới (chỉ trình tự)',                           e:'🔁'},
+  {zh:'喝',   py:'Hē',        pos:'đgt.',       vn:'Uống',                                                 e:'🥤'},
+  {zh:'热',   py:'Rè',        pos:'tt.',        vn:'Nóng, ấm',                                             e:'🔥'},
+  {zh:'水',   py:'Shuǐ',      pos:'dt.',        vn:'Nước',                                                 e:'🚰'},
 ];
 
 const mcQ = [
@@ -965,6 +966,7 @@ function buildVocab() {
         <div class="flip-back">
           <div class="fc-zh-sm">${v.zh}</div>
           <div class="fc-py">${v.py}</div>
+          ${v.pos ? `<div class="fc-pos">${v.pos}</div>` : ''}
           <div class="fc-vn">${v.vn}</div>
           <button class="fc-speak-btn" id="spk-${pos}" onclick="event.stopPropagation();doSpeak(${pos},'${v.zh}')">🔊 Nghe</button>
         </div>
