@@ -233,6 +233,20 @@ body.hide-hanzi .hanzi-text{display:none;}
   text-align:center;
   line-height:1.5;
 }
+.scene-note{
+  margin:0 0 14px;
+  padding:12px 18px;
+  background:var(--teal-light);
+  border-left:5px solid var(--teal);
+  border-radius:8px;
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+}
+.scene-note .pin{font-size:1.1em;line-height:1.6;flex-shrink:0;}
+.scene-note .scene-text{font-size:1em;line-height:1.7;}
+.scene-note .scene-hanzi{color:var(--teal-dark);font-weight:600;}
+.scene-note .scene-vi{color:#2f6f5e;font-size:.92em;margin-top:4px;}
 footer{text-align:center;padding:16px;color:#aaa;font-size:.8em;}
 </style>
 </head>
@@ -269,8 +283,11 @@ const AUD4 = "Hsk2-bai1-baikhoa-filenghe4.mp3";
 const texts = [
   {
     id:"t1", tab:"课文1",
-    title:"课文1：在机场",
+    title:"课文1：",
+    titleVi:"Bài khoá 1",
     audio:AUD1,
+    scene:"在机场，王一雪接到了白家月和安妮。",
+    sceneVi:"Vương Nhất Tuyết đã đón được Bạch Gia Nguyệt và Annie ở sân bay.",
     lines:[
       {spk:"白家月", cls:"spk-baijiayue", hanzi:"请问，您是王一飞老师的姐姐吗？", pinyin:"Qǐngwèn, nín shì Wáng Yīfēi lǎoshī de jiějie ma?", vi:"Xin hỏi, chị là chị gái của cô Vương Nhất Phi phải không ạ?"},
       {spk:"王一雪", cls:"spk-wangyixue", hanzi:"是的，你们就是她的学生吧？", pinyin:"Shì de, nǐmen jiù shì tā de xuésheng ba?", vi:"Đúng rồi, các em là học sinh của cô ấy phải không?"},
@@ -282,8 +299,11 @@ const texts = [
   },
   {
     id:"t2", tab:"课文2",
-    title:"课文2：在王一雪的车里",
+    title:"课文2：",
+    titleVi:"Bài khoá 2",
     audio:AUD2,
+    scene:"在王一雪的车里，白家月、安妮和王一雪在聊天儿。",
+    sceneVi:"Vương Nhất Tuyết trò chuyện cùng Bạch Gia Nguyệt và Annie trong xe của cô ấy.",
     lines:[
       {spk:"王一雪", cls:"spk-wangyixue", hanzi:"你们是第一次来北京吗？", pinyin:"Nǐmen shì dì-yī cì lái Běijīng ma?", vi:"Đây là lần đầu các em đến Bắc Kinh phải không?"},
       {spk:"白家月", cls:"spk-baijiayue", hanzi:"是的，我们都是第一次来。", pinyin:"Shì de, wǒmen dōu shì dì-yī cì lái.", vi:"Vâng ạ, chúng em đều là lần đầu tiên đến đây ạ."},
@@ -295,8 +315,11 @@ const texts = [
   },
   {
     id:"t3", tab:"课文3",
-    title:"课文3：在王一雪的车里",
+    title:"课文3：",
+    titleVi:"Bài khoá 3",
     audio:AUD3,
+    scene:"在王一雪的车上，白家月接了个电话。",
+    sceneVi:"Bạch Gia Nguyệt nhận được một cuộc điện thoại khi đang ở trên xe của Vương Nhất Tuyết.",
     lines:[
       {spk:"陈天中", cls:"spk-chentianzhong", hanzi:"喂，家月，你明天有时间吗？我想请你帮个忙。", pinyin:"Wéi, Jiāyuè, nǐ míngtiān yǒu shíjiān ma? Wǒ xiǎng qǐng nǐ bāng ge máng.", vi:"A lô, Gia Nguyệt à, mai bạn có thời gian không? Mình muốn nhờ bạn giúp một việc."},
       {spk:"白家月", cls:"spk-baijiayue", hanzi:"不好意思，天中，我已经到北京了。", pinyin:"Bù hǎoyìsi, Tiānzhōng, wǒ yǐjīng dào Běijīng le.", vi:"Xin lỗi Thiên Trung nhé, mình đã đến Bắc Kinh rồi."},
@@ -308,8 +331,11 @@ const texts = [
   },
   {
     id:"t4", tab:"课文4",
-    title:"课文4：在酒店",
+    title:"课文4：",
+    titleVi:"Bài khoá 4",
     audio:AUD4,
+    scene:"在酒店，白家月给王一飞发信息。",
+    sceneVi:"Bạch Gia Nguyệt nhắn tin cho cô Vương Nhất Phi ở trong khách sạn.",
     passage:"王老师，我们已经到北京了，是您姐姐来接我们的。她请我们吃了北京烤鸭，还给我们介绍了很多东西。我们的中文不太好，有时不太懂她的意思。",
     passagePinyin:"Wáng lǎoshī, wǒmen yǐjīng dào Běijīng le, shì nín jiějie lái jiē wǒmen de. Tā qǐng wǒmen chīle Běijīng kǎoyā, hái gěi wǒmen jièshàole hěn duō dōngxi. Wǒmen de Zhōngwén bú tài hǎo, yǒushí bú tài dǒng tā de yìsi.",
     passageVi:"Thưa cô Vương, chúng em đã tới Bắc Kinh rồi, chị gái của cô đã tới đón chúng em. Chị ấy đã mời chúng em ăn vịt quay Bắc Kinh, còn giới thiệu cho chúng em rất nhiều thứ. Tiếng Trung Quốc của chúng em không tốt lắm, đôi khi chưa hiểu hết ý của chị ấy."
@@ -349,8 +375,19 @@ function renderPanel(t, idx){
 
   const ph = document.createElement('div');
   ph.className='part-header';
-  ph.innerHTML = '<h2>'+t.title+'</h2>';
+  ph.innerHTML = '<h2>'+t.title+(t.titleVi ? '<span style="display:block;font-size:.78em;font-weight:600;color:var(--teal-dark);opacity:.85;margin-top:2px;">'+t.titleVi+'</span>' : '')+'</h2>';
   panel.appendChild(ph);
+
+  if(t.scene){
+    const sn = document.createElement('div');
+    sn.className='scene-note';
+    sn.innerHTML = '<span class="pin">📍</span>'+
+      '<div class="scene-text">'+
+        '<div class="scene-hanzi">'+t.scene+'</div>'+
+        (t.sceneVi ? '<div class="scene-vi">'+t.sceneVi+'</div>' : '')+
+      '</div>';
+    panel.appendChild(sn);
+  }
 
   const abox = document.createElement('div');
   abox.className='audio-box';
