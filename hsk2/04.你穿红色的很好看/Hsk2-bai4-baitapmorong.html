@@ -764,33 +764,34 @@ const errData = [
 
 const sentData = [
   {
-    vn: 'Chúng ta vào trung tâm thương mại xem thử đi.',
-    zh: ['我们进商场去看看吧。'],
+    vn: 'Anh ấy đã từng đi Trung Quốc, vì thế tiếng Trung của anh ấy rất lưu loát.',
+    new_words: '流利 (liúlì) - lưu loát',
+    zh: ['他去过中国，所以他的中文很流利。'],
     words: [
-      {zh:'我们', vn:'chúng ta'},
-      {zh:'进',   vn:'vào'},
-      {zh:'商场', vn:'trung tâm thương mại'},
-      {zh:'去',   vn:'đi'},
-      {zh:'看看', vn:'xem thử'},
-      {zh:'吧',   vn:'đi (đề nghị)'},
-      {zh:'。',   vn:''},
-    ],
-    note: '进 + nơi chốn + 去 = đi vào đâu đó; 看看 dùng để nói "xem thử" nhẹ nhàng.'
-  },
-  {
-    vn: 'Chiếc quần này màu trắng, chiếc kia màu đỏ.',
-    zh: ['这条裤子是白色的，那条是红色的。'],
-    words: [
-      {zh:'这条裤子', vn:'chiếc quần này'},
-      {zh:'是',       vn:'là'},
-      {zh:'白色的',   vn:'màu trắng'},
+      {zh:'他',       vn:'anh ấy'},
+      {zh:'去过',     vn:'đã từng đi'},
+      {zh:'中国',     vn:'Trung Quốc'},
       {zh:'，',       vn:''},
-      {zh:'那条',     vn:'chiếc kia'},
-      {zh:'是',       vn:'là'},
-      {zh:'红色的',   vn:'màu đỏ'},
+      {zh:'所以',     vn:'vì thế, cho nên'},
+      {zh:'他的中文', vn:'tiếng Trung của anh ấy'},
+      {zh:'很流利',   vn:'rất lưu loát'},
       {zh:'。',       vn:''},
     ],
-    note: '条 là lượng từ dùng cho quần/váy; màu sắc + 的 đứng sau 是 để miêu tả.'
+    note: 'Động từ + 过 = đã từng làm gì (kinh nghiệm); 所以 dùng để nêu kết quả. Từ mới: 流利 (liúlì) = lưu loát.'
+  },
+  {
+    vn: 'Trung tâm thương mại này rất lớn, đồ gì cũng có.',
+    zh: ['这个商场很大，什么都有。'],
+    words: [
+      {zh:'这个商场', vn:'trung tâm thương mại này'},
+      {zh:'很大',     vn:'rất lớn'},
+      {zh:'，',       vn:''},
+      {zh:'什么',     vn:'gì'},
+      {zh:'都',       vn:'cũng, đều'},
+      {zh:'有',       vn:'có'},
+      {zh:'。',       vn:''},
+    ],
+    note: '什么...都... = "...gì cũng..." dùng để nhấn mạnh không có ngoại lệ, ví dụ 什么都有 = đồ gì cũng có.'
   },
   {
     vn: 'Vì trời mưa, nên chúng tôi không ra ngoài chơi.',
@@ -807,30 +808,31 @@ const sentData = [
     note: '因为...所以... là cấu trúc nhân quả: 因为 mở đầu vế nguyên nhân, 所以 mở đầu vế kết quả.'
   },
   {
-    vn: 'Bạn có thể thử chiếc quần này một chút.',
-    zh: ['你可以试一下这条裤子。'],
+    vn: 'Trong trung tâm thương mại có rất nhiều cửa hàng.',
+    zh: ['商场里有很多商店。'],
     words: [
-      {zh:'你',       vn:'bạn'},
-      {zh:'可以',     vn:'có thể'},
-      {zh:'试',       vn:'thử'},
-      {zh:'一下',     vn:'một chút'},
-      {zh:'这条裤子', vn:'chiếc quần này'},
-      {zh:'。',       vn:''},
-    ],
-    note: '试一下 = thử một chút; 一下 đứng sau động từ làm câu nhẹ nhàng hơn.'
-  },
-  {
-    vn: 'Tôi thấy màu xanh lá đẹp hơn màu đen.',
-    zh: ['我觉得绿色比黑色更好看。'],
-    words: [
-      {zh:'我觉得', vn:'tôi thấy'},
-      {zh:'绿色',   vn:'màu xanh lá cây'},
-      {zh:'比',     vn:'so với'},
-      {zh:'黑色',   vn:'màu đen'},
-      {zh:'更好看', vn:'đẹp hơn'},
+      {zh:'商场里', vn:'trong trung tâm thương mại'},
+      {zh:'有',     vn:'có'},
+      {zh:'很多',   vn:'rất nhiều'},
+      {zh:'商店',   vn:'cửa hàng'},
       {zh:'。',     vn:''},
     ],
-    note: 'A比B更 + tính từ = A đẹp/tốt hơn B; 更 đứng ngay trước tính từ.'
+    note: '里 đứng sau danh từ chỉ nơi chốn để nói "bên trong"; 很多 + danh từ = rất nhiều...'
+  },
+  {
+    vn: 'Đằng kia đẹp quá, chúng mình đi sang đó xem thử đi.',
+    zh: ['那边真好看，我们过去看看吧。'],
+    words: [
+      {zh:'那边',   vn:'đằng kia'},
+      {zh:'真好看', vn:'đẹp quá'},
+      {zh:'，',     vn:''},
+      {zh:'我们',   vn:'chúng mình'},
+      {zh:'过去',   vn:'đi sang'},
+      {zh:'看看',   vn:'xem thử'},
+      {zh:'吧',     vn:'đi (đề nghị)'},
+      {zh:'。',     vn:''},
+    ],
+    note: '过去 diễn tả sự di chuyển từ chỗ này sang chỗ khác; 看看 dùng để nói "xem thử" nhẹ nhàng.'
   },
   {
     vn: 'Cặp sách của tôi màu đen, còn cặp sách của bạn ấy màu trắng.',
@@ -848,53 +850,62 @@ const sentData = [
     note: '的 dùng để chỉ sở hữu (我的书包), và cũng dùng sau tính từ màu sắc khi làm vị ngữ miêu tả (是白色的).'
   },
   {
-    vn: 'Bạn thích màu gì?',
-    zh: ['你喜欢什么颜色？'],
+    vn: 'Bên ngoài lạnh lắm, các con đi vào trong ngồi 1 lát đi.',
+    zh: ['外面很冷，你们进去坐一下吧。'],
     words: [
-      {zh:'你',     vn:'bạn'},
-      {zh:'喜欢',   vn:'thích'},
-      {zh:'什么颜色', vn:'màu gì'},
-      {zh:'？',     vn:''},
+      {zh:'外面', vn:'bên ngoài'},
+      {zh:'很冷', vn:'lạnh lắm'},
+      {zh:'，',   vn:''},
+      {zh:'你们', vn:'các con'},
+      {zh:'进去', vn:'đi vào trong'},
+      {zh:'坐一下', vn:'ngồi một lát'},
+      {zh:'吧',   vn:'đi (đề nghị)'},
+      {zh:'。',   vn:''},
     ],
-    note: '什么颜色 = màu gì (什么 + danh từ để hỏi).'
+    note: '进去 = đi vào (bên trong); 一下 đứng sau động từ để nói hành động diễn ra trong thời gian ngắn, làm câu nhẹ nhàng hơn.'
   },
   {
-    vn: 'Tôi chưa từng đi trung tâm thương mại đó.',
-    zh: ['我没去过那个商场。'],
+    vn: 'Tôi đã từng đi Trung Quốc, chưa từng đi qua Thái Lan. Còn bạn thì sao?',
+    zh: ['我去过中国，没去过泰国。你呢？'],
     words: [
-      {zh:'我',       vn:'tôi'},
-      {zh:'没',       vn:'chưa'},
-      {zh:'去过',     vn:'đã từng đi'},
-      {zh:'那个商场', vn:'trung tâm thương mại đó'},
-      {zh:'。',       vn:''},
+      {zh:'我',   vn:'tôi'},
+      {zh:'去过', vn:'đã từng đi'},
+      {zh:'中国', vn:'Trung Quốc'},
+      {zh:'，',   vn:''},
+      {zh:'没去过', vn:'chưa từng đi'},
+      {zh:'泰国', vn:'Thái Lan'},
+      {zh:'。',   vn:''},
+      {zh:'你呢', vn:'còn bạn thì sao'},
+      {zh:'？',   vn:''},
     ],
-    note: 'Động từ + 过 = đã từng làm gì; phủ định dùng 没 + động từ + 过.'
+    note: 'Động từ + 过 = đã từng làm gì; phủ định dùng 没 + động từ + 过. 你呢？ là câu hỏi rút gọn dùng để hỏi lại đối phương về cùng chủ đề vừa nhắc đến.'
   },
   {
-    vn: 'Mẹ đi sang xem chiếc quần màu đỏ đó một chút.',
-    zh: ['妈妈过去看一下那条红色的裤子。'],
+    vn: 'Con thích chiếc quần màu trắng hay quần màu đen?',
+    zh: ['你喜欢白色的裤子还是黑色的裤子？'],
     words: [
-      {zh:'妈妈',         vn:'mẹ'},
-      {zh:'过去',         vn:'đi sang'},
-      {zh:'看一下',       vn:'xem một chút'},
-      {zh:'那条红色的裤子', vn:'chiếc quần màu đỏ đó'},
+      {zh:'你',         vn:'con'},
+      {zh:'喜欢',       vn:'thích'},
+      {zh:'白色的裤子', vn:'chiếc quần màu trắng'},
+      {zh:'还是',       vn:'hay là'},
+      {zh:'黑色的裤子', vn:'quần màu đen'},
+      {zh:'？',         vn:''},
+    ],
+    note: 'A还是B = "A hay là B", dùng trong câu hỏi lựa chọn giữa hai phương án.'
+  },
+  {
+    vn: 'Vì chiếc quần màu đỏ này đẹp hơn nên tôi mua chiếc này.',
+    zh: ['因为这条红色的裤子更好看，所以我买了这条。'],
+    words: [
+      {zh:'因为',         vn:'vì'},
+      {zh:'这条红色的裤子', vn:'chiếc quần màu đỏ này'},
+      {zh:'更好看',       vn:'đẹp hơn'},
+      {zh:'，',           vn:''},
+      {zh:'所以',         vn:'nên'},
+      {zh:'我买了这条',   vn:'tôi mua chiếc này'},
       {zh:'。',           vn:''},
     ],
-    note: '过去 (đi sang, sang) diễn tả sự di chuyển từ chỗ này sang chỗ khác.'
-  },
-  {
-    vn: 'Vì chiếc quần màu đỏ đẹp hơn nên tôi mua chiếc đó.',
-    zh: ['因为红色的裤子更好看，所以我买了那条。'],
-    words: [
-      {zh:'因为',       vn:'vì'},
-      {zh:'红色的裤子', vn:'chiếc quần màu đỏ'},
-      {zh:'更好看',     vn:'đẹp hơn'},
-      {zh:'，',         vn:''},
-      {zh:'所以',       vn:'nên'},
-      {zh:'我买了那条', vn:'tôi mua chiếc đó'},
-      {zh:'。',         vn:''},
-    ],
-    note: '因为...所以... kết hợp với 更 + tính từ để diễn đạt lý do lựa chọn.'
+    note: '因为...所以... kết hợp với 更 + tính từ để diễn đạt lý do lựa chọn; 这条 = chiếc này (dùng lượng từ 条 cho quần/váy).'
   },
 ];
 
