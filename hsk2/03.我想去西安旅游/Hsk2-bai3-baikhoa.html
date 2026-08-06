@@ -233,6 +233,20 @@ body.hide-hanzi .hanzi-text{display:none;}
   text-align:center;
   line-height:1.5;
 }
+.scene-note{
+  margin:0 0 14px;
+  padding:12px 18px;
+  background:var(--teal-light);
+  border-left:5px solid var(--teal);
+  border-radius:8px;
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+}
+.scene-note .pin{font-size:1.1em;line-height:1.6;flex-shrink:0;}
+.scene-note .scene-text{font-size:1em;line-height:1.7;}
+.scene-note .scene-hanzi{color:var(--teal-dark);font-weight:600;}
+.scene-note .scene-vi{color:#2f6f5e;font-size:.92em;margin-top:4px;}
 footer{text-align:center;padding:16px;color:#aaa;font-size:.8em;}
 </style>
 </head>
@@ -268,8 +282,11 @@ const AUD4 = "Hsk2-bai3-baikhoa-filenghe4.mp3";
 const texts = [
   {
     id:"t1", tab:"课文1",
-    title:"课文1：在家门口",
+    title:"课文1：",
+    titleVi:"Bài khoá 1",
     audio:AUD1,
+    scene:"在家门口，刘明开门进到家里。",
+    sceneVi:"Tại cửa ra vào, Lưu Minh mở cửa đi vào trong nhà.",
     lines:[
       {spk:"王一雪", cls:"spk-wangyixue", hanzi:"今天回来这么晚啊！", pinyin:"Jīntiān huílái zhème wǎn a!", vi:"Hôm nay anh về muộn thế!"},
       {spk:"刘明", cls:"spk-liuming", hanzi:"工作太多了，下班的时候没做完。", pinyin:"Gōngzuò tài duō le, xiàbān de shíhou méi zuò wán.", vi:"Anh có nhiều việc quá, đến giờ tan làm mà vẫn chưa xong."},
@@ -280,8 +297,11 @@ const texts = [
   },
   {
     id:"t2", tab:"课文2",
-    title:"课文2：在客厅",
+    title:"课文2：",
+    titleVi:"Bài khoá 2",
     audio:AUD2,
+    scene:"在客厅，刘明和王一雪在聊天儿。",
+    sceneVi:"Lưu Minh và Vương Nhất Tuyết đang trò chuyện trong phòng khách.",
     lines:[
       {spk:"刘明", cls:"spk-liuming", hanzi:"我们找个时间去旅游，怎么样？", pinyin:"Wǒmen zhǎo ge shíjiān qù lǚyóu, zěnmeyàng?", vi:"Chúng ta sắp xếp thời gian đi du lịch, em thấy thế nào?"},
       {spk:"王一雪", cls:"spk-wangyixue", hanzi:"好啊，我也很想一起出去玩。", pinyin:"Hǎo a, wǒ yě hěn xiǎng yìqǐ chūqù wán.", vi:"Nhất trí! Em cũng rất muốn đi chơi cùng anh."},
@@ -292,8 +312,11 @@ const texts = [
   },
   {
     id:"t3", tab:"课文3",
-    title:"课文3：在客厅",
+    title:"课文3：",
+    titleVi:"Bài khoá 3",
     audio:AUD3,
+    scene:"在客厅，刘明和王一雪在聊天儿。",
+    sceneVi:"Lưu Minh và Vương Nhất Tuyết đang trò chuyện trong phòng khách.",
     lines:[
       {spk:"刘明", cls:"spk-liuming", hanzi:"吃个苹果吧，我都洗好了。", pinyin:"Chī ge píngguǒ ba, wǒ dōu xǐ hǎo le.", vi:"Ăn quả táo đi, anh đã rửa sạch rồi."},
       {spk:"王一雪", cls:"spk-wangyixue", hanzi:"好的。", pinyin:"Hǎo de.", vi:"Vâng ạ."},
@@ -305,8 +328,11 @@ const texts = [
   },
   {
     id:"t4", tab:"课文4",
-    title:"课文4：在家里",
+    title:"课文4：",
+    titleVi:"Bài khoá 4",
     audio:AUD4,
+    scene:"在家里，王一雪给好朋友打电话。",
+    sceneVi:"Vương Nhất Tuyết gọi điện cho bạn thân ở trong nhà.",
     passage:"早上，刘明开车送孩子去学校，送完孩子回家后，医院就来电话了，让他回去上班。我觉得他这个月每天都很累，真想让他休息休息。",
     passagePinyin:"Zǎoshang, Liú Míng kāichē sòng háizi qù xuéxiào, sòngwán háizi huí jiā hòu, yīyuàn jiù lái diànhuà le, ràng tā huíqù shàngbān. Wǒ juéde tā zhège yuè měitiān dōu hěn lèi, zhēn xiǎng ràng tā xiūxi xiūxi.",
     passageVi:"Buổi sáng, Lưu Minh lái xe đưa con đi đến trường, sau khi đưa con xong quay về nhà thì bệnh viện gọi điện đến, yêu cầu anh ấy quay về bệnh viện làm việc. Tôi cảm thấy tháng này ngày nào Lưu Minh cũng đều rất bận, thật muốn anh ấy được nghỉ ngơi một chút."
@@ -344,8 +370,19 @@ function renderPanel(t, idx){
 
   const ph = document.createElement('div');
   ph.className='part-header';
-  ph.innerHTML = '<h2>'+t.title+'</h2>';
+  ph.innerHTML = '<h2>'+t.title+(t.titleVi ? '<span style="display:block;font-size:.78em;font-weight:600;color:var(--teal-dark);opacity:.85;margin-top:2px;">'+t.titleVi+'</span>' : '')+'</h2>';
   panel.appendChild(ph);
+
+  if(t.scene){
+    const sn = document.createElement('div');
+    sn.className='scene-note';
+    sn.innerHTML = '<span class="pin">📍</span>'+
+      '<div class="scene-text">'+
+        '<div class="scene-hanzi">'+t.scene+'</div>'+
+        (t.sceneVi ? '<div class="scene-vi">'+t.sceneVi+'</div>' : '')+
+      '</div>';
+    panel.appendChild(sn);
+  }
 
   const abox = document.createElement('div');
   abox.className='audio-box';
