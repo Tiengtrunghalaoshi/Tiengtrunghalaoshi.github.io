@@ -162,6 +162,59 @@
     line-height:1.5;
   }
 
+  /* ---------- Chú thích ký hiệu từ loại ---------- */
+  .legend-wrap{
+    max-width:900px;
+    margin:0 auto 14px;
+    padding:0 16px;
+  }
+  .legend-box{
+    background:var(--jade-pale);
+    border:1px solid var(--jade-light);
+    border-radius:var(--radius-sm);
+    overflow:hidden;
+  }
+  .legend-box summary{
+    cursor:pointer;
+    list-style:none;
+    padding:9px 14px;
+    font-size:13px;
+    font-weight:700;
+    color:var(--jade-dark);
+    display:flex;
+    align-items:center;
+    gap:6px;
+    user-select:none;
+  }
+  .legend-box summary::-webkit-details-marker{ display:none; }
+  .legend-box summary::after{
+    content:"▾";
+    margin-left:auto;
+    transition:transform .2s;
+    font-weight:400;
+  }
+  .legend-box[open] summary::after{ transform:rotate(180deg); }
+  .legend-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));
+    gap:4px 14px;
+    padding:2px 14px 12px;
+  }
+  .legend-item{
+    font-size:12.5px;
+    line-height:1.5;
+    color:var(--ink);
+    display:flex;
+    gap:6px;
+  }
+  .legend-item .legend-abbr{
+    font-weight:700;
+    color:var(--jade-dark);
+    white-space:nowrap;
+    min-width:64px;
+  }
+  .legend-item .legend-full{ color:var(--ink-soft); }
+
   /* ---------- Tabs ---------- */
   .tabs-wrap{
     max-width:920px;
@@ -817,6 +870,20 @@
 
 <div class="disclaimer-note">⚠️ Nên mở file này bằng trình duyệt web (Chrome, Safari...) để phần nghe (phát âm từ vựng, hội thoại) hoạt động đầy đủ; mở qua Zalo/Messenger/Facebook có thể bị lỗi không phát được âm thanh.</div>
 
+<div class="legend-wrap">
+  <details class="legend-box">
+    <summary>📌 Chú thích ký hiệu từ loại</summary>
+    <div class="legend-grid">
+      <div class="legend-item"><span class="legend-abbr">đgt.</span><span class="legend-full">động từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">dt.</span><span class="legend-full">danh từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">đt.</span><span class="legend-full">đại từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">tt.</span><span class="legend-full">tính từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">phó.</span><span class="legend-full">phó từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">(để trống)</span><span class="legend-full">cụm từ cố định, không phân loại từ loại</span></div>
+    </div>
+  </details>
+</div>
+
 <div class="tabs-wrap">
   <div class="tabs">
     <button class="tab-btn active" data-tab="flashcard">🗂️ Flashcard</button>
@@ -992,7 +1059,7 @@ const vocab = [
   {hanzi:"叫", pinyin:"jiào", wordClass:"đgt.", hanviet:"Khiếu", meaning:"gọi là, tên là", example:{zh:"我叫李文。", py:"Wǒ jiào Lǐ Wén.", vi:"Tôi tên là Lý Văn."}},
   {hanzi:"什么", pinyin:"shénme", wordClass:"đt.", hanviet:"Thậm ma", meaning:"gì, cái gì", example:{zh:"这是什么？", py:"Zhè shì shénme?", vi:"Đây là cái gì?"}},
   {hanzi:"名字", pinyin:"míngzi", wordClass:"dt.", hanviet:"Danh tự", meaning:"tên", example:{zh:"你的名字是什么？", py:"Nǐ de míngzi shì shénme?", vi:"Tên của bạn là gì?"}},
-  {hanzi:"我", pinyin:"wǒ", wordClass:"đt.", hanviet:"Ngã", meaning:"tôi, mình… (đại từ nhân xưng ngôi thứ hai số ít)", example:{zh:"我是老师。", py:"Wǒ shì lǎoshī.", vi:"Tôi là giáo viên."}},
+  {hanzi:"我", pinyin:"wǒ", wordClass:"đt.", hanviet:"Ngã", meaning:"tôi, mình… (đại từ nhân xưng ngôi thứ nhất số ít)", example:{zh:"我是老师。", py:"Wǒ shì lǎoshī.", vi:"Tôi là giáo viên."}},
   {hanzi:"不", pinyin:"bù", wordClass:"phó.", hanviet:"Bất", meaning:"không", example:{zh:"我不是学生。", py:"Wǒ bú shì xuésheng.", vi:"Tôi không phải là học sinh."}},
   {hanzi:"是", pinyin:"shì", wordClass:"đgt.", hanviet:"Thị", meaning:"là", example:{zh:"他是我的同学。", py:"Tā shì wǒ de tóngxué.", vi:"Anh ấy là bạn học của tôi."}},
   {hanzi:"对不起", pinyin:"duìbuqǐ", wordClass:"đgt.", hanviet:"Đối bất khởi", meaning:"xin lỗi", example:{zh:"对不起，我来晚了。", py:"Duìbuqǐ, wǒ lái wǎn le.", vi:"Xin lỗi, tôi đến muộn rồi."}},
