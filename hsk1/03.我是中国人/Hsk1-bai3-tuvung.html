@@ -162,6 +162,59 @@
     line-height:1.5;
   }
 
+  /* ---------- Chú thích ký hiệu từ loại ---------- */
+  .legend-wrap{
+    max-width:900px;
+    margin:0 auto 14px;
+    padding:0 16px;
+  }
+  .legend-box{
+    background:var(--jade-pale);
+    border:1px solid var(--jade-light);
+    border-radius:var(--radius-sm);
+    overflow:hidden;
+  }
+  .legend-box summary{
+    cursor:pointer;
+    list-style:none;
+    padding:9px 14px;
+    font-size:13px;
+    font-weight:700;
+    color:var(--jade-dark);
+    display:flex;
+    align-items:center;
+    gap:6px;
+    user-select:none;
+  }
+  .legend-box summary::-webkit-details-marker{ display:none; }
+  .legend-box summary::after{
+    content:"▾";
+    margin-left:auto;
+    transition:transform .2s;
+    font-weight:400;
+  }
+  .legend-box[open] summary::after{ transform:rotate(180deg); }
+  .legend-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));
+    gap:4px 14px;
+    padding:2px 14px 12px;
+  }
+  .legend-item{
+    font-size:12.5px;
+    line-height:1.5;
+    color:var(--ink);
+    display:flex;
+    gap:6px;
+  }
+  .legend-item .legend-abbr{
+    font-weight:700;
+    color:var(--jade-dark);
+    white-space:nowrap;
+    min-width:64px;
+  }
+  .legend-item .legend-full{ color:var(--ink-soft); }
+
   /* ---------- Tabs ---------- */
   .tabs-wrap{
     max-width:920px;
@@ -817,6 +870,22 @@
 
 <div class="disclaimer-note">⚠️ Nên mở file này bằng trình duyệt web (Chrome, Safari...) để phần nghe (phát âm từ vựng, hội thoại) hoạt động đầy đủ; mở qua Zalo/Messenger/Facebook có thể bị lỗi không phát được âm thanh.</div>
 
+<div class="legend-wrap">
+  <details class="legend-box">
+    <summary>📌 Chú thích ký hiệu từ loại</summary>
+    <div class="legend-grid">
+      <div class="legend-item"><span class="legend-abbr">đgt.</span><span class="legend-full">động từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">dt.</span><span class="legend-full">danh từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">đt.</span><span class="legend-full">đại từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">tt.</span><span class="legend-full">tính từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">phó.</span><span class="legend-full">phó từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">trợ.</span><span class="legend-full">trợ từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">cảm thán từ</span><span class="legend-full">thán từ (VD: 喂 – a lô)</span></div>
+      <div class="legend-item"><span class="legend-abbr">(để trống)</span><span class="legend-full">tên riêng / cụm từ cố định, không phân loại từ loại</span></div>
+    </div>
+  </details>
+</div>
+
 <div class="tabs-wrap">
   <div class="tabs">
     <button class="tab-btn active" data-tab="flashcard">🗂️ Flashcard</button>
@@ -999,7 +1068,7 @@ const vocab = [
   {hanzi:"国", pinyin:"guó", wordClass:"dt.", hanviet:"Quốc", meaning:"quốc gia, đất nước", example:{zh:"中国是一个大国。", py:"Zhōngguó shì yí ge dà guó.", vi:"Trung Quốc là một quốc gia lớn."}},
   {hanzi:"她", pinyin:"tā", wordClass:"đt.", hanviet:"Tha", meaning:"cô ấy, chị ấy, bạn ấy…", example:{zh:"她是我姐姐。", py:"Tā shì wǒ jiějie.", vi:"Cô ấy là chị gái của tôi."}},
   {hanzi:"泰国", pinyin:"Tàiguó", wordClass:"", hanviet:"Thái Quốc", meaning:"Thái Lan (tên nước)", example:{zh:"他是泰国人。", py:"Tā shì Tàiguó rén.", vi:"Anh ấy là người Thái Lan."}},
-  {hanzi:"喂", pinyin:"wèi", wordClass:"ct.", hanviet:"Úy", meaning:"a lô", example:{zh:"喂，你好！", py:"Wèi, nǐ hǎo!", vi:"Alo, xin chào!"}},
+  {hanzi:"喂", pinyin:"wèi", wordClass:"cảm thán từ", hanviet:"Úy", meaning:"a lô", example:{zh:"喂，你好！", py:"Wèi, nǐ hǎo!", vi:"Alo, xin chào!"}},
   {hanzi:"姐姐", pinyin:"jiějie", wordClass:"dt.", hanviet:"Tỷ tỷ", meaning:"chị gái", example:{zh:"我姐姐工作很忙。", py:"Wǒ jiějie gōngzuò hěn máng.", vi:"Chị gái tôi làm việc rất bận."}},
   {hanzi:"工作", pinyin:"gōngzuò", wordClass:"dt.", hanviet:"Công tác", meaning:"công việc", example:{zh:"你的工作忙吗？", py:"Nǐ de gōngzuò máng ma?", vi:"Công việc của bạn có bận không?"}},
   {hanzi:"还", pinyin:"hái", wordClass:"phó.", hanviet:"Hoàn", meaning:"vẫn", example:{zh:"你还忙吗？", py:"Nǐ hái máng ma?", vi:"Bạn vẫn bận à?"}},
