@@ -162,6 +162,59 @@
     line-height:1.5;
   }
 
+  /* ---------- Chú thích ký hiệu từ loại ---------- */
+  .legend-wrap{
+    max-width:900px;
+    margin:0 auto 14px;
+    padding:0 16px;
+  }
+  .legend-box{
+    background:var(--jade-pale);
+    border:1px solid var(--jade-light);
+    border-radius:var(--radius-sm);
+    overflow:hidden;
+  }
+  .legend-box summary{
+    cursor:pointer;
+    list-style:none;
+    padding:9px 14px;
+    font-size:13px;
+    font-weight:700;
+    color:var(--jade-dark);
+    display:flex;
+    align-items:center;
+    gap:6px;
+    user-select:none;
+  }
+  .legend-box summary::-webkit-details-marker{ display:none; }
+  .legend-box summary::after{
+    content:"▾";
+    margin-left:auto;
+    transition:transform .2s;
+    font-weight:400;
+  }
+  .legend-box[open] summary::after{ transform:rotate(180deg); }
+  .legend-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));
+    gap:4px 14px;
+    padding:2px 14px 12px;
+  }
+  .legend-item{
+    font-size:12.5px;
+    line-height:1.5;
+    color:var(--ink);
+    display:flex;
+    gap:6px;
+  }
+  .legend-item .legend-abbr{
+    font-weight:700;
+    color:var(--jade-dark);
+    white-space:nowrap;
+    min-width:64px;
+  }
+  .legend-item .legend-full{ color:var(--ink-soft); }
+
   /* ---------- Tabs ---------- */
   .tabs-wrap{
     max-width:920px;
@@ -817,6 +870,23 @@
 
 <div class="disclaimer-note">⚠️ Nên mở file này bằng trình duyệt web (Chrome, Safari...) để phần nghe (phát âm từ vựng, hội thoại) hoạt động đầy đủ; mở qua Zalo/Messenger/Facebook có thể bị lỗi không phát được âm thanh.</div>
 
+<div class="legend-wrap">
+  <details class="legend-box">
+    <summary>📌 Chú thích ký hiệu từ loại</summary>
+    <div class="legend-grid">
+      <div class="legend-item"><span class="legend-abbr">đgt.</span><span class="legend-full">động từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">dt.</span><span class="legend-full">danh từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">đt.</span><span class="legend-full">đại từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">tt.</span><span class="legend-full">tính từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">phó.</span><span class="legend-full">phó từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">lượng.</span><span class="legend-full">lượng từ (chỉ đơn vị)</span></div>
+      <div class="legend-item"><span class="legend-abbr">số.lượng.</span><span class="legend-full">cụm số từ + lượng từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">đtnn.</span><span class="legend-full">động từ năng nguyện (có thể, muốn, cần...)</span></div>
+      <div class="legend-item"><span class="legend-abbr">(để trống)</span><span class="legend-full">cụm từ cố định, không phân loại từ loại</span></div>
+    </div>
+  </details>
+</div>
+
 <div class="tabs-wrap">
   <div class="tabs">
     <button class="tab-btn active" data-tab="flashcard">🗂️ Flashcard</button>
@@ -1000,7 +1070,7 @@ const vocab = [
   {hanzi:"做", pinyin:"zuò", wordClass:"đgt.", hanviet:"Tố", meaning:"nấu, làm (tạo ra sản phẩm cụ thể)", example:{zh:"你在做什么？", py:"Nǐ zài zuò shénme?", vi:"Bạn đang làm gì?"}},
   {hanzi:"面条儿", pinyin:"miàntiáo", wordClass:"dt.", hanviet:"Diện điều", meaning:"mì, mì sợi", example:{zh:"我想吃面条儿。", py:"Wǒ xiǎng chī miàntiáor.", vi:"Tôi muốn ăn mỳ."}},
   {hanzi:"饺子", pinyin:"jiǎozi", wordClass:"dt.", hanviet:"Giảo tử", meaning:"sủi cảo", example:{zh:"饺子真好吃。", py:"Jiǎozi zhēn hǎochī.", vi:"Sủi cảo thật ngon."}},
-  {hanzi:"一些", pinyin:"yīxiē", wordClass:"s.l.", hanviet:"Nhất ta", meaning:"một số, một vài", example:{zh:"我买了一些菜。", py:"Wǒ mǎi le yīxiē cài.", vi:"Tôi đã mua một ít món ăn."}},
+  {hanzi:"一些", pinyin:"yīxiē", wordClass:"số.lượng.", hanviet:"Nhất ta", meaning:"một số, một vài", example:{zh:"我买了一些菜。", py:"Wǒ mǎi le yīxiē cài.", vi:"Tôi đã mua một ít món ăn."}},
   {hanzi:"菜", pinyin:"cài", wordClass:"dt.", hanviet:"Thái", meaning:"món ăn, rau", example:{zh:"这个菜很好吃。", py:"Zhège cài hěn hǎochī.", vi:"Món ăn này rất ngon."}},
   {hanzi:"下班", pinyin:"xiàbān", wordClass:"đgt.", hanviet:"Hạ ban", meaning:"tan làm, tan ca", example:{zh:"我六点下班。", py:"Wǒ liù diǎn xiàbān.", vi:"Tôi tan làm lúc 6 giờ."}},
   {hanzi:"新", pinyin:"xīn", wordClass:"tt.", hanviet:"Tân", meaning:"mới", example:{zh:"这是我的新电脑。", py:"Zhè shì wǒ de xīn diànnǎo.", vi:"Đây là máy tính mới của tôi."}},
