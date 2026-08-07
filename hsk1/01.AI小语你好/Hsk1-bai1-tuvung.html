@@ -162,6 +162,59 @@
     line-height:1.5;
   }
 
+  /* ---------- Chú thích ký hiệu từ loại ---------- */
+  .legend-wrap{
+    max-width:900px;
+    margin:0 auto 14px;
+    padding:0 16px;
+  }
+  .legend-box{
+    background:var(--jade-pale);
+    border:1px solid var(--jade-light);
+    border-radius:var(--radius-sm);
+    overflow:hidden;
+  }
+  .legend-box summary{
+    cursor:pointer;
+    list-style:none;
+    padding:9px 14px;
+    font-size:13px;
+    font-weight:700;
+    color:var(--jade-dark);
+    display:flex;
+    align-items:center;
+    gap:6px;
+    user-select:none;
+  }
+  .legend-box summary::-webkit-details-marker{ display:none; }
+  .legend-box summary::after{
+    content:"▾";
+    margin-left:auto;
+    transition:transform .2s;
+    font-weight:400;
+  }
+  .legend-box[open] summary::after{ transform:rotate(180deg); }
+  .legend-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));
+    gap:4px 14px;
+    padding:2px 14px 12px;
+  }
+  .legend-item{
+    font-size:12.5px;
+    line-height:1.5;
+    color:var(--ink);
+    display:flex;
+    gap:6px;
+  }
+  .legend-item .legend-abbr{
+    font-weight:700;
+    color:var(--jade-dark);
+    white-space:nowrap;
+    min-width:64px;
+  }
+  .legend-item .legend-full{ color:var(--ink-soft); }
+
   /* ---------- Tabs ---------- */
   .tabs-wrap{
     max-width:920px;
@@ -817,6 +870,20 @@
 
 <div class="disclaimer-note">⚠️ Nên mở file này bằng trình duyệt web (Chrome, Safari...) để phần nghe (phát âm từ vựng, hội thoại) hoạt động đầy đủ; mở qua Zalo/Messenger/Facebook có thể bị lỗi không phát được âm thanh.</div>
 
+<div class="legend-wrap">
+  <details class="legend-box">
+    <summary>📌 Chú thích ký hiệu từ loại</summary>
+    <div class="legend-grid">
+      <div class="legend-item"><span class="legend-abbr">đgt.</span><span class="legend-full">động từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">dt.</span><span class="legend-full">danh từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">đt.</span><span class="legend-full">đại từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">tt.</span><span class="legend-full">tính từ</span></div>
+      <div class="legend-item"><span class="legend-abbr">hậu tố</span><span class="legend-full">hậu tố</span></div>
+      <div class="legend-item"><span class="legend-abbr">(để trống)</span><span class="legend-full">cụm từ cố định, không phân loại từ loại</span></div>
+    </div>
+  </details>
+</div>
+
 <div class="tabs-wrap">
   <div class="tabs">
     <button class="tab-btn active" data-tab="flashcard">🗂️ Flashcard</button>
@@ -992,7 +1059,7 @@ const vocab = [
   {hanzi:"大家", pinyin:"dàjiā", wordClass:"đt.", hanviet:"Đại gia", meaning:"Mọi người", example:{zh:"大家好！", py:"Dàjiā hǎo!", vi:"Xin chào mọi người!"}},
   {hanzi:"好", pinyin:"hǎo", wordClass:"tt.", hanviet:"Hảo", meaning:"Tốt, khỏe", example:{zh:"我很好。", py:"Wǒ hěn hǎo.", vi:"Tôi rất khỏe."}},
   {hanzi:"学生", pinyin:"xuésheng", wordClass:"dt.", hanviet:"Học sinh", meaning:"Học sinh, sinh viên", example:{zh:"我是学生。", py:"Wǒ shì xuésheng.", vi:"Tôi là học sinh."}},
-  {hanzi:"们", pinyin:"men", wordClass:"hậu tố.", hanviet:"(không có âm Hán Việt, là hậu tố số nhiều)", meaning:"Chúng, các, bọn (dùng sau đại từ nhân xưng hoặc danh từ để chỉ số nhiều)", example:{zh:"同学们好！", py:"Tóngxuémen hǎo!", vi:"Xin chào các bạn học!"}},
+  {hanzi:"们", pinyin:"men", wordClass:"hậu tố", hanviet:"(không có âm Hán Việt, là hậu tố số nhiều)", meaning:"Chúng, các, bọn (dùng sau đại từ nhân xưng hoặc danh từ để chỉ số nhiều)", example:{zh:"同学们好！", py:"Tóngxuémen hǎo!", vi:"Xin chào các bạn học!"}},
   {hanzi:"老师", pinyin:"lǎoshī", wordClass:"dt.", hanviet:"Lão sư", meaning:"Thầy giáo, cô giáo, giáo viên", example:{zh:"她是老师。", py:"Tā shì lǎoshī.", vi:"Cô ấy là giáo viên."}},
   {hanzi:"您", pinyin:"nín", wordClass:"đt.", hanviet:"Nẫm", meaning:"Ngài, ông, bà... (đại từ nhân xưng ngôi thứ hai thể hiện sự trang trọng)", example:{zh:"您好！", py:"Nín hǎo!", vi:"Xin chào ạ! (kính ngữ)"}},
   {hanzi:"你们", pinyin:"nǐmen", wordClass:"đt.", hanviet:"Nễ + 们 (们 không có Hán Việt)", meaning:"Các bạn, các anh, các chị… (đại từ nhân xưng ngôi thứ hai số nhiều)", example:{zh:"你们好！", py:"Nǐmen hǎo!", vi:"Xin chào các bạn!"}},
