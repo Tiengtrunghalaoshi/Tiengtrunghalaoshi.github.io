@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSK2 - Bài 14: Một mình đón năm mới thì thật vô vị</title>
+<style>
+:root{
+  --teal:#00897b;
+  --teal-dark:#00695c;
+  --teal-light:#e0f2f1;
+  --gold:#e8a33d;
+  --gray:#555;
+  --bg:#f5fbfa;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);
+  color:#333;
+}
+header{
+  background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%);
+  color:#fff;
+  padding:22px 16px;
+  text-align:center;
+  box-shadow:0 3px 10px rgba(0,0,0,.15);
+  position:relative;
+}
+.back-btn{
+  position:absolute;
+  top:14px;
+  left:14px;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(255,255,255,.15);
+  color:#fff;
+  text-decoration:none;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:.85em;
+  font-weight:600;
+  border:1px solid rgba(255,255,255,.4);
+  transition:.15s;
+}
+.back-btn:hover{background:rgba(255,255,255,.28);}
+header h1{margin:0;font-size:1.5em;}
+header .sub{margin-top:6px;font-size:.95em;opacity:.92;}
+header .lesson-title{font-size:1.1em;margin-top:4px;font-weight:bold;}
+.tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  justify-content:center;
+  background:#fff;
+  padding:10px;
+  position:sticky;
+  top:0;
+  z-index:50;
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
+}
+.tab-btn{
+  border:2px solid var(--teal);
+  background:#fff;
+  color:var(--teal);
+  padding:8px 14px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:.85em;
+  font-weight:600;
+  transition:.15s;
+  white-space:nowrap;
+}
+.tab-btn:hover{background:var(--teal-light);}
+.tab-btn.active{background:var(--teal);color:#fff;}
+.container{max-width:900px;margin:0 auto;padding:18px 14px 60px;}
+.panel{display:none;animation:fade .25s;}
+.panel.active{display:block;}
+@keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.part-header{
+  background:var(--teal-light);
+  border-left:5px solid var(--teal);
+  padding:12px 16px;
+  border-radius:8px;
+  margin-bottom:16px;
+}
+.part-header h2{margin:0;color:var(--teal-dark);font-size:1.15em;}
+.pic-wrap{
+  text-align:center;
+  margin:14px 0;
+  background:#fff;
+  border:1px solid #dcefec;
+  border-radius:10px;
+  padding:8px;
+}
+.pic-wrap img{max-width:100%;border-radius:6px;}
+.audio-box{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  background:#fff;
+  border:1px dashed var(--gold);
+  border-radius:8px;
+  padding:10px 14px;
+  margin:8px 0 16px;
+  font-size:.85em;
+}
+.audio-missing{color:#b26a00;font-style:italic;}
+.player-row{display:flex;align-items:center;gap:10px;}
+.player-btn{
+  border:none;
+  background:var(--teal);
+  color:#fff;
+  width:36px;height:36px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:1em;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  transition:.15s;
+}
+.player-btn:hover{background:var(--teal-dark);}
+.player-btn.replay-btn{
+  background:#fff;
+  color:var(--teal);
+  border:2px solid var(--teal);
+  width:32px;height:32px;
+  font-size:.95em;
+}
+.player-btn.replay-btn:hover{background:var(--teal-light);}
+.seek-bar{
+  flex:1;
+  height:6px;
+  accent-color:var(--teal);
+  cursor:pointer;
+}
+.time-display{
+  font-size:.85em;
+  color:var(--gray);
+  white-space:nowrap;
+  min-width:78px;
+  text-align:right;
+}
+.dialogue-card{
+  background:#fff;
+  border-radius:10px;
+  padding:16px 18px;
+  margin-bottom:14px;
+  box-shadow:0 1px 4px rgba(0,0,0,.08);
+  border:1px solid #dcefec;
+}
+.line{
+  margin-bottom:12px;
+  font-size:1.05em;
+  line-height:1.7;
+}
+.line:last-child{margin-bottom:0;}
+.gap-line{
+  text-align:center;
+  color:#b0b0b0;
+  letter-spacing:3px;
+  font-size:1.1em;
+  margin:2px 0 14px;
+}
+.spk{font-weight:bold;margin-right:4px;}
+.spk-baijiayue{color:#2f6fed;}
+.spk-wangyixue{color:#c0392b;}
+.spk-anni{color:#8e44ad;}
+.spk-chentianzhong{color:#d68910;}
+.spk-liuyeye{color:#795548;}
+.spk-liuming{color:#d68910;}
+.spk-liuxiaoming{color:#2980b9;}
+.spk-liuxiaoxue{color:#c2185b;}
+.spk-wangyifei{color:#16794f;}
+.spk-liwen{color:#34495e;}
+.spk-yangtongle{color:#1a7a5e;}
+.spk-narrator{color:var(--teal-dark);}
+.passage-text{
+  font-size:1.05em;
+  line-height:1.9;
+}
+.pinyin{
+  display:none;
+  color:var(--gray);
+  font-size:.88em;
+  margin-top:2px;
+  font-style:italic;
+}
+body.show-pinyin .pinyin{display:block;}
+.passage-pinyin{
+  display:none;
+  color:var(--gray);
+  font-size:.92em;
+  font-style:italic;
+  line-height:1.7;
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px dashed #dcefec;
+}
+body.show-pinyin .passage-pinyin{display:block;}
+.vi-text{
+  display:none;
+  color:#2f6f5e;
+  font-size:.92em;
+  margin-top:2px;
+}
+body.show-vi .vi-text{display:block;}
+.passage-vi{
+  display:none;
+  color:#2f6f5e;
+  font-size:.95em;
+  line-height:1.7;
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px dashed #dcefec;
+}
+body.show-vi .passage-vi{display:block;}
+body.hide-hanzi .hanzi-text{display:none;}
+.pinyin-toggle-bar{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  padding:8px 10px 0;
+}
+.pinyin-toggle-btn{
+  border:2px solid var(--gold);
+  background:#fff;
+  color:#b26a00;
+  padding:6px 16px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:.85em;
+  font-weight:600;
+  transition:.15s;
+}
+.pinyin-toggle-btn:hover{background:#fff7ea;}
+.pinyin-toggle-btn.active{background:var(--gold);color:#fff;}
+.disclaimer-note{
+  max-width:900px;
+  margin:8px auto 0;
+  padding:8px 16px;
+  font-size:.82em;
+  color:#b26a00;
+  text-align:center;
+  line-height:1.5;
+}
+.scene-note{
+  margin:0 0 14px;
+  padding:12px 18px;
+  background:var(--teal-light);
+  border-left:5px solid var(--teal);
+  border-radius:8px;
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+}
+.scene-note .pin{font-size:1.1em;line-height:1.6;flex-shrink:0;}
+.scene-note .scene-text{font-size:1em;line-height:1.7;}
+.scene-note .scene-hanzi{color:var(--teal-dark);font-weight:600;}
+.scene-note .scene-vi{color:#2f6f5e;font-size:.92em;margin-top:4px;}
+footer{text-align:center;padding:16px;color:#aaa;font-size:.8em;}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="../../index.html#HSK2" class="back-btn">← Quay lại HSK2</a>
+  <div><span style="display:inline-block;background:#fff;color:var(--teal);border-radius:50%;width:34px;height:34px;line-height:34px;text-align:center;font-weight:bold;margin-right:6px;">汉</span><b>Tiếng Trung Halaoshi</b></div>
+  <h1>HSK2 - Bài 14</h1>
+  <div class="lesson-title">Một mình đón năm mới thì thật vô vị</div>
+  <div class="sub">Nghe bài khóa (听课文) — 4 bài khóa</div>
+</header>
+
+<div class="tabs" id="tabBar"></div>
+<div class="pinyin-toggle-bar">
+  <button class="pinyin-toggle-btn" id="pinyinToggleBtn">👁 Hiện pinyin</button>
+  <button class="pinyin-toggle-btn" id="hanziToggleBtn">🙈 Ẩn chữ Hán</button>
+  <button class="pinyin-toggle-btn" id="viToggleBtn">👁 Hiện nghĩa</button>
+</div>
+<div class="disclaimer-note">⚠️ Phần pinyin và nghĩa tiếng Việt chỉ mang tính tham khảo, học sinh cần tự đối chiếu với giáo trình chuẩn HSK2.</div>
+<div class="disclaimer-note">⚠️ Nên mở file này bằng trình duyệt web (Chrome, Safari...) để phần nghe hoạt động đầy đủ; mở qua Zalo/Messenger/Facebook có thể bị lỗi không phát được âm thanh.</div>
+<div class="container" id="panelHost"></div>
+
+<footer>Tiếng Trung Halaoshi · Tài liệu luyện tập nội bộ</footer>
+
+<script>
+/* ============ DATA ============ */
+/* Audio nhúng base64 cho 4 bài khóa */
+const AUD1 = "Hsk2-bai14-baikhoa-filenghe1.mp3";
+const AUD2 = "Hsk2-bai14-baikhoa-filenghe2.mp3";
+const AUD3 = "Hsk2-bai14-baikhoa-filenghe3.mp3";
+const AUD4 = "Hsk2-bai14-baikhoa-filenghe4.mp3";
+
+const texts = [
+  {
+    id:"t1", tab:"课文1",
+    title:"课文1：",
+    titleVi:"Bài khoá 1",
+    audio:AUD1,
+    scene:"在回家路上，李文和王一飞边走边聊。",
+    sceneVi:"Lý Văn và cô Vương Nhất Phi vừa đi vừa trò chuyện trên đường về nhà.",
+    lines:[
+      {spk:"李文", cls:"spk-liwen", hanzi:"王老师，你家楼下站着一个人。", pinyin:"Wáng lǎoshī, nǐ jiā lóu xià zhànzhe yí gè rén.", vi:"Cô Vương ơi, ở dưới tầng nhà cô có một người đang đứng kia."},
+      {spk:"王一飞", cls:"spk-wangyifei", hanzi:"我家楼下？我看看。", pinyin:"Wǒ jiā lóu xià? Wǒ kànkan.", vi:"Dưới tầng nhà cô á? Để cô xem nào."},
+      {spk:"李文", cls:"spk-liwen", hanzi:"那个人穿着黑色的裤子，手里还拿着一个黑色的包。", pinyin:"Nàge rén chuānzhe hēisè de kùzi, shǒulǐ hái názhe yí gè hēisè de bāo.", vi:"Người đó mặc chiếc quần màu đen, trên tay còn cầm một chiếc túi màu đen nữa."},
+      {spk:"王一飞", cls:"spk-wangyifei", hanzi:"我看见那个人了，他是我男朋友。", pinyin:"Wǒ kànjiàn nàge rén le, tā shì wǒ nánpéngyou.", vi:"Cô nhìn thấy người đó rồi, anh ấy là bạn trai của cô."},
+      {spk:"李文", cls:"spk-liwen", hanzi:"那我们快过去吧。", pinyin:"Nà wǒmen kuài guòqù ba.", vi:"Vậy chúng ta mau qua đó đi ạ."}
+    ]
+  },
+  {
+    id:"t2", tab:"课文2",
+    title:"课文2：",
+    titleVi:"Bài khoá 2",
+    audio:AUD2,
+    scene:"在楼下，王一飞见到杨同乐。",
+    sceneVi:"Vương Nhất Phi gặp Dương Đồng Lạc ở dưới toà nhà.",
+    lines:[
+      {spk:"王一飞", cls:"spk-wangyifei", hanzi:"同乐，真是你啊！上次打电话，你说有时间就会过来看我，没想到这么快就来了！", pinyin:"Tóngle, zhēn shì nǐ a! Shàng cì dǎ diànhuà, nǐ shuō yǒu shíjiān jiù huì guòlái kàn wǒ, méi xiǎngdào zhème kuài jiù lái le!", vi:"Đồng Lạc, đúng là anh rồi! Lần trước gọi điện, anh nói lúc nào rảnh sẽ đến thăm em, không ngờ anh lại đến nhanh thế này!"},
+      {spk:"杨同乐", cls:"spk-yangtongle", hanzi:"就要过年了，你一个人在这多没意思啊，所以我就早早过来了。", pinyin:"Jiù yào guònián le, nǐ yí gè rén zài zhè duō méiyìsi a, suǒyǐ wǒ jiù zǎozǎo guòlái le.", vi:"Sắp đến Tết rồi, em ở đây một mình thì thật vô vị, nên anh đã đến sớm một chút."},
+      {spk:"王一飞", cls:"spk-wangyifei", hanzi:"你能来，我太高兴了！", pinyin:"Nǐ néng lái, wǒ tài gāoxìng le!", vi:"Anh đến được em vui quá!"},
+      {spk:"杨同乐", cls:"spk-yangtongle", hanzi:"一飞，你旁边这位是？", pinyin:"Yīfēi, nǐ pángbiān zhè wèi shì?", vi:"Nhất Phi, bạn bên cạnh em là ai vậy?"},
+      {spk:"王一飞", cls:"spk-wangyifei", hanzi:"同乐，这是李文，她在我们学校学医。李文，这是我男朋友杨同乐。", pinyin:"Tóngle, zhè shì Lǐ Wén, tā zài wǒmen xuéxiào xué yī. Lǐ Wén, zhè shì wǒ nánpéngyou Yáng Tóngle.", vi:"Đồng Lạc ơi, đây là Lý Văn, em ấy học ngành y ở trường em. Lý Văn, đây là bạn trai của cô, anh Dương Đồng Lạc."},
+      {spk:"李文", cls:"spk-liwen", hanzi:"认识你，我也很高兴！", pinyin:"Rènshi nǐ, wǒ yě hěn gāoxìng!", vi:"Em cũng rất vui được quen biết anh!"},
+      {spk:"杨同乐", cls:"spk-yangtongle", hanzi:"李文，很高兴认识你！", pinyin:"Lǐ Wén, hěn gāoxìng rènshi nǐ!", vi:"Chào Lý Văn, rất vui được làm quen với em!"},
+      {spk:"李文", cls:"spk-liwen", hanzi:"认识你我也很高兴！我家就在前面那个楼，有时间来玩。", pinyin:"Rènshi nǐ wǒ yě hěn gāoxìng! Wǒ jiā jiù zài qiánmiàn nàge lóu, yǒu shíjiān lái wán.", vi:"Em cũng rất vui ạ! Nhà em ở ngay toà nhà phía trước kia, lúc nào rảnh anh qua chơi nhé."}
+    ]
+  },
+  {
+    id:"t3", tab:"课文3",
+    title:"课文3：",
+    titleVi:"Bài khoá 3",
+    audio:AUD3,
+    scene:"在王一飞家里，王一飞和杨同乐在客厅聊天儿。",
+    sceneVi:"Vương Nhất Phi đang trò chuyện với Dương Đồng Lạc ở trong phòng khách nhà mình.",
+    lines:[
+      {spk:"杨同乐", cls:"spk-yangtongle", hanzi:"一飞，你住的房子真不错，很大。离学校也不远。", pinyin:"Yīfēi, nǐ zhù de fángzi zhēn búcuò, hěn dà. Lí xuéxiào yě hěn jìn.", vi:"Nhất Phi, căn hộ em ở thật đẹp, rộng rãi, lại không xa trường học."},
+      {spk:"王一飞", cls:"spk-wangyifei", hanzi:"是啊！我楼下还住着一家中国人，他们人很好。", pinyin:"Shì a! Wǒ lóu xià hái zhùzhe yì jiā Zhōngguó rén, tāmen rén hěn hǎo.", vi:"Vâng ạ! Dưới tầng nhà em còn có một gia đình người Trung Quốc sinh sống, họ rất tốt bụng."},
+      {spk:"杨同乐", cls:"spk-yangtongle", hanzi:"这样你有事情就可以找他们帮忙。", pinyin:"Zhèyàng nǐ yǒu shìqing jiù kěyǐ zhǎo tāmen bāngmáng.", vi:"Như vậy thì khi em có việc gì có thể nhờ họ giúp đỡ."},
+      {spk:"王一飞", cls:"spk-wangyifei", hanzi:"对，我也帮他们家的小孩儿学中文。", pinyin:"Duì, wǒ yě bāng tāmen jiā de xiǎoháir xué Zhōngwén.", vi:"Đúng vậy, em cũng đang giúp con họ học tiếng Trung Quốc."},
+      {spk:"杨同乐", cls:"spk-yangtongle", hanzi:"我记得你跟我说过，是个女孩儿，学得很好。", pinyin:"Wǒ jìde nǐ gēn wǒ shuōguo, shì gè nǚháir, xué de hěn hǎo.", vi:"Anh nhớ có lần em kể với anh rồi, là một bé gái, học cũng rất giỏi."},
+      {spk:"王一飞", cls:"spk-wangyifei", hanzi:"没错，她经常跑上来找我玩。", pinyin:"Méi cuò, tā jīngcháng pǎo shànglái zhǎo wǒ wán.", vi:"Vâng, con bé thường xuyên lên đây chơi với em."},
+      {spk:"杨同乐", cls:"spk-yangtongle", hanzi:"你问问他们什么时候有时间，我请他们吃个饭。", pinyin:"Nǐ wènwen tāmen shénme shíhou yǒu shíjiān, wǒ qǐng tāmen chī gè fàn.", vi:"Em xem hỏi họ khi nào rảnh, anh muốn mời họ ăn bữa cơm."}
+    ]
+  },
+  {
+    id:"t4", tab:"课文4",
+    title:"课文4：",
+    titleVi:"Bài khoá 4",
+    audio:AUD4,
+    scene:"在房间，王一飞在写日记。",
+    sceneVi:"Vương Nhất Phi đang viết nhật ký ở trong phòng.",
+    passage:"我男朋友姓杨，叫杨同乐。他高个子，大眼睛，唱歌唱得很好，跳舞跳得也不错。他和我姐姐一起工作，是姐姐介绍我们认识的。他告诉我，从见到我的第一天开始，他就喜欢上我了。",
+    passagePinyin:"Wǒ nánpéngyou xìng Yáng, jiào Yáng Tóngle. Tā gèzi gāo, dà yǎnjing, chànggē chàng de hěn hǎo, tiàowǔ tiào de yě búcuò. Tā hé wǒ jiějie yìqǐ gōngzuò, shì jiějie jièshào wǒmen rènshi de. Tā gàosu wǒ, cóng jiàndào wǒ de dì yī tiān kāishǐ, tā jiù xǐhuan shàng wǒ le.",
+    passageVi:"Bạn trai tôi họ Dương, tên là Dương Đồng Lạc. Anh ấy có dáng người cao, mắt to, hát rất hay và nhảy cũng rất đẹp. Anh ấy làm việc cùng với chị gái tôi, chị chính là người đã giới thiệu chúng tôi quen nhau. Anh ấy kể với tôi rằng, ngay từ ngày đầu tiên gặp tôi, anh ấy đã đem lòng yêu mến tôi rồi."
+  }
+];
+
+/* ============ RENDER ============ */
+const nameMap = {
+  "白家月":"Bái Jiāyuè",
+  "王一雪":"Wáng Yīxuě",
+  "安妮":"Ānnī",
+  "陈天中":"Chén Tiānzhōng",
+  "刘爷爷":"Liú yéye",
+  "刘明":"Liú Míng",
+  "刘小明":"Liú Xiǎomíng",
+  "刘小雪":"Liú Xiǎoxuě",
+  "王一飞":"Wáng Yīfēi",
+  "李文":"Lǐ Wén",
+  "杨同乐":"Yáng Tóngle",
+  "白家月、安妮":"Bái Jiāyuè, Ānnī"
+};
+const nameMapVi = {
+  "白家月":"Bạch Gia Nguyệt",
+  "王一雪":"Vương Nhất Tuyết",
+  "安妮":"Annie",
+  "陈天中":"Trần Thiên Trung",
+  "刘爷爷":"Ông Lưu",
+  "刘明":"Lưu Minh",
+  "刘小明":"Lưu Tiểu Minh",
+  "刘小雪":"Lưu Tiểu Tuyết",
+  "王一飞":"Vương Nhất Phi",
+  "李文":"Lý Văn",
+  "杨同乐":"Dương Đồng Lạc",
+  "白家月、安妮":"Bạch Gia Nguyệt, Annie"
+};
+const tabBar = document.getElementById('tabBar');
+const panelHost = document.getElementById('panelHost');
+
+texts.forEach((t, idx)=>{
+  const b = document.createElement('button');
+  b.className='tab-btn'+(idx===0?' active':'');
+  b.textContent=t.tab;
+  b.onclick=()=>showTab(idx);
+  tabBar.appendChild(b);
+});
+
+function renderPanel(t, idx){
+  const panel = document.createElement('div');
+  panel.className='panel'+(idx===0?' active':'');
+  panel.id='panel-'+idx;
+
+  const ph = document.createElement('div');
+  ph.className='part-header';
+  ph.innerHTML = '<h2>'+t.title+(t.titleVi ? '<span style="display:block;font-size:.78em;font-weight:600;color:var(--teal-dark);opacity:.85;margin-top:2px;">'+t.titleVi+'</span>' : '')+'</h2>';
+  panel.appendChild(ph);
+
+  if(t.scene){
+    const sn = document.createElement('div');
+    sn.className='scene-note';
+    sn.innerHTML = '<span class="pin">📍</span>'+
+      '<div class="scene-text">'+
+        '<div class="scene-hanzi">'+t.scene+'</div>'+
+        (t.sceneVi ? '<div class="scene-vi">'+t.sceneVi+'</div>' : '')+
+      '</div>';
+    panel.appendChild(sn);
+  }
+
+  const abox = document.createElement('div');
+  abox.className='audio-box';
+  abox.innerHTML =
+    '<div style="display:flex;align-items:center;gap:6px;">🔊 <b>Nghe bài khóa:</b></div>'+
+    '<div class="player-row">'+
+      '<button class="player-btn play-btn" title="Phát / Tạm dừng">▶</button>'+
+      '<button class="player-btn replay-btn" title="Nghe lại từ đầu">⟲</button>'+
+      '<input type="range" class="seek-bar" min="0" max="100" value="0" step="0.1">'+
+      '<span class="time-display">0:00 / 0:00</span>'+
+    '</div>'+
+    '<audio style="display:none" src="'+t.audio+'"></audio>'+
+    '<span class="audio-missing" style="display:none;">Chưa có file âm thanh ('+t.audio+')</span>';
+  panel.appendChild(abox);
+  initAudioPlayer(abox);
+
+  const card = document.createElement('div');
+  card.className='dialogue-card';
+
+  if(t.lines){
+    t.lines.forEach(l=>{
+      const div = document.createElement('div');
+      if(l.gap){
+        div.className='gap-line';
+        div.textContent='……';
+        card.appendChild(div);
+        return;
+      }
+      div.className='line';
+      const namePinyinPrefix = nameMap[l.spk] ? nameMap[l.spk]+'： ' : '';
+      const nameViPrefix = nameMapVi[l.spk] ? nameMapVi[l.spk]+'： ' : '';
+      div.innerHTML = '<span class="spk hanzi-text '+l.cls+'">'+l.spk+'：</span>'+
+        '<span class="hanzi-text">'+l.hanzi+'</span>'+
+        (l.pinyin ? '<div class="pinyin">'+namePinyinPrefix+l.pinyin+'</div>' : '')+
+        (l.vi ? '<div class="vi-text">'+nameViPrefix+l.vi+'</div>' : '');
+      card.appendChild(div);
+    });
+  } else if(t.passage){
+    const div = document.createElement('div');
+    div.className='passage-text hanzi-text';
+    div.textContent = t.passage;
+    card.appendChild(div);
+    if(t.passagePinyin){
+      const pdiv = document.createElement('div');
+      pdiv.className='passage-pinyin';
+      pdiv.textContent = t.passagePinyin;
+      card.appendChild(pdiv);
+    }
+    if(t.passageVi){
+      const vdiv = document.createElement('div');
+      vdiv.className='passage-vi';
+      vdiv.textContent = t.passageVi;
+      card.appendChild(vdiv);
+    }
+  }
+
+  panel.appendChild(card);
+  panelHost.appendChild(panel);
+}
+
+function formatTime(sec){
+  if(!isFinite(sec)) return '0:00';
+  const m = Math.floor(sec/60);
+  const s = Math.floor(sec%60).toString().padStart(2,'0');
+  return m+':'+s;
+}
+
+function initAudioPlayer(abox){
+  const audio = abox.querySelector('audio');
+  const playBtn = abox.querySelector('.play-btn');
+  const replayBtn = abox.querySelector('.replay-btn');
+  const seekBar = abox.querySelector('.seek-bar');
+  const timeDisplay = abox.querySelector('.time-display');
+  const missing = abox.querySelector('.audio-missing');
+  let seeking = false;
+
+  audio.addEventListener('error', ()=>{
+    missing.style.display='inline';
+    abox.querySelector('.player-row').style.display='none';
+  });
+
+  audio.addEventListener('loadedmetadata', ()=>{
+    seekBar.max = audio.duration || 0;
+    timeDisplay.textContent = formatTime(audio.currentTime)+' / '+formatTime(audio.duration);
+  });
+
+  audio.addEventListener('timeupdate', ()=>{
+    if(!seeking){
+      seekBar.value = audio.currentTime;
+      timeDisplay.textContent = formatTime(audio.currentTime)+' / '+formatTime(audio.duration);
+    }
+  });
+
+  audio.addEventListener('ended', ()=>{
+    playBtn.textContent = '▶';
+  });
+
+  playBtn.onclick = ()=>{
+    if(audio.paused){
+      audio.play();
+      playBtn.textContent = '⏸';
+    } else {
+      audio.pause();
+      playBtn.textContent = '▶';
+    }
+  };
+
+  replayBtn.onclick = ()=>{
+    audio.currentTime = 0;
+    audio.play();
+    playBtn.textContent = '⏸';
+  };
+
+  seekBar.addEventListener('input', ()=>{
+    seeking = true;
+    timeDisplay.textContent = formatTime(seekBar.value)+' / '+formatTime(audio.duration);
+  });
+  seekBar.addEventListener('change', ()=>{
+    audio.currentTime = seekBar.value;
+    seeking = false;
+  });
+}
+
+texts.forEach((t,idx)=>renderPanel(t, idx));
+
+function showTab(idx){
+  document.querySelectorAll('audio').forEach(a=>{ if(!a.paused){ a.pause(); } });
+  document.querySelectorAll('.play-btn').forEach(b=>b.textContent='▶');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+idx).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active', i===idx));
+}
+
+showTab(0);
+
+/* ============ TOGGLE PINYIN / HÁN TỰ / NGHĨA (mặc định: hiện Hán, ẩn pinyin, ẩn nghĩa) ============ */
+const pinyinToggleBtn = document.getElementById('pinyinToggleBtn');
+const hanziToggleBtn = document.getElementById('hanziToggleBtn');
+const viToggleBtn = document.getElementById('viToggleBtn');
+
+let pinyinShown = false;
+let hanziShown = true;
+let viShown = false;
+
+function applyPinyinVisibility(){
+  const lineDisplay = pinyinShown ? 'block' : 'none';
+  document.querySelectorAll('.pinyin, .passage-pinyin').forEach(el=>{ el.style.display = lineDisplay; });
+  pinyinToggleBtn.textContent = pinyinShown ? '🙈 Ẩn pinyin' : '👁 Hiện pinyin';
+  pinyinToggleBtn.classList.toggle('active', pinyinShown);
+}
+
+function applyHanziVisibility(){
+  document.querySelectorAll('.hanzi-text').forEach(el=>{
+    el.style.display = hanziShown ? (el.tagName === 'SPAN' ? 'inline' : 'block') : 'none';
+  });
+  hanziToggleBtn.textContent = hanziShown ? '🙈 Ẩn chữ Hán' : '👁 Hiện chữ Hán';
+  hanziToggleBtn.classList.toggle('active', !hanziShown);
+}
+
+function applyViVisibility(){
+  const display = viShown ? 'block' : 'none';
+  document.querySelectorAll('.vi-text, .passage-vi').forEach(el=>{ el.style.display = display; });
+  viToggleBtn.textContent = viShown ? '🙈 Ẩn nghĩa' : '👁 Hiện nghĩa';
+  viToggleBtn.classList.toggle('active', viShown);
+}
+
+pinyinToggleBtn.onclick = ()=>{ pinyinShown = !pinyinShown; applyPinyinVisibility(); };
+hanziToggleBtn.onclick = ()=>{ hanziShown = !hanziShown; applyHanziVisibility(); };
+viToggleBtn.onclick = ()=>{ viShown = !viShown; applyViVisibility(); };
+
+applyPinyinVisibility();
+applyHanziVisibility();
+applyViVisibility();
+</script>
+</body>
+</html>
